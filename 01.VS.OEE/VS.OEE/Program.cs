@@ -9,7 +9,7 @@ namespace VS.OEE
     {
         [STAThread]
         static void Main(string[] args)
-        {
+         {
             //if (args[0].ToString() == "") return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -22,10 +22,6 @@ namespace VS.OEE
             Commons.IConnections.Username = ds.Tables[0].Rows[0]["U"].ToString();
             Commons.IConnections.Password = ds.Tables[0].Rows[0]["P"].ToString();
             Commons.Modules.UserName = ds.Tables[0].Rows[0]["US"].ToString();
-            //Commons.IConnections.Server = "localhost\\MSSQLSERVER01";
-            //Commons.IConnections.Password = "123";
-            //Commons.IConnections.Database = "CMMS_OEE";
-            //Commons.IConnections.Username = "sa";
 
             Commons.Modules.TypeLanguage = Convert.ToInt32(ds.Tables[0].Rows[0]["LA"]);
             Properties.Settings.Default.lang = Commons.Modules.TypeLanguage;
@@ -49,6 +45,7 @@ namespace VS.OEE
             try
             {
                 Application.Run(new frmMain());
+                //Application.Run(new frmDeviceCause(1));
             }
             catch (Exception ex)
             {

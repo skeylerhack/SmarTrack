@@ -176,7 +176,6 @@ namespace Commons
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(MethodBase.GetCurrentMethod().Name + ": " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

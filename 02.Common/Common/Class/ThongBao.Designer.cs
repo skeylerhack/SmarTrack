@@ -133,6 +133,15 @@ namespace Commons
                 return ResourceManager.GetString("msgCapNhatThatBai", resourceCulture);
             }
         }
+
+        public static string msgCapNhatThanhCong
+        {
+            get
+            {
+                return ResourceManager.GetString("msgCapNhatThanhCong", resourceCulture);
+            }
+        }
+
         public static string msgBanChuaChonDieuKienCanCapNhat
         {
             get

@@ -123,9 +123,9 @@
             this.panMain.Name = "panMain";
             this.panMain.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F)});
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
             this.panMain.Size = new System.Drawing.Size(977, 456);
             this.panMain.TabIndex = 0;
             // 
@@ -170,7 +170,7 @@
             // 
             this.tabGroupUser.Controls.Add(this.tablePanel2);
             this.tabGroupUser.Name = "tabGroupUser";
-            this.tabGroupUser.Size = new System.Drawing.Size(969, 383);
+            this.tabGroupUser.Size = new System.Drawing.Size(966, 382);
             this.tabGroupUser.Text = "tabGroupUser";
             // 
             // tablePanel2
@@ -185,7 +185,7 @@
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 37F)});
-            this.tablePanel2.Size = new System.Drawing.Size(969, 383);
+            this.tablePanel2.Size = new System.Drawing.Size(966, 382);
             this.tablePanel2.TabIndex = 0;
             // 
             // panelControl1
@@ -197,18 +197,18 @@
             this.panelControl1.Controls.Add(this.btnXoa);
             this.panelControl1.Controls.Add(this.btnGhi);
             this.panelControl1.Controls.Add(this.btnKhong);
-            this.panelControl1.Location = new System.Drawing.Point(3, 349);
+            this.panelControl1.Location = new System.Drawing.Point(3, 348);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel2.SetRow(this.panelControl1, 1);
-            this.panelControl1.Size = new System.Drawing.Size(963, 31);
+            this.panelControl1.Size = new System.Drawing.Size(960, 31);
             this.panelControl1.TabIndex = 1;
             // 
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(648, 1);
+            this.btnThem.Location = new System.Drawing.Point(716, 3);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(104, 30);
+            this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 16;
             this.btnThem.Text = "btnThem";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -216,9 +216,9 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(753, 1);
+            this.btnSua.Location = new System.Drawing.Point(797, 3);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(104, 30);
+            this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 13;
             this.btnSua.Text = "btnSua";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -226,9 +226,9 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(859, 1);
+            this.btnXoa.Location = new System.Drawing.Point(878, 3);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(104, 30);
+            this.btnXoa.Size = new System.Drawing.Size(80, 26);
             this.btnXoa.TabIndex = 17;
             this.btnXoa.Text = "btnXoa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -236,9 +236,9 @@
             // btnGhi
             // 
             this.btnGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi.Location = new System.Drawing.Point(754, 1);
+            this.btnGhi.Location = new System.Drawing.Point(797, 3);
             this.btnGhi.Name = "btnGhi";
-            this.btnGhi.Size = new System.Drawing.Size(104, 30);
+            this.btnGhi.Size = new System.Drawing.Size(80, 26);
             this.btnGhi.TabIndex = 18;
             this.btnGhi.Text = "btnGhi";
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
@@ -246,9 +246,9 @@
             // btnKhong
             // 
             this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong.Location = new System.Drawing.Point(859, 1);
+            this.btnKhong.Location = new System.Drawing.Point(878, 3);
             this.btnKhong.Name = "btnKhong";
-            this.btnKhong.Size = new System.Drawing.Size(104, 30);
+            this.btnKhong.Size = new System.Drawing.Size(80, 26);
             this.btnKhong.TabIndex = 19;
             this.btnKhong.Text = "btnKhong";
             this.btnKhong.Click += new System.EventHandler(this.btnKhong_Click);
@@ -264,7 +264,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.grdUser);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.tablePanel2.SetRow(this.splitContainerControl1, 0);
-            this.splitContainerControl1.Size = new System.Drawing.Size(963, 340);
+            this.splitContainerControl1.Size = new System.Drawing.Size(960, 339);
             this.splitContainerControl1.SplitterPosition = 385;
             this.splitContainerControl1.TabIndex = 0;
             // 
@@ -274,7 +274,7 @@
             this.grdGroup.Location = new System.Drawing.Point(0, 0);
             this.grdGroup.MainView = this.grvGroup;
             this.grdGroup.Name = "grdGroup";
-            this.grdGroup.Size = new System.Drawing.Size(385, 340);
+            this.grdGroup.Size = new System.Drawing.Size(385, 339);
             this.grdGroup.TabIndex = 0;
             this.grdGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvGroup});
@@ -298,7 +298,7 @@
             this.grdUser.Location = new System.Drawing.Point(0, 0);
             this.grdUser.MainView = this.grvUser;
             this.grdUser.Name = "grdUser";
-            this.grdUser.Size = new System.Drawing.Size(568, 340);
+            this.grdUser.Size = new System.Drawing.Size(569, 339);
             this.grdUser.TabIndex = 0;
             this.grdUser.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvUser});
@@ -318,7 +318,7 @@
             // 
             this.tabMenu.Controls.Add(this.tablePanel1);
             this.tabMenu.Name = "tabMenu";
-            this.tabMenu.Size = new System.Drawing.Size(969, 383);
+            this.tabMenu.Size = new System.Drawing.Size(966, 376);
             this.tabMenu.Text = "tabMenu";
             // 
             // tablePanel1
@@ -333,7 +333,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 37F)});
-            this.tablePanel1.Size = new System.Drawing.Size(969, 383);
+            this.tablePanel1.Size = new System.Drawing.Size(966, 376);
             this.tablePanel1.TabIndex = 0;
             // 
             // treeListMenu
@@ -345,7 +345,7 @@
             this.treeListMenu.OptionsBehavior.AllowBoundCheckBoxesInVirtualMode = true;
             this.treeListMenu.OptionsBehavior.AllowRecursiveNodeChecking = true;
             this.tablePanel1.SetRow(this.treeListMenu, 0);
-            this.treeListMenu.Size = new System.Drawing.Size(963, 340);
+            this.treeListMenu.Size = new System.Drawing.Size(960, 333);
             this.treeListMenu.TabIndex = 2;
             // 
             // panelControl2
@@ -356,16 +356,16 @@
             this.panelControl2.Controls.Add(this.btnThemSua2);
             this.panelControl2.Controls.Add(this.btnThoat2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(3, 349);
+            this.panelControl2.Location = new System.Drawing.Point(3, 342);
             this.panelControl2.Name = "panelControl2";
             this.tablePanel1.SetRow(this.panelControl2, 1);
-            this.panelControl2.Size = new System.Drawing.Size(963, 31);
+            this.panelControl2.Size = new System.Drawing.Size(960, 31);
             this.panelControl2.TabIndex = 1;
             // 
             // btnGhi2
             // 
             this.btnGhi2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi2.Location = new System.Drawing.Point(754, 1);
+            this.btnGhi2.Location = new System.Drawing.Point(751, 1);
             this.btnGhi2.Name = "btnGhi2";
             this.btnGhi2.Size = new System.Drawing.Size(104, 30);
             this.btnGhi2.TabIndex = 25;
@@ -375,7 +375,7 @@
             // btnKhong2
             // 
             this.btnKhong2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong2.Location = new System.Drawing.Point(859, 1);
+            this.btnKhong2.Location = new System.Drawing.Point(856, 1);
             this.btnKhong2.Name = "btnKhong2";
             this.btnKhong2.Size = new System.Drawing.Size(104, 30);
             this.btnKhong2.TabIndex = 26;
@@ -385,7 +385,7 @@
             // btnThemSua2
             // 
             this.btnThemSua2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemSua2.Location = new System.Drawing.Point(754, 1);
+            this.btnThemSua2.Location = new System.Drawing.Point(751, 1);
             this.btnThemSua2.Name = "btnThemSua2";
             this.btnThemSua2.Size = new System.Drawing.Size(104, 30);
             this.btnThemSua2.TabIndex = 24;
@@ -395,7 +395,7 @@
             // btnThoat2
             // 
             this.btnThoat2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat2.Location = new System.Drawing.Point(859, 1);
+            this.btnThoat2.Location = new System.Drawing.Point(856, 1);
             this.btnThoat2.Name = "btnThoat2";
             this.btnThoat2.Size = new System.Drawing.Size(104, 30);
             this.btnThoat2.TabIndex = 21;
@@ -406,7 +406,7 @@
             // 
             this.tabUser.Controls.Add(this.tablePanel3);
             this.tabUser.Name = "tabUser";
-            this.tabUser.Size = new System.Drawing.Size(969, 383);
+            this.tabUser.Size = new System.Drawing.Size(966, 376);
             this.tabUser.Text = "tabUser";
             // 
             // tablePanel3
@@ -422,7 +422,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 37F)});
-            this.tablePanel3.Size = new System.Drawing.Size(969, 383);
+            this.tablePanel3.Size = new System.Drawing.Size(966, 376);
             this.tablePanel3.TabIndex = 1;
             // 
             // grdListUser
@@ -434,7 +434,7 @@
             this.grdListUser.MainView = this.grvListUser;
             this.grdListUser.Name = "grdListUser";
             this.tablePanel3.SetRow(this.grdListUser, 1);
-            this.grdListUser.Size = new System.Drawing.Size(963, 332);
+            this.grdListUser.Size = new System.Drawing.Size(960, 325);
             this.grdListUser.TabIndex = 1;
             this.grdListUser.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvListUser});
@@ -474,10 +474,10 @@
             this.panelControl3.Controls.Add(this.searchControl1);
             this.panelControl3.Controls.Add(this.btnResetpass);
             this.panelControl3.Controls.Add(this.btnThoatUser);
-            this.panelControl3.Location = new System.Drawing.Point(3, 349);
+            this.panelControl3.Location = new System.Drawing.Point(3, 342);
             this.panelControl3.Name = "panelControl3";
             this.tablePanel3.SetRow(this.panelControl3, 2);
-            this.panelControl3.Size = new System.Drawing.Size(963, 31);
+            this.panelControl3.Size = new System.Drawing.Size(960, 31);
             this.panelControl3.TabIndex = 0;
             // 
             // searchControl1
@@ -496,7 +496,7 @@
             // btnResetpass
             // 
             this.btnResetpass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetpass.Location = new System.Drawing.Point(753, 0);
+            this.btnResetpass.Location = new System.Drawing.Point(750, 0);
             this.btnResetpass.Name = "btnResetpass";
             this.btnResetpass.Size = new System.Drawing.Size(104, 30);
             this.btnResetpass.TabIndex = 27;
@@ -506,7 +506,7 @@
             // btnThoatUser
             // 
             this.btnThoatUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoatUser.Location = new System.Drawing.Point(858, 0);
+            this.btnThoatUser.Location = new System.Drawing.Point(855, 0);
             this.btnThoatUser.Name = "btnThoatUser";
             this.btnThoatUser.Size = new System.Drawing.Size(104, 30);
             this.btnThoatUser.TabIndex = 28;

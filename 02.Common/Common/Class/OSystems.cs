@@ -1725,7 +1725,7 @@ namespace Commons
             catch
             { }
         }
-        public void ThayDoiNN(XtraForm frm, LayoutControlGroup group, WindowsUIButtonPanel btnWinUIB)
+        public void ThayDoiNN(XtraForm frm, LayoutControlGroup group)
         {
             DataTable dtTmp = new DataTable();
             dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD , CASE " + Modules.TypeLanguage + " WHEN 0 THEN VIETNAM WHEN 1 THEN ENGLISH ELSE CHINESE END AS NN  FROM LANGUAGES WHERE FORM = N'" + frm.Name + "' "));
@@ -1733,15 +1733,7 @@ namespace Commons
             //load nn control bên trong
             LoadNNGroupControl(frm, group, dtTmp);
             //load nn windowbitton
-            try
-            {
-                foreach (WindowsUIButton btn in btnWinUIB.Buttons)
-                {
-                    btn.Caption = GetNN(dtTmp, btn.Tag.ToString(), frm.Name);
-                }
-            }
-            catch
-            { }
+           
         }
 
         private void LoadNNGroupControl(XtraForm frm, LayoutControlGroup group, DataTable dtTmp)
@@ -2046,7 +2038,6 @@ namespace Commons
                     //                }
                     //            }
                     //        }
-
                     //        break;
                     //    }
 
@@ -2987,7 +2978,6 @@ namespace Commons
             cbo.SearchMode = SearchMode.AutoComplete;
             tree.Columns[Value].ColumnEdit = cbo;
         }
-
         public void MReleaseObject(object obj)
         {
             try
@@ -3004,7 +2994,6 @@ namespace Commons
                 GC.Collect();
             }
         }
-
         public void AddnewRow(GridView view, bool add)
         {
             try
@@ -3512,7 +3501,7 @@ namespace Commons
         {
             try
             {
-                string sSql = "  SELECT CASE QUYEN WHEN N'Read only' THEN 0   WHEN N'Full access' THEN 1 ELSE 2  END AS ID_PERMISSION FROM dbo.NHOM_FORM T1 INNER JOIN dbo.USERS T2 ON T1.GROUP_ID = T2.GROUP_ID WHERE T2.USERNAME = '" + Commons.Modules.UserName + "' AND T1.FORM_NAME = '" + frm + "' UNION SELECT 0 ORDER BY ID_PERMISSION DESC";
+                string sSql = "SELECT CASE QUYEN WHEN N'Read only' THEN 0   WHEN N'Full access' THEN 1 ELSE 2  END AS ID_PERMISSION FROM dbo.NHOM_FORM T1 INNER JOIN dbo.USERS T2 ON T1.GROUP_ID = T2.GROUP_ID WHERE T2.USERNAME = '" + Commons.Modules.UserName + "' AND T1.FORM_NAME = '" + frm + "' UNION SELECT 0 ORDER BY ID_PERMISSION DESC";
                 try
                 {
                     return Convert.ToInt16(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString());
@@ -3522,6 +3511,38 @@ namespace Commons
             }
             catch { }
             return 1;
+        }
+
+
+
+        public string LayDuLieu(string TenFile)
+        {
+            StreamReader sr;
+            string sText;
+            sText = "";
+            try
+            {
+                sText = Application.StartupPath.ToString() + @"\" + TenFile;
+                sr = new StreamReader(sText);
+                sText = "";
+                sText = sr.ReadLine();
+                try
+                {
+                    if (sText == null)
+                        sText = "";
+                }
+                catch (Exception ex)
+                {
+                    sText = "";
+                }
+                sr.Close();
+
+              
+            }
+            catch (Exception ex)
+            {
+            }
+            return sText;
         }
     }
 }

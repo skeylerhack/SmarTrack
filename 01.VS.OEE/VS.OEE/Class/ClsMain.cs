@@ -19,6 +19,7 @@ namespace VS.OEE
                     string[] sArr = sRowStream.Split('!');
                     Commons.IConnections.Server = sArr[0];
                     Commons.IConnections.Database = sArr[1];
+                    Commons.IConnections.Database = "CMMS_WAHL";
                     Commons.IConnections.Username = sArr[2];
                     Commons.IConnections.Password = sArr[3];
                 }

@@ -105,7 +105,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.tablecontrol);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(932, 452);
-            this.splitContainerControl1.SplitterPosition = 308;
+            this.splitContainerControl1.SplitterPosition = 251;
             this.splitContainerControl1.TabIndex = 1;
             // 
             // tablePanel2
@@ -120,7 +120,7 @@
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F)});
-            this.tablePanel2.Size = new System.Drawing.Size(308, 452);
+            this.tablePanel2.Size = new System.Drawing.Size(251, 452);
             this.tablePanel2.TabIndex = 0;
             // 
             // groItem
@@ -131,7 +131,7 @@
             this.groItem.Location = new System.Drawing.Point(3, 3);
             this.groItem.Name = "groItem";
             this.tablePanel2.SetRow(this.groItem, 0);
-            this.groItem.Size = new System.Drawing.Size(302, 414);
+            this.groItem.Size = new System.Drawing.Size(245, 414);
             this.groItem.TabIndex = 7;
             this.groItem.Text = "groItem";
             // 
@@ -141,7 +141,7 @@
             this.grdItem.Location = new System.Drawing.Point(2, 22);
             this.grdItem.MainView = this.grvItem;
             this.grdItem.Name = "grdItem";
-            this.grdItem.Size = new System.Drawing.Size(298, 390);
+            this.grdItem.Size = new System.Drawing.Size(241, 390);
             this.grdItem.TabIndex = 5;
             this.grdItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvItem});
@@ -166,7 +166,7 @@
             this.searchControl1.Properties.Client = this.grdItem;
             this.searchControl1.Properties.FindDelay = 100;
             this.tablePanel2.SetRow(this.searchControl1, 1);
-            this.searchControl1.Size = new System.Drawing.Size(302, 20);
+            this.searchControl1.Size = new System.Drawing.Size(245, 20);
             this.searchControl1.TabIndex = 6;
             // 
             // tablecontrol
@@ -212,7 +212,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.tablecontrol.Size = new System.Drawing.Size(618, 452);
+            this.tablecontrol.Size = new System.Drawing.Size(675, 452);
             this.tablecontrol.TabIndex = 0;
             // 
             // panelNN
@@ -230,13 +230,13 @@
             this.panelNN.Location = new System.Drawing.Point(3, 420);
             this.panelNN.Name = "panelNN";
             this.tablecontrol.SetRow(this.panelNN, 7);
-            this.panelNN.Size = new System.Drawing.Size(612, 29);
+            this.panelNN.Size = new System.Drawing.Size(669, 29);
             this.panelNN.TabIndex = 6;
             // 
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(287, 2);
+            this.btnThem.Location = new System.Drawing.Point(344, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 9;
@@ -246,7 +246,7 @@
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(530, 2);
+            this.btnThoat.Location = new System.Drawing.Point(587, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
             this.btnThoat.TabIndex = 10;
@@ -256,7 +256,7 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(449, 2);
+            this.btnXoa.Location = new System.Drawing.Point(506, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 26);
             this.btnXoa.TabIndex = 10;
@@ -266,7 +266,7 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(368, 2);
+            this.btnSua.Location = new System.Drawing.Point(425, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 6;
@@ -276,7 +276,7 @@
             // btnChooseMay
             // 
             this.btnChooseMay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChooseMay.Location = new System.Drawing.Point(368, 2);
+            this.btnChooseMay.Location = new System.Drawing.Point(425, 2);
             this.btnChooseMay.Name = "btnChooseMay";
             this.btnChooseMay.Size = new System.Drawing.Size(80, 26);
             this.btnChooseMay.TabIndex = 8;
@@ -286,7 +286,7 @@
             // btnGhi
             // 
             this.btnGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi.Location = new System.Drawing.Point(449, 2);
+            this.btnGhi.Location = new System.Drawing.Point(506, 2);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(80, 26);
             this.btnGhi.TabIndex = 11;
@@ -296,7 +296,7 @@
             // btnKhong
             // 
             this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong.Location = new System.Drawing.Point(530, 2);
+            this.btnKhong.Location = new System.Drawing.Point(587, 2);
             this.btnKhong.Name = "btnKhong";
             this.btnKhong.Size = new System.Drawing.Size(80, 26);
             this.btnKhong.TabIndex = 12;
@@ -310,7 +310,7 @@
             this.txtItemCode.Location = new System.Drawing.Point(123, 11);
             this.txtItemCode.Name = "txtItemCode";
             this.tablecontrol.SetRow(this.txtItemCode, 1);
-            this.txtItemCode.Size = new System.Drawing.Size(80, 20);
+            this.txtItemCode.Size = new System.Drawing.Size(99, 20);
             this.txtItemCode.TabIndex = 4;
             // 
             // lblItemCode
@@ -330,7 +330,7 @@
             // 
             this.tablecontrol.SetColumn(this.lblBarcode, 2);
             this.lblBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBarcode.Location = new System.Drawing.Point(209, 37);
+            this.lblBarcode.Location = new System.Drawing.Point(228, 37);
             this.lblBarcode.Name = "lblBarcode";
             this.tablecontrol.SetRow(this.lblBarcode, 2);
             this.lblBarcode.Size = new System.Drawing.Size(114, 20);
@@ -356,7 +356,7 @@
             this.lblItemName.Appearance.Options.UseFont = true;
             this.tablecontrol.SetColumn(this.lblItemName, 2);
             this.lblItemName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblItemName.Location = new System.Drawing.Point(209, 11);
+            this.lblItemName.Location = new System.Drawing.Point(228, 11);
             this.lblItemName.Name = "lblItemName";
             this.tablecontrol.SetRow(this.lblItemName, 1);
             this.lblItemName.Size = new System.Drawing.Size(114, 20);
@@ -380,7 +380,7 @@
             this.lblUOMGroupID.Appearance.Options.UseFont = true;
             this.tablecontrol.SetColumn(this.lblUOMGroupID, 2);
             this.lblUOMGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblUOMGroupID.Location = new System.Drawing.Point(209, 63);
+            this.lblUOMGroupID.Location = new System.Drawing.Point(228, 63);
             this.lblUOMGroupID.Name = "lblUOMGroupID";
             this.tablecontrol.SetRow(this.lblUOMGroupID, 3);
             this.lblUOMGroupID.Size = new System.Drawing.Size(114, 20);
@@ -391,7 +391,7 @@
             // 
             this.tablecontrol.SetColumn(this.lblOtherName, 4);
             this.lblOtherName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOtherName.Location = new System.Drawing.Point(415, 37);
+            this.lblOtherName.Location = new System.Drawing.Point(453, 37);
             this.lblOtherName.Name = "lblOtherName";
             this.tablecontrol.SetRow(this.lblOtherName, 2);
             this.lblOtherName.Size = new System.Drawing.Size(114, 20);
@@ -404,7 +404,7 @@
             this.lblBasedUOM.Appearance.Options.UseFont = true;
             this.tablecontrol.SetColumn(this.lblBasedUOM, 4);
             this.lblBasedUOM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBasedUOM.Location = new System.Drawing.Point(415, 63);
+            this.lblBasedUOM.Location = new System.Drawing.Point(453, 63);
             this.lblBasedUOM.Name = "lblBasedUOM";
             this.tablecontrol.SetRow(this.lblBasedUOM, 3);
             this.lblBasedUOM.Size = new System.Drawing.Size(114, 20);
@@ -415,20 +415,20 @@
             // 
             this.tablecontrol.SetColumn(this.txtBarcode, 3);
             this.txtBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBarcode.Location = new System.Drawing.Point(329, 37);
+            this.txtBarcode.Location = new System.Drawing.Point(348, 37);
             this.txtBarcode.Name = "txtBarcode";
             this.tablecontrol.SetRow(this.txtBarcode, 2);
-            this.txtBarcode.Size = new System.Drawing.Size(80, 20);
+            this.txtBarcode.Size = new System.Drawing.Size(99, 20);
             this.txtBarcode.TabIndex = 4;
             // 
             // txtItemName
             // 
             this.tablecontrol.SetColumn(this.txtItemName, 3);
             this.txtItemName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtItemName.Location = new System.Drawing.Point(329, 11);
+            this.txtItemName.Location = new System.Drawing.Point(348, 11);
             this.txtItemName.Name = "txtItemName";
             this.tablecontrol.SetRow(this.txtItemName, 1);
-            this.txtItemName.Size = new System.Drawing.Size(80, 20);
+            this.txtItemName.Size = new System.Drawing.Size(99, 20);
             this.txtItemName.TabIndex = 4;
             // 
             // txtDescription
@@ -439,16 +439,16 @@
             this.txtDescription.Location = new System.Drawing.Point(123, 89);
             this.txtDescription.Name = "txtDescription";
             this.tablecontrol.SetRow(this.txtDescription, 4);
-            this.txtDescription.Size = new System.Drawing.Size(492, 20);
+            this.txtDescription.Size = new System.Drawing.Size(549, 20);
             this.txtDescription.TabIndex = 4;
             // 
             // txtOtherName
             // 
             this.tablecontrol.SetColumn(this.txtOtherName, 5);
-            this.txtOtherName.Location = new System.Drawing.Point(535, 37);
+            this.txtOtherName.Location = new System.Drawing.Point(573, 37);
             this.txtOtherName.Name = "txtOtherName";
             this.tablecontrol.SetRow(this.txtOtherName, 2);
-            this.txtOtherName.Size = new System.Drawing.Size(80, 20);
+            this.txtOtherName.Size = new System.Drawing.Size(99, 20);
             this.txtOtherName.TabIndex = 4;
             // 
             // cboItemGroup
@@ -460,42 +460,42 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboItemGroup.Properties.NullText = "";
             this.tablecontrol.SetRow(this.cboItemGroup, 3);
-            this.cboItemGroup.Size = new System.Drawing.Size(80, 20);
+            this.cboItemGroup.Size = new System.Drawing.Size(99, 20);
             this.cboItemGroup.TabIndex = 4;
             // 
             // cboUOMGroupID
             // 
             this.tablecontrol.SetColumn(this.cboUOMGroupID, 3);
-            this.cboUOMGroupID.Location = new System.Drawing.Point(329, 63);
+            this.cboUOMGroupID.Location = new System.Drawing.Point(348, 63);
             this.cboUOMGroupID.Name = "cboUOMGroupID";
             this.cboUOMGroupID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboUOMGroupID.Properties.NullText = "";
             this.tablecontrol.SetRow(this.cboUOMGroupID, 3);
-            this.cboUOMGroupID.Size = new System.Drawing.Size(80, 20);
+            this.cboUOMGroupID.Size = new System.Drawing.Size(99, 20);
             this.cboUOMGroupID.TabIndex = 4;
             this.cboUOMGroupID.EditValueChanged += new System.EventHandler(this.cboUOMGroupID_EditValueChanged);
             // 
             // cboBasedUOM
             // 
             this.tablecontrol.SetColumn(this.cboBasedUOM, 5);
-            this.cboBasedUOM.Location = new System.Drawing.Point(535, 63);
+            this.cboBasedUOM.Location = new System.Drawing.Point(573, 63);
             this.cboBasedUOM.Name = "cboBasedUOM";
             this.cboBasedUOM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboBasedUOM.Properties.NullText = "";
             this.tablecontrol.SetRow(this.cboBasedUOM, 3);
-            this.cboBasedUOM.Size = new System.Drawing.Size(80, 20);
+            this.cboBasedUOM.Size = new System.Drawing.Size(99, 20);
             this.cboBasedUOM.TabIndex = 4;
             this.cboBasedUOM.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.cboBasedUOM_CustomDisplayText);
             // 
             // txtItemNameA
             // 
             this.tablecontrol.SetColumn(this.txtItemNameA, 5);
-            this.txtItemNameA.Location = new System.Drawing.Point(535, 11);
+            this.txtItemNameA.Location = new System.Drawing.Point(573, 11);
             this.txtItemNameA.Name = "txtItemNameA";
             this.tablecontrol.SetRow(this.txtItemNameA, 1);
-            this.txtItemNameA.Size = new System.Drawing.Size(80, 20);
+            this.txtItemNameA.Size = new System.Drawing.Size(99, 20);
             this.txtItemNameA.TabIndex = 4;
             // 
             // txtItemNameH
@@ -505,14 +505,14 @@
             this.txtItemNameH.Location = new System.Drawing.Point(123, 37);
             this.txtItemNameH.Name = "txtItemNameH";
             this.tablecontrol.SetRow(this.txtItemNameH, 2);
-            this.txtItemNameH.Size = new System.Drawing.Size(80, 20);
+            this.txtItemNameH.Size = new System.Drawing.Size(99, 20);
             this.txtItemNameH.TabIndex = 4;
             // 
             // lblItemNameA
             // 
             this.tablecontrol.SetColumn(this.lblItemNameA, 4);
             this.lblItemNameA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblItemNameA.Location = new System.Drawing.Point(415, 11);
+            this.lblItemNameA.Location = new System.Drawing.Point(453, 11);
             this.lblItemNameA.Name = "lblItemNameA";
             this.tablecontrol.SetRow(this.lblItemNameA, 1);
             this.lblItemNameA.Size = new System.Drawing.Size(114, 20);
@@ -539,7 +539,7 @@
             this.groItemMay.Location = new System.Drawing.Point(3, 123);
             this.groItemMay.Name = "groItemMay";
             this.tablecontrol.SetRow(this.groItemMay, 6);
-            this.groItemMay.Size = new System.Drawing.Size(612, 291);
+            this.groItemMay.Size = new System.Drawing.Size(669, 291);
             this.groItemMay.TabIndex = 7;
             this.groItemMay.Text = "groItemMay";
             // 
@@ -549,7 +549,7 @@
             this.grdItemMay.Location = new System.Drawing.Point(2, 22);
             this.grdItemMay.MainView = this.grvItemMay;
             this.grdItemMay.Name = "grdItemMay";
-            this.grdItemMay.Size = new System.Drawing.Size(608, 267);
+            this.grdItemMay.Size = new System.Drawing.Size(665, 267);
             this.grdItemMay.TabIndex = 5;
             this.grdItemMay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvItemMay});

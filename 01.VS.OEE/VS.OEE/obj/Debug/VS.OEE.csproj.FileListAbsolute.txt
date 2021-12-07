@@ -1198,13 +1198,13 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmItemMay.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmUOM.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmItemGroup.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucPermission.resources
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucChart.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmProductRun.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmDeviceCause.resources
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.XtraForm1.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.GenerateResource.cache
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe.licenses
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CoreCompileInputs.cache
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmHanhDong.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmNhaMay.resources

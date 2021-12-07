@@ -166,7 +166,6 @@ namespace VS.OEE
                         XtraMessageBox.Show(lblTEN_3.Text + " " + Commons.Modules.ObjLanguages.GetLanguage("frmChung", "msgNayDaTonTai"));
                         txtTEN_3.Focus();
                     }
-
                     return false;
                 }
                 #endregion
@@ -178,8 +177,6 @@ namespace VS.OEE
             }
             return true;
         }
-
         #endregion
-
     }
 }

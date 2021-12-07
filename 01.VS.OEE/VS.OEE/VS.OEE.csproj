@@ -161,16 +161,16 @@
     <Compile Include="formChoose\frmChooseDevice.Designer.cs">
       <DependentUpon>frmChooseDevice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frmThoiGianNgungMay.cs">
+    <Compile Include="05.Produce\frmThoiGianNgungMay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\frmThoiGianNgungMay.Designer.cs">
+    <Compile Include="05.Produce\frmThoiGianNgungMay.Designer.cs">
       <DependentUpon>frmThoiGianNgungMay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frmImport.cs">
+    <Compile Include="05.Produce\frmImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\frmImport.Designer.cs">
+    <Compile Include="05.Produce\frmImport.Designer.cs">
       <DependentUpon>frmImport.cs</DependentUpon>
     </Compile>
     <Compile Include="formChoose\frmPopUp.cs">
@@ -232,12 +232,6 @@
     </Compile>
     <Compile Include="formEdit\frmEditNhomMay.Designer.cs">
       <DependentUpon>frmEditNhomMay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form\XtraUserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Form\XtraUserControl1.Designer.cs">
-      <DependentUpon>XtraUserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="01.Systems\frmEditThemNguoiDung.cs">
       <SubType>Form</SubType>
@@ -304,6 +298,18 @@
     </Compile>
     <Compile Include="formEdit\frmView.Designer.cs">
       <DependentUpon>frmView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHanhDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHanhDong.Designer.cs">
+      <DependentUpon>frmHanhDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhaMay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhaMay.Designer.cs">
+      <DependentUpon>frmNhaMay.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -438,10 +444,10 @@
     <Compile Include="05.Produce\frmProductOrder.Designer.cs">
       <DependentUpon>frmProductOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="UAC\frmQuanlynhanvien.cs">
+    <Compile Include="06.Employee\frmQuanlynhanvien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UAC\frmQuanlynhanvien.Designer.cs">
+    <Compile Include="06.Employee\frmQuanlynhanvien.Designer.cs">
       <DependentUpon>frmQuanlynhanvien.cs</DependentUpon>
     </Compile>
     <Compile Include="03.Devices\frmHieuSuatTheoNam.cs">
@@ -450,10 +456,10 @@
     <Compile Include="03.Devices\frmHieuSuatTheoNam.Designer.cs">
       <DependentUpon>frmHieuSuatTheoNam.cs</DependentUpon>
     </Compile>
-    <Compile Include="UAC\frmUOMGroup.cs">
+    <Compile Include="02.Category\frmUOMGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UAC\frmUOMGroup.Designer.cs">
+    <Compile Include="02.Category\frmUOMGroup.Designer.cs">
       <DependentUpon>frmUOMGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="04.Items\frmItemMay.cs">
@@ -462,10 +468,10 @@
     <Compile Include="04.Items\frmItemMay.Designer.cs">
       <DependentUpon>frmItemMay.cs</DependentUpon>
     </Compile>
-    <Compile Include="UAC\frmUOM.cs">
+    <Compile Include="02.Category\frmUOM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UAC\frmUOM.Designer.cs">
+    <Compile Include="02.Category\frmUOM.Designer.cs">
       <DependentUpon>frmUOM.cs</DependentUpon>
     </Compile>
     <Compile Include="04.Items\frmItemGroup.cs">
@@ -474,17 +480,11 @@
     <Compile Include="04.Items\frmItemGroup.Designer.cs">
       <DependentUpon>frmItemGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="UAC\ucPermission.cs">
+    <Compile Include="01.Systems\ucPermission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UAC\ucPermission.Designer.cs">
+    <Compile Include="01.Systems\ucPermission.Designer.cs">
       <DependentUpon>ucPermission.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UAC\ucChart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UAC\ucChart.Designer.cs">
-      <DependentUpon>ucChart.cs</DependentUpon>
     </Compile>
     <Compile Include="05.Produce\frmProductRun.cs">
       <SubType>Form</SubType>
@@ -498,12 +498,6 @@
     <Compile Include="02.Category\frmDeviceCause.Designer.cs">
       <DependentUpon>frmDeviceCause.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\XtraForm1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\XtraForm1.Designer.cs">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="02.Category\frmBoPhanChiuPhi.resx">
       <DependentUpon>frmBoPhanChiuPhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,10 +507,10 @@
     <EmbeddedResource Include="formChoose\frmChooseDevice.resx">
       <DependentUpon>frmChooseDevice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmThoiGianNgungMay.resx">
+    <EmbeddedResource Include="05.Produce\frmThoiGianNgungMay.resx">
       <DependentUpon>frmThoiGianNgungMay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmImport.resx">
+    <EmbeddedResource Include="05.Produce\frmImport.resx">
       <DependentUpon>frmImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmPopUp.resx">
@@ -582,6 +576,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formEdit\frmView.resx">
       <DependentUpon>frmView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHanhDong.resx">
+      <DependentUpon>frmHanhDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhaMay.resx">
+      <DependentUpon>frmNhaMay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="07.Report\frmReport.resx">
@@ -653,29 +653,26 @@
     <EmbeddedResource Include="05.Produce\frmProductOrder.resx">
       <DependentUpon>frmProductOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UAC\frmQuanlynhanvien.resx">
+    <EmbeddedResource Include="06.Employee\frmQuanlynhanvien.resx">
       <DependentUpon>frmQuanlynhanvien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="03.Devices\frmHieuSuatTheoNam.resx">
       <DependentUpon>frmHieuSuatTheoNam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UAC\frmUOMGroup.resx">
+    <EmbeddedResource Include="02.Category\frmUOMGroup.resx">
       <DependentUpon>frmUOMGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="04.Items\frmItemMay.resx">
       <DependentUpon>frmItemMay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UAC\frmUOM.resx">
+    <EmbeddedResource Include="02.Category\frmUOM.resx">
       <DependentUpon>frmUOM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="04.Items\frmItemGroup.resx">
       <DependentUpon>frmItemGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UAC\ucPermission.resx">
+    <EmbeddedResource Include="01.Systems\ucPermission.resx">
       <DependentUpon>ucPermission.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UAC\ucChart.resx">
-      <DependentUpon>ucChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="05.Produce\frmProductRun.resx">
       <DependentUpon>frmProductRun.cs</DependentUpon>
@@ -683,9 +680,6 @@
     <EmbeddedResource Include="02.Category\frmDeviceCause.resx">
       <DependentUpon>frmDeviceCause.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\XtraForm1.resx">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -854,6 +848,8 @@
   <ItemGroup>
     <Content Include="OEE.ico" />
     <None Include="Resources\back_ground.jpg" />
+    <None Include="Resources\login-icon-3037-16x16.ico" />
+    <None Include="Resources\btnthoat.ico" />
     <Content Include="Resources\OEE.ico" />
   </ItemGroup>
   <ItemGroup />

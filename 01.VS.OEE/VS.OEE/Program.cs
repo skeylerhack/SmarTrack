@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using DevExpress.UserSkins;
-using System.Data;
 using System.Threading;
 namespace VS.OEE
 {
@@ -14,17 +13,8 @@ namespace VS.OEE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
+            ClsMain.LayThongTinConfig();
             Commons.Modules.ModuleName = "ECOMAIN";
-            DataSet ds = new DataSet();
-            ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\saveconfig.xml");
-            Commons.IConnections.Server = ds.Tables[0].Rows[0]["S"].ToString();
-            Commons.IConnections.Database = ds.Tables[0].Rows[0]["D"].ToString();
-            Commons.IConnections.Username = ds.Tables[0].Rows[0]["U"].ToString();
-            Commons.IConnections.Password = ds.Tables[0].Rows[0]["P"].ToString();
-            Commons.Modules.UserName = ds.Tables[0].Rows[0]["US"].ToString();
-
-            Commons.Modules.TypeLanguage = Convert.ToInt32(ds.Tables[0].Rows[0]["LA"]);
-            Properties.Settings.Default.lang = Commons.Modules.TypeLanguage;
             Commons.Modules.sPrivate = @"TRUNGNGUYEN";
             //1 Full ,2Read Only,3No access.
             Commons.Modules.iPermission = 1;
@@ -45,7 +35,7 @@ namespace VS.OEE
             try
             {
                 Application.Run(new frmMain());
-                //Application.Run(new frmDeviceCause(1));
+                //Application.Run(new frmHanhDong(1));
             }
             catch (Exception ex)
             {

@@ -764,7 +764,6 @@ namespace Commons
                 return false;
             }
         }
-
         public bool MLoadXtraGrid(DevExpress.XtraGrid.GridControl grd, DevExpress.XtraGrid.Views.Grid.GridView grv, DataTable dtTmp, bool MEditable, bool MPopulateColumns, bool MColumnAutoWidth, bool MBestFitColumns, bool MloadNNgu, string fName)
         {
             try
@@ -1924,6 +1923,68 @@ namespace Commons
             catch
             { }
         }
+        public void LoadImageDev(DevExpress.XtraEditors.SimpleButton CtlDev)
+        {
+            string sTenControl;
+            sTenControl = CtlDev.Name.ToUpper();
+            CtlDev.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            try
+            {
+                if (sTenControl.Contains("IMPORT"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Import; return;
+                }
+                if (sTenControl.Contains("THEM") | sTenControl.Contains("ADD"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Add; return;
+                }
+                if (sTenControl.Contains("SUA") | sTenControl.Contains("EDIT"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Edit; return;
+                }
+                if (sTenControl.Contains("DEL") | sTenControl.Contains("XOA") | sTenControl.Contains("DELETE"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Delete; return;
+                }
+                if (sTenControl.Contains("THOAT") | sTenControl.Contains("EXIT"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Thoat; return;
+                }
+                if (sTenControl.Contains("LUA") | sTenControl.Contains("LUU") | sTenControl.Contains("GHI") | sTenControl.Contains("SAVE"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Save; return;
+                }
+                if (sTenControl.Contains("KHONG") | sTenControl.Contains("CANCEL"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Cancel; return;
+                }
+                if (sTenControl.Contains("SCHEDULE"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Schedule; return;
+                }
+               
+                if (sTenControl.Contains("IN") | sTenControl.Contains("PRINT"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Print; return;
+                }
+                if (sTenControl.Contains("EXCEL") | sTenControl.Contains("XUATEXCEL"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.Excel; return;
+                }
+                if (sTenControl.Contains("EXCUTE") | sTenControl.Contains("EXECUTE") | sTenControl.Contains("THUCHIEN"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.ThucHien; return;
+                }
+                if (sTenControl.Contains("TROVE") | sTenControl.Contains("RETURN"))
+                {
+                    CtlDev.Image = Commons.Properties.Resources.TroVe; return;
+                }
+ 
+            }
+            catch (Exception ex)
+            {
+            }
+        }
 
         public void DoiNN(Control Ctl, Form frm, DataTable dtNgu)
         {
@@ -2105,7 +2166,7 @@ namespace Commons
                             if (Ctl.Name.ToUpper().Substring(0, 4) != "NONN" & Ctl.Name.Length > 4)
                             {
                                 Ctl.Text = GetNN(dtNgu, Ctl.Name, frm.Name);
-                                //LoadImageDev(CtlDev);
+                                LoadImageDev(CtlDev);
                             }
 
                             break;

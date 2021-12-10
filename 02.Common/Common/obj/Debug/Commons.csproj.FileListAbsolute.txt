@@ -1738,7 +1738,6 @@ D:\Smartrack\02.Common\Common\bin\Debug\de\DevExpress.Office.v20.1.Core.resource
 D:\Smartrack\02.Common\Common\bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll
 D:\Smartrack\02.Common\Common\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
 D:\Smartrack\02.Common\Common\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
-D:\Smartrack\02.Common\Common\obj\Debug\Commons.csproj.AssemblyReference.cache
 D:\Smartrack\02.Common\Common\obj\Debug\Commons.frmWaitForm.resources
 D:\Smartrack\02.Common\Common\obj\Debug\Commons.Properties.Resources.resources
 D:\Smartrack\02.Common\Common\obj\Debug\Commons.ThongBao.resources
@@ -2066,3 +2065,4 @@ G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CoreCompileInputs.cach
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CopyComplete
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.dll
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.pdb
+D:\SmarTrack\02.Common\Common\obj\Debug\Commons.csprojAssemblyReference.cache

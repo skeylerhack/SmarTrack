@@ -29,7 +29,7 @@ namespace VS.OEE
         {
             try
             {
-                Commons.Modules.ObjSystems.MLoadLookUpEdit(cboDownTimeType, Commons.Modules.ObjSystems.DataDownTimeType(false), "ID", "DownTimeTypeName", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "DownTimeTypeName"));
+                Commons.Modules.ObjSystems.MLoadLookUpEdit(cboDownTimeType, Commons.Modules.ObjSystems.DataDownTimeType(false), "ID_DownTime", "DownTimeTypeName", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "DownTimeTypeName"));
                 Commons.Modules.ObjSystems.MLoadLookUpEdit(cboPlanned, Commons.Modules.ObjSystems.DataPlanned(false),  "ID","StopTypeName", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "StopTypeName"));
                 LoadData(-1);
                 LoadText(false);
@@ -69,6 +69,7 @@ namespace VS.OEE
             this.btnThoat.Visible = bLock;
             this.btnGhi.Visible = !bLock;
             this.btnKhong.Visible = !bLock;
+
         }
         private void LoadText(Boolean nullText)
         {
@@ -106,7 +107,7 @@ namespace VS.OEE
                 dt.PrimaryKey = new DataColumn[] { dt.Columns["MS_NGUYEN_NHAN"] };
                 if (grdDownTimeCause.DataSource == null)
                 {
-                    Modules.ObjSystems.MLoadXtraGrid(grdDownTimeCause, grvDownTimeCause, dt, false, false, true, true, true, this.Name);
+                    Modules.ObjSystems.MLoadXtraGrid(grdDownTimeCause, grvDownTimeCause, dt, false, false, true, true, true,  this.Name);
                 }
                 else
                 {
@@ -134,7 +135,8 @@ namespace VS.OEE
             LockControl(false);
             LoadText(true);
             txtCauseCode.Focus();
-            
+
+          
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -157,22 +159,12 @@ namespace VS.OEE
             DeleteData(Modules.ToInt64(txtID.Text));
 
         }
-        private void grdChung_ProcessGridKey(object sender, KeyEventArgs e)
-        {
-            if (btnGhi.Visible) return;
-            if (e.KeyCode != Keys.Delete) return;
-            if (grvDownTimeCause.RowCount == 0) return;
-            Int64 iId = -1;
-            try { iId = Modules.ToInt64(grvDownTimeCause.GetFocusedRowCellValue("ID").ToString()); } catch { }
-            if (iId == -1)
-            {
-                Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblTenNN.Text);
-                return;
-            }
-            DeleteData(iId);
-        }
+
         private void DeleteData(Int64 iId)
         {
+            //Loại nguyên nhân dừng máy, nếu NoEdit = true => Không cho sửa
+            if ((string.IsNullOrEmpty(grvDownTimeCause.GetFocusedRowCellValue("NoEdit").ToString()) ? false : Convert.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("NoEdit"))) == true) return;
+
             if (Modules.msgHoiThayThe(ThongBao.msgXoa, lblTenNN.Text) == DialogResult.No) return;
             var comd = new SqlCommand();
             comd.CommandType = CommandType.StoredProcedure;
@@ -293,6 +285,9 @@ namespace VS.OEE
         private Boolean SaveData()
         {
             object rs;
+            //Loại nguyên nhân dừng máy, nếu NoEdit = true => Không cho sửa
+            if ((string.IsNullOrEmpty(grvDownTimeCause.GetFocusedRowCellValue("NoEdit").ToString()) ? false : Convert.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("NoEdit"))) == true) return false;
+
             if (txtID.Text.Trim() == "") return false;
             try
             {
@@ -410,6 +405,20 @@ namespace VS.OEE
             grvDownTimeCause.FocusedRowHandle = 0;
         }
 
-   
+        private void grdDownTimeCause_ProcessGridKey(object sender, KeyEventArgs e)
+        {
+            if (btnGhi.Visible) return;
+            if (e.KeyCode != Keys.Delete) return;
+            if (grvDownTimeCause.RowCount == 0) return;
+
+            Int64 iId = -1;
+            try { iId = Modules.ToInt64(grvDownTimeCause.GetFocusedRowCellValue("MS_NGUYEN_NHAN").ToString()); } catch { }
+            if (iId == -1)
+            {
+                Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblTenNN.Text);
+                return;
+            }
+            DeleteData(iId);
+        }
     }
 }

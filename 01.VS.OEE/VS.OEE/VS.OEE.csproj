@@ -149,6 +149,12 @@
       <DependentUpon>frmBoPhanChiuPhi.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\ClsMain.cs" />
+    <Compile Include="formChoose\frmChooseOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formChoose\frmChooseOperator.Designer.cs">
+      <DependentUpon>frmChooseOperator.cs</DependentUpon>
+    </Compile>
     <Compile Include="formChoose\frmChoosePro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +310,42 @@
     </Compile>
     <Compile Include="frmHanhDong.Designer.cs">
       <DependentUpon>frmHanhDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNM_PX_TO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNM_PX_TO.Designer.cs">
+      <DependentUpon>frmNM_PX_TO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShiftLeader_Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShiftLeader_Copy.Designer.cs">
+      <DependentUpon>frmShiftLeader_Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShiftLeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShiftLeader.Designer.cs">
+      <DependentUpon>frmShiftLeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVaiTro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVaiTro.Designer.cs">
+      <DependentUpon>frmVaiTro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLChatLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLChatLuong.Designer.cs">
+      <DependentUpon>frmQLChatLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLCa.Designer.cs">
+      <DependentUpon>frmQLCa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNhaMay.cs">
       <SubType>Form</SubType>
@@ -501,6 +543,9 @@
     <EmbeddedResource Include="02.Category\frmBoPhanChiuPhi.resx">
       <DependentUpon>frmBoPhanChiuPhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formChoose\frmChooseOperator.resx">
+      <DependentUpon>frmChooseOperator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmChoosePro.resx">
       <DependentUpon>frmChoosePro.cs</DependentUpon>
     </EmbeddedResource>
@@ -579,6 +624,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHanhDong.resx">
       <DependentUpon>frmHanhDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNM_PX_TO.resx">
+      <DependentUpon>frmNM_PX_TO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShiftLeader_Copy.resx">
+      <DependentUpon>frmShiftLeader_Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShiftLeader.resx">
+      <DependentUpon>frmShiftLeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVaiTro.resx">
+      <DependentUpon>frmVaiTro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLChatLuong.resx">
+      <DependentUpon>frmQLChatLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLCa.resx">
+      <DependentUpon>frmQLCa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhaMay.resx">
       <DependentUpon>frmNhaMay.cs</DependentUpon>

@@ -204,7 +204,10 @@ namespace VS.OEE
                 case "ShowLoaiNM": { ShowLoaiNM(); return; }
                 case "ShowUOM": { ShowUOM(); return; }
                 case "ShowUOMGroup": { ShowUOMGroup(); return; }
-
+                case "ShowQLCa": { ShowQLCa(); return; }
+                case "ShowNM_PX_TO": { ShowNM_PX_TO(); return; }
+                case "ShowShiftLeader": { ShowShiftLeader(); return; }
+                case "ShowVaiTro": { ShowVaiTro(); return; }
                 default:
                     {
                         break;
@@ -641,7 +644,7 @@ namespace VS.OEE
             frm.Show();
             this.Cursor = Cursors.Default;
         }
-#endregion
+        #endregion
 
         #region ShowNhomNguoiDung
         private void ShowNhomNguoiDung()
@@ -689,8 +692,54 @@ namespace VS.OEE
             frm.Show();
             this.Cursor = Cursors.Default;
         }
+        #endregion
 
+        #region ShowQLCa
+        private void ShowQLCa()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmQLCa frm = new frmQLCa(Commons.Modules.iPermission);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+            this.Cursor = Cursors.Default;
+        }
+        #endregion
 
+        #region ShowNM_PX_TO
+        private void ShowNM_PX_TO()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmNM_PX_TO frm = new frmNM_PX_TO(Commons.Modules.iPermission);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+            this.Cursor = Cursors.Default;
+        }
+        #endregion
+
+        #region ShowShiftLeader
+        private void ShowShiftLeader()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmShiftLeader frm = new frmShiftLeader(Commons.Modules.iPermission);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+            this.Cursor = Cursors.Default;
+        }
+        #endregion
+
+        #region ShowVaiTro
+        private void ShowVaiTro()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmVaiTro frm = new frmVaiTro(Commons.Modules.iPermission);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+            this.Cursor = Cursors.Default;
+        }
         #endregion
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)

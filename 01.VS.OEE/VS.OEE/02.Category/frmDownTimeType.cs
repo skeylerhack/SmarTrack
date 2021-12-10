@@ -74,7 +74,7 @@ namespace VS.OEE
             if (grvDownTimeType.RowCount == 0) nullText = true;
             try
             {
-                txtID.Text = (nullText ? "-1" : Modules.ToInt64(grvDownTimeType.GetFocusedRowCellValue("ID")).ToString());
+                txtID.Text = (nullText ? "-1" : Modules.ToInt64(grvDownTimeType.GetFocusedRowCellValue("ID_DownTime")).ToString());
                 txtDownTimeType.Text = (nullText ? "" : Modules.ToStr(grvDownTimeType.GetFocusedRowCellValue("DownTimeTypeName")));
                 txtDownTimeTypeA.Text = (nullText ? "" : Modules.ToStr(grvDownTimeType.GetFocusedRowCellValue("DownTimeTypeNameA")));
                 txtDownTimeTypeH.Text = (nullText ? "" : Modules.ToStr(grvDownTimeType.GetFocusedRowCellValue("DownTimeTypeNameH")));
@@ -96,10 +96,11 @@ namespace VS.OEE
                 comd.CommandText = "spDownTimeType";
                 comd.Parameters.Add(new SqlParameter("@Loai", "Grd"));
                 dt = IConnections.MGetDataTable(comd);
-                dt.PrimaryKey = new DataColumn[] { dt.Columns["ID"] };
+                dt.PrimaryKey = new DataColumn[] { dt.Columns["ID_DownTime"] };
                 if (grdDownTimeType.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdDownTimeType, grvDownTimeType, dt, false, false, true, true, true, this.Name);
+                    grvDownTimeType.Columns["ID_DownTime"].Visible = false;
                 }
                 else
                 {
@@ -164,6 +165,9 @@ namespace VS.OEE
         }
         private void DeleteData(Int64 iId)
         {
+            //Loại nguyên nhân dừng máy, nếu NoEdit = true => Không cho sửa
+            if ((string.IsNullOrEmpty(grvDownTimeType.GetFocusedRowCellValue("NoEdit").ToString()) ? false : Convert.ToBoolean(grvDownTimeType.GetFocusedRowCellValue("NoEdit"))) == true) return;
+
             if (Modules.msgHoiThayThe(ThongBao.msgXoa, lblDownTimeType.Text) == DialogResult.No) return;
             var comd = new SqlCommand();
             comd.CommandType = CommandType.StoredProcedure;
@@ -284,6 +288,9 @@ namespace VS.OEE
 
         private Boolean SaveData()
         {
+            //Loại nguyên nhân dừng máy, nếu NoEdit = true => Không cho sửa
+            if ((string.IsNullOrEmpty(grvDownTimeType.GetFocusedRowCellValue("NoEdit").ToString()) ? false : Convert.ToBoolean(grvDownTimeType.GetFocusedRowCellValue("NoEdit"))) == true) return false;
+
             if (txtID.Text.Trim() == "") return false;
             try
             {
@@ -294,7 +301,7 @@ namespace VS.OEE
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblDownTimeType.Text, txtDownTimeType);
                     return false;
                 }
-                object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.DownTimeType WHERE DownTimeTypeName = N'" + txtDownTimeType.Text + "' " + (txtID.Text == "-1" ? "" : "AND ID <> " + txtID.Text));
+                object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.DownTimeType WHERE DownTimeTypeName = N'" + txtDownTimeType.Text + "' " + (txtID.Text == "-1" ? "" : "AND ID_DownTime <> " + txtID.Text));
                 //if (rs != null && (Int32)rs > 0)
                 //{
                 //    Modules.msgThayThe(ThongBao.msgDaTonTai, lblDownTimeType.Text, txtDownTimeType);
@@ -359,7 +366,7 @@ namespace VS.OEE
             if (dt.Rows.Count == 0) nullText = true;
             try
             {
-                txtID.Text = (nullText ? "-1" : Modules.ToInt64(dt.Rows[0]["ID"].ToString()).ToString());
+                txtID.Text = (nullText ? "-1" : Modules.ToInt64(dt.Rows[0]["ID_DownTime"].ToString()).ToString());
                 txtDownTimeType.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["DownTimeTypeName"].ToString()));
                 txtDownTimeTypeA.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["DownTimeTypeNameA"].ToString()));
                 txtDownTimeTypeH.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["DownTimeTypeNameH"].ToString()));
@@ -381,7 +388,7 @@ namespace VS.OEE
         {
             if (e.KeyData == Keys.Delete)
             {
-                DeleteData(Modules.ToInt64(grvDownTimeType.GetFocusedRowCellValue("ID").ToString()));
+                DeleteData(Modules.ToInt64(grvDownTimeType.GetFocusedRowCellValue("ID_DownTime").ToString()));
             }
         }
     }

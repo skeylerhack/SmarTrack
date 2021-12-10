@@ -201,6 +201,7 @@
             this.grdDownTimeCause.TabIndex = 7;
             this.grdDownTimeCause.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDownTimeCause});
+            this.grdDownTimeCause.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grdDownTimeCause_ProcessGridKey);
             // 
             // grvDownTimeCause
             // 
@@ -337,7 +338,7 @@
             this.panelChung.SetRow(this.lblCauseCode, 1);
             this.lblCauseCode.Size = new System.Drawing.Size(114, 20);
             this.lblCauseCode.TabIndex = 1;
-            this.lblCauseCode.Text = "lblMacDinh";
+            this.lblCauseCode.Text = "lblCauseCode";
             // 
             // lblPlanned
             // 

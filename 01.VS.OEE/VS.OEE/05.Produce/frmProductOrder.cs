@@ -78,7 +78,7 @@ namespace VS.OEE
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            btnThem.Visible = btnXoa.Visible = btnSua.Visible = btnThem.Visible = false;
+            btnThem.Visible = btnXoa.Visible = btnSua.Visible = btnThoat.Visible = false;
             btnDelSche.Visible = btnDelPro.Visible = btnDelDetails.Visible = btnTroVe.Visible = true;
         }
 
@@ -214,7 +214,7 @@ namespace VS.OEE
         }
         private void btnTroVe_Click(object sender, EventArgs e)
         {
-            btnThem.Visible = btnXoa.Visible = btnSua.Visible = btnThem.Visible = true;
+            btnThem.Visible = btnXoa.Visible = btnSua.Visible = btnThoat.Visible = true;
             btnDelSche.Visible = btnDelPro.Visible = btnDelDetails.Visible = btnTroVe.Visible = false;
         }
         private void btnDelPro_Click(object sender, EventArgs e)

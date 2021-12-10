@@ -796,7 +796,7 @@ namespace Commons
                 {
                     grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
                 }
-                if(MloadNNgu)
+                if (MloadNNgu)
                     MLoadNNXtraGrid(grv, fName);
                 return true;
             }

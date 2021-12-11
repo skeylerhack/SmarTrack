@@ -227,11 +227,11 @@ namespace VS.OEE
 
             }
         }
-        private void DeleteDataNhaMay()
+        private void DeleteDataQCData()
         {
             if (grvQCData.RowCount == 0) return;
             Int64 iId = -1;
-            try { iId = Modules.ToInt64(grvQCData.GetFocusedRowCellValue("ID_NHA_MAY").ToString()); } catch { }
+            try { iId = Modules.ToInt64(grvQCData.GetFocusedRowCellValue("ID").ToString()); } catch { }
             try
             {
                 if (iId == -1)
@@ -241,7 +241,8 @@ namespace VS.OEE
                 }
                 else
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, groQCDataDetails.Text) == DialogResult.No) return;
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.TO_Operator WHERE ID_PHAN_XUONG IN (SELECT ID_PHAN_XUONG FROM dbo.PHAN_XUONG WHERE ID_NHA_MAY = " + iId + ") DELETE dbo.PHAN_XUONG WHERE ID_NHA_MAY = " + iId + " DELETE dbo.NHA_MAY WHERE ID_NHA_MAY = " + iId + "");
+
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.QCDataDefect WHERE QCDataDetailsID IN (SELECT ID FROM dbo.QCDataDetails WHERE ID_QC = " + iId + ") DELETE dbo.QCDataDetails WHERE ID_QC = " + iId + " DELETE dbo.QCData WHERE ID =  " + iId);
                 grvQCData.DeleteSelectedRows();
                 grvQCData_FocusedRowChanged(grvQCData, null);
             }
@@ -251,7 +252,7 @@ namespace VS.OEE
                 Commons.Modules.msgChung(Commons.ThongBao.msgDuLieuDaPhatSinh);
             }
         }
-        private void DeleteDataPhanXuong()
+        private void DeleteDataQCDataDetails()
         {
             try
             {
@@ -259,14 +260,14 @@ namespace VS.OEE
                 if (grvQCDataDetails.RowCount == 0) return;
                 Int64 iId = -1;
                 //kiểm tra proid này đã tồn tại 
-                try { iId = Modules.ToInt64(grvQCDataDetails.GetFocusedRowCellValue("ID_PHAN_XUONG").ToString()); } catch { }
+                try { iId = Modules.ToInt64(grvQCDataDetails.GetFocusedRowCellValue("ID").ToString()); } catch { }
                 if (iId == -1 && btnThem.Visible == true)
                 {
                     Modules.msgChung(ThongBao.msgKhongCoDuLieuXoa);
                     return;
                 }
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, groQCDataDetails.Text) == DialogResult.No) return;
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.TO_Operator WHERE ID_PHAN_XUONG = " + iId + " DELETE dbo.PHAN_XUONG WHERE ID_PHAN_XUONG = " + iId + "");
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.QCDataDefect WHERE QCDataDetailsID = " + iId + " DELETE dbo.QCDataDetails WHERE ID = " + iId);
                 grvQCDataDetails.DeleteSelectedRows();
                 grvPhanXuong_FocusedRowChanged(grvQCDataDetails, null);
             }
@@ -323,9 +324,9 @@ namespace VS.OEE
             if (Commons.Modules.sId == "0Load") return;
             GridView view = sender as GridView;
             //LoadgrdPhanXuong();
-            RowFilter(grdQCDataDetails, grvQCDataDetails.Columns["ID_NHA_MAY"], Convert.ToInt64(view.GetFocusedRowCellValue("ID_NHA_MAY")));
-            RowFilter(grdQCDataDefect, grvQCDataDefect.Columns["ID_PHAN_XUONG"], Convert.ToInt64(grvQCDataDetails.GetFocusedRowCellValue("ID_PHAN_XUONG")));
-            if (grvQCData.GetFocusedRowCellValue("ID_NHA_MAY") == null)
+            RowFilter(grdQCDataDetails, grvQCDataDetails.Columns["ID_QC"], Convert.ToInt64(view.GetFocusedRowCellValue("ID")));
+            RowFilter(grdQCDataDefect, grvQCDataDefect.Columns["QCDataDetailsID"], Convert.ToInt64(grvQCDataDetails.GetFocusedRowCellValue("ID")));
+            if (grvQCData.GetFocusedRowCellValue("ID") == null)
             {
                 grdQCDataDetails.Enabled = false;
             }
@@ -334,38 +335,7 @@ namespace VS.OEE
                 grdQCDataDetails.Enabled = true;
             }
         }
-        private void grvNhaMay_InitNewRow(object sender, InitNewRowEventArgs e)
-        {
-            try
-            {
-                GridView view = sender as GridView;
-                GridControl grid = view.GridControl;
-
-                Int64 max = 0;
-                DataTable dt = new DataTable();
-                dt = (DataTable)grid.DataSource;
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    if ((string.IsNullOrEmpty(dt.Rows[i]["ID_NHA_MAY"].ToString()) ? 0 : Convert.ToInt64(dt.Rows[i]["ID_NHA_MAY"])) > max)
-                    {
-                        max = (string.IsNullOrEmpty(dt.Rows[i]["ID_NHA_MAY"].ToString()) ? 0 : Convert.ToInt64(dt.Rows[i]["ID_NHA_MAY"]));
-                    }
-                }
-
-                view.SetFocusedRowCellValue("ID_NHA_MAY", max + 1);
-                view.SetFocusedRowCellValue("ID_TEMP", -1);
-
-                if (view.GetFocusedRowCellValue("ID_NHA_MAY") == null)
-                {
-                    grdQCDataDetails.Enabled = false;
-                }
-                else
-                {
-                    grdQCDataDetails.Enabled = true;
-                }
-            }
-            catch { }
-        }
+        
         private void grdNhaMay_ProcessGridKey(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete && btnGhi.Visible == false)
@@ -461,13 +431,13 @@ namespace VS.OEE
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
-        private void grvPhanXuong_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void grvQCDataDetails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             if (Commons.Modules.sId == "0Load") return;
             GridView view = sender as GridView;
             //LoadgrdTo();
-            RowFilter(grdQCDataDefect, grvQCDataDefect.Columns["ID_PHAN_XUONG"], Convert.ToInt64(view.GetFocusedRowCellValue("ID_PHAN_XUONG")));
-            if (grvQCDataDetails.GetFocusedRowCellValue("ID_PHAN_XUONG") == null)
+            RowFilter(grdQCDataDefect, grvQCDataDefect.Columns["QCDataDetailsID"], Convert.ToInt64(view.GetFocusedRowCellValue("ID")));
+            if (grvQCDataDetails.GetFocusedRowCellValue("ID") == null)
             {
                 grdQCDataDefect.Enabled = false;
             }
@@ -476,14 +446,14 @@ namespace VS.OEE
                 grdQCDataDefect.Enabled = true;
             }
         }
-        private void grdPhanXuong_ProcessGridKey(object sender, KeyEventArgs e)
+        private void grvQCDataDetails_ProcessGridKey(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)
             {
-                DeleteDataPhanXuong();
+                DeleteDataQCDataDetails();
             }
         }
-        private void grvPhanXuong_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void grvQCDataDetails_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             try
             {
@@ -567,12 +537,12 @@ namespace VS.OEE
             }
             catch { }
         }
-        private void grvPhanXuong_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        private void grvQCDataDetails_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
 
         }
-        private void grvPhanXuong_InitNewRow(object sender, InitNewRowEventArgs e)
+        private void grvQCDataDetails_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             try
             {

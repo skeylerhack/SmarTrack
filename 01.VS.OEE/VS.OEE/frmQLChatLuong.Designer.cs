@@ -178,7 +178,6 @@
             this.grvQCData.GridControl = this.grdQCData;
             this.grvQCData.Name = "grvQCData";
             this.grvQCData.OptionsView.ShowGroupPanel = false;
-            this.grvQCData.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvNhaMay_InitNewRow);
             this.grvQCData.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvQCData_FocusedRowChanged);
             this.grvQCData.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvNhaMay_InvalidRowException);
             this.grvQCData.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvNhaMay_ValidateRow);
@@ -257,17 +256,17 @@
             this.grdQCDataDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvQCDataDetails,
             this.gridView1});
-            this.grdQCDataDetails.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grdPhanXuong_ProcessGridKey);
+            this.grdQCDataDetails.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grvQCDataDetails_ProcessGridKey);
             // 
             // grvQCDataDetails
             // 
             this.grvQCDataDetails.GridControl = this.grdQCDataDetails;
             this.grvQCDataDetails.Name = "grvQCDataDetails";
             this.grvQCDataDetails.OptionsView.ShowGroupPanel = false;
-            this.grvQCDataDetails.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvPhanXuong_InitNewRow);
-            this.grvQCDataDetails.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvPhanXuong_FocusedRowChanged);
-            this.grvQCDataDetails.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvPhanXuong_InvalidRowException);
-            this.grvQCDataDetails.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPhanXuong_ValidateRow);
+            this.grvQCDataDetails.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvQCDataDetails_InitNewRow);
+            this.grvQCDataDetails.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvQCDataDetails_FocusedRowChanged);
+            this.grvQCDataDetails.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvQCDataDetails_InvalidRowException);
+            this.grvQCDataDetails.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvQCDataDetails_ValidateRow);
             // 
             // gridView1
             // 

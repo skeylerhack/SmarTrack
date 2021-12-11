@@ -68,7 +68,7 @@ namespace VS.OEE
             if (grvOperator.RowCount == 0) nullText = true;
             try
             {
-                txtID.Text = (nullText ? "-1" : Modules.ToInt64(grvOperator.GetFocusedRowCellValue("ID")).ToString());
+                txtID.Text = (nullText ? "-1" : Modules.ToInt64(grvOperator.GetFocusedRowCellValue("ID_Operator")).ToString());
                 txtOperatorName.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("OperatorName")));
                 txtOperatorCode.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("OperatorCode")));
                 txtCardID.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("CardID").ToString()));
@@ -90,11 +90,11 @@ namespace VS.OEE
                 comd.CommandText = "spOperator";
                 comd.Parameters.Add(new SqlParameter("@Loai", "Grd"));
                 dt = IConnections.MGetDataTable(comd);
-                dt.PrimaryKey = new DataColumn[] { dt.Columns["ID"] };
+                dt.PrimaryKey = new DataColumn[] { dt.Columns["ID_Operator"] };
                 if (grdOperator.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdOperator, grvOperator, dt, false, true, true, false, true, this.Name);
-                    grvOperator.Columns["ID"].Visible = false;
+                    grvOperator.Columns["ID_Operator"].Visible = false;
                     grvOperator.Columns["OperatorName"].Width = 250;
                     grvOperator.Columns["OperatorCode"].Width = 200;
                     grvOperator.Columns["CardID"].Width = 200;
@@ -152,7 +152,7 @@ namespace VS.OEE
             if (e.KeyCode != Keys.Delete) return;
             if (grvOperator.RowCount == 0) return;
             Int64 iId = -1;
-            try { iId = Modules.ToInt64(grvOperator.GetFocusedRowCellValue("ID").ToString()); } catch { }
+            try { iId = Modules.ToInt64(grvOperator.GetFocusedRowCellValue("ID_Operator").ToString()); } catch { }
             if (iId == -1)
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblOperatorName.Text);
@@ -287,6 +287,7 @@ namespace VS.OEE
             try
             {
                 LoadText(false);
+                Commons.Modules.ObjSystems.DeleteAddRow(grvOperator);
             }
             catch (Exception ex)
             {
@@ -390,7 +391,7 @@ namespace VS.OEE
             if (dt.Rows.Count == 0) nullText = true;
             try
             {
-                txtID.Text = (nullText ? "-1" : Modules.ToInt64(dt.Rows[0]["ID"].ToString()).ToString());
+                txtID.Text = (nullText ? "-1" : Modules.ToInt64(dt.Rows[0]["ID_Operator"].ToString()).ToString());
                 txtOperatorName.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["txtOperatorName"].ToString()));
                 txtOperatorCode.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["OperatorCode"].ToString()));
                 txtCardID.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["CardID"].ToString()));
@@ -402,6 +403,9 @@ namespace VS.OEE
             }
         }
 
-      
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

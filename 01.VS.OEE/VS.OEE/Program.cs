@@ -16,6 +16,7 @@ namespace VS.OEE
             ClsMain.LayThongTinConfig();
             Commons.Modules.ModuleName = "ECOMAIN";
             Commons.Modules.sPrivate = @"TRUNGNGUYEN";
+            Commons.Modules.UserName = "admin";
             //1 Full ,2Read Only,3No access.
             Commons.Modules.iPermission = 1;
             Commons.Modules.iSoLeSL = 0;
@@ -35,7 +36,7 @@ namespace VS.OEE
             try
             {
                 Application.Run(new frmMain());
-                //Application.Run(new frmHanhDong(1));
+                //Application.Run(new frmOperator(1));
             }
             catch (Exception ex)
             {

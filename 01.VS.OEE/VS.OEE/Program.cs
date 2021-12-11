@@ -27,8 +27,6 @@ namespace VS.OEE
             Commons.Modules.sSoLeTT = Commons.Modules.ObjSystems.sDinhDangSoLe(Commons.Modules.iSoLeTT);
             Commons.Modules.sSoLe4 = Commons.Modules.ObjSystems.sDinhDangSoLe(4);
             Commons.Modules.TypeLanguage = Properties.Settings.Default.lang;
-
-
             Thread t = new Thread(() => MRunForm());
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
@@ -38,12 +36,7 @@ namespace VS.OEE
             try
             {
                 Application.Run(new frmMain());
-                //Application.Run(new frmHanhDong(1));
-                //Application.Run(new frmVaiTro(1));
-                //Application.Run(new frmNM_PX_TO(1));
-                //Application.Run(new frmQLCa(1));
-                //Application.Run(new frmShiftLeader(1));
-
+                //Application.Run(new frmOperator(1));
             }
             catch (Exception ex)
             {

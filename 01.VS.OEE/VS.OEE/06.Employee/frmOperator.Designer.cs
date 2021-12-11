@@ -35,33 +35,42 @@
             this.lblOperatorName = new DevExpress.XtraEditors.LabelControl();
             this.panelNN = new DevExpress.XtraEditors.PanelControl();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
+            this.txtSearch = new DevExpress.XtraEditors.SearchControl();
+            this.grdOperator = new DevExpress.XtraGrid.GridControl();
+            this.grvOperator = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
-            this.grdOperator = new DevExpress.XtraGrid.GridControl();
-            this.grvOperator = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtSearch = new DevExpress.XtraEditors.SearchControl();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.panelChung = new DevExpress.Utils.Layout.TablePanel();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.lblOperatorCode = new DevExpress.XtraEditors.LabelControl();
             this.lblCardID = new DevExpress.XtraEditors.LabelControl();
             this.txtCardID = new DevExpress.XtraEditors.TextEdit();
+            this.lblPhone = new DevExpress.XtraEditors.LabelControl();
+            this.lblGmail = new DevExpress.XtraEditors.LabelControl();
+            this.lblTo = new DevExpress.XtraEditors.LabelControl();
+            this.txtPhone = new DevExpress.XtraEditors.TextEdit();
+            this.txtGmail = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOperatorName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOperatorCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
             this.panelNN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdOperator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvOperator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).BeginInit();
             this.panelChung.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCardID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGmail.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtOperatorName
@@ -88,9 +97,9 @@
             // 
             this.lblNote.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.panelChung.SetColumn(this.lblNote, 1);
-            this.lblNote.Location = new System.Drawing.Point(66, 37);
+            this.lblNote.Location = new System.Drawing.Point(66, 63);
             this.lblNote.Name = "lblNote";
-            this.panelChung.SetRow(this.lblNote, 2);
+            this.panelChung.SetRow(this.lblNote, 3);
             this.lblNote.Size = new System.Drawing.Size(114, 19);
             this.lblNote.TabIndex = 1;
             this.lblNote.Text = "lblNote";
@@ -100,10 +109,10 @@
             this.panelChung.SetColumn(this.txtNote, 2);
             this.panelChung.SetColumnSpan(this.txtNote, 5);
             this.txtNote.EnterMoveNextControl = true;
-            this.txtNote.Location = new System.Drawing.Point(186, 37);
+            this.txtNote.Location = new System.Drawing.Point(186, 63);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.MaxLength = 500;
-            this.panelChung.SetRow(this.txtNote, 2);
+            this.panelChung.SetRow(this.txtNote, 3);
             this.txtNote.Size = new System.Drawing.Size(711, 20);
             this.txtNote.TabIndex = 3;
             // 
@@ -136,7 +145,7 @@
             this.panelNN.Controls.Add(this.btnKhong);
             this.panelNN.Location = new System.Drawing.Point(3, 442);
             this.panelNN.Name = "panelNN";
-            this.panelChung.SetRow(this.panelNN, 5);
+            this.panelChung.SetRow(this.panelNN, 6);
             this.panelNN.Size = new System.Drawing.Size(957, 29);
             this.panelNN.TabIndex = 6;
             // 
@@ -149,6 +158,67 @@
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "btnSua";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtSearch.Client = this.grdOperator;
+            this.txtSearch.EnterMoveNextControl = true;
+            this.txtSearch.Location = new System.Drawing.Point(2, 7);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.txtSearch.Properties.Client = this.grdOperator;
+            this.txtSearch.Properties.FindDelay = 100;
+            this.txtSearch.Size = new System.Drawing.Size(150, 20);
+            this.txtSearch.TabIndex = 3;
+            // 
+            // grdOperator
+            // 
+            this.panelChung.SetColumn(this.grdOperator, 0);
+            this.panelChung.SetColumnSpan(this.grdOperator, 8);
+            this.grdOperator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdOperator.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.grdOperator.Location = new System.Drawing.Point(2, 96);
+            this.grdOperator.MainView = this.grvOperator;
+            this.grdOperator.Margin = new System.Windows.Forms.Padding(2);
+            this.grdOperator.Name = "grdOperator";
+            this.panelChung.SetRow(this.grdOperator, 5);
+            this.grdOperator.Size = new System.Drawing.Size(959, 341);
+            this.grdOperator.TabIndex = 7;
+            this.grdOperator.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvOperator,
+            this.gridView1});
+            this.grdOperator.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grdChung_ProcessGridKey);
+            // 
+            // grvOperator
+            // 
+            this.grvOperator.ColumnPanelRowHeight = 1;
+            this.grvOperator.DetailHeight = 227;
+            this.grvOperator.FixedLineWidth = 1;
+            this.grvOperator.GridControl = this.grdOperator;
+            this.grvOperator.Name = "grvOperator";
+            this.grvOperator.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grvOperator.OptionsBehavior.AutoExpandAllGroups = true;
+            this.grvOperator.OptionsCustomization.AllowRowSizing = true;
+            this.grvOperator.OptionsFilter.ColumnFilterPopupMode = DevExpress.XtraGrid.Columns.ColumnFilterPopupMode.Excel;
+            this.grvOperator.OptionsFind.FindDelay = 100;
+            this.grvOperator.OptionsNavigation.EnterMoveNextColumn = true;
+            this.grvOperator.OptionsPrint.AllowMultilineHeaders = true;
+            this.grvOperator.OptionsScrollAnnotations.ShowCustomAnnotations = DevExpress.Utils.DefaultBoolean.True;
+            this.grvOperator.OptionsScrollAnnotations.ShowErrors = DevExpress.Utils.DefaultBoolean.True;
+            this.grvOperator.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.grvOperator.OptionsScrollAnnotations.ShowSelectedRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grvOperator.OptionsView.RowAutoHeight = true;
+            this.grvOperator.OptionsView.ShowGroupPanel = false;
+            this.grvOperator.RowHeight = 1;
+            this.grvOperator.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvChung_FocusedRowChanged);
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.grdOperator;
+            this.gridView1.Name = "gridView1";
             // 
             // btnThoat
             // 
@@ -200,67 +270,6 @@
             this.btnKhong.Text = "btnKhong";
             this.btnKhong.Click += new System.EventHandler(this.btnKhong_Click);
             // 
-            // grdOperator
-            // 
-            this.panelChung.SetColumn(this.grdOperator, 0);
-            this.panelChung.SetColumnSpan(this.grdOperator, 8);
-            this.grdOperator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdOperator.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.grdOperator.Location = new System.Drawing.Point(2, 70);
-            this.grdOperator.MainView = this.grvOperator;
-            this.grdOperator.Margin = new System.Windows.Forms.Padding(2);
-            this.grdOperator.Name = "grdOperator";
-            this.panelChung.SetRow(this.grdOperator, 4);
-            this.grdOperator.Size = new System.Drawing.Size(959, 367);
-            this.grdOperator.TabIndex = 7;
-            this.grdOperator.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvOperator,
-            this.gridView1});
-            this.grdOperator.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grdChung_ProcessGridKey);
-            // 
-            // grvOperator
-            // 
-            this.grvOperator.ColumnPanelRowHeight = 1;
-            this.grvOperator.DetailHeight = 227;
-            this.grvOperator.FixedLineWidth = 1;
-            this.grvOperator.GridControl = this.grdOperator;
-            this.grvOperator.Name = "grvOperator";
-            this.grvOperator.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            this.grvOperator.OptionsBehavior.AutoExpandAllGroups = true;
-            this.grvOperator.OptionsCustomization.AllowRowSizing = true;
-            this.grvOperator.OptionsFilter.ColumnFilterPopupMode = DevExpress.XtraGrid.Columns.ColumnFilterPopupMode.Excel;
-            this.grvOperator.OptionsFind.FindDelay = 100;
-            this.grvOperator.OptionsNavigation.EnterMoveNextColumn = true;
-            this.grvOperator.OptionsPrint.AllowMultilineHeaders = true;
-            this.grvOperator.OptionsScrollAnnotations.ShowCustomAnnotations = DevExpress.Utils.DefaultBoolean.True;
-            this.grvOperator.OptionsScrollAnnotations.ShowErrors = DevExpress.Utils.DefaultBoolean.True;
-            this.grvOperator.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
-            this.grvOperator.OptionsScrollAnnotations.ShowSelectedRows = DevExpress.Utils.DefaultBoolean.True;
-            this.grvOperator.OptionsView.RowAutoHeight = true;
-            this.grvOperator.OptionsView.ShowGroupPanel = false;
-            this.grvOperator.RowHeight = 1;
-            this.grvOperator.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvChung_FocusedRowChanged);
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.grdOperator;
-            this.gridView1.Name = "gridView1";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSearch.Client = this.grdOperator;
-            this.txtSearch.EnterMoveNextControl = true;
-            this.txtSearch.Location = new System.Drawing.Point(2, 7);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.txtSearch.Properties.Client = this.grdOperator;
-            this.txtSearch.Properties.FindDelay = 100;
-            this.txtSearch.Size = new System.Drawing.Size(150, 20);
-            this.txtSearch.TabIndex = 3;
-            // 
             // txtID
             // 
             this.panelChung.SetColumn(this.txtID, 0);
@@ -282,6 +291,7 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 20F)});
+            this.panelChung.Controls.Add(this.lookUpEdit1);
             this.panelChung.Controls.Add(this.txtID);
             this.panelChung.Controls.Add(this.grdOperator);
             this.panelChung.Controls.Add(this.panelNN);
@@ -293,6 +303,11 @@
             this.panelChung.Controls.Add(this.lblCardID);
             this.panelChung.Controls.Add(this.txtOperatorCode);
             this.panelChung.Controls.Add(this.txtCardID);
+            this.panelChung.Controls.Add(this.lblPhone);
+            this.panelChung.Controls.Add(this.lblGmail);
+            this.panelChung.Controls.Add(this.lblTo);
+            this.panelChung.Controls.Add(this.txtPhone);
+            this.panelChung.Controls.Add(this.txtGmail);
             this.panelChung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChung.Location = new System.Drawing.Point(0, 0);
             this.panelChung.Name = "panelChung";
@@ -300,11 +315,24 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
             this.panelChung.Size = new System.Drawing.Size(963, 474);
             this.panelChung.TabIndex = 2;
+            // 
+            // lookUpEdit1
+            // 
+            this.panelChung.SetColumn(this.lookUpEdit1, 6);
+            this.lookUpEdit1.Location = new System.Drawing.Point(744, 37);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.panelChung.SetRow(this.lookUpEdit1, 2);
+            this.lookUpEdit1.Size = new System.Drawing.Size(153, 20);
+            this.lookUpEdit1.TabIndex = 8;
             // 
             // lblOperatorCode
             // 
@@ -339,6 +367,61 @@
             this.txtCardID.Size = new System.Drawing.Size(153, 20);
             this.txtCardID.TabIndex = 2;
             // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.panelChung.SetColumn(this.lblPhone, 1);
+            this.lblPhone.Location = new System.Drawing.Point(66, 37);
+            this.lblPhone.Name = "lblPhone";
+            this.panelChung.SetRow(this.lblPhone, 2);
+            this.lblPhone.Size = new System.Drawing.Size(114, 19);
+            this.lblPhone.TabIndex = 1;
+            this.lblPhone.Text = "lblPhone";
+            // 
+            // lblGmail
+            // 
+            this.lblGmail.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.panelChung.SetColumn(this.lblGmail, 3);
+            this.lblGmail.Location = new System.Drawing.Point(345, 37);
+            this.lblGmail.Name = "lblGmail";
+            this.panelChung.SetRow(this.lblGmail, 2);
+            this.lblGmail.Size = new System.Drawing.Size(114, 19);
+            this.lblGmail.TabIndex = 1;
+            this.lblGmail.Text = "lblGmail";
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.panelChung.SetColumn(this.lblTo, 5);
+            this.lblTo.Location = new System.Drawing.Point(624, 37);
+            this.lblTo.Name = "lblTo";
+            this.panelChung.SetRow(this.lblTo, 2);
+            this.lblTo.Size = new System.Drawing.Size(114, 19);
+            this.lblTo.TabIndex = 1;
+            this.lblTo.Text = "lblTo";
+            // 
+            // txtPhone
+            // 
+            this.panelChung.SetColumn(this.txtPhone, 2);
+            this.txtPhone.EnterMoveNextControl = true;
+            this.txtPhone.Location = new System.Drawing.Point(186, 37);
+            this.txtPhone.Name = "txtPhone";
+            this.panelChung.SetRow(this.txtPhone, 2);
+            this.txtPhone.Size = new System.Drawing.Size(153, 20);
+            this.txtPhone.TabIndex = 0;
+            this.txtPhone.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
+            // 
+            // txtGmail
+            // 
+            this.panelChung.SetColumn(this.txtGmail, 4);
+            this.txtGmail.EnterMoveNextControl = true;
+            this.txtGmail.Location = new System.Drawing.Point(465, 37);
+            this.txtGmail.Name = "txtGmail";
+            this.panelChung.SetRow(this.txtGmail, 2);
+            this.txtGmail.Size = new System.Drawing.Size(153, 20);
+            this.txtGmail.TabIndex = 0;
+            this.txtGmail.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
+            // 
             // frmOperator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,14 +437,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).EndInit();
             this.panelNN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdOperator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvOperator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).EndInit();
             this.panelChung.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCardID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGmail.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,5 +474,11 @@
         private DevExpress.XtraEditors.TextEdit txtOperatorCode;
         private DevExpress.XtraEditors.TextEdit txtCardID;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
+        private DevExpress.XtraEditors.LabelControl lblPhone;
+        private DevExpress.XtraEditors.LabelControl lblGmail;
+        private DevExpress.XtraEditors.LabelControl lblTo;
+        private DevExpress.XtraEditors.TextEdit txtPhone;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.TextEdit txtGmail;
     }
 }

@@ -279,9 +279,6 @@ namespace VS.OEE
                     Commons.Modules.ObjSystems.AddCombXtra("MS_DVT_RT", "TEN_DVT_RT", "MS_DV_TG_Output", grvItemMay, Commons.Modules.ObjSystems.DataDonViTinhRunTime(), false, this.Name);
                     Commons.Modules.ObjSystems.AddCombXtra("MS_DVT_TD", "TEN_DVT_TD", "MS_DV_TG_Speed", grvItemMay, Commons.Modules.ObjSystems.DataDonViTinhTocDo(), false, this.Name);
                     Commons.Modules.ObjSystems.AddCombXtra("MS_MAY", "TEN_MAY", grvItemMay, "spGetMay",this.Name);
-
-
-
                     grvItemMay.Columns["StandardOutput"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvItemMay.Columns["StandardOutput"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvItemMay.Columns["StandardSpeed"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -296,6 +293,9 @@ namespace VS.OEE
                     grvItemMay.Columns["DownTimeRecord"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
                     grvItemMay.Columns["WorkingCycle"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvItemMay.Columns["WorkingCycle"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
+
+                    grvItemMay.Columns["Consumption"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvItemMay.Columns["Consumption"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
 
                 }
                 else

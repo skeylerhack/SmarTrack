@@ -38,9 +38,6 @@ namespace VS.OEE
             ReadonlyControl(flag);
             grdQCData.Enabled = flag;
             grvQCDataDetails.OptionsBehavior.ReadOnly = flag;
-
-
-
         }
         private void ReadonlyControl(bool flag)
         {
@@ -48,8 +45,6 @@ namespace VS.OEE
             txtQCName.Properties.ReadOnly = flag;
             dedQCDate.Properties.ReadOnly = flag;
         }
-
-
         #region Event
         private void frmNhapHangLoi_Load(object sender, EventArgs e)
         {
@@ -130,7 +125,6 @@ namespace VS.OEE
             try
             {
                 if (!dxValidationProvider1.Validate()) return;
-
                 string sBT = "sBTNhapHangLoi" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, (DataTable)grdQCDataDetails.DataSource, "");
                 System.Data.SqlClient.SqlConnection conn;

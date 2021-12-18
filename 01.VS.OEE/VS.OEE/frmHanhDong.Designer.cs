@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groHanhDong = new DevExpress.XtraEditors.GroupControl();
             this.grdHanhDong = new DevExpress.XtraGrid.GridControl();
@@ -63,6 +64,38 @@
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
+            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groHanhDong)).BeginInit();
@@ -88,6 +121,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
             this.panelNN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
+            this.tablePanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+            this.splitContainerControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel4)).BeginInit();
+            this.tablePanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -473,11 +530,388 @@
             this.btnXoa.Text = "btnXoa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
+            // tablePanel3
+            // 
+            this.tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 54.68F)});
+            this.tablePanel3.Controls.Add(this.panelControl1);
+            this.tablePanel3.Controls.Add(this.splitContainerControl2);
+            this.tablePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel3.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel3.Name = "tablePanel3";
+            this.tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
+            this.tablePanel3.Size = new System.Drawing.Size(1010, 550);
+            this.tablePanel3.TabIndex = 3;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tablePanel3.SetColumn(this.panelControl1, 0);
+            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.simpleButton2);
+            this.panelControl1.Controls.Add(this.simpleButton3);
+            this.panelControl1.Controls.Add(this.simpleButton4);
+            this.panelControl1.Controls.Add(this.simpleButton5);
+            this.panelControl1.Controls.Add(this.simpleButton6);
+            this.panelControl1.Controls.Add(this.simpleButton7);
+            this.panelControl1.Location = new System.Drawing.Point(3, 518);
+            this.panelControl1.Name = "panelControl1";
+            this.tablePanel3.SetRow(this.panelControl1, 1);
+            this.panelControl1.Size = new System.Drawing.Size(1004, 29);
+            this.panelControl1.TabIndex = 7;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Location = new System.Drawing.Point(679, 2);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton1.TabIndex = 9;
+            this.simpleButton1.Text = "btnThem";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Location = new System.Drawing.Point(760, 2);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton2.TabIndex = 6;
+            this.simpleButton2.Text = "btnSua";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton3.Location = new System.Drawing.Point(760, 2);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton3.TabIndex = 8;
+            this.simpleButton3.Text = "btnChooseMay";
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton4.Location = new System.Drawing.Point(841, 2);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton4.TabIndex = 11;
+            this.simpleButton4.Text = "btnGhi";
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton5.Location = new System.Drawing.Point(922, 2);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton5.TabIndex = 12;
+            this.simpleButton5.Text = "btnKhong";
+            // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton6.Location = new System.Drawing.Point(922, 2);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton6.TabIndex = 10;
+            this.simpleButton6.Text = "btnThoat";
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton7.Location = new System.Drawing.Point(841, 2);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(80, 26);
+            this.simpleButton7.TabIndex = 10;
+            this.simpleButton7.Text = "btnXoa";
+            // 
+            // splitContainerControl2
+            // 
+            this.tablePanel3.SetColumn(this.splitContainerControl2, 0);
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            this.splitContainerControl2.Panel1.Controls.Add(this.groupControl1);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            this.splitContainerControl2.Panel2.Controls.Add(this.tablePanel4);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.tablePanel3.SetRow(this.splitContainerControl2, 0);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1004, 509);
+            this.splitContainerControl2.SplitterPosition = 358;
+            this.splitContainerControl2.TabIndex = 1;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.gridControl1);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(358, 509);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "groHanhDong";
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(2, 22);
+            this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(354, 485);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // tablePanel4
+            // 
+            this.tablePanel4.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
+            this.tablePanel4.Controls.Add(this.memoEdit1);
+            this.tablePanel4.Controls.Add(this.checkEdit1);
+            this.tablePanel4.Controls.Add(this.spinEdit1);
+            this.tablePanel4.Controls.Add(this.textEdit1);
+            this.tablePanel4.Controls.Add(this.labelControl1);
+            this.tablePanel4.Controls.Add(this.groupControl2);
+            this.tablePanel4.Controls.Add(this.labelControl2);
+            this.tablePanel4.Controls.Add(this.labelControl3);
+            this.tablePanel4.Controls.Add(this.labelControl4);
+            this.tablePanel4.Controls.Add(this.labelControl5);
+            this.tablePanel4.Controls.Add(this.labelControl6);
+            this.tablePanel4.Controls.Add(this.textEdit2);
+            this.tablePanel4.Controls.Add(this.textEdit3);
+            this.tablePanel4.Controls.Add(this.labelControl7);
+            this.tablePanel4.Controls.Add(this.checkEdit2);
+            this.tablePanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablePanel4.Location = new System.Drawing.Point(0, 0);
+            this.tablePanel4.Name = "tablePanel4";
+            this.tablePanel4.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 52F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
+            this.tablePanel4.Size = new System.Drawing.Size(640, 509);
+            this.tablePanel4.TabIndex = 2;
+            // 
+            // memoEdit1
+            // 
+            this.tablePanel4.SetColumn(this.memoEdit1, 1);
+            this.tablePanel4.SetColumnSpan(this.memoEdit1, 3);
+            this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit1.Location = new System.Drawing.Point(123, 89);
+            this.memoEdit1.Name = "memoEdit1";
+            this.tablePanel4.SetRow(this.memoEdit1, 4);
+            this.memoEdit1.Size = new System.Drawing.Size(514, 46);
+            this.memoEdit1.TabIndex = 6;
+            // 
+            // checkEdit1
+            // 
+            this.tablePanel4.SetColumn(this.checkEdit1, 3);
+            this.checkEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkEdit1.Location = new System.Drawing.Point(443, 37);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "checkEdit1";
+            this.checkEdit1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.tablePanel4.SetRow(this.checkEdit1, 2);
+            this.checkEdit1.Size = new System.Drawing.Size(194, 20);
+            this.checkEdit1.TabIndex = 5;
+            // 
+            // spinEdit1
+            // 
+            this.tablePanel4.SetColumn(this.spinEdit1, 1);
+            this.spinEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(123, 63);
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tablePanel4.SetRow(this.spinEdit1, 3);
+            this.spinEdit1.Size = new System.Drawing.Size(194, 20);
+            this.spinEdit1.TabIndex = 4;
+            // 
+            // textEdit1
+            // 
+            this.tablePanel4.SetColumn(this.textEdit1, 1);
+            this.textEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEdit1.Location = new System.Drawing.Point(123, 11);
+            this.textEdit1.Name = "textEdit1";
+            this.tablePanel4.SetRow(this.textEdit1, 1);
+            this.textEdit1.Size = new System.Drawing.Size(194, 20);
+            this.textEdit1.TabIndex = 3;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.textEdit1, conditionValidationRule2);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.tablePanel4.SetColumn(this.labelControl1, 0);
+            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl1.Location = new System.Drawing.Point(3, 11);
+            this.labelControl1.Name = "labelControl1";
+            this.tablePanel4.SetRow(this.labelControl1, 1);
+            this.labelControl1.Size = new System.Drawing.Size(114, 20);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "lblTenHanhDong";
+            // 
+            // groupControl2
+            // 
+            this.tablePanel4.SetColumn(this.groupControl2, 0);
+            this.tablePanel4.SetColumnSpan(this.groupControl2, 4);
+            this.groupControl2.Controls.Add(this.gridControl2);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(3, 149);
+            this.groupControl2.Name = "groupControl2";
+            this.tablePanel4.SetRow(this.groupControl2, 6);
+            this.groupControl2.Size = new System.Drawing.Size(634, 357);
+            this.groupControl2.TabIndex = 1;
+            this.groupControl2.Text = "groNhanVienGui";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(2, 22);
+            this.gridControl2.MainView = this.gridView3;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(630, 333);
+            this.gridControl2.TabIndex = 1;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3,
+            this.gridView4});
+            // 
+            // gridView3
+            // 
+            this.gridView3.GridControl = this.gridControl2;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.MultiSelect = true;
+            this.gridView3.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView3.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridView4
+            // 
+            this.gridView4.GridControl = this.gridControl2;
+            this.gridView4.Name = "gridView4";
+            // 
+            // labelControl2
+            // 
+            this.tablePanel4.SetColumn(this.labelControl2, 2);
+            this.labelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl2.Location = new System.Drawing.Point(323, 11);
+            this.labelControl2.Name = "labelControl2";
+            this.tablePanel4.SetRow(this.labelControl2, 1);
+            this.labelControl2.Size = new System.Drawing.Size(114, 20);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "lblTenHanhDongA";
+            // 
+            // labelControl3
+            // 
+            this.tablePanel4.SetColumn(this.labelControl3, 0);
+            this.labelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl3.Location = new System.Drawing.Point(3, 37);
+            this.labelControl3.Name = "labelControl3";
+            this.tablePanel4.SetRow(this.labelControl3, 2);
+            this.labelControl3.Size = new System.Drawing.Size(114, 20);
+            this.labelControl3.TabIndex = 2;
+            this.labelControl3.Text = "lblTenHanhDongH";
+            // 
+            // labelControl4
+            // 
+            this.tablePanel4.SetColumn(this.labelControl4, 2);
+            this.labelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl4.Location = new System.Drawing.Point(323, 37);
+            this.labelControl4.Name = "labelControl4";
+            this.tablePanel4.SetRow(this.labelControl4, 2);
+            this.labelControl4.Size = new System.Drawing.Size(114, 20);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "lblNMTheoLoai";
+            // 
+            // labelControl5
+            // 
+            this.tablePanel4.SetColumn(this.labelControl5, 0);
+            this.labelControl5.Location = new System.Drawing.Point(3, 66);
+            this.labelControl5.Name = "labelControl5";
+            this.tablePanel4.SetRow(this.labelControl5, 3);
+            this.labelControl5.Size = new System.Drawing.Size(52, 13);
+            this.labelControl5.TabIndex = 2;
+            this.labelControl5.Text = "lblBuocTH";
+            // 
+            // labelControl6
+            // 
+            this.tablePanel4.SetColumn(this.labelControl6, 0);
+            this.labelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl6.Location = new System.Drawing.Point(3, 89);
+            this.labelControl6.Name = "labelControl6";
+            this.tablePanel4.SetRow(this.labelControl6, 4);
+            this.labelControl6.Size = new System.Drawing.Size(114, 46);
+            this.labelControl6.TabIndex = 2;
+            this.labelControl6.Text = "lblGhiChu";
+            // 
+            // textEdit2
+            // 
+            this.tablePanel4.SetColumn(this.textEdit2, 3);
+            this.textEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEdit2.Location = new System.Drawing.Point(443, 11);
+            this.textEdit2.Name = "textEdit2";
+            this.tablePanel4.SetRow(this.textEdit2, 1);
+            this.textEdit2.Size = new System.Drawing.Size(194, 20);
+            this.textEdit2.TabIndex = 3;
+            // 
+            // textEdit3
+            // 
+            this.tablePanel4.SetColumn(this.textEdit3, 1);
+            this.textEdit3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEdit3.Location = new System.Drawing.Point(123, 37);
+            this.textEdit3.Name = "textEdit3";
+            this.tablePanel4.SetRow(this.textEdit3, 2);
+            this.textEdit3.Size = new System.Drawing.Size(194, 20);
+            this.textEdit3.TabIndex = 3;
+            // 
+            // labelControl7
+            // 
+            this.tablePanel4.SetColumn(this.labelControl7, 2);
+            this.labelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelControl7.Location = new System.Drawing.Point(323, 63);
+            this.labelControl7.Name = "labelControl7";
+            this.tablePanel4.SetRow(this.labelControl7, 3);
+            this.labelControl7.Size = new System.Drawing.Size(114, 20);
+            this.labelControl7.TabIndex = 2;
+            this.labelControl7.Text = "lblTheoCa";
+            // 
+            // checkEdit2
+            // 
+            this.tablePanel4.SetColumn(this.checkEdit2, 3);
+            this.checkEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkEdit2.Location = new System.Drawing.Point(443, 63);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Caption = "checkEdit1";
+            this.checkEdit2.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.tablePanel4.SetRow(this.checkEdit2, 3);
+            this.checkEdit2.Size = new System.Drawing.Size(194, 20);
+            this.checkEdit2.TabIndex = 5;
+            // 
             // frmHanhDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 550);
+            this.Controls.Add(this.tablePanel3);
             this.Controls.Add(this.tablePanel1);
             this.Name = "frmHanhDong";
             this.Text = "frmHanhDong";
@@ -508,6 +942,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).EndInit();
             this.panelNN.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).EndInit();
+            this.tablePanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+            this.splitContainerControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablePanel4)).EndInit();
+            this.tablePanel4.ResumeLayout(false);
+            this.tablePanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,5 +1006,37 @@
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private DevExpress.XtraEditors.SimpleButton btnKhong;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.Utils.Layout.TablePanel tablePanel3;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.Utils.Layout.TablePanel tablePanel4;
+        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
     }
 }

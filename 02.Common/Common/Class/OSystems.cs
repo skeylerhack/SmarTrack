@@ -393,7 +393,7 @@ namespace Commons
                 return false;
             }
         }
-        public bool MLoadLookUpEditNoRemove(DevExpress.XtraEditors.LookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string TenCot)
+        public bool MLoadLookUpEditNoRemove(DevExpress.XtraEditors.LookUpEdit cbo, DataTable dtTmp, string Ma, string Ten, string sForm)
         {
             try
             {
@@ -413,26 +413,15 @@ namespace Commons
                 for (int intColumn = 0; intColumn <= dtTmp.Columns.Count - 1; intColumn++)
                 {
                     column = new DevExpress.XtraEditors.Controls.LookUpColumnInfo();
-                    //column.Caption = Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, sForm, dtTmp.Columns(intColumn).ColumnName, Commons.Modules.TypeLanguage);
+                    column.Caption = Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, sForm, dtTmp.Columns[intColumn].ColumnName, Commons.Modules.TypeLanguage);
                     column.FieldName = dtTmp.Columns[intColumn].ColumnName;
                     cbo.Properties.Columns.Add(column);
                 }
-
-
                 if (dtTmp.Rows.Count > 10)
                     cbo.Properties.DropDownRows = 15;
                 else
                     cbo.Properties.DropDownRows = 10;
-                cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
-                    cbo.Properties.ShowHeader = false;
-                else
                     cbo.Properties.ShowHeader = true;
-
-
-
-
-
                 return true;
             }
             catch
@@ -3352,6 +3341,22 @@ namespace Commons
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
             return dt;
         }
+        public DataTable DataUser(bool coAll)
+        {
+            string sSql = "";
+            if (coAll == true)
+            {
+                sSql = "SELECT USERNAME,FULL_NAME FROM dbo.USERS  UNION SELECT '-1','< ALL >' ORDER BY USERNAME";
+            }
+            else
+            {
+                sSql = "SELECT USERNAME,FULL_NAME FROM dbo.USERS ORDER BY USERNAME";
+            }
+
+            DataTable dt = new DataTable();
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
+            return dt;
+        }
 
         public DataTable DataNguyenNhan()
         {
@@ -3422,6 +3427,13 @@ namespace Commons
             //ID,DownTimeTypeName
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetLoaiNguyenNhan", Commons.Modules.UserName, Commons.Modules.TypeLanguage, coAll));
+            return dt;
+        }
+        public DataTable DataToOperator(bool coAll)
+        {
+            //ID_TO,TEN_TO
+            DataTable dt = new DataTable();
+            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetToOperator", Commons.Modules.UserName, Commons.Modules.TypeLanguage, coAll));
             return dt;
         }
 
@@ -3530,9 +3542,7 @@ namespace Commons
                                 tb.SelectedItem = tb.GetTileGroupByName("titlegroup").GetTileItemByName("58");
                             }
                         }
-
                     }
-
                 }
             }
             catch { }
@@ -3568,14 +3578,10 @@ namespace Commons
                     return Convert.ToInt16(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString());
                 }
                 catch { return 0; }
-
             }
             catch { }
             return 1;
         }
-
-
-
         public string LayDuLieu(string TenFile)
         {
             StreamReader sr;
@@ -3597,8 +3603,6 @@ namespace Commons
                     sText = "";
                 }
                 sr.Close();
-
-              
             }
             catch (Exception ex)
             {

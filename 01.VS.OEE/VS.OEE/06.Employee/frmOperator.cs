@@ -26,6 +26,7 @@ namespace VS.OEE
         {
             try
             {
+                Commons.Modules.ObjSystems.MLoadLookUpEdit(cboTo, Commons.Modules.ObjSystems.DataToOperator(false), "ID_TO", "TEN_TO", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_TO"));
                 LoadData(-1);
                 LoadText(false);
                 if (iPQ != 1)
@@ -52,7 +53,14 @@ namespace VS.OEE
             txtOperatorCode.Properties.ReadOnly = bLock;
             txtCardID.Properties.ReadOnly = bLock;
             txtNote.Properties.ReadOnly = bLock;
+            txtPhone.Properties.ReadOnly = bLock;
+            txtGmail.Properties.ReadOnly = bLock;
+            txtChucVu.Properties.ReadOnly = bLock;
+            chkNghiViec.Properties.ReadOnly = bLock;
+            cboTo.Properties.ReadOnly = bLock;
+
             txtSearch.ReadOnly = !bLock;
+
             grdOperator.Enabled = bLock;
             this.btnThem.Visible = bLock;
             this.btnThoat.Visible = bLock;
@@ -73,7 +81,18 @@ namespace VS.OEE
                 txtOperatorCode.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("OperatorCode")));
                 txtCardID.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("CardID").ToString()));
                 txtNote.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("Note").ToString()));
-                
+                txtPhone.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("PHONE").ToString()));
+                txtGmail.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("MAIL").ToString()));
+                txtChucVu.Text = (nullText ? "" : Modules.ToStr(grvOperator.GetFocusedRowCellValue("CHUC_VU").ToString()));
+                chkNghiViec.Checked = (nullText ? false : Convert.ToBoolean(grvOperator.GetFocusedRowCellValue("NGHI_VIEC")));
+                try
+                {
+                    cboTo.EditValue = (nullText ? -1 : Convert.ToInt64(grvOperator.GetFocusedRowCellValue("ID_TO")));
+                }
+                catch 
+                {
+                    cboTo.EditValue = -1;
+                }
             }
             catch (Exception ex)
             {
@@ -95,10 +114,7 @@ namespace VS.OEE
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdOperator, grvOperator, dt, false, true, true, false, true, this.Name);
                     grvOperator.Columns["ID_Operator"].Visible = false;
-                    grvOperator.Columns["OperatorName"].Width = 250;
-                    grvOperator.Columns["OperatorCode"].Width = 200;
-                    grvOperator.Columns["CardID"].Width = 200;
-                    grvOperator.Columns["Note"].Width = 250;
+                    grvOperator.Columns["ID_TO"].Visible = false;
                 }
                 else
                     Modules.ObjSystems.MLoadXtraGrid(grdOperator, grvOperator, dt, false, false, true, false, false, this.Name);
@@ -278,7 +294,6 @@ namespace VS.OEE
             {
                 XtraMessageBox.Show(MethodBase.GetCurrentMethod().Name + ": " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             LockControl(true);
         }
 
@@ -288,6 +303,7 @@ namespace VS.OEE
             {
                 LoadText(false);
                 Commons.Modules.ObjSystems.DeleteAddRow(grvOperator);
+
             }
             catch (Exception ex)
             {
@@ -338,14 +354,17 @@ namespace VS.OEE
                 comd.Parameters.Add(new SqlParameter("@ID", Modules.ToInt64(txtID.Text)));
                 comd.Parameters.Add(new SqlParameter("@OperatorName", Modules.ToStr(txtOperatorName.Text)));
                 comd.Parameters.Add(new SqlParameter("@OperatorCode", Modules.ToStr(txtOperatorCode.Text)));
-                comd.Parameters.Add(new SqlParameter("@CardID", Modules.ToInt32(txtCardID.Text)));
+                comd.Parameters.Add(new SqlParameter("@CardID",txtCardID.Text));
                 comd.Parameters.Add(new SqlParameter("@Note", Modules.ToStr(txtNote.Text)));
+                comd.Parameters.Add(new SqlParameter("@Phone", txtPhone.Text));
+                comd.Parameters.Add(new SqlParameter("@Mail", txtGmail.Text));
+                comd.Parameters.Add(new SqlParameter("@ID_To",Convert.ToInt64(cboTo.EditValue)));
+                comd.Parameters.Add(new SqlParameter("@ChucVu", txtChucVu.Text));
+                comd.Parameters.Add(new SqlParameter("@NghiViec", chkNghiViec.Checked));
                 rs = null;
                 rs = IConnections.MExecuteScalar(comd);
                 LoadData(Modules.ToInt16(rs));
                 return true;
-
-
             }
             catch (Exception ex)
             {
@@ -403,7 +422,7 @@ namespace VS.OEE
             }
         }
 
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        private void lblNote_Click(object sender, EventArgs e)
         {
 
         }

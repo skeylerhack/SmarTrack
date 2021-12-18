@@ -434,10 +434,10 @@ namespace VS.OEE
             {
                 DataTable dt = new DataTable();
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListProSchedule", Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("ItemID")), Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("PrOID")), Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("DetailsID")), Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dt.Columns["NumberPerCycle"].ReadOnly = false;
                 if (grdSchedule.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdSchedule, grvSchedule, dt, false, false, false, false, true, this.Name);
-
                     grvSchedule.Columns["PlannedQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvSchedule.Columns["PlannedQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvSchedule.Columns["StandardSpeed"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -988,14 +988,15 @@ namespace VS.OEE
                         dt = new DataTable();
                         //lay cac gia tri mac dinh tu itemmay sang
                         //	StandardOutput,MS_DV_TG_Output,StandardSpeed,MS_DV_TG_Speed,DownTimeRecord,DownTimeRecord
-                        dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT 	   StandardOutput,MS_DV_TG_Output,StandardSpeed,MS_DV_TG_Speed,DownTimeRecord,WorkingCycle,NumberPerCyle, (SELECT MS_HE_THONG FROM dbo.MAY_HE_THONG WHERE MS_MAY ='" + e.Value + "') AS MS_HE_THONG FROM dbo.ItemMay WHERE ItemID = " + Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("ItemID")) + " AND MS_MAY = '" + e.Value + "'"));
+                        dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT StandardOutput,MS_DV_TG_Output,StandardSpeed,MS_DV_TG_Speed,DownTimeRecord,WorkingCycle,NumberPerCyle, (SELECT MS_HE_THONG FROM dbo.MAY_HE_THONG WHERE MS_MAY ='" + e.Value + "') AS MS_HE_THONG FROM dbo.ItemMay WHERE ItemID = " + Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("ItemID")) + " AND MS_MAY = '" + e.Value + "'"));
                         view.SetFocusedRowCellValue("StandardOutput", dt.Rows[0]["StandardOutput"]);
                         view.SetFocusedRowCellValue("MS_DV_TG_Output", dt.Rows[0]["MS_DV_TG_Output"]);
                         view.SetFocusedRowCellValue("StandardSpeed", dt.Rows[0]["StandardSpeed"]);
                         view.SetFocusedRowCellValue("MS_DV_TG_Speed", dt.Rows[0]["MS_DV_TG_Speed"]);
                         view.SetFocusedRowCellValue("DownTimeRecord", dt.Rows[0]["DownTimeRecord"]);
                         view.SetFocusedRowCellValue("UOMID", Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("UOMID")));
-                        view.SetFocusedRowCellValue("NumberPerCyle", dt.Rows[0]["NumberPerCyle"]);
+                        grvSchedule.SetFocusedRowCellValue("NumberPerCycle", dt.Rows[0]["NumberPerCyle"]);
+                        view.SetFocusedRowCellValue("WorkingCycle", dt.Rows[0]["WorkingCycle"]);
                         view.SetFocusedRowCellValue("MS_HE_THONG", dt.Rows[0]["MS_HE_THONG"]);
                         view.SetFocusedRowCellValue("MS_MAY", e.Value);
                     }

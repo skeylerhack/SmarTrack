@@ -32,6 +32,7 @@
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.lblNhom = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +43,6 @@
             this.tsmiKick = new System.Windows.Forms.ToolStripMenuItem();
             this.grvNguoiDung = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cboNhom = new System.Windows.Forms.ComboBox();
-            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -73,14 +73,14 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.tablePanel1.Size = new System.Drawing.Size(665, 354);
+            this.tablePanel1.Size = new System.Drawing.Size(884, 471);
             this.tablePanel1.TabIndex = 1;
             // 
             // lblNhom
             // 
             this.tablePanel1.SetColumn(this.lblNhom, 1);
             this.lblNhom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNhom.Location = new System.Drawing.Point(185, 11);
+            this.lblNhom.Location = new System.Drawing.Point(258, 11);
             this.lblNhom.Name = "lblNhom";
             this.tablePanel1.SetRow(this.lblNhom, 1);
             this.lblNhom.Size = new System.Drawing.Size(114, 20);
@@ -97,16 +97,26 @@
             this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.txtTim);
-            this.panelControl1.Location = new System.Drawing.Point(3, 322);
+            this.panelControl1.Location = new System.Drawing.Point(3, 439);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 3);
-            this.panelControl1.Size = new System.Drawing.Size(659, 29);
+            this.panelControl1.Size = new System.Drawing.Size(878, 29);
             this.panelControl1.TabIndex = 5;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Location = new System.Drawing.Point(636, 1);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(80, 26);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "btnSua";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(498, 1);
+            this.btnXoa.Location = new System.Drawing.Point(717, 1);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 26);
@@ -117,7 +127,7 @@
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(336, 1);
+            this.btnThem.Location = new System.Drawing.Point(555, 1);
             this.btnThem.Margin = new System.Windows.Forms.Padding(2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
@@ -128,7 +138,7 @@
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(579, 1);
+            this.btnThoat.Location = new System.Drawing.Point(798, 1);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
@@ -162,7 +172,7 @@
             this.grdNguoiDung.Margin = new System.Windows.Forms.Padding(2);
             this.grdNguoiDung.Name = "grdNguoiDung";
             this.tablePanel1.SetRow(this.grdNguoiDung, 2);
-            this.grdNguoiDung.Size = new System.Drawing.Size(661, 281);
+            this.grdNguoiDung.Size = new System.Drawing.Size(880, 398);
             this.grdNguoiDung.TabIndex = 2;
             this.grdNguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvNguoiDung});
@@ -202,29 +212,19 @@
             // 
             this.tablePanel1.SetColumn(this.cboNhom, 2);
             this.cboNhom.FormattingEnabled = true;
-            this.cboNhom.Location = new System.Drawing.Point(304, 10);
+            this.cboNhom.Location = new System.Drawing.Point(377, 10);
             this.cboNhom.Margin = new System.Windows.Forms.Padding(2);
             this.cboNhom.Name = "cboNhom";
             this.tablePanel1.SetRow(this.cboNhom, 1);
-            this.cboNhom.Size = new System.Drawing.Size(178, 21);
+            this.cboNhom.Size = new System.Drawing.Size(251, 21);
             this.cboNhom.TabIndex = 3;
             this.cboNhom.SelectedIndexChanged += new System.EventHandler(this.cboNhom_SelectedIndexChanged);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(417, 1);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(80, 26);
-            this.btnSua.TabIndex = 6;
-            this.btnSua.Text = "btnSua";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // frmNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 354);
+            this.ClientSize = new System.Drawing.Size(884, 471);
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmNguoiDung";

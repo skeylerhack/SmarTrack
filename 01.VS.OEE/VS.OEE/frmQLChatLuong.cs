@@ -126,11 +126,11 @@ namespace VS.OEE
         }
         private void btnDelNhaMay_Click(object sender, EventArgs e)
         {
-            DeleteDataNhaMay();
+            //DeleteDataNhaMay();
         }
         private void btnDelPhanXuong_Click(object sender, EventArgs e)
         {
-            DeleteDataPhanXuong();
+            //DeleteDataPhanXuong();
         }
         private void btnDelTo_Click(object sender, EventArgs e)
         {
@@ -202,7 +202,7 @@ namespace VS.OEE
             
                 if (grvQCDataDetails.FocusedRowHandle < 1)
                 {
-                    grvPhanXuong_FocusedRowChanged(null, null);
+                    //grvPhanXuong_FocusedRowChanged(null, null);
                 }
             }
             catch 
@@ -269,7 +269,7 @@ namespace VS.OEE
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, groQCDataDetails.Text) == DialogResult.No) return;
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.QCDataDefect WHERE QCDataDetailsID = " + iId + " DELETE dbo.QCDataDetails WHERE ID = " + iId);
                 grvQCDataDetails.DeleteSelectedRows();
-                grvPhanXuong_FocusedRowChanged(grvQCDataDetails, null);
+                //grvPhanXuong_FocusedRowChanged(grvQCDataDetails, null);
             }
             catch (Exception)
             {
@@ -340,7 +340,7 @@ namespace VS.OEE
         {
             if (e.KeyData == Keys.Delete && btnGhi.Visible == false)
             {
-                DeleteDataNhaMay();
+                //DeleteDataNhaMay();
             }
         }
         private void grvNhaMay_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)

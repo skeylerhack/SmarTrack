@@ -305,34 +305,40 @@
     <Compile Include="formEdit\frmView.Designer.cs">
       <DependentUpon>frmView.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHistoryProRun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoryProRun.Designer.cs">
+      <DependentUpon>frmHistoryProRun.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHanhDong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHanhDong.Designer.cs">
       <DependentUpon>frmHanhDong.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNM_PX_TO.cs">
+    <Compile Include="02.Category\frmNM_PX_TO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNM_PX_TO.Designer.cs">
+    <Compile Include="02.Category\frmNM_PX_TO.Designer.cs">
       <DependentUpon>frmNM_PX_TO.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmShiftLeader_Copy.cs">
+    <Compile Include="06.Employee\frmShiftLeader_Copy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmShiftLeader_Copy.Designer.cs">
+    <Compile Include="06.Employee\frmShiftLeader_Copy.Designer.cs">
       <DependentUpon>frmShiftLeader_Copy.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmShiftLeader.cs">
+    <Compile Include="06.Employee\frmShiftLeader.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmShiftLeader.Designer.cs">
+    <Compile Include="06.Employee\frmShiftLeader.Designer.cs">
       <DependentUpon>frmShiftLeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVaiTro.cs">
+    <Compile Include="06.Employee\frmVaiTro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVaiTro.Designer.cs">
+    <Compile Include="06.Employee\frmVaiTro.Designer.cs">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQLChatLuong.cs">
@@ -341,17 +347,11 @@
     <Compile Include="frmQLChatLuong.Designer.cs">
       <DependentUpon>frmQLChatLuong.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQLCa.cs">
+    <Compile Include="06.Employee\frmQLCa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQLCa.Designer.cs">
+    <Compile Include="06.Employee\frmQLCa.Designer.cs">
       <DependentUpon>frmQLCa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNhaMay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNhaMay.Designer.cs">
-      <DependentUpon>frmNhaMay.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -622,29 +622,29 @@
     <EmbeddedResource Include="formEdit\frmView.resx">
       <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoryProRun.resx">
+      <DependentUpon>frmHistoryProRun.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHanhDong.resx">
       <DependentUpon>frmHanhDong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNM_PX_TO.resx">
+    <EmbeddedResource Include="02.Category\frmNM_PX_TO.resx">
       <DependentUpon>frmNM_PX_TO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmShiftLeader_Copy.resx">
+    <EmbeddedResource Include="06.Employee\frmShiftLeader_Copy.resx">
       <DependentUpon>frmShiftLeader_Copy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmShiftLeader.resx">
+    <EmbeddedResource Include="06.Employee\frmShiftLeader.resx">
       <DependentUpon>frmShiftLeader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVaiTro.resx">
+    <EmbeddedResource Include="06.Employee\frmVaiTro.resx">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQLChatLuong.resx">
       <DependentUpon>frmQLChatLuong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQLCa.resx">
+    <EmbeddedResource Include="06.Employee\frmQLCa.resx">
       <DependentUpon>frmQLCa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNhaMay.resx">
-      <DependentUpon>frmNhaMay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="07.Report\frmReport.resx">
@@ -915,7 +915,9 @@
     <None Include="Resources\btnthoat.ico" />
     <Content Include="Resources\OEE.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="History\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

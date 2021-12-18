@@ -56,7 +56,6 @@
             this.treeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
             this.cboCa = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnThemTiep = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
@@ -532,7 +531,6 @@
             // 
             this.tablePanel1.SetColumn(this.panelControl1, 0);
             this.tablePanel1.SetColumnSpan(this.panelControl1, 10);
-            this.panelControl1.Controls.Add(this.btnThemTiep);
             this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Controls.Add(this.btnKhong);
             this.panelControl1.Controls.Add(this.btnXoa);
@@ -545,16 +543,6 @@
             this.tablePanel1.SetRow(this.panelControl1, 8);
             this.panelControl1.Size = new System.Drawing.Size(1224, 29);
             this.panelControl1.TabIndex = 7;
-            // 
-            // btnThemTiep
-            // 
-            this.btnThemTiep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemTiep.Location = new System.Drawing.Point(801, 2);
-            this.btnThemTiep.Name = "btnThemTiep";
-            this.btnThemTiep.Size = new System.Drawing.Size(98, 26);
-            this.btnThemTiep.TabIndex = 15;
-            this.btnThemTiep.Text = "thêm tiếp";
-            this.btnThemTiep.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnThem
             // 
@@ -736,7 +724,6 @@
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private DevExpress.XtraEditors.TreeListLookUpEdit treeHeThong;
         private DevExpress.XtraTreeList.TreeList treeListLookUpEdit1TreeList;
-        private DevExpress.XtraEditors.SimpleButton btnThemTiep;
         private DevExpress.XtraEditors.LookUpEdit cboCa;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtMsMay;

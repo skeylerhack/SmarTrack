@@ -1906,10 +1906,15 @@ D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CopyComplete
 D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.dll
 D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.pdb
 D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.AssemblyReference.cache
+D:\SmarTrack\02.Common\Common\obj\Debug\Commons.csprojAssemblyReference.cache
+G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.BonusSkins.v20.1.dll
+G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.CodeParser.v20.1.dll
+G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
+G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.RichEdit.v20.1.Core.resources.dll
+G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.XtraGauges.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.dll.config
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.pdb
-G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.BonusSkins.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Data.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Printing.v20.1.Core.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Utils.v20.1.dll
@@ -1932,7 +1937,6 @@ G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Xpo.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.DataAccess.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.PivotGrid.v20.1.Core.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraGauges.v20.1.Core.dll
-G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.CodeParser.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Office.v20.1.Core.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Utils.v9.2.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraEditors.v9.2.dll
@@ -2024,7 +2028,6 @@ G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.XtraTreeList.v20.1.reso
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ja\DevExpress.XtraTreeList.v20.1.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.XtraTreeList.v20.1.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\de\DevExpress.Pdf.v20.1.Core.resources.dll
-G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\de\DevExpress.Sparkline.v20.1.Core.resources.dll
@@ -2032,7 +2035,6 @@ G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.Sparkline.v20.1.Core.re
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ja\DevExpress.Sparkline.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.Sparkline.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\de\DevExpress.RichEdit.v20.1.Core.resources.dll
-G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.RichEdit.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ja\DevExpress.RichEdit.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.RichEdit.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\de\DevExpress.Xpo.v20.1.resources.dll
@@ -2050,12 +2052,10 @@ G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.PivotGrid.v20.1.Core.re
 G:\01.SmarTrack\02.Common\Common\bin\Debug\de\DevExpress.XtraGauges.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.XtraGauges.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ja\DevExpress.XtraGauges.v20.1.Core.resources.dll
-G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.XtraGauges.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\de\DevExpress.Office.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
-G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csprojAssemblyReference.cache
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.frmWaitForm.resources
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.Properties.Resources.resources
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.ThongBao.resources
@@ -2065,4 +2065,4 @@ G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CoreCompileInputs.cach
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CopyComplete
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.dll
 G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.pdb
-D:\SmarTrack\02.Common\Common\obj\Debug\Commons.csprojAssemblyReference.cache
+G:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csprojAssemblyReference.cache

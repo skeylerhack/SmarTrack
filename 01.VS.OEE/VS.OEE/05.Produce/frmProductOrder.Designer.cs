@@ -32,8 +32,8 @@
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.datNgayBD = new DevExpress.XtraEditors.DateEdit();
             this.datNgayHTKH = new DevExpress.XtraEditors.DateEdit();
+            this.datNgayBD = new DevExpress.XtraEditors.DateEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.datTuNgay = new DevExpress.XtraEditors.DateEdit();
@@ -80,10 +80,10 @@
             this.cboTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -122,31 +122,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // datNgayBD
-            // 
-            this.TableLayout.SetColumn(this.datNgayBD, 5);
-            this.datNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datNgayBD.EditValue = null;
-            this.datNgayBD.Location = new System.Drawing.Point(670, 11);
-            this.datNgayBD.Name = "datNgayBD";
-            this.datNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.TableLayout.SetRow(this.datNgayBD, 1);
-            this.datNgayBD.Size = new System.Drawing.Size(148, 20);
-            this.datNgayBD.TabIndex = 4;
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.datNgayHTKH;
-            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.datNgayBD, compareAgainstControlValidationRule2);
-            // 
             // datNgayHTKH
             // 
             this.TableLayout.SetColumn(this.datNgayHTKH, 5);
             this.datNgayHTKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datNgayHTKH.EditValue = null;
-            this.datNgayHTKH.Location = new System.Drawing.Point(670, 37);
+            this.datNgayHTKH.Location = new System.Drawing.Point(703, 37);
             this.datNgayHTKH.Name = "datNgayHTKH";
             this.datNgayHTKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -155,12 +136,31 @@
             this.datNgayHTKH.Properties.CalendarTimeProperties.EditFormat.FormatString = "G";
             this.datNgayHTKH.Properties.CalendarTimeProperties.Mask.EditMask = "G";
             this.TableLayout.SetRow(this.datNgayHTKH, 2);
-            this.datNgayHTKH.Size = new System.Drawing.Size(148, 20);
+            this.datNgayHTKH.Size = new System.Drawing.Size(164, 20);
             this.datNgayHTKH.TabIndex = 4;
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
-            compareAgainstControlValidationRule1.Control = this.datNgayBD;
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
+            compareAgainstControlValidationRule2.Control = this.datNgayBD;
+            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.datNgayHTKH, compareAgainstControlValidationRule2);
+            // 
+            // datNgayBD
+            // 
+            this.TableLayout.SetColumn(this.datNgayBD, 5);
+            this.datNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datNgayBD.EditValue = null;
+            this.datNgayBD.Location = new System.Drawing.Point(703, 11);
+            this.datNgayBD.Name = "datNgayBD";
+            this.datNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TableLayout.SetRow(this.datNgayBD, 1);
+            this.datNgayBD.Size = new System.Drawing.Size(164, 20);
+            this.datNgayBD.TabIndex = 4;
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.datNgayHTKH;
             compareAgainstControlValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.datNgayHTKH, compareAgainstControlValidationRule1);
+            this.dxValidationProvider1.SetValidationRule(this.datNgayBD, compareAgainstControlValidationRule1);
             // 
             // splitContainerControl1
             // 
@@ -171,7 +171,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.TableLayout);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1177, 515);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1226, 599);
             this.splitContainerControl1.SplitterPosition = 350;
             this.splitContainerControl1.TabIndex = 1;
             // 
@@ -196,7 +196,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.tablePanel2.Size = new System.Drawing.Size(350, 515);
+            this.tablePanel2.Size = new System.Drawing.Size(350, 599);
             this.tablePanel2.TabIndex = 0;
             // 
             // datTuNgay
@@ -233,7 +233,7 @@
             this.groPrOrder.Location = new System.Drawing.Point(3, 71);
             this.groPrOrder.Name = "groPrOrder";
             this.tablePanel2.SetRow(this.groPrOrder, 4);
-            this.groPrOrder.Size = new System.Drawing.Size(344, 406);
+            this.groPrOrder.Size = new System.Drawing.Size(344, 490);
             this.groPrOrder.TabIndex = 8;
             this.groPrOrder.Text = "groPrOrder";
             // 
@@ -249,7 +249,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 32F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel1.Size = new System.Drawing.Size(340, 382);
+            this.tablePanel1.Size = new System.Drawing.Size(340, 466);
             this.tablePanel1.TabIndex = 6;
             // 
             // rdoStatus
@@ -276,7 +276,7 @@
             this.grdProDuctOD.MainView = this.grvProDuctOD;
             this.grdProDuctOD.Name = "grdProDuctOD";
             this.tablePanel1.SetRow(this.grdProDuctOD, 1);
-            this.grdProDuctOD.Size = new System.Drawing.Size(334, 344);
+            this.grdProDuctOD.Size = new System.Drawing.Size(334, 428);
             this.grdProDuctOD.TabIndex = 5;
             this.grdProDuctOD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvProDuctOD});
@@ -295,7 +295,7 @@
             this.tablePanel2.SetColumn(this.searchControl1, 0);
             this.tablePanel2.SetColumnSpan(this.searchControl1, 2);
             this.searchControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchControl1.Location = new System.Drawing.Point(3, 483);
+            this.searchControl1.Location = new System.Drawing.Point(3, 567);
             this.searchControl1.Name = "searchControl1";
             this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Repository.ClearButton(),
@@ -366,17 +366,17 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.TableLayout.Size = new System.Drawing.Size(821, 515);
+            this.TableLayout.Size = new System.Drawing.Size(870, 599);
             this.TableLayout.TabIndex = 0;
             // 
             // txtNote
             // 
             this.TableLayout.SetColumn(this.txtNote, 3);
             this.txtNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNote.Location = new System.Drawing.Point(397, 37);
+            this.txtNote.Location = new System.Drawing.Point(413, 37);
             this.txtNote.Name = "txtNote";
             this.TableLayout.SetRow(this.txtNote, 2);
-            this.txtNote.Size = new System.Drawing.Size(148, 20);
+            this.txtNote.Size = new System.Drawing.Size(164, 20);
             this.txtNote.TabIndex = 9;
             // 
             // groPrODetails
@@ -388,7 +388,7 @@
             this.groPrODetails.Location = new System.Drawing.Point(3, 71);
             this.groPrODetails.Name = "groPrODetails";
             this.TableLayout.SetRow(this.groPrODetails, 4);
-            this.groPrODetails.Size = new System.Drawing.Size(815, 200);
+            this.groPrODetails.Size = new System.Drawing.Size(864, 242);
             this.groPrODetails.TabIndex = 8;
             this.groPrODetails.Text = "groPrODetails";
             // 
@@ -398,7 +398,7 @@
             this.grdPrODetails.Location = new System.Drawing.Point(2, 22);
             this.grdPrODetails.MainView = this.grvPrODetails;
             this.grdPrODetails.Name = "grdPrODetails";
-            this.grdPrODetails.Size = new System.Drawing.Size(811, 176);
+            this.grdPrODetails.Size = new System.Drawing.Size(860, 218);
             this.grdPrODetails.TabIndex = 5;
             this.grdPrODetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPrODetails,
@@ -431,10 +431,10 @@
             this.TableLayout.SetColumnSpan(this.groPrOSchedule, 6);
             this.groPrOSchedule.Controls.Add(this.grdSchedule);
             this.groPrOSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groPrOSchedule.Location = new System.Drawing.Point(3, 277);
+            this.groPrOSchedule.Location = new System.Drawing.Point(3, 319);
             this.groPrOSchedule.Name = "groPrOSchedule";
             this.TableLayout.SetRow(this.groPrOSchedule, 5);
-            this.groPrOSchedule.Size = new System.Drawing.Size(815, 200);
+            this.groPrOSchedule.Size = new System.Drawing.Size(864, 242);
             this.groPrOSchedule.TabIndex = 7;
             this.groPrOSchedule.Text = "groPrOSchedule";
             // 
@@ -444,7 +444,7 @@
             this.grdSchedule.Location = new System.Drawing.Point(2, 22);
             this.grdSchedule.MainView = this.grvSchedule;
             this.grdSchedule.Name = "grdSchedule";
-            this.grdSchedule.Size = new System.Drawing.Size(811, 176);
+            this.grdSchedule.Size = new System.Drawing.Size(860, 218);
             this.grdSchedule.TabIndex = 5;
             this.grdSchedule.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvSchedule,
@@ -486,10 +486,10 @@
             this.panelNN.Controls.Add(this.btnGhi);
             this.panelNN.Controls.Add(this.btnKhong);
             this.panelNN.Controls.Add(this.btnDelDetails);
-            this.panelNN.Location = new System.Drawing.Point(3, 483);
+            this.panelNN.Location = new System.Drawing.Point(3, 567);
             this.panelNN.Name = "panelNN";
             this.TableLayout.SetRow(this.panelNN, 6);
-            this.panelNN.Size = new System.Drawing.Size(815, 29);
+            this.panelNN.Size = new System.Drawing.Size(864, 29);
             this.panelNN.TabIndex = 6;
             // 
             // btnImport
@@ -525,7 +525,7 @@
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(492, 2);
+            this.btnThem.Location = new System.Drawing.Point(541, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 9;
@@ -535,7 +535,7 @@
             // btnDelPro
             // 
             this.btnDelPro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelPro.Location = new System.Drawing.Point(492, 2);
+            this.btnDelPro.Location = new System.Drawing.Point(541, 2);
             this.btnDelPro.Name = "btnDelPro";
             this.btnDelPro.Size = new System.Drawing.Size(80, 26);
             this.btnDelPro.TabIndex = 9;
@@ -546,7 +546,7 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(654, 2);
+            this.btnXoa.Location = new System.Drawing.Point(703, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 26);
             this.btnXoa.TabIndex = 10;
@@ -556,7 +556,7 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(573, 2);
+            this.btnSua.Location = new System.Drawing.Point(622, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 6;
@@ -566,7 +566,7 @@
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(735, 2);
+            this.btnThoat.Location = new System.Drawing.Point(784, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
             this.btnThoat.TabIndex = 10;
@@ -576,7 +576,7 @@
             // btnDelSche
             // 
             this.btnDelSche.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelSche.Location = new System.Drawing.Point(654, 2);
+            this.btnDelSche.Location = new System.Drawing.Point(703, 2);
             this.btnDelSche.Name = "btnDelSche";
             this.btnDelSche.Size = new System.Drawing.Size(80, 26);
             this.btnDelSche.TabIndex = 9;
@@ -587,7 +587,7 @@
             // btnTroVe
             // 
             this.btnTroVe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTroVe.Location = new System.Drawing.Point(735, 2);
+            this.btnTroVe.Location = new System.Drawing.Point(784, 2);
             this.btnTroVe.Name = "btnTroVe";
             this.btnTroVe.Size = new System.Drawing.Size(80, 26);
             this.btnTroVe.TabIndex = 9;
@@ -598,7 +598,7 @@
             // btnGhi
             // 
             this.btnGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi.Location = new System.Drawing.Point(654, 2);
+            this.btnGhi.Location = new System.Drawing.Point(703, 2);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(80, 26);
             this.btnGhi.TabIndex = 11;
@@ -608,7 +608,7 @@
             // btnKhong
             // 
             this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong.Location = new System.Drawing.Point(735, 2);
+            this.btnKhong.Location = new System.Drawing.Point(784, 2);
             this.btnKhong.Name = "btnKhong";
             this.btnKhong.Size = new System.Drawing.Size(80, 26);
             this.btnKhong.TabIndex = 12;
@@ -618,7 +618,7 @@
             // btnDelDetails
             // 
             this.btnDelDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelDetails.Location = new System.Drawing.Point(573, 2);
+            this.btnDelDetails.Location = new System.Drawing.Point(622, 2);
             this.btnDelDetails.Name = "btnDelDetails";
             this.btnDelDetails.Size = new System.Drawing.Size(80, 26);
             this.btnDelDetails.TabIndex = 9;
@@ -633,7 +633,7 @@
             this.txtSoLSX.Location = new System.Drawing.Point(123, 11);
             this.txtSoLSX.Name = "txtSoLSX";
             this.TableLayout.SetRow(this.txtSoLSX, 1);
-            this.txtSoLSX.Size = new System.Drawing.Size(148, 20);
+            this.txtSoLSX.Size = new System.Drawing.Size(164, 20);
             this.txtSoLSX.TabIndex = 4;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
@@ -657,7 +657,7 @@
             // 
             this.TableLayout.SetColumn(this.lblNgayBD, 4);
             this.lblNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNgayBD.Location = new System.Drawing.Point(550, 11);
+            this.lblNgayBD.Location = new System.Drawing.Point(583, 11);
             this.lblNgayBD.Name = "lblNgayBD";
             this.TableLayout.SetRow(this.lblNgayBD, 1);
             this.lblNgayBD.Size = new System.Drawing.Size(114, 20);
@@ -670,7 +670,7 @@
             this.lblNgayLap.Appearance.Options.UseFont = true;
             this.TableLayout.SetColumn(this.lblNgayLap, 2);
             this.lblNgayLap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNgayLap.Location = new System.Drawing.Point(277, 11);
+            this.lblNgayLap.Location = new System.Drawing.Point(293, 11);
             this.lblNgayLap.Name = "lblNgayLap";
             this.TableLayout.SetRow(this.lblNgayLap, 1);
             this.lblNgayLap.Size = new System.Drawing.Size(114, 20);
@@ -681,7 +681,7 @@
             // 
             this.TableLayout.SetColumn(this.lblNgayHTKH, 4);
             this.lblNgayHTKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNgayHTKH.Location = new System.Drawing.Point(550, 37);
+            this.lblNgayHTKH.Location = new System.Drawing.Point(583, 37);
             this.lblNgayHTKH.Name = "lblNgayHTKH";
             this.TableLayout.SetRow(this.lblNgayHTKH, 2);
             this.lblNgayHTKH.Size = new System.Drawing.Size(114, 20);
@@ -706,14 +706,14 @@
             this.TableLayout.SetColumn(this.datNgayLap, 3);
             this.datNgayLap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datNgayLap.EditValue = null;
-            this.datNgayLap.Location = new System.Drawing.Point(397, 11);
+            this.datNgayLap.Location = new System.Drawing.Point(413, 11);
             this.datNgayLap.Name = "datNgayLap";
             this.datNgayLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.datNgayLap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.TableLayout.SetRow(this.datNgayLap, 1);
-            this.datNgayLap.Size = new System.Drawing.Size(148, 20);
+            this.datNgayLap.Size = new System.Drawing.Size(164, 20);
             this.datNgayLap.TabIndex = 4;
             // 
             // cboTinhTrang
@@ -726,7 +726,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboTinhTrang.Properties.NullText = "";
             this.TableLayout.SetRow(this.cboTinhTrang, 2);
-            this.cboTinhTrang.Size = new System.Drawing.Size(148, 20);
+            this.cboTinhTrang.Size = new System.Drawing.Size(164, 20);
             this.cboTinhTrang.TabIndex = 4;
             this.cboTinhTrang.EditValueChanged += new System.EventHandler(this.cboMacHang_EditValueChanged);
             // 
@@ -734,7 +734,7 @@
             // 
             this.TableLayout.SetColumn(this.lblNote, 2);
             this.lblNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNote.Location = new System.Drawing.Point(277, 37);
+            this.lblNote.Location = new System.Drawing.Point(293, 37);
             this.lblNote.Name = "lblNote";
             this.TableLayout.SetRow(this.lblNote, 2);
             this.lblNote.Size = new System.Drawing.Size(114, 20);
@@ -745,16 +745,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 515);
+            this.ClientSize = new System.Drawing.Size(1226, 599);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmProductOrder";
             this.Text = "frmProductOrder";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmItemMay_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();

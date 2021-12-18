@@ -15,6 +15,11 @@ namespace Ecomaint.Api.Models
         public int MS_NGUYEN_NHAN { get; set; }
         public string TEN_NGUYEN_NHAN { get; set; }
     }
+    public class DepartMentViewModel
+    {
+        public int ID_DepartMent { get; set; }
+        public string Ten_DepartMent { get; set; }
+    }
     public class DowtimeTypeViewModel
     {
         public int MS_LOAI { get; set; }

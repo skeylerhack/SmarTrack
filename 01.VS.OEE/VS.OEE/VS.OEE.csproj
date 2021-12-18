@@ -148,6 +148,24 @@
     <Compile Include="02.Category\frmBoPhanChiuPhi.Designer.cs">
       <DependentUpon>frmBoPhanChiuPhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="03.Devices\frmHieuSuatTheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="03.Devices\frmHieuSuatTheoThang.Designer.cs">
+      <DependentUpon>frmHieuSuatTheoThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="03.Devices\frmHieuSuatTheoThang_Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="03.Devices\frmHieuSuatTheoThang_Copy.Designer.cs">
+      <DependentUpon>frmHieuSuatTheoThang_Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="05.Produce\frmQLChatLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="05.Produce\frmQLChatLuong.Designer.cs">
+      <DependentUpon>frmQLChatLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\ClsMain.cs" />
     <Compile Include="formChoose\frmChooseOperator.cs">
       <SubType>Form</SubType>
@@ -178,6 +196,12 @@
     </Compile>
     <Compile Include="05.Produce\frmImport.Designer.cs">
       <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formChoose\frmChooseQCDataDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formChoose\frmChooseQCDataDetails.Designer.cs">
+      <DependentUpon>frmChooseQCDataDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="formChoose\frmPopUp.cs">
       <SubType>Form</SubType>
@@ -250,12 +274,6 @@
     </Compile>
     <Compile Include="01.Systems\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="05.Produce\frmNhapHangLoi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="05.Produce\frmNhapHangLoi.Designer.cs">
-      <DependentUpon>frmNhapHangLoi.cs</DependentUpon>
     </Compile>
     <Compile Include="02.Category\frmNhapHangLoiView.cs">
       <SubType>Form</SubType>
@@ -340,12 +358,6 @@
     </Compile>
     <Compile Include="06.Employee\frmVaiTro.Designer.cs">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmQLChatLuong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQLChatLuong.Designer.cs">
-      <DependentUpon>frmQLChatLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="06.Employee\frmQLCa.cs">
       <SubType>Form</SubType>
@@ -492,12 +504,6 @@
     <Compile Include="06.Employee\frmQuanlynhanvien.Designer.cs">
       <DependentUpon>frmQuanlynhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="03.Devices\frmHieuSuatTheoNam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="03.Devices\frmHieuSuatTheoNam.Designer.cs">
-      <DependentUpon>frmHieuSuatTheoNam.cs</DependentUpon>
-    </Compile>
     <Compile Include="02.Category\frmUOMGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -543,6 +549,15 @@
     <EmbeddedResource Include="02.Category\frmBoPhanChiuPhi.resx">
       <DependentUpon>frmBoPhanChiuPhi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="03.Devices\frmHieuSuatTheoThang.resx">
+      <DependentUpon>frmHieuSuatTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="03.Devices\frmHieuSuatTheoThang_Copy.resx">
+      <DependentUpon>frmHieuSuatTheoThang_Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="05.Produce\frmQLChatLuong.resx">
+      <DependentUpon>frmQLChatLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmChooseOperator.resx">
       <DependentUpon>frmChooseOperator.cs</DependentUpon>
     </EmbeddedResource>
@@ -557,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="05.Produce\frmImport.resx">
       <DependentUpon>frmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formChoose\frmChooseQCDataDetails.resx">
+      <DependentUpon>frmChooseQCDataDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmPopUp.resx">
       <DependentUpon>frmPopUp.cs</DependentUpon>
@@ -594,9 +612,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="01.Systems\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="05.Produce\frmNhapHangLoi.resx">
-      <DependentUpon>frmNhapHangLoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="02.Category\frmNhapHangLoiView.resx">
       <DependentUpon>frmNhapHangLoiView.cs</DependentUpon>
@@ -639,9 +654,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="06.Employee\frmVaiTro.resx">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmQLChatLuong.resx">
-      <DependentUpon>frmQLChatLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="06.Employee\frmQLCa.resx">
       <DependentUpon>frmQLCa.cs</DependentUpon>
@@ -718,9 +730,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="06.Employee\frmQuanlynhanvien.resx">
       <DependentUpon>frmQuanlynhanvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="03.Devices\frmHieuSuatTheoNam.resx">
-      <DependentUpon>frmHieuSuatTheoNam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="02.Category\frmUOMGroup.resx">
       <DependentUpon>frmUOMGroup.cs</DependentUpon>

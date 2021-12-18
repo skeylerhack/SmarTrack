@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMMS_DEMOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="IC_KHO">
+    <Key>
+      <PropertyRef Name="MS_KHO" />
+    </Key>
+    <Property Name="MS_KHO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_KHO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIA_CHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SO_DO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ISIT" Type="Boolean" />
+    <Property Name="MS_CONG_NHAN" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="NGAY_LOCK" Type="DateTime" Precision="3" />
+    <Property Name="GIO_LOCK" Type="DateTime" Precision="3" />
+    <Property Name="UNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SN_CANH_BAO" Type="Int32" />
+    <Property Name="KHO_DD" Type="Boolean" />
+    <Property Name="MS_KHO_CHINH" Type="Int32" />
+    <Property Name="MS_DON_VI" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="MS_KHO_INT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IC_PHU_TUNG_KHO" Relationship="Self.FK_IC_PHU_TUNG_KHO_IC_KHO" FromRole="IC_KHO" ToRole="IC_PHU_TUNG_KHO" />
+    <NavigationProperty Name="VI_TRI_KHO" Relationship="Self.FK_VI_TRI_KHO_IC_KHO" FromRole="IC_KHO" ToRole="VI_TRI_KHO" />
+  </EntityType>
+  <EntityType Name="IC_PHU_TUNG">
+    <Key>
+      <PropertyRef Name="MS_PT" />
+    </Key>
+    <Property Name="MS_PT" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MS_PT_NCC" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="MS_PT_CTY" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="TEN_PT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QUY_CACH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ANH_PT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MS_LOAI_VT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DVT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DUNG_CU_DO" Type="Boolean" Nullable="false" />
+    <Property Name="MS_CACH_DAT_HANG" Type="Int32" />
+    <Property Name="SO_NGAY_DAT_MUA_HANG" Type="Int32" />
+    <Property Name="TON_TOI_THIEU" Type="Double" />
+    <Property Name="MS_KH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SL_DA_DAT_CHUA_MUA" Type="Double" />
+    <Property Name="MS_HSX" Type="Int32" />
+    <Property Name="MS_VI_TRI" Type="Int32" />
+    <Property Name="MS_CLASS" Type="Int32" />
+    <Property Name="TON_KHO_MAX" Type="Double" />
+    <Property Name="HANG_NGOAI" Type="Boolean" />
+    <Property Name="TEN_PT_VIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SERVICE_ID" Type="Int32" />
+    <Property Name="THEO_KHO" Type="Boolean" />
+    <Property Name="ACTIVE_PT" Type="Boolean" />
+    <Property Name="USER_INSERT_PT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGAY_INSERT_PT" Type="DateTime" Precision="3" />
+    <Property Name="USER_UPDATE_PT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGAY_UPDATE_PT" Type="DateTime" Precision="3" />
+    <Property Name="KY_PB" Type="Int32" />
+    <Property Name="TEN_PT_OLD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TEN_PT_ANH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TEN_PT_HOA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VAT_TU_PT" Type="Boolean" />
+    <Property Name="MS_KHO" Type="Int32" />
+    <Property Name="GIA_VTPT" Type="Double" />
+    <Property Name="NO_ACTIVE" Type="Boolean" />
+    <NavigationProperty Name="IC_PHU_TUNG_KHO" Relationship="Self.FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG" FromRole="IC_PHU_TUNG" ToRole="IC_PHU_TUNG_KHO" />
+  </EntityType>
+  <EntityType Name="IC_PHU_TUNG_KHO">
+    <Key>
+      <PropertyRef Name="MS_PT" />
+      <PropertyRef Name="MS_KHO" />
+    </Key>
+    <Property Name="MS_PT" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MS_KHO" Type="Int32" Nullable="false" />
+    <Property Name="MS_VI_TRI" Type="Int32" />
+    <Property Name="TON_TOI_THIEU" Type="Double" />
+    <Property Name="TON_KHO_MAX" Type="Double" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SO_NGAY_DAT_MUA_HANG" Type="Int32" />
+    <NavigationProperty Name="IC_KHO" Relationship="Self.FK_IC_PHU_TUNG_KHO_IC_KHO" FromRole="IC_PHU_TUNG_KHO" ToRole="IC_KHO" />
+    <NavigationProperty Name="IC_PHU_TUNG" Relationship="Self.FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG" FromRole="IC_PHU_TUNG_KHO" ToRole="IC_PHU_TUNG" />
+  </EntityType>
+  <EntityType Name="VI_TRI_KHO">
+    <Key>
+      <PropertyRef Name="MS_KHO" />
+      <PropertyRef Name="MS_VI_TRI" />
+    </Key>
+    <Property Name="MS_KHO" Type="Int32" Nullable="false" />
+    <Property Name="MS_VI_TRI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_VI_TRI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IC_KHO" Relationship="Self.FK_VI_TRI_KHO_IC_KHO" FromRole="VI_TRI_KHO" ToRole="IC_KHO" />
+  </EntityType>
+  <EntityType Name="VI_TRI_KHO_VAT_TU">
+    <Key>
+      <PropertyRef Name="MS_KHO" />
+      <PropertyRef Name="MS_VI_TRI" />
+      <PropertyRef Name="MS_DH_NHAP_PT" />
+      <PropertyRef Name="MS_PT" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MS_KHO" Type="Int32" Nullable="false" />
+    <Property Name="MS_VI_TRI" Type="Int32" Nullable="false" />
+    <Property Name="MS_DH_NHAP_PT" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MS_PT" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID" Type="Double" Nullable="false" />
+    <Property Name="SL_VT" Type="Decimal" Precision="18" Scale="3" />
+  </EntityType>
+  <EntityType Name="IC_KHO_VI_TRI">
+    <Key>
+      <PropertyRef Name="SS00" />
+      <PropertyRef Name="SS01" />
+      <PropertyRef Name="SS02" />
+      <PropertyRef Name="SS03" />
+    </Key>
+    <Property Name="SS00" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SS01" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SS02" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SS03" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_IC_PHU_TUNG_KHO_IC_KHO">
+    <End Role="IC_KHO" Type="Self.IC_KHO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IC_PHU_TUNG_KHO" Type="Self.IC_PHU_TUNG_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IC_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Principal>
+      <Dependent Role="IC_PHU_TUNG_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VI_TRI_KHO_IC_KHO">
+    <End Role="IC_KHO" Type="Self.IC_KHO" Multiplicity="1" />
+    <End Role="VI_TRI_KHO" Type="Self.VI_TRI_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IC_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Principal>
+      <Dependent Role="VI_TRI_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG">
+    <End Role="IC_PHU_TUNG" Type="Self.IC_PHU_TUNG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IC_PHU_TUNG_KHO" Type="Self.IC_PHU_TUNG_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IC_PHU_TUNG">
+        <PropertyRef Name="MS_PT" />
+      </Principal>
+      <Dependent Role="IC_PHU_TUNG_KHO">
+        <PropertyRef Name="MS_PT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CMMS_DEMOEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="IC_KHO" EntityType="Self.IC_KHO" />
+    <EntitySet Name="IC_PHU_TUNG" EntityType="Self.IC_PHU_TUNG" />
+    <EntitySet Name="IC_PHU_TUNG_KHO" EntityType="Self.IC_PHU_TUNG_KHO" />
+    <EntitySet Name="VI_TRI_KHO" EntityType="Self.VI_TRI_KHO" />
+    <EntitySet Name="VI_TRI_KHO_VAT_TU" EntityType="Self.VI_TRI_KHO_VAT_TU" />
+    <EntitySet Name="IC_KHO_VI_TRI" EntityType="Self.IC_KHO_VI_TRI" />
+    <AssociationSet Name="FK_IC_PHU_TUNG_KHO_IC_KHO" Association="Self.FK_IC_PHU_TUNG_KHO_IC_KHO">
+      <End Role="IC_KHO" EntitySet="IC_KHO" />
+      <End Role="IC_PHU_TUNG_KHO" EntitySet="IC_PHU_TUNG_KHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VI_TRI_KHO_IC_KHO" Association="Self.FK_VI_TRI_KHO_IC_KHO">
+      <End Role="IC_KHO" EntitySet="IC_KHO" />
+      <End Role="VI_TRI_KHO" EntitySet="VI_TRI_KHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG" Association="Self.FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG">
+      <End Role="IC_PHU_TUNG" EntitySet="IC_PHU_TUNG" />
+      <End Role="IC_PHU_TUNG_KHO" EntitySet="IC_PHU_TUNG_KHO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMMS_DEMOModelStoreContainer" CdmEntityContainer="CMMS_DEMOEntities1">
+    <EntitySetMapping Name="IC_KHO">
+      <EntityTypeMapping TypeName="CMMS_DEMOModel.IC_KHO">
+        <MappingFragment StoreEntitySet="IC_KHO">
+          <ScalarProperty Name="MS_KHO" ColumnName="MS_KHO" />
+          <ScalarProperty Name="TEN_KHO" ColumnName="TEN_KHO" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="SO_DO" ColumnName="SO_DO" />
+          <ScalarProperty Name="ISIT" ColumnName="ISIT" />
+          <ScalarProperty Name="MS_CONG_NHAN" ColumnName="MS_CONG_NHAN" />
+          <ScalarProperty Name="NGAY_LOCK" ColumnName="NGAY_LOCK" />
+          <ScalarProperty Name="GIO_LOCK" ColumnName="GIO_LOCK" />
+          <ScalarProperty Name="UNAME" ColumnName="UNAME" />
+          <ScalarProperty Name="SN_CANH_BAO" ColumnName="SN_CANH_BAO" />
+          <ScalarProperty Name="KHO_DD" ColumnName="KHO_DD" />
+          <ScalarProperty Name="MS_KHO_CHINH" ColumnName="MS_KHO_CHINH" />
+          <ScalarProperty Name="MS_DON_VI" ColumnName="MS_DON_VI" />
+          <ScalarProperty Name="MS_KHO_INT" ColumnName="MS_KHO_INT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IC_PHU_TUNG">
+      <EntityTypeMapping TypeName="CMMS_DEMOModel.IC_PHU_TUNG">
+        <MappingFragment StoreEntitySet="IC_PHU_TUNG">
+          <ScalarProperty Name="MS_PT" ColumnName="MS_PT" />
+          <ScalarProperty Name="MS_PT_NCC" ColumnName="MS_PT_NCC" />
+          <ScalarProperty Name="MS_PT_CTY" ColumnName="MS_PT_CTY" />
+          <ScalarProperty Name="TEN_PT" ColumnName="TEN_PT" />
+          <ScalarProperty Name="QUY_CACH" ColumnName="QUY_CACH" />
+          <ScalarProperty Name="ANH_PT" ColumnName="ANH_PT" />
+          <ScalarProperty Name="MS_LOAI_VT" ColumnName="MS_LOAI_VT" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="DUNG_CU_DO" ColumnName="DUNG_CU_DO" />
+          <ScalarProperty Name="MS_CACH_DAT_HANG" ColumnName="MS_CACH_DAT_HANG" />
+          <ScalarProperty Name="SO_NGAY_DAT_MUA_HANG" ColumnName="SO_NGAY_DAT_MUA_HANG" />
+          <ScalarProperty Name="TON_TOI_THIEU" ColumnName="TON_TOI_THIEU" />
+          <ScalarProperty Name="MS_KH" ColumnName="MS_KH" />
+          <ScalarProperty Name="SL_DA_DAT_CHUA_MUA" ColumnName="SL_DA_DAT_CHUA_MUA" />
+          <ScalarProperty Name="MS_HSX" ColumnName="MS_HSX" />
+          <ScalarProperty Name="MS_VI_TRI" ColumnName="MS_VI_TRI" />
+          <ScalarProperty Name="MS_CLASS" ColumnName="MS_CLASS" />
+          <ScalarProperty Name="TON_KHO_MAX" ColumnName="TON_KHO_MAX" />
+          <ScalarProperty Name="HANG_NGOAI" ColumnName="HANG_NGOAI" />
+          <ScalarProperty Name="TEN_PT_VIET" ColumnName="TEN_PT_VIET" />
+          <ScalarProperty Name="SERVICE_ID" ColumnName="SERVICE_ID" />
+          <ScalarProperty Name="THEO_KHO" ColumnName="THEO_KHO" />
+          <ScalarProperty Name="ACTIVE_PT" ColumnName="ACTIVE_PT" />
+          <ScalarProperty Name="USER_INSERT_PT" ColumnName="USER_INSERT_PT" />
+          <ScalarProperty Name="NGAY_INSERT_PT" ColumnName="NGAY_INSERT_PT" />
+          <ScalarProperty Name="USER_UPDATE_PT" ColumnName="USER_UPDATE_PT" />
+          <ScalarProperty Name="NGAY_UPDATE_PT" ColumnName="NGAY_UPDATE_PT" />
+          <ScalarProperty Name="KY_PB" ColumnName="KY_PB" />
+          <ScalarProperty Name="TEN_PT_OLD" ColumnName="TEN_PT_OLD" />
+          <ScalarProperty Name="TEN_PT_ANH" ColumnName="TEN_PT_ANH" />
+          <ScalarProperty Name="TEN_PT_HOA" ColumnName="TEN_PT_HOA" />
+          <ScalarProperty Name="VAT_TU_PT" ColumnName="VAT_TU_PT" />
+          <ScalarProperty Name="MS_KHO" ColumnName="MS_KHO" />
+          <ScalarProperty Name="GIA_VTPT" ColumnName="GIA_VTPT" />
+          <ScalarProperty Name="NO_ACTIVE" ColumnName="NO_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IC_PHU_TUNG_KHO">
+      <EntityTypeMapping TypeName="CMMS_DEMOModel.IC_PHU_TUNG_KHO">
+        <MappingFragment StoreEntitySet="IC_PHU_TUNG_KHO">
+          <ScalarProperty Name="MS_PT" ColumnName="MS_PT" />
+          <ScalarProperty Name="MS_KHO" ColumnName="MS_KHO" />
+          <ScalarProperty Name="MS_VI_TRI" ColumnName="MS_VI_TRI" />
+          <ScalarProperty Name="TON_TOI_THIEU" ColumnName="TON_TOI_THIEU" />
+          <ScalarProperty Name="TON_KHO_MAX" ColumnName="TON_KHO_MAX" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="SO_NGAY_DAT_MUA_HANG" ColumnName="SO_NGAY_DAT_MUA_HANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VI_TRI_KHO">
+      <EntityTypeMapping TypeName="CMMS_DEMOModel.VI_TRI_KHO">
+        <MappingFragment StoreEntitySet="VI_TRI_KHO">
+          <ScalarProperty Name="MS_KHO" ColumnName="MS_KHO" />
+          <ScalarProperty Name="MS_VI_TRI" ColumnName="MS_VI_TRI" />
+          <ScalarProperty Name="TEN_VI_TRI" ColumnName="TEN_VI_TRI" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VI_TRI_KHO_VAT_TU">
+      <EntityTypeMapping TypeName="CMMS_DEMOModel.VI_TRI_KHO_VAT_TU">
+        <MappingFragment StoreEntitySet="VI_TRI_KHO_VAT_TU">
+          <ScalarProperty Name="MS_KHO" ColumnName="MS_KHO" />
+          <ScalarProperty Name="MS_VI_TRI" ColumnName="MS_VI_TRI" />
+          <ScalarProperty Name="MS_DH_NHAP_PT" ColumnName="MS_DH_NHAP_PT" />
+          <ScalarProperty Name="MS_PT" ColumnName="MS_PT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SL_VT" ColumnName="SL_VT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IC_KHO_VI_TRI">
+      <EntityTypeMapping TypeName="CMMS_DEMOModel.IC_KHO_VI_TRI">
+        <MappingFragment StoreEntitySet="IC_KHO_VI_TRI">
+          <ScalarProperty Name="SS00" ColumnName="SS00" />
+          <ScalarProperty Name="SS01" ColumnName="SS01" />
+          <ScalarProperty Name="SS02" ColumnName="SS02" />
+          <ScalarProperty Name="SS03" ColumnName="SS03" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

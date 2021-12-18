@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMMS_DEMOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="IC_KHO">
+    <Key>
+      <PropertyRef Name="MS_KHO" />
+    </Key>
+    <Property Name="MS_KHO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN_KHO" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIA_CHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="SO_DO" Type="nvarchar" MaxLength="255" />
+    <Property Name="ISIT" Type="bit" />
+    <Property Name="MS_CONG_NHAN" Type="nvarchar" MaxLength="9" />
+    <Property Name="NGAY_LOCK" Type="datetime" />
+    <Property Name="GIO_LOCK" Type="datetime" />
+    <Property Name="UNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="SN_CANH_BAO" Type="int" />
+    <Property Name="KHO_DD" Type="bit" />
+    <Property Name="MS_KHO_CHINH" Type="int" />
+    <Property Name="MS_DON_VI" Type="nvarchar" MaxLength="6" />
+    <Property Name="MS_KHO_INT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CMMS_DEMO.dbo.IC_KHO_VI_TRI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IC_KHO_VI_TRI">
+    <Key>
+      <PropertyRef Name="SS00" />
+      <PropertyRef Name="SS01" />
+      <PropertyRef Name="SS02" />
+      <PropertyRef Name="SS03" />
+    </Key>
+    <Property Name="SS00" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SS01" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SS02" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SS03" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IC_PHU_TUNG">
+    <Key>
+      <PropertyRef Name="MS_PT" />
+    </Key>
+    <Property Name="MS_PT" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="MS_PT_NCC" Type="nvarchar" MaxLength="25" />
+    <Property Name="MS_PT_CTY" Type="nvarchar" MaxLength="25" />
+    <Property Name="TEN_PT" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="QUY_CACH" Type="nvarchar" MaxLength="255" />
+    <Property Name="ANH_PT" Type="nvarchar" MaxLength="255" />
+    <Property Name="MS_LOAI_VT" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DVT" Type="nvarchar" MaxLength="10" />
+    <Property Name="DUNG_CU_DO" Type="bit" Nullable="false" />
+    <Property Name="MS_CACH_DAT_HANG" Type="int" />
+    <Property Name="SO_NGAY_DAT_MUA_HANG" Type="int" />
+    <Property Name="TON_TOI_THIEU" Type="float" />
+    <Property Name="MS_KH" Type="varchar" MaxLength="20" />
+    <Property Name="SL_DA_DAT_CHUA_MUA" Type="float" />
+    <Property Name="MS_HSX" Type="int" />
+    <Property Name="MS_VI_TRI" Type="int" />
+    <Property Name="MS_CLASS" Type="int" />
+    <Property Name="TON_KHO_MAX" Type="float" />
+    <Property Name="HANG_NGOAI" Type="bit" />
+    <Property Name="TEN_PT_VIET" Type="nvarchar" MaxLength="250" />
+    <Property Name="SERVICE_ID" Type="int" />
+    <Property Name="THEO_KHO" Type="bit" />
+    <Property Name="ACTIVE_PT" Type="bit" />
+    <Property Name="USER_INSERT_PT" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAY_INSERT_PT" Type="datetime" />
+    <Property Name="USER_UPDATE_PT" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAY_UPDATE_PT" Type="datetime" />
+    <Property Name="KY_PB" Type="int" />
+    <Property Name="TEN_PT_OLD" Type="nvarchar" MaxLength="100" />
+    <Property Name="TEN_PT_ANH" Type="nvarchar" MaxLength="250" />
+    <Property Name="TEN_PT_HOA" Type="nvarchar" MaxLength="250" />
+    <Property Name="VAT_TU_PT" Type="bit" />
+    <Property Name="MS_KHO" Type="int" />
+    <Property Name="GIA_VTPT" Type="float" />
+    <Property Name="NO_ACTIVE" Type="bit" />
+  </EntityType>
+  <EntityType Name="IC_PHU_TUNG_KHO">
+    <Key>
+      <PropertyRef Name="MS_PT" />
+      <PropertyRef Name="MS_KHO" />
+    </Key>
+    <Property Name="MS_PT" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="MS_KHO" Type="int" Nullable="false" />
+    <Property Name="MS_VI_TRI" Type="int" />
+    <Property Name="TON_TOI_THIEU" Type="float" />
+    <Property Name="TON_KHO_MAX" Type="float" />
+    <Property Name="GHI_CHU" Type="nvarchar" MaxLength="100" />
+    <Property Name="SO_NGAY_DAT_MUA_HANG" Type="int" />
+  </EntityType>
+  <EntityType Name="VI_TRI_KHO">
+    <Key>
+      <PropertyRef Name="MS_KHO" />
+      <PropertyRef Name="MS_VI_TRI" />
+    </Key>
+    <Property Name="MS_KHO" Type="int" Nullable="false" />
+    <Property Name="MS_VI_TRI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEN_VI_TRI" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="GHI_CHU" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="VI_TRI_KHO_VAT_TU">
+    <Key>
+      <PropertyRef Name="MS_KHO" />
+      <PropertyRef Name="MS_VI_TRI" />
+      <PropertyRef Name="MS_DH_NHAP_PT" />
+      <PropertyRef Name="MS_PT" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MS_KHO" Type="int" Nullable="false" />
+    <Property Name="MS_VI_TRI" Type="int" Nullable="false" />
+    <Property Name="MS_DH_NHAP_PT" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="MS_PT" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ID" Type="float" Nullable="false" />
+    <Property Name="SL_VT" Type="numeric" Precision="18" Scale="3" />
+  </EntityType>
+  <Association Name="FK_IC_PHU_TUNG_KHO_IC_KHO">
+    <End Role="IC_KHO" Type="Self.IC_KHO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IC_PHU_TUNG_KHO" Type="Self.IC_PHU_TUNG_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IC_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Principal>
+      <Dependent Role="IC_PHU_TUNG_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG">
+    <End Role="IC_PHU_TUNG" Type="Self.IC_PHU_TUNG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IC_PHU_TUNG_KHO" Type="Self.IC_PHU_TUNG_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IC_PHU_TUNG">
+        <PropertyRef Name="MS_PT" />
+      </Principal>
+      <Dependent Role="IC_PHU_TUNG_KHO">
+        <PropertyRef Name="MS_PT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VI_TRI_KHO_IC_KHO">
+    <End Role="IC_KHO" Type="Self.IC_KHO" Multiplicity="1" />
+    <End Role="VI_TRI_KHO" Type="Self.VI_TRI_KHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IC_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Principal>
+      <Dependent Role="VI_TRI_KHO">
+        <PropertyRef Name="MS_KHO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CMMS_DEMOModelStoreContainer">
+    <EntitySet Name="IC_KHO" EntityType="Self.IC_KHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IC_PHU_TUNG" EntityType="Self.IC_PHU_TUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IC_PHU_TUNG_KHO" EntityType="Self.IC_PHU_TUNG_KHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VI_TRI_KHO" EntityType="Self.VI_TRI_KHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VI_TRI_KHO_VAT_TU" EntityType="Self.VI_TRI_KHO_VAT_TU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IC_KHO_VI_TRI" EntityType="Self.IC_KHO_VI_TRI" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IC_KHO_VI_TRI].[SS00] AS [SS00], 
+    [IC_KHO_VI_TRI].[SS01] AS [SS01], 
+    [IC_KHO_VI_TRI].[SS02] AS [SS02], 
+    [IC_KHO_VI_TRI].[SS03] AS [SS03]
+    FROM [dbo].[IC_KHO_VI_TRI] AS [IC_KHO_VI_TRI]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_IC_PHU_TUNG_KHO_IC_KHO" Association="Self.FK_IC_PHU_TUNG_KHO_IC_KHO">
+      <End Role="IC_KHO" EntitySet="IC_KHO" />
+      <End Role="IC_PHU_TUNG_KHO" EntitySet="IC_PHU_TUNG_KHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG" Association="Self.FK_IC_PHU_TUNG_KHO_IC_PHU_TUNG">
+      <End Role="IC_PHU_TUNG" EntitySet="IC_PHU_TUNG" />
+      <End Role="IC_PHU_TUNG_KHO" EntitySet="IC_PHU_TUNG_KHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VI_TRI_KHO_IC_KHO" Association="Self.FK_VI_TRI_KHO_IC_KHO">
+      <End Role="IC_KHO" EntitySet="IC_KHO" />
+      <End Role="VI_TRI_KHO" EntitySet="VI_TRI_KHO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

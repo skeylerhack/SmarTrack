@@ -421,7 +421,7 @@ namespace VS.OEE
                 Commons.Modules.ObjSystems.XoaTable(sBT);
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdOperator), "");
                 LoadgrdCa(Convert.ToInt32(
-                SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spEditQLCa", ithem, txtCA.EditValue, txtCA_ANH.EditValue, txtCA_HOA.EditValue, datTU_GIO.EditValue, datDEN_GIO.EditValue, chkCA_DEM.Checked, sBT)));
+                SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spEditQLCa", ithem, txtCA.EditValue, txtCA_ANH.EditValue, txtCA_HOA.EditValue, Convert.ToDateTime(datTU_GIO.EditValue).ToString("MM-dd-yyyy HH:mm:ss"), Convert.ToDateTime(datDEN_GIO.EditValue).ToString("MM-dd-yyyy HH:mm:ss"), chkCA_DEM.Checked, sBT)));
             }
             catch (Exception ex)
             {
@@ -435,6 +435,7 @@ namespace VS.OEE
             {
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.Operator_CA WHERE ID_CA ='" + Convert.ToInt32(grvCa.GetFocusedRowCellValue("STT")) + "' DELETE dbo.CA WHERE STT = '" + Convert.ToInt32(grvCa.GetFocusedRowCellValue("STT")) + "'");
                 grvCa.DeleteSelectedRows();
+                ((DataTable)grdCa.DataSource).AcceptChanges();
                 grvCa_FocusedRowChanged(null, null);
             }
             catch (Exception)
@@ -449,6 +450,7 @@ namespace VS.OEE
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, "Operator") == DialogResult.No) return;
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.Operator_CA WHERE ID_Operator = " + (grvOperator.GetFocusedRowCellValue("ID_Operator") + " AND ID_CA = " + (grvOperator.GetFocusedRowCellValue("ID_CA"))));
                 grvOperator.DeleteSelectedRows();
+                ((DataTable)grdOperator.DataSource).AcceptChanges();
             }
             catch (Exception)
             {
@@ -466,15 +468,24 @@ namespace VS.OEE
                 int TU_GIO = (datTU_GIO.Time.Hour * 60) + datTU_GIO.Time.Minute;
                 int DEN_GIO = (datDEN_GIO.Time.Hour * 60) + datDEN_GIO.Time.Minute;
 
+                //Ca dem + them 1 ngay
+                if (chkCA_DEM.Checked)
+                    DEN_GIO = DEN_GIO + 1440;
+
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    int iTU_GIO = (string.IsNullOrEmpty(dt.Rows[i]["TU_GIO"].ToString()) ? 0 : (Convert.ToDateTime(dt.Rows[i]["TU_GIO"]).Hour * 60) + Convert.ToDateTime(dt.Rows[i]["TU_GIO"]).Minute);
-                    int iDEN_GIO = (string.IsNullOrEmpty(dt.Rows[i]["DEN_GIO"].ToString()) ? 0 : (Convert.ToDateTime(dt.Rows[i]["DEN_GIO"]).Hour * 60) + Convert.ToDateTime(dt.Rows[i]["DEN_GIO"]).Minute);
-
-                    if ((TU_GIO > iTU_GIO && TU_GIO < iDEN_GIO) || (DEN_GIO > iTU_GIO && DEN_GIO < iDEN_GIO))
+                    if((string.IsNullOrEmpty(grvCa.GetFocusedRowCellValue("STT").ToString()) ? -1 : Convert.ToInt64(grvCa.GetFocusedRowCellValue("STT"))) != (string.IsNullOrEmpty(dt.Rows[i]["STT"].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i]["STT"])))
                     {
-                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTrungThoiGian"));
-                        return true;
+                        int iTU_GIO = (string.IsNullOrEmpty(dt.Rows[i]["TU_GIO"].ToString()) ? 0 : (Convert.ToDateTime(dt.Rows[i]["TU_GIO"]).Hour * 60) + Convert.ToDateTime(dt.Rows[i]["TU_GIO"]).Minute);
+                        int iDEN_GIO = (string.IsNullOrEmpty(dt.Rows[i]["DEN_GIO"].ToString()) ? 0 : (Convert.ToDateTime(dt.Rows[i]["DEN_GIO"]).Hour * 60) + Convert.ToDateTime(dt.Rows[i]["DEN_GIO"]).Minute);
+                        if (chkCA_DEM.Checked)
+                            iDEN_GIO = iDEN_GIO + 1440;
+
+                        if ((TU_GIO > iTU_GIO && TU_GIO < iDEN_GIO) || (DEN_GIO > iTU_GIO && DEN_GIO < iDEN_GIO))
+                        {
+                            XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTrungThoiGian"));
+                            return true;
+                        }
                     }
                 }
                 return false;

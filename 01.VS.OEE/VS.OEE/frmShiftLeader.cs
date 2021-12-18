@@ -10,6 +10,7 @@ using DevExpress.Utils;
 using System.Web.UI.WebControls;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors.Repository;
 
 namespace VS.OEE
 {
@@ -56,13 +57,21 @@ namespace VS.OEE
                 DateTime DenNgay = frm.DenNgay;
                 if (TuNgay == null || DenNgay == null) return;
 
+                int bGhi_De = 0;
+                string str = "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("dd-MM-yyyy") + "' AND '" + DenNgay.ToString("dd-MM-yyyy") + "') SELECT 1 ELSE SELECT 0";
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("MM-dd-yyyy") + "' AND '" + DenNgay.ToString("MM-dd-yyyy") + "') SELECT 1 ELSE SELECT 0")) == 1 && Modules.msgHoiThayThe(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonGhiDeChoNhungNgayDaCoDuLieu"), groShiftLeader.Text) == DialogResult.Yes)
+                {
+                        bGhi_De = 1;
+                }
+
                 string sBT = "sBT_ShiftLeader" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdShiftLeader), "");
 
-                SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spCopyShiftLeader", TuNgay, DenNgay, sBT);
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spCopyShiftLeader", TuNgay, DenNgay, sBT, bGhi_De)) == 1)
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgCopySuccessful"));
                 Commons.Modules.ObjSystems.XoaTable(sBT);
             }
-            catch { }
+            catch (Exception ex) { }
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -217,12 +226,20 @@ namespace VS.OEE
                     grvShiftLeader.Columns["NGAY"].Visible = false;
                     grvShiftLeader.Columns["Note"].Visible = false;
 
+                    //Lấy Operator có vai trò bằng 2: Team leader
                     dt_Operator = new DataTable();
-                    dt_Operator.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT O.ID_Operator, O.OperatorCode, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN O.OperatorName WHEN 1 THEN ISNULL(NULLIF(O.OperatorNameA, ''),O.OperatorName) ELSE ISNULL(NULLIF(O.OperatorNameH, ''),O.OperatorName) END AS OperatorName, O.CardID, O.Note, O.PHONE, O.MAIL, TOO.MS_TO FROM dbo.Operator O LEFT JOIN dbo.TO_Operator TOO ON TOO.ID_TO = O.ID_TO ORDER BY OperatorCode"));
+                    dt_Operator.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT O.ID_Operator, O.OperatorCode, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN O.OperatorName WHEN 1 THEN ISNULL(NULLIF(O.OperatorNameA, ''),O.OperatorName) ELSE ISNULL(NULLIF(O.OperatorNameH, ''),O.OperatorName) END AS OperatorName, O.CardID, O.Note, O.PHONE, O.MAIL, TOO.MS_TO FROM dbo.Operator O LEFT JOIN dbo.TO_Operator TOO ON TOO.ID_TO = O.ID_TO INNER JOIN dbo.VAITRO_OPERATOR VO ON VO.OPERATOR_ID = O.ID_Operator INNER JOIN dbo.VAI_TRO VT ON VT.MS_VAI_TRO = VO.ID_VAI_TRO WHERE VT.MS_VAI_TRO = 2 ORDER BY OperatorCode"));
 
                     try
                     {
-                        Commons.Modules.ObjSystems.AddCombXtra("ID_Operator", "OperatorCode", "ID_Operator", grvShiftLeader, dt_Operator, false, this.Name);
+                        RepositoryItemSearchLookUpEdit cbo = new RepositoryItemSearchLookUpEdit();
+                        Commons.Modules.ObjSystems.AddCombSearchLookUpEdit(cbo,"ID_Operator", "OperatorCode", grvShiftLeader, dt_Operator, this.Name);
+                        cbo.View.Columns["ID_Operator"].Visible = false;
+                        cbo.View.Columns["CardID"].Visible = false;
+                        cbo.View.Columns["Note"].Visible = false;
+                        cbo.View.Columns["MAIL"].Visible = false;
+                        cbo.View.Columns["MS_TO"].Visible = false;
+                        cbo.View.Columns["PHONE"].Visible = false;
                     }
                     catch { }
                 }

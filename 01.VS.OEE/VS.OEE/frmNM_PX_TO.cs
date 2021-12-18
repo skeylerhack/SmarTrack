@@ -262,6 +262,7 @@ namespace VS.OEE
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, groPhanXuong.Text) == DialogResult.No) return;
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.TO_Operator WHERE ID_PHAN_XUONG IN (SELECT ID_PHAN_XUONG FROM dbo.PHAN_XUONG WHERE ID_NHA_MAY = " + iId + ") DELETE dbo.PHAN_XUONG WHERE ID_NHA_MAY = " + iId + " DELETE dbo.NHA_MAY WHERE ID_NHA_MAY = " + iId + "");
                 grvNhaMay.DeleteSelectedRows();
+                ((DataTable)grdNhaMay.DataSource).AcceptChanges();
                 grvNhaMay_FocusedRowChanged(grvNhaMay, null);
             }
             
@@ -287,6 +288,7 @@ namespace VS.OEE
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, groPhanXuong.Text) == DialogResult.No) return;
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.TO_Operator WHERE ID_PHAN_XUONG = " + iId + " DELETE dbo.PHAN_XUONG WHERE ID_PHAN_XUONG = " + iId + "");
                 grvPhanXuong.DeleteSelectedRows();
+                ((DataTable)grdPhanXuong.DataSource).AcceptChanges();
                 grvPhanXuong_FocusedRowChanged(grvPhanXuong, null);
             }
             catch (Exception)
@@ -309,6 +311,7 @@ namespace VS.OEE
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, groTo.Text) == DialogResult.No) return;
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.TO_Operator WHERE ID_TO = '" + (grvTo.GetFocusedRowCellValue("ID_TO") + "'"));
                 grvTo.DeleteSelectedRows();
+                ((DataTable)grdTo.DataSource).AcceptChanges();
             }
             catch (Exception)
             {

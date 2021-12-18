@@ -72,7 +72,9 @@ namespace VS.OEE
         {
             grvVTOperator.PostEditor();
             grvVTOperator.UpdateCurrentRow();
-            SaveItemMay();
+            if (!dxValidationProvider1.Validate()) return;
+
+            SaveData();
             Commons.Modules.ObjSystems.DeleteAddRow(grvVTOperator);
             VisibleButon(true);
         }
@@ -313,7 +315,7 @@ namespace VS.OEE
                 XtraMessageBox.Show(MethodBase.GetCurrentMethod().Name + ": " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void SaveItemMay()
+        private void SaveData()
         {
             //tạo bảng tạm
             try
@@ -335,6 +337,7 @@ namespace VS.OEE
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, "Operator") == DialogResult.No) return;
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.VAITRO_OPERATOR WHERE OPERATOR_ID = " + grvVTOperator.GetFocusedRowCellValue("ID_Operator") + " AND ID_VAI_TRO = " + grvVaiTro.GetFocusedRowCellValue("ID_VAI_TRO") + "");
                 grvVTOperator.DeleteSelectedRows();
+                ((DataTable)grdVTOperator.DataSource).AcceptChanges();
             }
             catch (Exception)
             {

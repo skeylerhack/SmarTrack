@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.groVaiTro = new DevExpress.XtraEditors.GroupControl();
@@ -51,6 +54,7 @@
             this.groVTOperator = new DevExpress.XtraEditors.GroupControl();
             this.grdVTOperator = new DevExpress.XtraGrid.GridControl();
             this.grvVTOperator = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -71,6 +75,7 @@
             this.groVTOperator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdVTOperator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvVTOperator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -261,6 +266,10 @@
             this.tablecontrol.SetRow(this.txtTEN_VAI_TRO, 1);
             this.txtTEN_VAI_TRO.Size = new System.Drawing.Size(99, 20);
             this.txtTEN_VAI_TRO.TabIndex = 4;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.txtTEN_VAI_TRO, conditionValidationRule1);
             // 
             // lblTEN_VAI_TRO
             // 
@@ -297,6 +306,10 @@
             this.tablecontrol.SetRow(this.txtTEN_VAI_TRO_A, 1);
             this.txtTEN_VAI_TRO_A.Size = new System.Drawing.Size(99, 20);
             this.txtTEN_VAI_TRO_A.TabIndex = 4;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.txtTEN_VAI_TRO_A, conditionValidationRule2);
             // 
             // txtTEN_VAI_TRO_H
             // 
@@ -384,6 +397,7 @@
             this.groVTOperator.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdVTOperator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvVTOperator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -413,5 +427,6 @@
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.GroupControl groVaiTro;
         private DevExpress.XtraEditors.GroupControl groVTOperator;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
     }
 }

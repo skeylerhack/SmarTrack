@@ -401,7 +401,7 @@ namespace VS.OEE
         private void ShowHieuSuatTheoNam()
         {
             this.Cursor = Cursors.WaitCursor;
-            frmHieuSuatTheoNam frm = new frmHieuSuatTheoNam(Commons.Modules.iPermission);
+            frmHieuSuatTheoThang frm = new frmHieuSuatTheoThang(Commons.Modules.iPermission);
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;
             frm.Show();
@@ -447,7 +447,7 @@ namespace VS.OEE
         private void SoLieuLoi()
         {
             this.Cursor = Cursors.WaitCursor;
-            frmNhapHangLoi frm = new frmNhapHangLoi(Commons.Modules.iPermission);
+            frmQLChatLuong frm = new frmQLChatLuong(Commons.Modules.iPermission);
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;
             frm.Show();
@@ -563,7 +563,6 @@ namespace VS.OEE
             this.Cursor = Cursors.Default;
         }
         #endregion
-
 
         #region ShowUOM
         private void ShowUOM()

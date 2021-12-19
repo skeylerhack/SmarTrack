@@ -2,9 +2,12 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.IO.Ports;
 using System.Linq;
+using System.Threading;
 using System.Web.Mvc;
 namespace CMMSApi.Controllers
 {
@@ -161,13 +164,14 @@ namespace CMMSApi.Controllers
             }
         }
         //hàm cập nhật dữ liệu và trả về dữ liệu mới ứng với nút reset
-        public JsonResult UpdateProDuction(string Data, string MS_MAY, string ID_NV)
+        public JsonResult UpdateProDuction(string Ngay, string Data, string MS_MAY, string ID_NV)
         {
             try
             {
                 //list chứa dữ liệu từ HMI
                 List<ProductionViewModel> lstRequest = JsonConvert.DeserializeObject<List<ProductionViewModel>>(Data);
                 List<SqlParameter> listParameter = new List<SqlParameter>();
+                DateTime dNgay = DateTime.ParseExact(Ngay,"dd/MM/yyyyHH:mm:ss", CultureInfo.InvariantCulture);
                 //insert dữ liệu  vào productionRun
                 foreach (var item in lstRequest)
                 {
@@ -175,12 +179,19 @@ namespace CMMSApi.Controllers
                     {
                         listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
+                        listParameter.Add(new SqlParameter("@Ngay", dNgay));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                         listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
                         listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
                         listParameter.Add(new SqlParameter("@PrOID", item.PROID));
                         listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
+                    }
+                    else
+                    {
+                        listParameter = new List<SqlParameter>();
+                        listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
+                        Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiUnselectProduction", listParameter);
                     }
                 }
                 listParameter = new List<SqlParameter>();
@@ -206,13 +217,14 @@ namespace CMMSApi.Controllers
             }
         }
         //cập nhật số lượn thực tế chỗ lấy 5p một lần
-        public JsonResult UpdateSoLuong(string Data, string MS_MAY, string ID_NV)
+        public JsonResult UpdateSoLuong(string Ngay,string Data, string MS_MAY, string ID_NV)
         {
             int i = 1;
             try
             {
                 //list chứa dữ liệu từ HMI
                 List<ProductionViewModel> lstRequest = JsonConvert.DeserializeObject<List<ProductionViewModel>>(Data);
+                DateTime dNgay = DateTime.ParseExact(Ngay, "dd/MM/yyyyHH:mm:ss", CultureInfo.InvariantCulture);
                 i = 2;
                 foreach (var item in lstRequest)
                 {
@@ -220,6 +232,7 @@ namespace CMMSApi.Controllers
                     {
                         List<SqlParameter> listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
+                        listParameter.Add(new SqlParameter("@Ngay", dNgay));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                         listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
                         listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
@@ -265,7 +278,7 @@ namespace CMMSApi.Controllers
                         List<SqlParameter> listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
                         listParameter.Add(new SqlParameter("@TU_GIO", TN));
-                        listParameter.Add(new SqlParameter("@DEN_GIO",DN));
+                        listParameter.Add(new SqlParameter("@DEN_GIO", DN));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                         listParameter.Add(new SqlParameter("@ID_Operator", ID_Operator));
                         listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
@@ -273,6 +286,7 @@ namespace CMMSApi.Controllers
                         listParameter.Add(new SqlParameter("@MS_NGUYEN_NHAN", MS_NguyenNhan));
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCapNhatDungMay", listParameter);
                     }
+                   
                 }
                 return Json(new ResulstViewModel {MS_TRANG_THAI = 1,TEN_TRANG_THAI ="Thành công",SO_DONG = lstRequest.Count }, JsonRequestBehavior.AllowGet);
             }
@@ -332,6 +346,7 @@ namespace CMMSApi.Controllers
                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                 listParameter.Add(new SqlParameter("@VaiTro", 10));
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<PhoneMailViewModel>("spApiSendSupervisor", listParameter);
+                SendMail(list, TNgay);
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -359,6 +374,7 @@ namespace CMMSApi.Controllers
                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                 listParameter.Add(new SqlParameter("@VaiTro", 10));
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<PhoneMailViewModel>("spApiSendSupervisor", listParameter);
+                SendMail(list,TNgay);
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -386,6 +402,7 @@ namespace CMMSApi.Controllers
                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                 listParameter.Add(new SqlParameter("@VaiTro", 10));
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<PhoneMailViewModel>("spApiSendDepartMent", listParameter);
+                SendMail(list, TNgay);
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -413,6 +430,7 @@ namespace CMMSApi.Controllers
                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                 listParameter.Add(new SqlParameter("@VaiTro", 9));
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<PhoneMailViewModel>("spApiSendCeo", listParameter);
+                SendMail(list, TNgay);
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -427,18 +445,22 @@ namespace CMMSApi.Controllers
                 }
             }
         }
-        
         #endregion
 
         #region hàm gửi mail
-        private Boolean SendMail(List<PhoneMailViewModel> lstPhoneMail)
+        private Boolean SendMail(List<PhoneMailViewModel> lstPhoneMail,DateTime Ngay)
         {
             try
             {
-                for (int i = 0; i < lstPhoneMail.Count; i++)
+                string mailto = "";
+                foreach (var item in lstPhoneMail)
                 {
-
+                    mailto += item.MAIL;
+                    SendSMS(item.PHONE, "Máy :" + lstPhoneMail[0].MS_MAY + "hien tai dang bi ngung luc: " + Ngay.ToShortDateString()+ "");
                 }
+                string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY + "hiện tại" +
+                    " đang bị ngừng lúc: " + Ngay.ToShortDateString()+ "</p>";
+                Ecomaint.Api.DBUtils.SendEmailCC(mailto,"WAHL-WON",Mes);
                 return true;
             }
             catch 
@@ -446,8 +468,34 @@ namespace CMMSApi.Controllers
                 return false;
             }
         }
-        #endregion
+        private void SendSMS(string Phone,string Mes)
+        {
+            SerialPort sp = new SerialPort();
+            try
+            {
+                sp.PortName = ConfigurationManager.AppSettings["sPort"].ToString();
+                sp.Open();
+                sp.WriteLine("AT" + Environment.NewLine);
+                Thread.Sleep(100);
+                sp.WriteLine("AT+CMGF=1" + Environment.NewLine);
+                Thread.Sleep(100);
+                sp.WriteLine("AT+CMGS=\"" + Phone + "\"" + Environment.NewLine);
+                Thread.Sleep(100);
+                sp.WriteLine(Mes + Environment.NewLine);
+                Thread.Sleep(100);
+                sp.Write(new byte[] { 26 }, 0, 1);
+                Thread.Sleep(100);
+                var response = sp.ReadExisting();
+                sp.Close();
 
+            }
+            catch
+            {
+                sp.Close();
+            }
+        }
+
+        #endregion
 
         public JsonResult UpdatreConsumption(string Ngay,string MS_MAY, string I1, string I2, string I3, string U1, string U2,string U3,string W)
         {

@@ -609,6 +609,39 @@ namespace Ecomaint.Api
                     }
             }
         }
+        public static void SendEmailCC(string address, string subject, string message)
+        {
+            DataTable dt = new DataTable();
+            dt.Load(SqlHelper.ExecuteReader(CMMSConnectionString(), CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
+            string str = dt.Rows[0]["PASS_MAIL"].ToString();
+            string password = "";
+            const int _CODE_ = 354;
+            for (int i = 0; i < str.Length; i++)
+            {
+                password += System.Convert.ToChar(((int)System.Convert.ToChar(str.Substring(i, 1)) / 2) - _CODE_).ToString();
+            }
+            string email = dt.Rows[0]["MAIL_FROM"].ToString();
+            var loginInfo = new NetworkCredential(email, password);
+            var msg = new MailMessage();
+            var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
+            msg.From = new MailAddress(email, "Phần mềm Báo cáo AT");
+            var mail = address.Split(';');
+            foreach (var item in mail)
+            {
+                msg.To.Add(new MailAddress(item));
+            }
+            msg.Subject = subject;
+            msg.Body = message;
+            msg.IsBodyHtml = true;
+            msg.SubjectEncoding = Encoding.UTF8;
+            msg.BodyEncoding = Encoding.UTF8;
+            //msg.Priority = MailPriority.High;
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = loginInfo;
+            smtpClient.Send(msg);
+        }
+
 
         public static void SendEmailCC(string address, string CC, string subject, string message)
         {

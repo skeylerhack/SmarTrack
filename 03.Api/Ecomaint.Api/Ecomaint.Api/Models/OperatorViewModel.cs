@@ -37,6 +37,7 @@ namespace Ecomaint.Api.Models
         public Int64 ID_Operator { get; set; }
         public string MAIL { get; set; }
         public string PHONE { get; set; }
+        public string MS_MAY { get; set; }
         public string TEN_MAY { get; set; }
     }
 }

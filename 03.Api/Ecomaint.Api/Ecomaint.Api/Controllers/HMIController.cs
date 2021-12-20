@@ -53,6 +53,11 @@ namespace CMMSApi.Controllers
 
             }
         }
+        //check login LCD
+        public bool CheckLoginLCD(string UserName,string Pass)
+        {
+            return true;
+        }
         //get dowtime leader có thể sữa được
         public JsonResult GetDowTime()
         {
@@ -228,9 +233,10 @@ namespace CMMSApi.Controllers
                 i = 2;
                 foreach (var item in lstRequest)
                 {
+                    List<SqlParameter> listParameter = new List<SqlParameter>();
                     if (item.RUN == 1)
                     {
-                        List<SqlParameter> listParameter = new List<SqlParameter>();
+                        listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
                         listParameter.Add(new SqlParameter("@Ngay", dNgay));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
@@ -239,6 +245,12 @@ namespace CMMSApi.Controllers
                         listParameter.Add(new SqlParameter("@PrOID", item.PROID));
                         listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
+                    }
+                    else
+                    {
+                        listParameter = new List<SqlParameter>();
+                        listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
+                        Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiUnselectProduction", listParameter);
                     }
                 }
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = lstRequest.Count }, JsonRequestBehavior.AllowGet);
@@ -372,7 +384,7 @@ namespace CMMSApi.Controllers
                 List<SqlParameter> listParameter = new List<SqlParameter>();
                 List<PhoneMailViewModel> list = new List<PhoneMailViewModel>();
                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
-                listParameter.Add(new SqlParameter("@VaiTro", 10));
+                listParameter.Add(new SqlParameter("@VaiTro", 9));
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<PhoneMailViewModel>("spApiSendSupervisor", listParameter);
                 SendMail(list,TNgay);
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
@@ -456,10 +468,11 @@ namespace CMMSApi.Controllers
                 foreach (var item in lstPhoneMail)
                 {
                     mailto += item.MAIL;
-                    SendSMS(item.PHONE, "Máy :" + lstPhoneMail[0].MS_MAY + "hien tai dang bi ngung luc: " + Ngay.ToShortDateString()+ "");
+                    //item.PHONE = "0348694548";
+                    SendSMS(item.PHONE.Trim(), "May :" + lstPhoneMail[0].MS_MAY + ",gap su co tu: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "");
                 }
-                string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY + "hiện tại" +
-                    " đang bị ngừng lúc: " + Ngay.ToShortDateString()+ "</p>";
+                //mailto = "bamboo2711@gmail.com;";
+                string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY +",gặp sự cố từ: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "</p>";
                 Ecomaint.Api.DBUtils.SendEmailCC(mailto,"WAHL-WON",Mes);
                 return true;
             }
@@ -487,7 +500,6 @@ namespace CMMSApi.Controllers
                 Thread.Sleep(100);
                 var response = sp.ReadExisting();
                 sp.Close();
-
             }
             catch
             {

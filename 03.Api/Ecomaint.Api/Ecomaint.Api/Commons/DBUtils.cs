@@ -624,11 +624,14 @@ namespace Ecomaint.Api
             var loginInfo = new NetworkCredential(email, password);
             var msg = new MailMessage();
             var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
-            msg.From = new MailAddress(email, "Phần mềm Báo cáo AT");
+            msg.From = new MailAddress(email, "ANDON -  WAHL");
             var mail = address.Split(';');
             foreach (var item in mail)
             {
-                msg.To.Add(new MailAddress(item));
+                if (item.Trim() != "")
+                {
+                    msg.To.Add(new MailAddress(item));
+                }
             }
             msg.Subject = subject;
             msg.Body = message;
@@ -658,7 +661,7 @@ namespace Ecomaint.Api
             var loginInfo = new NetworkCredential(email, password);
             var msg = new MailMessage();
             var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
-            msg.From = new MailAddress(email, "Phần mềm Báo cáo AT");
+            msg.From = new MailAddress(email, "ANDON -  WAHL");
             var mail = address.Split(';');
             foreach (var item in mail)
             {

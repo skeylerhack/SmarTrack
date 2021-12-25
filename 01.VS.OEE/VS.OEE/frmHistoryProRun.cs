@@ -66,6 +66,7 @@ namespace VS.OEE
             cboUser.Visible = Visible;
             datTNgay.Visible = Visible;
             datDNgay.Visible = Visible;
+            tablePanel1.Rows[2].Visible = Visible;
         }
 
         private void cboUser_EditValueChanged(object sender, EventArgs e)

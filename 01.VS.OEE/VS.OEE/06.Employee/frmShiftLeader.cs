@@ -71,7 +71,7 @@ namespace VS.OEE
                     XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgCopySuccessful"));
                 Commons.Modules.ObjSystems.XoaTable(sBT);
             }
-            catch (Exception ex) { }
+            catch { }
         }
         private void btnSua_Click(object sender, EventArgs e)
         {

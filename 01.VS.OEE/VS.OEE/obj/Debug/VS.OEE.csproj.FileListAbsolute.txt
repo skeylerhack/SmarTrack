@@ -1219,3 +1219,5 @@ D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CoreCompileInputs.cache
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmThoiGianNgungMay_KTTD.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmHistoryThoiGianNgungMay_KTTD.resources

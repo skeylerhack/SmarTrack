@@ -208,6 +208,7 @@ namespace VS.OEE
                 case "ShowNM_PX_TO": { ShowNM_PX_TO(); return; }
                 case "ShowShiftLeader": { ShowShiftLeader(); return; }
                 case "ShowVaiTro": { ShowVaiTro(); return; }
+                case "ShowThoiGianNgungMay_KTTD": { ShowThoiGianNgungMay_KTTD(); return; }
                 default:
                     {
                         break;
@@ -734,6 +735,17 @@ namespace VS.OEE
         {
             this.Cursor = Cursors.WaitCursor;
             frmVaiTro frm = new frmVaiTro(Commons.Modules.iPermission);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+            this.Cursor = Cursors.Default;
+        }
+        #endregion
+        #region ShowVaiTro
+        private void ShowThoiGianNgungMay_KTTD()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmThoiGianNgungMay_KTTD frm = new frmThoiGianNgungMay_KTTD(Commons.Modules.iPermission);
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;
             frm.Show();

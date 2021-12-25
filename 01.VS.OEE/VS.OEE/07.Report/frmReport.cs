@@ -90,31 +90,31 @@ namespace VS.OEE
                 Cursor.Current = Cursors.WaitCursor;
                 switch (button.Name)
                 {
-                    case "mnuBCTinhHinhSanXuat":
-                        {
-                            Adduac(new ucBaoCaoTinhHinhSanXuat(), Convert.ToInt32(button.Tag));
-                            break;
-                        }
-                    case "mnuBCTongHopHieuXuat":
-                        {
-                            Adduac(new ucBaoCaoTongHopHieuXuat(), Convert.ToInt32(button.Tag));
-                            break;
-                        }
-                    case "mnuPareto":
-                        {
-                            Adduac(new ucBaocaoPareto(), Convert.ToInt32(button.Tag));
-                            break;
-                        }
-                    case "mnuBaoCaoTienDoSanXuat":
-                        {
-                            Adduac(new ucBaoCaoTienDoSanXuat(), Convert.ToInt32(button.Tag));
-                            break;
-                        }
-                    case "mnuucBaocaoDoThiOEE":
-                        {
-                            Adduac(new ucBaocaoDoThiOEE(), Convert.ToInt32(button.Tag));
-                            break;
-                        }
+                    //case "mnuBCTinhHinhSanXuat":
+                    //    {
+                    //        Adduac(new ucBaoCaoTinhHinhSanXuat(), Convert.ToInt32(button.Tag));
+                    //        break;
+                    //    }
+                    //case "mnuBCTongHopHieuXuat":
+                    //    {
+                    //        Adduac(new ucBaoCaoTongHopHieuXuat(), Convert.ToInt32(button.Tag));
+                    //        break;
+                    //    }
+                    //case "mnuPareto":
+                    //    {
+                    //        Adduac(new ucBaocaoPareto(), Convert.ToInt32(button.Tag));
+                    //        break;
+                    //    }
+                    //case "mnuBaoCaoTienDoSanXuat":
+                    //    {
+                    //        Adduac(new ucBaoCaoTienDoSanXuat(), Convert.ToInt32(button.Tag));
+                    //        break;
+                    //    }
+                    //case "mnuucBaocaoDoThiOEE":
+                    //    {
+                    //        Adduac(new ucBaocaoDoThiOEE(), Convert.ToInt32(button.Tag));
+                    //        break;
+                    //    }
                     default:
                         break;
                 }

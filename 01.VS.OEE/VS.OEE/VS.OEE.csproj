@@ -323,6 +323,12 @@
     <Compile Include="formEdit\frmView.Designer.cs">
       <DependentUpon>frmView.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHistoryThoiGianNgungMay_KTTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoryThoiGianNgungMay_KTTD.Designer.cs">
+      <DependentUpon>frmHistoryThoiGianNgungMay_KTTD.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHistoryProRun.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,12 @@
     </Compile>
     <Compile Include="06.Employee\frmQLCa.Designer.cs">
       <DependentUpon>frmQLCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="05.Produce\frmThoiGianNgungMay_KTTD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="05.Produce\frmThoiGianNgungMay_KTTD.Designer.cs">
+      <DependentUpon>frmThoiGianNgungMay_KTTD.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -637,6 +649,9 @@
     <EmbeddedResource Include="formEdit\frmView.resx">
       <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoryThoiGianNgungMay_KTTD.resx">
+      <DependentUpon>frmHistoryThoiGianNgungMay_KTTD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHistoryProRun.resx">
       <DependentUpon>frmHistoryProRun.cs</DependentUpon>
     </EmbeddedResource>
@@ -657,6 +672,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="06.Employee\frmQLCa.resx">
       <DependentUpon>frmQLCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="05.Produce\frmThoiGianNgungMay_KTTD.resx">
+      <DependentUpon>frmThoiGianNgungMay_KTTD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="07.Report\frmReport.resx">

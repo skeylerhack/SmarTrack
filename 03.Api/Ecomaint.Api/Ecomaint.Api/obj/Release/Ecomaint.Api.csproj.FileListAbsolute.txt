@@ -358,3 +358,4 @@ D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\Ecomaint.Api.csproj
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\Ecomaint.Api.csproj.CopyComplete
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\CMMSApi.dll
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\CMMSApi.pdb
+G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\MSendReceiveSMS.dll

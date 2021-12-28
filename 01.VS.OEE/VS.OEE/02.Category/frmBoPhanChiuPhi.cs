@@ -49,7 +49,7 @@ namespace VS.OEE
                     this.btnSua.Visible = false;
                     this.btnXoa.Visible = false;
                     this.btnLuu.Visible = false;
-                    this.btnKhongLuu.Visible = false;
+                    this.btnKhong.Visible = false;
                 }
                 txtTenBoPhanChiuPhi.Properties.MaxLength = 250;
                 memoGhiChu.Properties.MaxLength = 250;
@@ -78,7 +78,7 @@ namespace VS.OEE
             this.btnXoa.Visible = bLock;
             this.btnThoat.Visible = bLock;
 
-            this.btnKhongLuu.Visible = !bLock;
+            this.btnKhong.Visible = !bLock;
             this.btnLuu.Visible = !bLock;
         }
 

@@ -288,7 +288,7 @@
             this.ClientSize = new System.Drawing.Size(963, 474);
             this.Controls.Add(this.panelChung);
             this.Name = "frmNhomNguoiDung";
-            this.Text = "frmDownTimeType";
+            this.Text = "frmNhomNguoiDung";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDownTimeType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtDownTimeType.Properties)).EndInit();

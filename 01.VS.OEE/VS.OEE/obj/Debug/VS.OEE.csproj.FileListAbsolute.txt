@@ -1221,3 +1221,4 @@ D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmThoiGianNgungMay_KTTD.resources
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmHistoryThoiGianNgungMay_KTTD.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingDaily.resources

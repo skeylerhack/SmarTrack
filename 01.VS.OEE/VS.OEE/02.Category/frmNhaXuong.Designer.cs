@@ -34,10 +34,12 @@
             this.TreeList = new DevExpress.XtraTreeList.TreeList();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
-            this.btnKhongGhi = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.pieHINH_ANH = new DevExpress.XtraEditors.PictureEdit();
             this.txtGHI_CHU = new DevExpress.XtraEditors.MemoEdit();
             this.txtKHOANG_CACH = new DevExpress.XtraEditors.SpinEdit();
@@ -67,8 +69,6 @@
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.txtTim = new DevExpress.XtraEditors.SearchControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
-            this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.TreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -168,7 +168,7 @@
             this.tablePanel1.SetColumnSpan(this.panelControl1, 4);
             this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Controls.Add(this.btnGhi);
-            this.panelControl1.Controls.Add(this.btnKhongGhi);
+            this.panelControl1.Controls.Add(this.btnKhong);
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.btnXoa);
             this.panelControl1.Controls.Add(this.btnSua);
@@ -178,15 +178,15 @@
             this.panelControl1.Size = new System.Drawing.Size(566, 29);
             this.panelControl1.TabIndex = 28;
             // 
-            // btnThoat
+            // btnThem
             // 
-            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(484, 0);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(80, 26);
-            this.btnThoat.TabIndex = 0;
-            this.btnThoat.Text = "btnThoat";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThem.Location = new System.Drawing.Point(241, 0);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(80, 26);
+            this.btnThem.TabIndex = 7;
+            this.btnThem.Text = "btnThem";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnGhi
             // 
@@ -198,15 +198,25 @@
             this.btnGhi.Text = "btnGhi";
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
             // 
-            // btnKhongGhi
+            // btnKhong
             // 
-            this.btnKhongGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhongGhi.Location = new System.Drawing.Point(484, 0);
-            this.btnKhongGhi.Name = "btnKhongGhi";
-            this.btnKhongGhi.Size = new System.Drawing.Size(80, 26);
-            this.btnKhongGhi.TabIndex = 1;
-            this.btnKhongGhi.Text = "btnKhongGhi";
-            this.btnKhongGhi.Click += new System.EventHandler(this.btnKhongGhi_Click);
+            this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKhong.Location = new System.Drawing.Point(484, 0);
+            this.btnKhong.Name = "btnKhong";
+            this.btnKhong.Size = new System.Drawing.Size(80, 26);
+            this.btnKhong.TabIndex = 1;
+            this.btnKhong.Text = "btnKhong";
+            this.btnKhong.Click += new System.EventHandler(this.btnKhongGhi_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.Location = new System.Drawing.Point(484, 0);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(80, 26);
+            this.btnThoat.TabIndex = 0;
+            this.btnThoat.Text = "btnThoat";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
@@ -217,6 +227,16 @@
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "btnXoa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Location = new System.Drawing.Point(322, 0);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(80, 26);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "btnSua";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // pieHINH_ANH
             // 
@@ -558,26 +578,6 @@
             this.txtTim.Size = new System.Drawing.Size(300, 20);
             this.txtTim.TabIndex = 1;
             // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(322, 0);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(80, 26);
-            this.btnSua.TabIndex = 6;
-            this.btnSua.Text = "btnSua";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(241, 0);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(80, 26);
-            this.btnThem.TabIndex = 7;
-            this.btnThem.Text = "btnThem";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // frmNhaXuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,7 +650,7 @@
         private DevExpress.Utils.Layout.TablePanel tablePanel2;
         private DevExpress.XtraEditors.SearchControl txtTim;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
-        private DevExpress.XtraEditors.SimpleButton btnKhongGhi;
+        private DevExpress.XtraEditors.SimpleButton btnKhong;
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;

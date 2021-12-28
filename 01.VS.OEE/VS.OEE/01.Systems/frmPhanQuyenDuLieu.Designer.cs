@@ -56,10 +56,10 @@ namespace VS.OEE
             this.searchControl4 = new DevExpress.XtraEditors.SearchControl();
             this.cboNhom = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
-            this.btnKhongGhi = new DevExpress.XtraEditors.SimpleButton();
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -382,7 +382,7 @@ namespace VS.OEE
             this.tablePanel1.SetColumn(this.panel1, 0);
             this.tablePanel1.SetColumnSpan(this.panel1, 4);
             this.panel1.Controls.Add(this.btnSua);
-            this.panel1.Controls.Add(this.btnKhongGhi);
+            this.panel1.Controls.Add(this.btnKhong);
             this.panel1.Controls.Add(this.btnGhi);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Location = new System.Drawing.Point(2, 349);
@@ -391,6 +391,30 @@ namespace VS.OEE
             this.tablePanel1.SetRow(this.panel1, 4);
             this.panel1.Size = new System.Drawing.Size(980, 31);
             this.panel1.TabIndex = 4;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Location = new System.Drawing.Point(818, 3);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(80, 26);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "btnSua";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnKhong
+            // 
+            this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKhong.Location = new System.Drawing.Point(899, 3);
+            this.btnKhong.Margin = new System.Windows.Forms.Padding(2);
+            this.btnKhong.Name = "btnKhong";
+            this.btnKhong.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnKhong.Size = new System.Drawing.Size(80, 26);
+            this.btnKhong.TabIndex = 7;
+            this.btnKhong.Text = "btnKhong";
+            this.btnKhong.Visible = false;
+            this.btnKhong.Click += new System.EventHandler(this.btnKhongGhi_Click);
             // 
             // btnGhi
             // 
@@ -414,30 +438,6 @@ namespace VS.OEE
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "btnThoat";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(818, 3);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(80, 26);
-            this.btnSua.TabIndex = 6;
-            this.btnSua.Text = "btnSua";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnKhongGhi
-            // 
-            this.btnKhongGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhongGhi.Location = new System.Drawing.Point(899, 3);
-            this.btnKhongGhi.Margin = new System.Windows.Forms.Padding(2);
-            this.btnKhongGhi.Name = "btnKhongGhi";
-            this.btnKhongGhi.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnKhongGhi.Size = new System.Drawing.Size(80, 26);
-            this.btnKhongGhi.TabIndex = 7;
-            this.btnKhongGhi.Text = "btnKhongGhi";
-            this.btnKhongGhi.Visible = false;
-            this.btnKhongGhi.Click += new System.EventHandler(this.btnKhongGhi_Click);
             // 
             // gridView4
             // 
@@ -497,7 +497,7 @@ namespace VS.OEE
         private SimpleButton btnSua;
         private SimpleButton btnThoat;
         private SimpleButton btnGhi;
-        private SimpleButton btnKhongGhi;
+        private SimpleButton btnKhong;
         private DevExpress.XtraTab.XtraTabControl tabPhanQuyen;
         private DevExpress.XtraTab.XtraTabPage tabDiaDiemDayChuyen;
         private DevExpress.XtraTab.XtraTabPage tabLoaiMayBPCP;

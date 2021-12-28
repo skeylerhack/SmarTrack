@@ -173,28 +173,28 @@ namespace VS.OEE
 
         private void cboID_NHOM_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (e.Button.Index == 1)
-            {
-                try
-                {
-                    XtraForm ctl;
-                    Type newType = Type.GetType("VS.ERP.frmEditNhomNguoiDung", true, true);
-                    object o1 = Activator.CreateInstance(newType, null, true);
-                    ctl = o1 as XtraForm;
-                    ctl.StartPosition = FormStartPosition.CenterParent;
-                    if (ctl.ShowDialog() == DialogResult.OK)
-                    {
-                        LoadCbo();
-                        int ID_NHOM_cbo;
-                        ID_NHOM_cbo = int.Parse(string.IsNullOrEmpty(ctl.Tag.ToString()) ? "1" : ctl.Tag.ToString());
-                        cboID_NHOM.EditValue = ID_NHOM_cbo;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    XtraMessageBox.Show(ex.Message);
-                }
-            }
+            //if (e.Button.Index == 1)
+            //{
+            //    try
+            //    {
+            //        XtraForm ctl;
+            //        Type newType = Type.GetType("VS.ERP.frmEditNhomNguoiDung", true, true);
+            //        object o1 = Activator.CreateInstance(newType, null, true);
+            //        ctl = o1 as XtraForm;
+            //        ctl.StartPosition = FormStartPosition.CenterParent;
+            //        if (ctl.ShowDialog() == DialogResult.OK)
+            //        {
+            //            LoadCbo();
+            //            int ID_NHOM_cbo;
+            //            ID_NHOM_cbo = int.Parse(string.IsNullOrEmpty(ctl.Tag.ToString()) ? "1" : ctl.Tag.ToString());
+            //            cboID_NHOM.EditValue = ID_NHOM_cbo;
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        XtraMessageBox.Show(ex.Message);
+            //    }
+            //}
         }
     }
 }

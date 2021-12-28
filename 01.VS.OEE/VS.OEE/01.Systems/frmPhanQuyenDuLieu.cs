@@ -14,13 +14,13 @@ namespace VS.OEE
             {
                 btnSua.Visible = false;
                 btnGhi.Visible = false;
-                btnKhongGhi.Visible = false;
+                btnKhong.Visible = false;
             }
             else
             {
                 btnSua.Visible = true;
                 btnGhi.Visible = true;
-                btnKhongGhi.Visible = true;
+                btnKhong.Visible = true;
             }
         }
 
@@ -39,7 +39,7 @@ namespace VS.OEE
             btnSua.Visible = visible;
             btnThoat.Visible = visible;
             btnGhi.Visible = !visible;
-            btnKhongGhi.Visible = !visible;
+            btnKhong.Visible = !visible;
         }
         private void LoadCbo()
         {

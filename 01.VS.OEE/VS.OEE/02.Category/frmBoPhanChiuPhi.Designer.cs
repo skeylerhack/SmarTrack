@@ -33,15 +33,16 @@ namespace VS.OEE
             this.txtMaBPChiuPhi = new DevExpress.XtraEditors.TextEdit();
             this.lblMaBPChiuPhi = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnKhongLuu = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.txtSearch = new DevExpress.XtraEditors.SearchControl();
+            this.grdBoPhanChiuPhi = new DevExpress.XtraGrid.GridControl();
+            this.grvBoPhanChiuPhi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.cboDonVi = new DevExpress.XtraEditors.LookUpEdit();
-            this.grdBoPhanChiuPhi = new DevExpress.XtraGrid.GridControl();
-            this.grvBoPhanChiuPhi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cboLoaiChiPhi = new DevExpress.XtraEditors.LookUpEdit();
             this.lblDonVi = new DevExpress.XtraEditors.LabelControl();
             this.lblLoaiChiPhi = new DevExpress.XtraEditors.LabelControl();
@@ -50,20 +51,19 @@ namespace VS.OEE
             this.lblTenBPChiuPhi = new DevExpress.XtraEditors.LabelControl();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.memoGhiChu = new DevExpress.XtraEditors.MemoEdit();
-            this.txtSearch = new DevExpress.XtraEditors.SearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaBPChiuPhi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDonVi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoPhanChiuPhi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvBoPhanChiuPhi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDonVi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLoaiChiPhi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenBoPhanChiuPhi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoGhiChu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -134,7 +134,7 @@ namespace VS.OEE
             this.panelControl1.Controls.Add(this.btnSua);
             this.panelControl1.Controls.Add(this.btnXoa);
             this.panelControl1.Controls.Add(this.btnThem);
-            this.panelControl1.Controls.Add(this.btnKhongLuu);
+            this.panelControl1.Controls.Add(this.btnKhong);
             this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Location = new System.Drawing.Point(3, 370);
             this.panelControl1.Name = "panelControl1";
@@ -142,25 +142,42 @@ namespace VS.OEE
             this.panelControl1.Size = new System.Drawing.Size(841, 29);
             this.panelControl1.TabIndex = 11;
             // 
-            // btnKhongLuu
+            // txtSearch
             // 
-            this.btnKhongLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhongLuu.Location = new System.Drawing.Point(760, 1);
-            this.btnKhongLuu.Name = "btnKhongLuu";
-            this.btnKhongLuu.Size = new System.Drawing.Size(80, 26);
-            this.btnKhongLuu.TabIndex = 8;
-            this.btnKhongLuu.Text = "btnKhongLuu";
-            this.btnKhongLuu.Click += new System.EventHandler(this.btnKhongLuu_Click);
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtSearch.Client = this.grdBoPhanChiuPhi;
+            this.txtSearch.EnterMoveNextControl = true;
+            this.txtSearch.Location = new System.Drawing.Point(1, 8);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.txtSearch.Properties.Client = this.grdBoPhanChiuPhi;
+            this.txtSearch.Properties.FindDelay = 100;
+            this.txtSearch.Size = new System.Drawing.Size(200, 20);
+            this.txtSearch.TabIndex = 10;
             // 
-            // btnLuu
+            // grdBoPhanChiuPhi
             // 
-            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLuu.Location = new System.Drawing.Point(679, 1);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(80, 26);
-            this.btnLuu.TabIndex = 8;
-            this.btnLuu.Text = "btnLuu";
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            this.tablePanel1.SetColumn(this.grdBoPhanChiuPhi, 0);
+            this.tablePanel1.SetColumnSpan(this.grdBoPhanChiuPhi, 8);
+            this.grdBoPhanChiuPhi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdBoPhanChiuPhi.Location = new System.Drawing.Point(3, 71);
+            this.grdBoPhanChiuPhi.MainView = this.grvBoPhanChiuPhi;
+            this.grdBoPhanChiuPhi.Name = "grdBoPhanChiuPhi";
+            this.tablePanel1.SetRow(this.grdBoPhanChiuPhi, 4);
+            this.grdBoPhanChiuPhi.Size = new System.Drawing.Size(841, 293);
+            this.grdBoPhanChiuPhi.TabIndex = 1;
+            this.grdBoPhanChiuPhi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvBoPhanChiuPhi});
+            // 
+            // grvBoPhanChiuPhi
+            // 
+            this.grvBoPhanChiuPhi.GridControl = this.grdBoPhanChiuPhi;
+            this.grvBoPhanChiuPhi.Name = "grvBoPhanChiuPhi";
+            this.grvBoPhanChiuPhi.OptionsView.ShowGroupPanel = false;
+            this.grvBoPhanChiuPhi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvBoPhanChiuPhi_FocusedRowChanged);
+            this.grvBoPhanChiuPhi.ColumnFilterChanged += new System.EventHandler(this.grvBoPhanChiuPhi_ColumnFilterChanged);
             // 
             // btnThoat
             // 
@@ -202,6 +219,26 @@ namespace VS.OEE
             this.btnThem.Text = "btnThem";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // btnKhong
+            // 
+            this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKhong.Location = new System.Drawing.Point(760, 1);
+            this.btnKhong.Name = "btnKhong";
+            this.btnKhong.Size = new System.Drawing.Size(80, 26);
+            this.btnKhong.TabIndex = 8;
+            this.btnKhong.Text = "btnKhong";
+            this.btnKhong.Click += new System.EventHandler(this.btnKhongLuu_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.Location = new System.Drawing.Point(679, 1);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(80, 26);
+            this.btnLuu.TabIndex = 8;
+            this.btnLuu.Text = "btnLuu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // cboDonVi
             // 
             this.tablePanel1.SetColumn(this.cboDonVi, 6);
@@ -213,28 +250,6 @@ namespace VS.OEE
             this.tablePanel1.SetRow(this.cboDonVi, 2);
             this.cboDonVi.Size = new System.Drawing.Size(122, 20);
             this.cboDonVi.TabIndex = 10;
-            // 
-            // grdBoPhanChiuPhi
-            // 
-            this.tablePanel1.SetColumn(this.grdBoPhanChiuPhi, 0);
-            this.tablePanel1.SetColumnSpan(this.grdBoPhanChiuPhi, 8);
-            this.grdBoPhanChiuPhi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdBoPhanChiuPhi.Location = new System.Drawing.Point(3, 71);
-            this.grdBoPhanChiuPhi.MainView = this.grvBoPhanChiuPhi;
-            this.grdBoPhanChiuPhi.Name = "grdBoPhanChiuPhi";
-            this.tablePanel1.SetRow(this.grdBoPhanChiuPhi, 4);
-            this.grdBoPhanChiuPhi.Size = new System.Drawing.Size(841, 293);
-            this.grdBoPhanChiuPhi.TabIndex = 1;
-            this.grdBoPhanChiuPhi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvBoPhanChiuPhi});
-            // 
-            // grvBoPhanChiuPhi
-            // 
-            this.grvBoPhanChiuPhi.GridControl = this.grdBoPhanChiuPhi;
-            this.grvBoPhanChiuPhi.Name = "grvBoPhanChiuPhi";
-            this.grvBoPhanChiuPhi.OptionsView.ShowGroupPanel = false;
-            this.grvBoPhanChiuPhi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvBoPhanChiuPhi_FocusedRowChanged);
-            this.grvBoPhanChiuPhi.ColumnFilterChanged += new System.EventHandler(this.grvBoPhanChiuPhi_ColumnFilterChanged);
             // 
             // cboLoaiChiPhi
             // 
@@ -323,21 +338,6 @@ namespace VS.OEE
             this.memoGhiChu.Size = new System.Drawing.Size(370, 20);
             this.memoGhiChu.TabIndex = 0;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSearch.Client = this.grdBoPhanChiuPhi;
-            this.txtSearch.EnterMoveNextControl = true;
-            this.txtSearch.Location = new System.Drawing.Point(1, 8);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.txtSearch.Properties.Client = this.grdBoPhanChiuPhi;
-            this.txtSearch.Properties.FindDelay = 100;
-            this.txtSearch.Size = new System.Drawing.Size(200, 20);
-            this.txtSearch.TabIndex = 10;
-            // 
             // frmBoPhanChiuPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,14 +354,14 @@ namespace VS.OEE
             ((System.ComponentModel.ISupportInitialize)(this.txtMaBPChiuPhi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cboDonVi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdBoPhanChiuPhi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvBoPhanChiuPhi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDonVi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLoaiChiPhi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenBoPhanChiuPhi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoGhiChu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,7 +385,7 @@ namespace VS.OEE
         private DevExpress.XtraEditors.LookUpEdit cboDonVi;
         private DevExpress.XtraEditors.LookUpEdit cboLoaiChiPhi;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnKhongLuu;
+        private DevExpress.XtraEditors.SimpleButton btnKhong;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.TextEdit txtMaBPChiuPhi;
         private DevExpress.XtraEditors.LabelControl lblMaBPChiuPhi;

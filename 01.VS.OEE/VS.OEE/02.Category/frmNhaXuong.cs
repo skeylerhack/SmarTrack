@@ -32,7 +32,7 @@ namespace VS.OEE
                 this.btnSua.Visible = false;
                 this.btnXoa.Visible = false;
                 this.btnGhi.Visible = false;
-                this.btnKhongGhi.Visible = false;
+                this.btnKhong.Visible = false;
             }
         }
 
@@ -68,7 +68,7 @@ namespace VS.OEE
             this.btnXoa.Visible = bLock;
             this.btnThoat.Visible = bLock;
             this.btnGhi.Visible = !bLock;
-            this.btnKhongGhi.Visible = !bLock;
+            this.btnKhong.Visible = !bLock;
         }
 
 

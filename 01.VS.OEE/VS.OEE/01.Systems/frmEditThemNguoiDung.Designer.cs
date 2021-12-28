@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditThemNguoiDung));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.cboID_NHOM = new DevExpress.XtraEditors.LookUpEdit();
@@ -76,10 +70,8 @@
             this.tablePanel1.SetColumn(this.cboID_NHOM, 1);
             this.cboID_NHOM.Location = new System.Drawing.Point(123, 11);
             this.cboID_NHOM.Name = "cboID_NHOM";
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.cboID_NHOM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboID_NHOM.Properties.NullText = "";
             this.cboID_NHOM.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.tablePanel1.SetRow(this.cboID_NHOM, 1);
@@ -226,31 +218,37 @@
             // 
             // lblID_NHOM
             // 
+            this.lblID_NHOM.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblID_NHOM.Appearance.Options.UseFont = true;
             this.tablePanel1.SetColumn(this.lblID_NHOM, 0);
             this.lblID_NHOM.Location = new System.Drawing.Point(3, 14);
             this.lblID_NHOM.Name = "lblID_NHOM";
             this.tablePanel1.SetRow(this.lblID_NHOM, 1);
-            this.lblID_NHOM.Size = new System.Drawing.Size(64, 13);
+            this.lblID_NHOM.Size = new System.Drawing.Size(65, 13);
             this.lblID_NHOM.TabIndex = 16;
             this.lblID_NHOM.Text = "lblID_NHOM";
             // 
             // lblUSER_NAME
             // 
+            this.lblUSER_NAME.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblUSER_NAME.Appearance.Options.UseFont = true;
             this.tablePanel1.SetColumn(this.lblUSER_NAME, 0);
             this.lblUSER_NAME.Location = new System.Drawing.Point(3, 40);
             this.lblUSER_NAME.Name = "lblUSER_NAME";
             this.tablePanel1.SetRow(this.lblUSER_NAME, 2);
-            this.lblUSER_NAME.Size = new System.Drawing.Size(76, 13);
+            this.lblUSER_NAME.Size = new System.Drawing.Size(79, 13);
             this.lblUSER_NAME.TabIndex = 16;
             this.lblUSER_NAME.Text = "lblUSER_NAME";
             // 
             // lblPASSWORD
             // 
+            this.lblPASSWORD.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblPASSWORD.Appearance.Options.UseFont = true;
             this.tablePanel1.SetColumn(this.lblPASSWORD, 2);
             this.lblPASSWORD.Location = new System.Drawing.Point(294, 40);
             this.lblPASSWORD.Name = "lblPASSWORD";
             this.tablePanel1.SetRow(this.lblPASSWORD, 2);
-            this.lblPASSWORD.Size = new System.Drawing.Size(73, 13);
+            this.lblPASSWORD.Size = new System.Drawing.Size(74, 13);
             this.lblPASSWORD.TabIndex = 16;
             this.lblPASSWORD.Text = "lblPASSWORD";
             // 

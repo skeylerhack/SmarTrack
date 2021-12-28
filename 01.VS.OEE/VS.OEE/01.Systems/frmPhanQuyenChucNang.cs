@@ -22,7 +22,7 @@ namespace VS.OEE
             {
                 btnSua.Visible = false;
                 btnGhi.Visible = false;
-                btnKhongGhi.Visible = false;
+                btnKhong.Visible = false;
                 treeListMenu.OptionsBehavior.Editable = false;
                 treeListMenu.OptionsView.ShowCheckBoxes = false;
             }
@@ -30,7 +30,7 @@ namespace VS.OEE
             {
                 btnSua.Visible = true;
                 btnGhi.Visible = true;
-                btnKhongGhi.Visible = true;
+                btnKhong.Visible = true;
                 treeListMenu.OptionsBehavior.Editable = true;
                 treeListMenu.OptionsView.ShowCheckBoxes = true;
             }
@@ -210,7 +210,7 @@ namespace VS.OEE
             btnSua.Visible = visible;
             btnThoat.Visible = visible;
             btnGhi.Visible = !visible;
-            btnKhongGhi.Visible = !visible;
+            btnKhong.Visible = !visible;
         }
 
         private void setValue_treeListMenu(TreeListNode node)

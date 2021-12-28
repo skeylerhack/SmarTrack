@@ -38,6 +38,9 @@ namespace VS.OEE
                 Application.Run(new frmMain());
                 //Application.Run(new frmOperator(1));
                 //Application.Run(new frmThoiGianNgungMay_KTTD(1));
+                //Application.Run(new frmReport());
+
+
             }
             catch (Exception ex)
             {

@@ -166,6 +166,12 @@
     <Compile Include="05.Produce\frmQLChatLuong.Designer.cs">
       <DependentUpon>frmQLChatLuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="07.Report\ucBaocaoMoldingDaily.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaocaoMoldingDaily.Designer.cs">
+      <DependentUpon>ucBaocaoMoldingDaily.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\ClsMain.cs" />
     <Compile Include="formChoose\frmChooseOperator.cs">
       <SubType>Form</SubType>
@@ -569,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="05.Produce\frmQLChatLuong.resx">
       <DependentUpon>frmQLChatLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaocaoMoldingDaily.resx">
+      <DependentUpon>ucBaocaoMoldingDaily.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmChooseOperator.resx">
       <DependentUpon>frmChooseOperator.cs</DependentUpon>

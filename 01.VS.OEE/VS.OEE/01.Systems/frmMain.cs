@@ -766,5 +766,11 @@ namespace VS.OEE
                 catch { }
             }
         }
+
+        private void barInfo_ItemDoubleClick(object sender, ItemClickEventArgs e)
+        {
+            Form activeChild = this.ActiveMdiChild;
+            XtraInputBox.Show("Tên form", "Tên form", activeChild.Name);
+        }
     }
 }

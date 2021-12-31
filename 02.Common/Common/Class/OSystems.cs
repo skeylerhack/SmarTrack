@@ -1304,11 +1304,17 @@ namespace Commons
                     col.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     col.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     col.AppearanceHeader.Options.UseTextOptions = true;
-                    col.Caption = Modules.ObjLanguages.GetLanguage(Modules.ModuleName, fName, col.FieldName, Modules.TypeLanguage);
+                    try
+                    {
+                        Convert.ToDateTime(col.FieldName);
+                    }
+                    catch
+                    {
+                        col.Caption = Modules.ObjLanguages.GetLanguage(Modules.ModuleName, fName, col.FieldName, Modules.TypeLanguage);
+
+                    }
                 }
             }
-
-
         }
 
         public void MLoadNNXtraGrid(DevExpress.XtraGrid.Views.Grid.GridView grv, string fName, int NN)
@@ -3454,6 +3460,7 @@ namespace Commons
         }
         public DataTable DataMay(bool CoAll)
         {
+            //MS_MAY,A.TEN_MAY
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetMay", Commons.Modules.UserName, Commons.Modules.TypeLanguage, CoAll));
             return dt;
@@ -3609,5 +3616,99 @@ namespace Commons
             }
             return sText;
         }
+
+        public void CheckUpdate()
+        {
+            string sSql = "";
+            try
+            {
+                #region Lay thong tin ver server
+                sSql = "SELECT TOP 1 VER FROM dbo.THONG_TIN_CHUNG";
+                sSql = Convert.ToString(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, System.Data.CommandType.Text, sSql));
+                try
+                {
+                    Commons.Modules.sInfoSer = sSql.Substring(0, (sSql.Length - 4));
+                    Commons.Modules.sInfoSer = Commons.Modules.sInfoSer.Substring(6, 2) + "/" + Commons.Modules.sInfoSer.Substring(4, 2) + "/" + Commons.Modules.sInfoSer.Substring(0, 4) + "." + sSql.Substring(8, sSql.Length - 8);
+                }
+                catch
+                {
+                    Commons.Modules.sInfoSer = "01/01/2000.0001";
+                    sSql = "200001010001";
+                }
+                #endregion
+
+                #region Lay thong tin ver client
+                string sVerClient;
+                sVerClient = LayDuLieu(@"Version.txt");
+                try
+                {
+                    Commons.Modules.sInfoClient = sVerClient.Substring(0, (sVerClient.Length - 4));
+                    Commons.Modules.sInfoClient = Commons.Modules.sInfoClient.Substring(6, 2) + "/" + Commons.Modules.sInfoClient.Substring(4, 2) + "/" + Commons.Modules.sInfoClient.Substring(0, 4) + "." + sVerClient.Substring(8, sVerClient.Length - 8);
+                }
+                catch
+                {
+                    Commons.Modules.sInfoClient = "01/01/2000.0001";
+                    sVerClient = "200001010001";
+                }
+                #endregion
+
+
+                try { if (double.Parse(sVerClient) == double.Parse(sSql)) return; } catch { return; }
+
+                sSql = "SELECT TOP 1 (CONVERT(NVARCHAR,LOAI_CN) + '!' + isnull(LINK1, '-1') + '!' + isnull(LINK2, '-1') + '!' + isnull(LINK3, '-1')) AS CAPNHAT FROM THONG_TIN_CHUNG";
+                sSql = Convert.ToString(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, System.Data.CommandType.Text, sSql));
+
+                string[] sArr = sSql.Split('!');
+                int loai = Convert.ToInt32(sArr[0].ToString());
+                String link1 = sArr[1];
+                String link2 = sArr[2];
+                String link3 = sArr[3];
+
+                //Khong có loai update thi thoát
+                if (loai <= -1) return;
+
+
+                switch (loai)
+                {
+                    //Loai 2 xai link1,2 : path link tren dropbox 
+                    //Loai 1 xai link3: path link tren server
+                    case 1:  //Update tren server voi link3
+                        {
+                            if (string.IsNullOrEmpty(link3)) return;
+                            if (!Directory.Exists(link3))
+                            {
+                                XtraMessageBox.Show("Link update : " + link3 + " không tồn tại.");
+                                return;
+                            }
+                            MUpdate(loai, ".", ".", link3);
+                            return;
+                        }
+                    case 2: // Updatetren dropbox
+                        {
+                            if (string.IsNullOrEmpty(link1)) return;
+
+                            MUpdate(loai, link1, link2, ".");
+                            return;
+                        }
+                }
+            }
+            catch
+            { }
+
+        }
+
+
+        private void MUpdate(int loai, String link1, String link2, String link3)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("Update.exe", loai.ToString() + " " + link1 + " " + link2 + " " + link3 + " " + Application.ProductName);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.ToString());
+            }
+        }
+
     }
 }

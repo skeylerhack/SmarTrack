@@ -1,5 +1,4 @@
-﻿using DevExpress.LookAndFeel;
-using DevExpress.XtraBars.Navigation;
+﻿using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using Microsoft.ApplicationBlocks.Data;
 using System;
@@ -113,6 +112,11 @@ namespace VS.OEE
                     case "mnuucBaocaoDoThiOEE":
                         {
                             Adduac(new ucBaocaoDoThiOEE(), Convert.ToInt32(button.Tag));
+                            break;
+                        }
+                    case "mnuBaoCaoKeHoachSanXuat":
+                        {
+                            Adduac(new ucBaoCaoKeHoachSanXuat(), Convert.ToInt32(button.Tag));
                             break;
                         }
                     default:

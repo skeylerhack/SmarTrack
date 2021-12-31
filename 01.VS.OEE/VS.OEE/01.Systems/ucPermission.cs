@@ -505,7 +505,7 @@ namespace VS.OEE
         {
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "getAllUsersOEE", Commons.Modules.TypeLanguage));
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdListUser, grvListUser, dt, false, false, true, true, true, "");
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdListUser, grvListUser, dt, false, false, true, true, true, this.Name);
             grvListUser.Columns["GROUP_ID"].Visible = false;
             grvListUser.Columns["TIME_LOGIN"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             grvListUser.Columns["TIME_LOGIN"].DisplayFormat.FormatString = "dd/MM/yyy hh:mm:ss";

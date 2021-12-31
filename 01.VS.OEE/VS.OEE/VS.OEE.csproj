@@ -179,6 +179,18 @@
     <Compile Include="formChoose\frmChooseOperator.Designer.cs">
       <DependentUpon>frmChooseOperator.cs</DependentUpon>
     </Compile>
+    <Compile Include="formChoose\frmThoiGianNgungMay_KTTD_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formChoose\frmThoiGianNgungMay_KTTD_View.Designer.cs">
+      <DependentUpon>frmThoiGianNgungMay_KTTD_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formChoose\frmChooseTGianNMay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formChoose\frmChooseTGianNMay.Designer.cs">
+      <DependentUpon>frmChooseTGianNMay.cs</DependentUpon>
+    </Compile>
     <Compile Include="formChoose\frmChoosePro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -582,6 +594,12 @@
     <EmbeddedResource Include="formChoose\frmChooseOperator.resx">
       <DependentUpon>frmChooseOperator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formChoose\frmThoiGianNgungMay_KTTD_View.resx">
+      <DependentUpon>frmThoiGianNgungMay_KTTD_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formChoose\frmChooseTGianNMay.resx">
+      <DependentUpon>frmChooseTGianNMay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmChoosePro.resx">
       <DependentUpon>frmChoosePro.cs</DependentUpon>
     </EmbeddedResource>
@@ -953,6 +971,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="History\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

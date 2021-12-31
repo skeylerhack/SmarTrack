@@ -38,7 +38,7 @@ namespace VS.OEE
             dt.Columns["CHON"].ReadOnly = false;
             if (grdMayPro.DataSource == null)
             {
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdMayPro, grvMayPro, dt, true, false, true, true, true, "");
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdMayPro, grvMayPro, dt, true, false, true, true, true, this.Name);
                 grvMayPro.Columns["CHON"].Visible = false;
                 grvMayPro.Columns["PrOID"].Visible = false;
                 grvMayPro.Columns["ItemID"].Visible = false;

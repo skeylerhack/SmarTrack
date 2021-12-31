@@ -36,13 +36,10 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.txtTHOI_GIAN_SUA = new DevExpress.XtraEditors.SpinEdit();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
-            this.cboID_CA = new DevExpress.XtraEditors.LookUpEdit();
-            this.lblID_CA = new DevExpress.XtraEditors.LabelControl();
             this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.grdTHOI_GIAN_DUNG_MAY = new DevExpress.XtraGrid.GridControl();
             this.grvTHOI_GIAN_DUNG_MAY = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,13 +49,14 @@
             this.lblDenNgay = new DevExpress.XtraEditors.LabelControl();
             this.datDenNgay = new DevExpress.XtraEditors.DateEdit();
             this.tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+            this.chkTiepTuc = new DevExpress.XtraEditors.CheckEdit();
+            this.txtHIEN_TUONG = new DevExpress.XtraEditors.MemoEdit();
             this.cboID_Operator = new DevExpress.XtraEditors.LookUpEdit();
             this.lblID_Operator = new DevExpress.XtraEditors.LabelControl();
             this.cboMS_MAY = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTHOI_GIAN_SUA_CHUA = new DevExpress.XtraEditors.SpinEdit();
             this.txtNGUYEN_NHAN = new DevExpress.XtraEditors.MemoEdit();
-            this.txtHIEN_TUONG = new DevExpress.XtraEditors.TextEdit();
             this.datDEN_GIO = new DevExpress.XtraEditors.DateEdit();
             this.datTU_GIO = new DevExpress.XtraEditors.DateEdit();
             this.lblHIEN_TUONG = new DevExpress.XtraEditors.LabelControl();
@@ -81,6 +79,7 @@
             this.lblTU_GIO = new DevExpress.XtraEditors.LabelControl();
             this.lblID_DownTime = new DevExpress.XtraEditors.LabelControl();
             this.panelNN = new DevExpress.XtraEditors.PanelControl();
+            this.btnChon = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
@@ -90,6 +89,7 @@
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTiepTuc = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -97,7 +97,6 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
             this.tablePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboID_CA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTHOI_GIAN_DUNG_MAY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTHOI_GIAN_DUNG_MAY)).BeginInit();
@@ -109,12 +108,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.datDenNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).BeginInit();
             this.tablePanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTiepTuc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHIEN_TUONG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboID_Operator.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMS_MAY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA_CHUA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNGUYEN_NHAN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHIEN_TUONG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datTU_GIO.Properties.CalendarTimeProperties)).BeginInit();
@@ -194,8 +194,6 @@
             this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
-            this.tablePanel2.Controls.Add(this.cboID_CA);
-            this.tablePanel2.Controls.Add(this.lblID_CA);
             this.tablePanel2.Controls.Add(this.searchControl1);
             this.tablePanel2.Controls.Add(this.groTHOI_GIAN_DUNG_MAY);
             this.tablePanel2.Controls.Add(this.datTuNgay);
@@ -209,37 +207,11 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
             this.tablePanel2.Size = new System.Drawing.Size(260, 487);
             this.tablePanel2.TabIndex = 0;
-            // 
-            // cboID_CA
-            // 
-            this.tablePanel2.SetColumn(this.cboID_CA, 1);
-            this.cboID_CA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboID_CA.Location = new System.Drawing.Point(123, 63);
-            this.cboID_CA.Name = "cboID_CA";
-            this.cboID_CA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboID_CA.Properties.NullText = "";
-            this.tablePanel2.SetRow(this.cboID_CA, 3);
-            this.cboID_CA.Size = new System.Drawing.Size(134, 20);
-            this.cboID_CA.TabIndex = 7;
-            this.cboID_CA.EditValueChanged += new System.EventHandler(this.cboID_CA_EditValueChanged);
-            // 
-            // lblID_CA
-            // 
-            this.tablePanel2.SetColumn(this.lblID_CA, 0);
-            this.lblID_CA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblID_CA.Location = new System.Drawing.Point(3, 63);
-            this.lblID_CA.Name = "lblID_CA";
-            this.tablePanel2.SetRow(this.lblID_CA, 3);
-            this.lblID_CA.Size = new System.Drawing.Size(114, 20);
-            this.lblID_CA.TabIndex = 6;
-            this.lblID_CA.Text = "lblID_CA";
             // 
             // searchControl1
             // 
@@ -254,7 +226,7 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl1.Properties.Client = this.grdTHOI_GIAN_DUNG_MAY;
             this.searchControl1.Properties.FindDelay = 100;
-            this.tablePanel2.SetRow(this.searchControl1, 6);
+            this.tablePanel2.SetRow(this.searchControl1, 5);
             this.searchControl1.Size = new System.Drawing.Size(254, 20);
             this.searchControl1.TabIndex = 5;
             // 
@@ -264,7 +236,7 @@
             this.grdTHOI_GIAN_DUNG_MAY.Location = new System.Drawing.Point(2, 22);
             this.grdTHOI_GIAN_DUNG_MAY.MainView = this.grvTHOI_GIAN_DUNG_MAY;
             this.grdTHOI_GIAN_DUNG_MAY.Name = "grdTHOI_GIAN_DUNG_MAY";
-            this.grdTHOI_GIAN_DUNG_MAY.Size = new System.Drawing.Size(250, 337);
+            this.grdTHOI_GIAN_DUNG_MAY.Size = new System.Drawing.Size(250, 363);
             this.grdTHOI_GIAN_DUNG_MAY.TabIndex = 0;
             this.grdTHOI_GIAN_DUNG_MAY.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTHOI_GIAN_DUNG_MAY});
@@ -282,10 +254,10 @@
             this.tablePanel2.SetColumnSpan(this.groTHOI_GIAN_DUNG_MAY, 2);
             this.groTHOI_GIAN_DUNG_MAY.Controls.Add(this.grdTHOI_GIAN_DUNG_MAY);
             this.groTHOI_GIAN_DUNG_MAY.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groTHOI_GIAN_DUNG_MAY.Location = new System.Drawing.Point(3, 97);
+            this.groTHOI_GIAN_DUNG_MAY.Location = new System.Drawing.Point(3, 71);
             this.groTHOI_GIAN_DUNG_MAY.Name = "groTHOI_GIAN_DUNG_MAY";
-            this.tablePanel2.SetRow(this.groTHOI_GIAN_DUNG_MAY, 5);
-            this.groTHOI_GIAN_DUNG_MAY.Size = new System.Drawing.Size(254, 361);
+            this.tablePanel2.SetRow(this.groTHOI_GIAN_DUNG_MAY, 4);
+            this.groTHOI_GIAN_DUNG_MAY.Size = new System.Drawing.Size(254, 387);
             this.groTHOI_GIAN_DUNG_MAY.TabIndex = 3;
             this.groTHOI_GIAN_DUNG_MAY.Text = "groTHOI_GIAN_DUNG_MAY";
             // 
@@ -352,13 +324,14 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
+            this.tablePanel3.Controls.Add(this.chkTiepTuc);
+            this.tablePanel3.Controls.Add(this.txtHIEN_TUONG);
             this.tablePanel3.Controls.Add(this.cboID_Operator);
             this.tablePanel3.Controls.Add(this.lblID_Operator);
             this.tablePanel3.Controls.Add(this.cboMS_MAY);
             this.tablePanel3.Controls.Add(this.txtTHOI_GIAN_SUA);
             this.tablePanel3.Controls.Add(this.txtTHOI_GIAN_SUA_CHUA);
             this.tablePanel3.Controls.Add(this.txtNGUYEN_NHAN);
-            this.tablePanel3.Controls.Add(this.txtHIEN_TUONG);
             this.tablePanel3.Controls.Add(this.datDEN_GIO);
             this.tablePanel3.Controls.Add(this.datTU_GIO);
             this.tablePanel3.Controls.Add(this.lblHIEN_TUONG);
@@ -385,10 +358,35 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
             this.tablePanel3.Size = new System.Drawing.Size(761, 487);
             this.tablePanel3.TabIndex = 0;
+            // 
+            // chkTiepTuc
+            // 
+            this.tablePanel3.SetColumn(this.chkTiepTuc, 4);
+            this.tablePanel3.SetColumnSpan(this.chkTiepTuc, 2);
+            this.chkTiepTuc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkTiepTuc.Location = new System.Drawing.Point(510, 141);
+            this.chkTiepTuc.Name = "chkTiepTuc";
+            this.chkTiepTuc.Properties.Caption = "chkTiepTuc";
+            this.tablePanel3.SetRow(this.chkTiepTuc, 6);
+            this.chkTiepTuc.Size = new System.Drawing.Size(248, 20);
+            this.chkTiepTuc.TabIndex = 32;
+            // 
+            // txtHIEN_TUONG
+            // 
+            this.tablePanel3.SetColumn(this.txtHIEN_TUONG, 1);
+            this.tablePanel3.SetColumnSpan(this.txtHIEN_TUONG, 3);
+            this.txtHIEN_TUONG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHIEN_TUONG.Location = new System.Drawing.Point(123, 115);
+            this.txtHIEN_TUONG.Name = "txtHIEN_TUONG";
+            this.tablePanel3.SetRow(this.txtHIEN_TUONG, 5);
+            this.tablePanel3.SetRowSpan(this.txtHIEN_TUONG, 2);
+            this.txtHIEN_TUONG.Size = new System.Drawing.Size(382, 46);
+            this.txtHIEN_TUONG.TabIndex = 31;
             // 
             // cboID_Operator
             // 
@@ -484,17 +482,6 @@
             this.tablePanel3.SetRowSpan(this.txtNGUYEN_NHAN, 2);
             this.txtNGUYEN_NHAN.Size = new System.Drawing.Size(382, 46);
             this.txtNGUYEN_NHAN.TabIndex = 25;
-            // 
-            // txtHIEN_TUONG
-            // 
-            this.tablePanel3.SetColumn(this.txtHIEN_TUONG, 1);
-            this.tablePanel3.SetColumnSpan(this.txtHIEN_TUONG, 3);
-            this.txtHIEN_TUONG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHIEN_TUONG.Location = new System.Drawing.Point(123, 115);
-            this.txtHIEN_TUONG.Name = "txtHIEN_TUONG";
-            this.tablePanel3.SetRow(this.txtHIEN_TUONG, 5);
-            this.txtHIEN_TUONG.Size = new System.Drawing.Size(382, 20);
-            this.txtHIEN_TUONG.TabIndex = 24;
             // 
             // datDEN_GIO
             // 
@@ -626,10 +613,10 @@
             this.tablePanel3.SetColumnSpan(this.groTHOI_GIAN_DUNG_MAY2, 6);
             this.groTHOI_GIAN_DUNG_MAY2.Controls.Add(this.tablePanel5);
             this.groTHOI_GIAN_DUNG_MAY2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groTHOI_GIAN_DUNG_MAY2.Location = new System.Drawing.Point(3, 149);
+            this.groTHOI_GIAN_DUNG_MAY2.Location = new System.Drawing.Point(3, 175);
             this.groTHOI_GIAN_DUNG_MAY2.Name = "groTHOI_GIAN_DUNG_MAY2";
-            this.tablePanel3.SetRow(this.groTHOI_GIAN_DUNG_MAY2, 7);
-            this.groTHOI_GIAN_DUNG_MAY2.Size = new System.Drawing.Size(755, 335);
+            this.tablePanel3.SetRow(this.groTHOI_GIAN_DUNG_MAY2, 8);
+            this.groTHOI_GIAN_DUNG_MAY2.Size = new System.Drawing.Size(755, 309);
             this.groTHOI_GIAN_DUNG_MAY2.TabIndex = 14;
             this.groTHOI_GIAN_DUNG_MAY2.Text = "groTHOI_GIAN_DUNG_MAY2";
             // 
@@ -660,7 +647,7 @@
             this.tablePanel5.Name = "tablePanel5";
             this.tablePanel5.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel5.Size = new System.Drawing.Size(751, 311);
+            this.tablePanel5.Size = new System.Drawing.Size(751, 285);
             this.tablePanel5.TabIndex = 5;
             // 
             // grdTHOI_GIAN_DUNG_MAY2
@@ -672,7 +659,7 @@
             this.grdTHOI_GIAN_DUNG_MAY2.MainView = this.grvTHOI_GIAN_DUNG_MAY2;
             this.grdTHOI_GIAN_DUNG_MAY2.Name = "grdTHOI_GIAN_DUNG_MAY2";
             this.tablePanel5.SetRow(this.grdTHOI_GIAN_DUNG_MAY2, 0);
-            this.grdTHOI_GIAN_DUNG_MAY2.Size = new System.Drawing.Size(745, 305);
+            this.grdTHOI_GIAN_DUNG_MAY2.Size = new System.Drawing.Size(745, 279);
             this.grdTHOI_GIAN_DUNG_MAY2.TabIndex = 0;
             this.grdTHOI_GIAN_DUNG_MAY2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTHOI_GIAN_DUNG_MAY2,
@@ -758,10 +745,6 @@
             this.tablePanel3.SetRow(this.cboCaID, 1);
             this.cboCaID.Size = new System.Drawing.Size(128, 20);
             this.cboCaID.TabIndex = 10;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "This value is not valid";
-            conditionValidationRule7.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.cboCaID, conditionValidationRule7);
             // 
             // lblMS_MAY
             // 
@@ -821,6 +804,7 @@
             // 
             this.panelNN.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel1.SetColumn(this.panelNN, 0);
+            this.panelNN.Controls.Add(this.btnChon);
             this.panelNN.Controls.Add(this.btnThem);
             this.panelNN.Controls.Add(this.btnKhong);
             this.panelNN.Controls.Add(this.btnGhi);
@@ -832,6 +816,16 @@
             this.tablePanel1.SetRow(this.panelNN, 1);
             this.panelNN.Size = new System.Drawing.Size(1027, 30);
             this.panelNN.TabIndex = 7;
+            // 
+            // btnChon
+            // 
+            this.btnChon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChon.Location = new System.Drawing.Point(622, 2);
+            this.btnChon.Name = "btnChon";
+            this.btnChon.Size = new System.Drawing.Size(80, 26);
+            this.btnChon.TabIndex = 13;
+            this.btnChon.Text = "btnChon";
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // btnThem
             // 
@@ -896,9 +890,10 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHistory});
+            this.mnuHistory,
+            this.mnuTiepTuc});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // mnuHistory
             // 
@@ -907,6 +902,13 @@
             this.mnuHistory.Size = new System.Drawing.Size(180, 22);
             this.mnuHistory.Text = "History";
             this.mnuHistory.Click += new System.EventHandler(this.mnuHistory_Click);
+            // 
+            // mnuTiepTuc
+            // 
+            this.mnuTiepTuc.Name = "mnuTiepTuc";
+            this.mnuTiepTuc.Size = new System.Drawing.Size(180, 22);
+            this.mnuTiepTuc.Text = "Continue";
+            this.mnuTiepTuc.Click += new System.EventHandler(this.mnuTiepTuc_Click);
             // 
             // frmThoiGianNgungMay_KTTD
             // 
@@ -926,7 +928,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
             this.tablePanel2.ResumeLayout(false);
             this.tablePanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboID_CA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTHOI_GIAN_DUNG_MAY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTHOI_GIAN_DUNG_MAY)).EndInit();
@@ -939,12 +940,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel3)).EndInit();
             this.tablePanel3.ResumeLayout(false);
             this.tablePanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTiepTuc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHIEN_TUONG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboID_Operator.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMS_MAY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA_CHUA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNGUYEN_NHAN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHIEN_TUONG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datTU_GIO.Properties.CalendarTimeProperties)).EndInit();
@@ -994,8 +996,6 @@
         private DevExpress.XtraEditors.LabelControl lblCaID;
         private DevExpress.XtraEditors.LabelControl lblTU_GIO;
         private DevExpress.XtraEditors.LabelControl lblID_DownTime;
-        private DevExpress.XtraEditors.LookUpEdit cboID_CA;
-        private DevExpress.XtraEditors.LabelControl lblID_CA;
         private DevExpress.XtraEditors.LookUpEdit cboCaID;
         private DevExpress.XtraEditors.LookUpEdit cboID_DownTime;
         private DevExpress.XtraEditors.GroupControl groTHOI_GIAN_DUNG_MAY2;
@@ -1009,7 +1009,6 @@
         private DevExpress.XtraEditors.SpinEdit txtTHOI_GIAN_SUA;
         private DevExpress.XtraEditors.SpinEdit txtTHOI_GIAN_SUA_CHUA;
         private DevExpress.XtraEditors.MemoEdit txtNGUYEN_NHAN;
-        private DevExpress.XtraEditors.TextEdit txtHIEN_TUONG;
         private DevExpress.XtraEditors.DateEdit datDEN_GIO;
         private DevExpress.XtraEditors.DateEdit datTU_GIO;
         private DevExpress.XtraEditors.LabelControl lblHIEN_TUONG;
@@ -1023,5 +1022,9 @@
         private DevExpress.XtraEditors.LabelControl lblID_Operator;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuHistory;
+        private DevExpress.XtraEditors.SimpleButton btnChon;
+        private DevExpress.XtraEditors.CheckEdit chkTiepTuc;
+        private DevExpress.XtraEditors.MemoEdit txtHIEN_TUONG;
+        private System.Windows.Forms.ToolStripMenuItem mnuTiepTuc;
     }
 }

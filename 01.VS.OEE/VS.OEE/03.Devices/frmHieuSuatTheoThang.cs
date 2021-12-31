@@ -198,6 +198,12 @@ namespace VS.OEE
                     
                     SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.Target WHERE CONVERT(CHAR(6), [MONTH], 112) = CONVERT(CHAR(6), '" + datThang.DateTime.ToString("yyyyMM") + "', 112) AND MS_MAY = '" + grvTarget.GetFocusedRowCellValue("MS_MAY") + "'");
                 }
+                if (Commons.Modules.ObjSystems.IsnullorEmpty(grvTarget.GetFocusedRowCellValue("MS_MAY")) && (!Commons.Modules.ObjSystems.IsnullorEmpty(grvTarget.GetFocusedRowCellValue("OEE")) || !Commons.Modules.ObjSystems.IsnullorEmpty(grvTarget.GetFocusedRowCellValue("PE")) || !Commons.Modules.ObjSystems.IsnullorEmpty(grvTarget.GetFocusedRowCellValue("EL")) || !Commons.Modules.ObjSystems.IsnullorEmpty(grvTarget.GetFocusedRowCellValue("SpeedVar"))))
+                {
+                    SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.TargetOfMonth WHERE CONVERT(CHAR(6), [MONTH], 112) = CONVERT(CHAR(6), " + datThang.DateTime.ToString("yyyyMM") + ", 112)");
+                }
+
+
             }
             catch (Exception ex)
             {

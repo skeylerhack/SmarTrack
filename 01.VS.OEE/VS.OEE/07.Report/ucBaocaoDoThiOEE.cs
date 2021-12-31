@@ -70,7 +70,7 @@ namespace VS.OEE
                 dt.Columns[i].ReadOnly = true;
             }
             dt.Columns["CHON"].ReadOnly = false;
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdMayDTOEE, grvMayDTOEE, dt, true, false, true, true, true, "");
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdMayDTOEE, grvMayDTOEE, dt, true, false, true, true, true, this.Name);
             grvMayDTOEE.Columns["CHON"].Visible = false;
             grvMayDTOEE.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
             grvMayDTOEE.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;

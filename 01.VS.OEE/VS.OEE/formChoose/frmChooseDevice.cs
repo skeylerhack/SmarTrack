@@ -31,7 +31,7 @@ namespace VS.OEE
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListChosseMay", Commons.Modules.UserName, Commons.Modules.TypeLanguage,sBTChon));
             //update data table những cái nào chọn ở dưới
             dt.Columns["CHON"].ReadOnly = false;
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt,false, false, true, true, true, "");
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt,false, false, true, true, true, this.Name);
             grvData.Columns["CHON"].Visible = false;
             grvData.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
             grvData.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;

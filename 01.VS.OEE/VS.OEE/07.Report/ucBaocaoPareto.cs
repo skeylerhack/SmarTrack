@@ -45,7 +45,7 @@ namespace VS.OEE
                 dt.Columns[i].ReadOnly = true;
             }
             dt.Columns["CHON"].ReadOnly = false;
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdMayPar, grvMayPar, dt, true, false, true, true, true, "");
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdMayPar, grvMayPar, dt, true, false, true, true, true, this.Name);
             grvMayPar.Columns["CHON"].Visible = false;
             grvMayPar.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
             grvMayPar.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
@@ -62,7 +62,7 @@ namespace VS.OEE
                 dt.Columns[i].ReadOnly = true;
             }
             dt.Columns["CHON"].ReadOnly = false;
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdNguyenNhanPar, grvNguyenNhanPar, dt, true, false, true, true, true, "");
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdNguyenNhanPar, grvNguyenNhanPar, dt, true, false, true, true, true, this.Name);
             grvNguyenNhanPar.Columns["CHON"].Visible = false;
             grvNguyenNhanPar.Columns["MS_NGUYEN_NHAN"].Visible = false;
             grvNguyenNhanPar.Columns["DownTimeTypeID"].Visible = false;

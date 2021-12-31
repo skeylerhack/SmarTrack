@@ -46,7 +46,7 @@ namespace VS.OEE
             {
                 LoadgrdOperator(-1,null);
             }
-            Commons.Modules.ObjSystems.DeleteAddRow(grvOperator);
+            //Commons.Modules.ObjSystems.DeleteAddRow(grvOperator);
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace VS.OEE
             LoadgrdOperator(-1, null);
             BingdingControl(true);
             txtCA.Focus();
-            Commons.Modules.ObjSystems.AddnewRow(grvOperator, true);
+            //Commons.Modules.ObjSystems.AddnewRow(grvOperator, true);
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -66,7 +66,7 @@ namespace VS.OEE
             }
             VisibleButon(false);
             ithem = Convert.ToInt32(grvCa.GetFocusedRowCellValue("STT"));
-            Commons.Modules.ObjSystems.AddnewRow(grvOperator, true);
+            //Commons.Modules.ObjSystems.AddnewRow(grvOperator, true);
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -478,7 +478,8 @@ namespace VS.OEE
                     {
                         int iTU_GIO = (string.IsNullOrEmpty(dt.Rows[i]["TU_GIO"].ToString()) ? 0 : (Convert.ToDateTime(dt.Rows[i]["TU_GIO"]).Hour * 60) + Convert.ToDateTime(dt.Rows[i]["TU_GIO"]).Minute);
                         int iDEN_GIO = (string.IsNullOrEmpty(dt.Rows[i]["DEN_GIO"].ToString()) ? 0 : (Convert.ToDateTime(dt.Rows[i]["DEN_GIO"]).Hour * 60) + Convert.ToDateTime(dt.Rows[i]["DEN_GIO"]).Minute);
-                        if (chkCA_DEM.Checked)
+                        int iCA_DEM = (string.IsNullOrEmpty(dt.Rows[i]["CA_DEM"].ToString()) ? 0 : (Convert.ToInt32(dt.Rows[i]["CA_DEM"])));
+                        if (iCA_DEM == 1)
                             iDEN_GIO = iDEN_GIO + 1440;
 
                         if ((TU_GIO > iTU_GIO && TU_GIO < iDEN_GIO) || (DEN_GIO > iTU_GIO && DEN_GIO < iDEN_GIO))

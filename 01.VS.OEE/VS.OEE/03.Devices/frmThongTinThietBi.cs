@@ -173,7 +173,7 @@ namespace VS.OEE
             btnXoa.Visible = flag;
             btnSua.Visible = flag;
             btnGhi.Visible = !flag;
-            btnKhongghi.Visible = !flag;
+            btnKhong.Visible = !flag;
 
             treDiaDiem.Properties.ReadOnly = !flag;
             treHeThong.Properties.ReadOnly = !flag;

@@ -155,7 +155,7 @@
             this.grdMay = new DevExpress.XtraGrid.GridControl();
             this.grvMay = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
-            this.btnKhongghi = new DevExpress.XtraEditors.SimpleButton();
+            this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -1871,7 +1871,7 @@
             this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.searchControl1);
             this.panel1.Controls.Add(this.btnGhi);
-            this.panel1.Controls.Add(this.btnKhongghi);
+            this.panel1.Controls.Add(this.btnKhong);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Location = new System.Drawing.Point(3, 551);
@@ -1944,16 +1944,16 @@
             this.btnGhi.Text = "btnGhi";
             this.btnGhi.Click += new System.EventHandler(this.BtnGhi_Click);
             // 
-            // btnKhongghi
+            // btnKhong
             // 
-            this.btnKhongghi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhongghi.Location = new System.Drawing.Point(1113, 2);
-            this.btnKhongghi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnKhongghi.Name = "btnKhongghi";
-            this.btnKhongghi.Size = new System.Drawing.Size(80, 26);
-            this.btnKhongghi.TabIndex = 15;
-            this.btnKhongghi.Text = "btnKhongghi";
-            this.btnKhongghi.Click += new System.EventHandler(this.BtnKhongghi_Click);
+            this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKhong.Location = new System.Drawing.Point(1113, 2);
+            this.btnKhong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnKhong.Name = "btnKhong";
+            this.btnKhong.Size = new System.Drawing.Size(80, 26);
+            this.btnKhong.TabIndex = 15;
+            this.btnKhong.Text = "btnKhong";
+            this.btnKhong.Click += new System.EventHandler(this.BtnKhongghi_Click);
             // 
             // btnXoa
             // 
@@ -2420,7 +2420,7 @@
         public DevExpress.XtraEditors.SimpleButton btnXoa;
         public DevExpress.XtraEditors.SimpleButton btnThoat;
         public DevExpress.XtraEditors.SimpleButton btnGhi;
-        public DevExpress.XtraEditors.SimpleButton btnKhongghi;
+        public DevExpress.XtraEditors.SimpleButton btnKhong;
         private DevExpress.XtraEditors.PictureEdit pctHINH_ANH;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

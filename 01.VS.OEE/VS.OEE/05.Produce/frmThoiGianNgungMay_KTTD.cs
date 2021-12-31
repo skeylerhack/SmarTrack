@@ -11,6 +11,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using System.Drawing;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace VS.OEE
 {
@@ -113,7 +115,13 @@ namespace VS.OEE
             {
                 if (!dxValidationProvider1.Validate()) return;
                 Validate();
-                //lưu khi thêm
+
+                if (KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))))
+                {
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgNgungMayTiepTucKhongTheSua"));
+                    return;
+                }
+               
                 SaveData();
                 VisibleButon(true);
                 ReadonlyControl(true);
@@ -206,7 +214,7 @@ namespace VS.OEE
             {
                 if (Commons.Modules.sId == "0Load") return;
                 LoadgrdTHOI_GIAN_DUNG_MAY2();
-                BingDingData();
+                grvTHOI_GIAN_DUNG_MAY2_FocusedRowChanged(null, null);
             }
             catch (Exception ex) { XtraMessageBox.Show(ex.Message); }
         }
@@ -237,6 +245,11 @@ namespace VS.OEE
                 Commons.Modules.sId = "0Load";
                 BingDingData();
                 Commons.Modules.sId = "";
+
+                if (KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))))
+                    btnSua.Enabled = false;
+                else
+                    btnSua.Enabled = true;
             }
             catch (Exception ex) { Commons.Modules.sId = ""; XtraMessageBox.Show(ex.Message); }
         }
@@ -254,6 +267,20 @@ namespace VS.OEE
                 }
             }
             catch (Exception ex) { XtraMessageBox.Show(ex.Message); }
+        }
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            frmChooseTGianNMay frm = new frmChooseTGianNMay(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")), (string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID_CHA").ToString()) ? 0 : Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID_CHA"))), datTU_GIO.DateTime);
+            if (frm.ShowDialog() != DialogResult.OK) return;
+
+            SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "	UPDATE dbo.THOI_GIAN_DUNG_MAY SET ID_CHA = CASE " + frm.iID + " WHEN 0 THEN NULL ELSE " + frm.iID + " END WHERE ID = " + grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"));
+            LoadgrdTHOI_GIAN_DUNG_MAY2();
+
+        }
+        private void mnuTiepTuc_Click(object sender, EventArgs e)
+        {
+            frmThoiGianNgungMay_KTTD_View frm = new frmThoiGianNgungMay_KTTD_View(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")));
+            frm.ShowDialog();
         }
         #endregion
 
@@ -274,7 +301,6 @@ namespace VS.OEE
                 //load combo may
                 Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cboMS_MAY, Commons.Modules.ObjSystems.DataMay(false), "MS_MAY", "TEN_MAY", this.Name);
                 //load combo ca
-                Commons.Modules.ObjSystems.MLoadLookUpEdit(cboID_CA, Commons.Modules.ObjSystems.DataCa(true), "STT", "CA", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "Ca"), false);
                 Commons.Modules.ObjSystems.MLoadLookUpEdit(cboCaID, Commons.Modules.ObjSystems.DataCa(false), "STT", "CA", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "Ca"), false);
                 //Load combo ID_Operator
                 Commons.Modules.ObjSystems.MLoadLookUpEdit(cboID_Operator, Commons.Modules.ObjSystems.DataOpetator(false), "ID", "OperatorName", this.Name);
@@ -306,6 +332,7 @@ namespace VS.OEE
                 btnThoat.Visible = flag;
                 btnXoa.Visible = flag;
                 btnSua.Visible = flag;
+                btnChon.Visible = flag;
                 btnGhi.Visible = !flag;
                 btnKhong.Visible = !flag;
             }
@@ -316,7 +343,7 @@ namespace VS.OEE
             try
             {
                 cboMS_MAY.Properties.ReadOnly = flag;
-                cboCaID.Properties.ReadOnly = flag;
+                cboCaID.Properties.ReadOnly = true;
                 cboID_Operator.Properties.ReadOnly = flag;
                 cboID_DownTime.Properties.ReadOnly = flag;
                 cboMS_NGUYEN_NHAN.Properties.ReadOnly = flag;
@@ -328,8 +355,10 @@ namespace VS.OEE
                 datDEN_GIO.Properties.ReadOnly = flag;
                 datTuNgay.Properties.ReadOnly = !flag;
                 datDenNgay.Properties.ReadOnly = !flag;
-                cboID_CA.Properties.ReadOnly = !flag;
+                chkTiepTuc.ReadOnly = true;
                 grdTHOI_GIAN_DUNG_MAY.Enabled = flag;
+                grdTHOI_GIAN_DUNG_MAY2.Enabled = flag;
+
             }
             catch { }
         }
@@ -338,12 +367,11 @@ namespace VS.OEE
             DataTable dtmp = new DataTable();
             try
             {
-                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListDownTimeByCa", Commons.Modules.UserName, Commons.Modules.TypeLanguage, datTuNgay.DateTime.Date, datDenNgay.DateTime.Date, cboID_CA.EditValue));
+                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListDownTimeByDate", Commons.Modules.UserName, Commons.Modules.TypeLanguage, datTuNgay.DateTime.Date, datDenNgay.DateTime.Date));
                 if (grdTHOI_GIAN_DUNG_MAY.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdTHOI_GIAN_DUNG_MAY, grvTHOI_GIAN_DUNG_MAY, dtmp, false, true, false, false, true,
                         this.Name);
-                    grvTHOI_GIAN_DUNG_MAY.Columns["CaID"].Visible = false;
                 }
                 else
                     grdTHOI_GIAN_DUNG_MAY.DataSource = dtmp;
@@ -364,15 +392,14 @@ namespace VS.OEE
             // if (grvTHOI_GIAN_DUNG_MAY2.RowCount == 0) return;
             string MS_MAY = "";
             DateTime Ngay = new DateTime();
-            Int64 ID_CA = 0;
             try { MS_MAY = grvTHOI_GIAN_DUNG_MAY.GetFocusedRowCellValue("MS_MAY").ToString(); } catch { }
             try { Ngay = Convert.ToDateTime(grvTHOI_GIAN_DUNG_MAY.GetFocusedRowCellValue("NGAY")); } catch { }
-            try { ID_CA = Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY.GetFocusedRowCellValue("CaID")); } catch { }
+            
 
             DataTable dtmp = new DataTable();
             try
             {
-                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListDownTime", Commons.Modules.UserName, Commons.Modules.TypeLanguage, MS_MAY, Ngay, ID_CA));
+                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListDownTime", Commons.Modules.UserName, Commons.Modules.TypeLanguage, MS_MAY, Ngay));
                 if (grdTHOI_GIAN_DUNG_MAY2.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdTHOI_GIAN_DUNG_MAY2, grvTHOI_GIAN_DUNG_MAY2, dtmp, false, false, false, true,
@@ -391,6 +418,12 @@ namespace VS.OEE
                     grvTHOI_GIAN_DUNG_MAY2.Columns["TU_GIO"].DisplayFormat.FormatString = "G";
                     grvTHOI_GIAN_DUNG_MAY2.Columns["DEN_GIO"].DisplayFormat.FormatType = FormatType.DateTime;
                     grvTHOI_GIAN_DUNG_MAY2.Columns["DEN_GIO"].DisplayFormat.FormatString = "G";
+
+                    grvTHOI_GIAN_DUNG_MAY2.Columns["THOI_GIAN_SUA_CHUA"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvTHOI_GIAN_DUNG_MAY2.Columns["THOI_GIAN_SUA_CHUA"].DisplayFormat.FormatString = Commons.Modules.sSoLeTT;
+                    grvTHOI_GIAN_DUNG_MAY2.Columns["THOI_GIAN_SUA"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvTHOI_GIAN_DUNG_MAY2.Columns["THOI_GIAN_SUA"].DisplayFormat.FormatString = Commons.Modules.sSoLeTT;
+
                 }
                 else
                     grdTHOI_GIAN_DUNG_MAY2.DataSource = dtmp;
@@ -408,6 +441,7 @@ namespace VS.OEE
                 cboCaID.EditValue = null;
                 cboID_DownTime.EditValue = null;
                 cboMS_NGUYEN_NHAN.EditValue = null;
+                cboMS_NGUYEN_NHAN.Properties.DataSource = null;
                 cboID_Operator.EditValue = null;
                 txtNGUYEN_NHAN.Text = "";
                 txtHIEN_TUONG.Text = "";
@@ -415,6 +449,7 @@ namespace VS.OEE
                 txtTHOI_GIAN_SUA_CHUA.EditValue = 0;
                 datTU_GIO.EditValue = DateTime.Now;
                 datDEN_GIO.EditValue = DateTime.Now;
+                chkTiepTuc.Checked = false;
             }
             catch { }
         }
@@ -422,7 +457,12 @@ namespace VS.OEE
         {
             try
             {
-                iThem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spSaveTGDM", Commons.Modules.UserName, iThem, cboMS_MAY.EditValue, datTU_GIO.EditValue, datDEN_GIO.EditValue, cboMS_NGUYEN_NHAN.EditValue, null, cboID_Operator.EditValue, txtTHOI_GIAN_SUA_CHUA.EditValue, txtTHOI_GIAN_SUA.EditValue, txtNGUYEN_NHAN.Text, null, txtHIEN_TUONG.Text, cboCaID.EditValue, null, null));
+                DataTable dt = new DataTable();
+                dt = BocTach_TheoCa(datTU_GIO.DateTime, datDEN_GIO.DateTime);
+
+                string sBT = "sBTTGDM" + Commons.Modules.UserName;
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, dt, "");
+                iThem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spSaveTGDM", sBT, Commons.Modules.UserName, iThem, cboMS_MAY.EditValue, datTU_GIO.EditValue, datDEN_GIO.EditValue, cboMS_NGUYEN_NHAN.EditValue, null, cboID_Operator.EditValue, txtTHOI_GIAN_SUA_CHUA.EditValue, txtTHOI_GIAN_SUA.EditValue, txtNGUYEN_NHAN.Text, null, txtHIEN_TUONG.Text, cboCaID.EditValue, null, null));
                 LoadgrdTHOI_GIAN_DUNG_MAY(iThem);
             }
             catch {}
@@ -442,6 +482,10 @@ namespace VS.OEE
                 txtTHOI_GIAN_SUA.EditValue = string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("THOI_GIAN_SUA").ToString()) ? null : grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("THOI_GIAN_SUA");
                 datTU_GIO.EditValue = string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("TU_GIO").ToString()) ? null : grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("TU_GIO");
                 datDEN_GIO.EditValue = string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("DEN_GIO").ToString()) ? null : grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("DEN_GIO");
+
+                //Kiem tra co
+               
+                chkTiepTuc.Checked = KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")));
             }
             catch
             {
@@ -474,8 +518,88 @@ namespace VS.OEE
             }
             catch { }
         }
-        #endregion
+        private bool KiemTra_TiepTuc(Int64 ID)
+        {
+            bool Tiep_Tuc = false;
+            try
+            {
+                Tiep_Tuc = Convert.ToBoolean(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT TOP 1 1 FROM (SELECT 1 AS TIEP_TUC FROM dbo.THOI_GIAN_DUNG_MAY WHERE ID = " + ID + " AND ISNULL(ID_CHA, 0) <> 0 UNION SELECT 1 AS TIEP_TUC FROM dbo.THOI_GIAN_DUNG_MAY WHERE ID_CHA = " + ID + ") A"));
+            }
+            catch { return false; }
+            return Tiep_Tuc;
+        }
+        public class CapNhatCa
+        {
+            public int ID_CA { get; set; }
+            public DateTime NGAY_BD { get; set; }
+            public DateTime NGAY_KT { get; set; }
+        }
+        private DataTable BocTach_TheoCa(DateTime TN, DateTime DN)
+        {
+            DateTime TNgay = TN;
+            DateTime DNgay = DN;
+            List<DateTime> ListNgay = new List<DateTime>();
+            //lấy tất cả các ngày có trong list
+            do
+            {
+                ListNgay.Add(TN);
+                TN = TN.AddDays(1);
+            } while (TN <= DN);
+            //List<CapNhatCa> listResulst = new List<CapNhatCa>();
+            DataTable dt_Result = new DataTable();
+            for (int i = 0; i < ListNgay.Count; i++)
+            {
+                //lấy các ca của ngày hôm đó
+                List<CapNhatCa> listCA = new List<CapNhatCa>();
+                DataTable dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spAPIGet_CA", ListNgay[i]));
+                if (dt_Result == null || dt_Result.Rows.Count == 0)
+                    dt_Result = dt.Clone().Copy();
+                //ngày bắc đầu nằm trong ca
+                foreach (var row in dt.AsEnumerable().Where(x => x.Field<DateTime>("NGAY_BD") <= DNgay))
+                {
+                    //kiểm tra từ ngày có nằm trong item không
+                    DataRow r = dt_Result.NewRow();
 
-   
+                    if (TNgay > Convert.ToDateTime(row["NGAY_BD"]) && DNgay < Convert.ToDateTime(row["NGAY_KT"]))
+                    {
+                        r["NGAY_KT"] = DNgay;
+                        r["NGAY_BD"] = TNgay;
+                        r["ID_CA"] = row["ID_CA"];
+                        dt_Result.Rows.Add(r);
+                        dt_Result.AcceptChanges();
+                        //item.NGAY_BD = TNgay;
+                    }
+                    else
+                    {
+                        if (DNgay <= Convert.ToDateTime(row["NGAY_KT"]))
+                        {
+                            DataRow r1 = dt_Result.NewRow();
+                            r1["NGAY_BD"] = row["NGAY_BD"];
+                            r1["NGAY_KT"] = DN;
+                            r1["ID_CA"] = row["ID_CA"];
+                            dt_Result.Rows.Add(r1);
+                            dt_Result.AcceptChanges();
+                            //listResulst.Add(item);
+                            break;
+                        }
+
+                        if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]))
+                        {
+                            r["NGAY_BD"] = TNgay;
+                            r["NGAY_KT"] = row["NGAY_KT"];
+                            r["ID_CA"] = row["ID_CA"];
+                            dt_Result.Rows.Add(r);
+                            dt_Result.AcceptChanges();
+                            //listResulst.Add(item);
+                            TNgay = Convert.ToDateTime(row["NGAY_KT"]);
+                        }
+                    }
+                }
+            }
+            return dt_Result;
+        }
+        #endregion
+    
     }
 }

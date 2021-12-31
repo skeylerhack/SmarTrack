@@ -213,6 +213,7 @@
             this.grdGroupUOM.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvGroupUOM,
             this.gridView1});
+            this.grdGroupUOM.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grdChung_ProcessGridKey);
             // 
             // grvGroupUOM
             // 

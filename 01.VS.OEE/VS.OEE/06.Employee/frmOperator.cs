@@ -329,12 +329,12 @@ namespace VS.OEE
                 }
                 else
                 {
-                    //int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.Operator WHERE OperatorCode =N'"+ txtOperatorCode.Text.Trim() + "'"));
-                    //if (n > 0)
-                    //{
-                    //    Modules.msgThayThe(ThongBao.msgDaTonTai, lblOperatorCode.Text, txtOperatorCode);
-                    //    return false;
-                    //}
+                    int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.Operator WHERE OperatorCode =N'" + txtOperatorCode.Text.Trim() + "'"));
+                    if (n > 0)
+                    {
+                        Modules.msgThayThe(ThongBao.msgDaTonTai, lblOperatorCode.Text, txtOperatorCode);
+                        return false;
+                    }
                 }
                 if (txtOperatorName.Text.Trim() == "")
                 {

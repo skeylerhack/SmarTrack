@@ -14,4 +14,11 @@ namespace Ecomaint.Api.Models
         public int MINUTE { get; set; }
         public int SECOND { get; set; }
     }
+
+    public class CapNhatCa
+    {
+        public int ID_CA { get; set; }
+        public DateTime NGAY_BD { get; set; }
+        public DateTime NGAY_KT { get; set; }
+    }
 }

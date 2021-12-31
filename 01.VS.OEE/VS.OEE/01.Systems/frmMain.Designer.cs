@@ -118,6 +118,7 @@
             this.barInfo.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
             this.barInfo.Id = 17;
             this.barInfo.Name = "barInfo";
+            this.barInfo.ItemDoubleClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barInfo_ItemDoubleClick);
             // 
             // barTTC
             // 

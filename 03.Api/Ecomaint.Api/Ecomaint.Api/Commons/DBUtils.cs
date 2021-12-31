@@ -137,6 +137,50 @@ namespace Ecomaint.Api
             }
             return result;
         }
+
+        public static object ExecNonQueryText(string sText)
+        {
+            object result = 0;
+            try
+            {
+                SqlConnection conn = new SqlConnection(CMMSConnectionString());
+                SqlCommand cmd = new SqlCommand(sText, conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandTimeout = 300; //seconds
+                //add parameters
+                SqlParameter returnParam = new SqlParameter();
+                try
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+
+                    result = returnParam.Value == null ? -1000 : returnParam.Value;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
+
+
         public static List<object> ExecOutputSP(string pSPName, List<SqlParameter> pParams)
         {
             List<object> result = new List<object>();

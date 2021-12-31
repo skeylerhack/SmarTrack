@@ -84,7 +84,32 @@ namespace Commons
             }
         }
 
-        
+        private static string _sInfoSer;
+        public static string sInfoSer
+        {
+            get
+            {
+                return _sInfoSer;
+            }
+            set
+            {
+                _sInfoSer = value;
+            }
+        }
+
+        private static string _sInfoClient;
+        public static string sInfoClient
+        {
+            get
+            {
+                return _sInfoClient;
+            }
+            set
+            {
+                _sInfoClient = value;
+            }
+        }
+
         //dinh nghia cau store dung cho toan bo danh muc
         private static string _sPS;
         public static string sPS

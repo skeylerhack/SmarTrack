@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OEEDataConText.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GROUP_ID" Type="int" Nullable="false" />
+          <Property Name="FULL_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="MS_TO" Type="int" />
+          <Property Name="USER_MAIL" Type="nvarchar" MaxLength="150" />
+          <Property Name="MS_CONG_NHAN" Type="nvarchar" MaxLength="9" />
+          <Property Name="ACTIVE" Type="bit" />
+        </EntityType>
+        <Function Name="spGetData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spLCDFull" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="OEEDataConTextStoreContainer">
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OEEDataConText" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int32" Nullable="false" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PASS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MS_TO" Type="Int32" />
+          <Property Name="USER_MAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MS_CONG_NHAN" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="OEEDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="USERS" EntityType="Self.USER" />
+          <FunctionImport Name="spGetData" ReturnType="Collection(OEEDataConText.spGetData_Result)" />
+          <FunctionImport Name="spLCDFull" ReturnType="Collection(OEEDataConText.spLCDFull_Result)" />
+        </EntityContainer>
+        <ComplexType Name="spGetData_Result">
+          <Property Type="Int32" Name="STT" Nullable="false" />
+          <Property Type="String" Name="COTMAUNEN" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT0" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT0DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT1" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT1DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT2" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT2DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT3" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT3DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT4" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT4DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT5" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT5DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT6" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT6DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT6MAUNEN" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT7" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT7DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT8" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT8DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT9" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT9DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT10" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT10DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT11" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT11DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT12" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT12DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT13" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT13DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT14" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT14DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT15" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT15DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT16" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT16DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT17" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT17DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT18" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT18DD" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT19" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="COT19DD" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="spLCDFull_Result">
+          <Property Type="Int32" Name="STT" Nullable="false" />
+          <Property Type="String" Name="COTMAUCHUNG" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COTMAUNEN" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT0" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT0DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT1DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT2" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT2DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT3" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT3DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT4" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT4DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT5" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT5DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT6" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT6DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT7" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT7DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT8" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT8DD" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="COT9BD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MAUBD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="COT10BD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DNCOT9BD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DNCOT10BD" Nullable="true" MaxLength="50" />
+          </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OEEDataConTextStoreContainer" CdmEntityContainer="OEEDataContext">
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="OEEDataConText.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="MS_TO" ColumnName="MS_TO" />
+                <ScalarProperty Name="USER_MAIL" ColumnName="USER_MAIL" />
+                <ScalarProperty Name="MS_CONG_NHAN" ColumnName="MS_CONG_NHAN" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spGetData" FunctionName="OEEDataConText.Store.spGetData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OEEDataConText.spGetData_Result">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="COTMAUNEN" ColumnName="COTMAUNEN" />
+                <ScalarProperty Name="COT0" ColumnName="COT0" />
+                <ScalarProperty Name="COT0DD" ColumnName="COT0DD" />
+                <ScalarProperty Name="COT1" ColumnName="COT1" />
+                <ScalarProperty Name="COT1DD" ColumnName="COT1DD" />
+                <ScalarProperty Name="COT2" ColumnName="COT2" />
+                <ScalarProperty Name="COT2DD" ColumnName="COT2DD" />
+                <ScalarProperty Name="COT3" ColumnName="COT3" />
+                <ScalarProperty Name="COT3DD" ColumnName="COT3DD" />
+                <ScalarProperty Name="COT4" ColumnName="COT4" />
+                <ScalarProperty Name="COT4DD" ColumnName="COT4DD" />
+                <ScalarProperty Name="COT5" ColumnName="COT5" />
+                <ScalarProperty Name="COT5DD" ColumnName="COT5DD" />
+                <ScalarProperty Name="COT6" ColumnName="COT6" />
+                <ScalarProperty Name="COT6DD" ColumnName="COT6DD" />
+                <ScalarProperty Name="COT6MAUNEN" ColumnName="COT6MAUNEN" />
+                <ScalarProperty Name="COT7" ColumnName="COT7" />
+                <ScalarProperty Name="COT7DD" ColumnName="COT7DD" />
+                <ScalarProperty Name="COT8" ColumnName="COT8" />
+                <ScalarProperty Name="COT8DD" ColumnName="COT8DD" />
+                <ScalarProperty Name="COT9" ColumnName="COT9" />
+                <ScalarProperty Name="COT9DD" ColumnName="COT9DD" />
+                <ScalarProperty Name="COT10" ColumnName="COT10" />
+                <ScalarProperty Name="COT10DD" ColumnName="COT10DD" />
+                <ScalarProperty Name="COT11" ColumnName="COT11" />
+                <ScalarProperty Name="COT11DD" ColumnName="COT11DD" />
+                <ScalarProperty Name="COT12" ColumnName="COT12" />
+                <ScalarProperty Name="COT12DD" ColumnName="COT12DD" />
+                <ScalarProperty Name="COT13" ColumnName="COT13" />
+                <ScalarProperty Name="COT13DD" ColumnName="COT13DD" />
+                <ScalarProperty Name="COT14" ColumnName="COT14" />
+                <ScalarProperty Name="COT14DD" ColumnName="COT14DD" />
+                <ScalarProperty Name="COT15" ColumnName="COT15" />
+                <ScalarProperty Name="COT15DD" ColumnName="COT15DD" />
+                <ScalarProperty Name="COT16" ColumnName="COT16" />
+                <ScalarProperty Name="COT16DD" ColumnName="COT16DD" />
+                <ScalarProperty Name="COT17" ColumnName="COT17" />
+                <ScalarProperty Name="COT17DD" ColumnName="COT17DD" />
+                <ScalarProperty Name="COT18" ColumnName="COT18" />
+                <ScalarProperty Name="COT18DD" ColumnName="COT18DD" />
+                <ScalarProperty Name="COT19" ColumnName="COT19" />
+                <ScalarProperty Name="COT19DD" ColumnName="COT19DD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spLCDFull" FunctionName="OEEDataConText.Store.spLCDFull">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OEEDataConText.spLCDFull_Result">
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="COTMAUCHUNG" ColumnName="COTMAUCHUNG" />
+                <ScalarProperty Name="COTMAUNEN" ColumnName="COTMAUNEN" />
+                <ScalarProperty Name="COT0" ColumnName="COT0" />
+                <ScalarProperty Name="COT0DD" ColumnName="COT0DD" />
+                <ScalarProperty Name="COT1" ColumnName="COT1" />
+                <ScalarProperty Name="COT1DD" ColumnName="COT1DD" />
+                <ScalarProperty Name="COT2" ColumnName="COT2" />
+                <ScalarProperty Name="COT2DD" ColumnName="COT2DD" />
+                <ScalarProperty Name="COT3" ColumnName="COT3" />
+                <ScalarProperty Name="COT3DD" ColumnName="COT3DD" />
+                <ScalarProperty Name="COT4" ColumnName="COT4" />
+                <ScalarProperty Name="COT4DD" ColumnName="COT4DD" />
+                <ScalarProperty Name="COT5" ColumnName="COT5" />
+                <ScalarProperty Name="COT5DD" ColumnName="COT5DD" />
+                <ScalarProperty Name="COT6" ColumnName="COT6" />
+                <ScalarProperty Name="COT6DD" ColumnName="COT6DD" />
+                <ScalarProperty Name="COT7" ColumnName="COT7" />
+                <ScalarProperty Name="COT7DD" ColumnName="COT7DD" />
+                <ScalarProperty Name="COT8" ColumnName="COT8" />
+                <ScalarProperty Name="COT8DD" ColumnName="COT8DD" />
+                <ScalarProperty Name="COT9BD" ColumnName="COT9BD" />
+                <ScalarProperty Name="MAUBD" ColumnName="MAUBD" />
+                <ScalarProperty Name="COT10BD" ColumnName="COT10BD" />
+                <ScalarProperty Name="DNCOT9BD" ColumnName="DNCOT9BD" />
+                <ScalarProperty Name="DNCOT10BD" ColumnName="DNCOT10BD" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

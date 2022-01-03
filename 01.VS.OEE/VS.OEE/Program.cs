@@ -35,9 +35,9 @@ namespace VS.OEE
         {
             try
             {
-                //Application.Run(new frmMain());
+                Application.Run(new frmMain());
                 //Application.Run(new frmOperator(1));
-                Application.Run(new frmThoiGianNgungMay_KTTD(1));
+                //Application.Run(new frmThoiGianNgungMay_KTTD(1));
                 //Application.Run(new frmReport());
 
 

@@ -284,7 +284,7 @@
             this.tab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab.Name = "tab";
             this.tab.SelectedTabPage = this.tabThongTinChung;
-            this.tab.Size = new System.Drawing.Size(790, 501);
+            this.tab.Size = new System.Drawing.Size(816, 501);
             this.tab.TabIndex = 7;
             this.tab.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabThongTinChung,
@@ -295,7 +295,7 @@
             this.tabThongTinChung.Controls.Add(this.TableLayoutPanel22);
             this.tabThongTinChung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabThongTinChung.Name = "tabThongTinChung";
-            this.tabThongTinChung.Size = new System.Drawing.Size(762, 496);
+            this.tabThongTinChung.Size = new System.Drawing.Size(788, 496);
             this.tabThongTinChung.Text = "Thông tin chung";
             // 
             // TableLayoutPanel22
@@ -314,7 +314,7 @@
             this.TableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.74269F));
             this.TableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.25731F));
             this.TableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TableLayoutPanel22.Size = new System.Drawing.Size(762, 496);
+            this.TableLayoutPanel22.Size = new System.Drawing.Size(788, 496);
             this.TableLayoutPanel22.TabIndex = 0;
             // 
             // GrpThongtinchung
@@ -327,7 +327,7 @@
             this.GrpThongtinchung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GrpThongtinchung.Name = "GrpThongtinchung";
             this.GrpThongtinchung.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GrpThongtinchung.Size = new System.Drawing.Size(443, 312);
+            this.GrpThongtinchung.Size = new System.Drawing.Size(459, 312);
             this.GrpThongtinchung.TabIndex = 0;
             this.GrpThongtinchung.Text = "Thông tin chung";
             // 
@@ -379,7 +379,7 @@
             this.TableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.TableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.TableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TableLayoutPanel25.Size = new System.Drawing.Size(433, 284);
+            this.TableLayoutPanel25.Size = new System.Drawing.Size(449, 284);
             this.TableLayoutPanel25.TabIndex = 33;
             // 
             // LblMathietbi
@@ -437,7 +437,7 @@
             this.txtNGAY_SX.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtNGAY_SX.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNGAY_SX.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.txtNGAY_SX.Size = new System.Drawing.Size(90, 20);
+            this.txtNGAY_SX.Size = new System.Drawing.Size(98, 20);
             this.txtNGAY_SX.TabIndex = 10;
             // 
             // LblSoserial
@@ -445,7 +445,7 @@
             this.LblSoserial.Appearance.ForeColor = System.Drawing.Color.Black;
             this.LblSoserial.Appearance.Options.UseForeColor = true;
             this.LblSoserial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblSoserial.Location = new System.Drawing.Point(219, 3);
+            this.LblSoserial.Location = new System.Drawing.Point(227, 3);
             this.LblSoserial.Name = "LblSoserial";
             this.LblSoserial.Size = new System.Drawing.Size(114, 19);
             this.LblSoserial.TabIndex = 3;
@@ -456,7 +456,7 @@
             this.LblNuocSX.Appearance.ForeColor = System.Drawing.Color.Black;
             this.LblNuocSX.Appearance.Options.UseForeColor = true;
             this.LblNuocSX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblNuocSX.Location = new System.Drawing.Point(219, 203);
+            this.LblNuocSX.Location = new System.Drawing.Point(227, 203);
             this.LblNuocSX.Name = "LblNuocSX";
             this.LblNuocSX.Size = new System.Drawing.Size(114, 19);
             this.LblNuocSX.TabIndex = 19;
@@ -547,10 +547,10 @@
             // 
             this.TableLayoutPanel25.SetColumnSpan(this.txtSERIAL_NUMBER, 2);
             this.txtSERIAL_NUMBER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSERIAL_NUMBER.Location = new System.Drawing.Point(339, 2);
+            this.txtSERIAL_NUMBER.Location = new System.Drawing.Point(347, 2);
             this.txtSERIAL_NUMBER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSERIAL_NUMBER.Name = "txtSERIAL_NUMBER";
-            this.txtSERIAL_NUMBER.Size = new System.Drawing.Size(91, 20);
+            this.txtSERIAL_NUMBER.Size = new System.Drawing.Size(99, 20);
             this.txtSERIAL_NUMBER.TabIndex = 2;
             // 
             // txtMO_TA
@@ -560,7 +560,7 @@
             this.txtMO_TA.Location = new System.Drawing.Point(123, 52);
             this.txtMO_TA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMO_TA.Name = "txtMO_TA";
-            this.txtMO_TA.Size = new System.Drawing.Size(307, 20);
+            this.txtMO_TA.Size = new System.Drawing.Size(323, 20);
             this.txtMO_TA.TabIndex = 4;
             // 
             // txtMODEL
@@ -570,17 +570,17 @@
             this.txtMODEL.Location = new System.Drawing.Point(123, 77);
             this.txtMODEL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMODEL.Name = "txtMODEL";
-            this.txtMODEL.Size = new System.Drawing.Size(307, 20);
+            this.txtMODEL.Size = new System.Drawing.Size(323, 20);
             this.txtMODEL.TabIndex = 5;
             // 
             // txtNUOC_SX
             // 
             this.TableLayoutPanel25.SetColumnSpan(this.txtNUOC_SX, 2);
             this.txtNUOC_SX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNUOC_SX.Location = new System.Drawing.Point(339, 202);
+            this.txtNUOC_SX.Location = new System.Drawing.Point(347, 202);
             this.txtNUOC_SX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNUOC_SX.Name = "txtNUOC_SX";
-            this.txtNUOC_SX.Size = new System.Drawing.Size(91, 20);
+            this.txtNUOC_SX.Size = new System.Drawing.Size(99, 20);
             this.txtNUOC_SX.TabIndex = 11;
             // 
             // cboMS_LOAI_MAY
@@ -593,7 +593,7 @@
             this.cboMS_LOAI_MAY.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMS_LOAI_MAY.Properties.NullText = "";
-            this.cboMS_LOAI_MAY.Size = new System.Drawing.Size(307, 20);
+            this.cboMS_LOAI_MAY.Size = new System.Drawing.Size(323, 20);
             this.cboMS_LOAI_MAY.TabIndex = 6;
             this.cboMS_LOAI_MAY.EditValueChanged += new System.EventHandler(this.cboMS_LOAI_MAY_EditValueChanged);
             // 
@@ -608,7 +608,7 @@
             this.cboMS_NHOM_MAY.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMS_NHOM_MAY.Properties.NullText = "";
-            this.cboMS_NHOM_MAY.Size = new System.Drawing.Size(307, 20);
+            this.cboMS_NHOM_MAY.Size = new System.Drawing.Size(323, 20);
             this.cboMS_NHOM_MAY.TabIndex = 7;
             // 
             // CboMS_HSX
@@ -621,7 +621,7 @@
             this.CboMS_HSX.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CboMS_HSX.Properties.NullText = "";
-            this.CboMS_HSX.Size = new System.Drawing.Size(307, 20);
+            this.CboMS_HSX.Size = new System.Drawing.Size(323, 20);
             this.CboMS_HSX.TabIndex = 9;
             // 
             // txtNHIEM_VU_THIET_BI
@@ -632,7 +632,7 @@
             this.txtNHIEM_VU_THIET_BI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNHIEM_VU_THIET_BI.Name = "txtNHIEM_VU_THIET_BI";
             this.TableLayoutPanel25.SetRowSpan(this.txtNHIEM_VU_THIET_BI, 2);
-            this.txtNHIEM_VU_THIET_BI.Size = new System.Drawing.Size(307, 55);
+            this.txtNHIEM_VU_THIET_BI.Size = new System.Drawing.Size(323, 55);
             this.txtNHIEM_VU_THIET_BI.TabIndex = 12;
             // 
             // txtTEN_MAY
@@ -642,7 +642,7 @@
             this.txtTEN_MAY.Location = new System.Drawing.Point(123, 27);
             this.txtTEN_MAY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTEN_MAY.Name = "txtTEN_MAY";
-            this.txtTEN_MAY.Size = new System.Drawing.Size(307, 20);
+            this.txtTEN_MAY.Size = new System.Drawing.Size(323, 20);
             this.txtTEN_MAY.TabIndex = 3;
             // 
             // cboMS_NCC
@@ -654,7 +654,7 @@
             this.cboMS_NCC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMS_NCC.Properties.NullText = "";
-            this.cboMS_NCC.Size = new System.Drawing.Size(307, 20);
+            this.cboMS_NCC.Size = new System.Drawing.Size(323, 20);
             this.cboMS_NCC.TabIndex = 99;
             // 
             // txtMS_MAY
@@ -675,7 +675,7 @@
             this.grpThongtinSDTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpThongtinSDTB.Name = "grpThongtinSDTB";
             this.grpThongtinSDTB.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpThongtinSDTB.Size = new System.Drawing.Size(756, 176);
+            this.grpThongtinSDTB.Size = new System.Drawing.Size(782, 176);
             this.grpThongtinSDTB.TabIndex = 1;
             this.grpThongtinSDTB.Text = "Thông tin sử dụng thiết bị";
             // 
@@ -693,7 +693,7 @@
             this.TableLayoutPanel26.RowCount = 1;
             this.TableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 148F));
-            this.TableLayoutPanel26.Size = new System.Drawing.Size(746, 148);
+            this.TableLayoutPanel26.Size = new System.Drawing.Size(772, 148);
             this.TableLayoutPanel26.TabIndex = 63;
             // 
             // TableLayoutPanel27
@@ -729,7 +729,7 @@
             this.TableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.TableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.TableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TableLayoutPanel27.Size = new System.Drawing.Size(435, 144);
+            this.TableLayoutPanel27.Size = new System.Drawing.Size(450, 144);
             this.TableLayoutPanel27.TabIndex = 0;
             // 
             // LblNgaySD
@@ -764,7 +764,7 @@
             this.txtNGAY_DUA_VAO_SD.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNGAY_DUA_VAO_SD.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtNGAY_DUA_VAO_SD.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtNGAY_DUA_VAO_SD.Size = new System.Drawing.Size(91, 20);
+            this.txtNGAY_DUA_VAO_SD.Size = new System.Drawing.Size(99, 20);
             this.txtNGAY_DUA_VAO_SD.TabIndex = 17;
             this.txtNGAY_DUA_VAO_SD.EditValueChanged += new System.EventHandler(this.txtNGAY_DUA_VAO_SD_EditValueChanged);
             // 
@@ -775,7 +775,7 @@
             this.lblHientrang.Appearance.Options.UseFont = true;
             this.lblHientrang.Appearance.Options.UseForeColor = true;
             this.lblHientrang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHientrang.Location = new System.Drawing.Point(220, 3);
+            this.lblHientrang.Location = new System.Drawing.Point(228, 3);
             this.lblHientrang.Name = "lblHientrang";
             this.lblHientrang.Size = new System.Drawing.Size(114, 19);
             this.lblHientrang.TabIndex = 0;
@@ -812,7 +812,7 @@
             this.lblMucUTBT.Appearance.Options.UseFont = true;
             this.lblMucUTBT.Appearance.Options.UseForeColor = true;
             this.lblMucUTBT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMucUTBT.Location = new System.Drawing.Point(220, 28);
+            this.lblMucUTBT.Location = new System.Drawing.Point(228, 28);
             this.lblMucUTBT.Name = "lblMucUTBT";
             this.lblMucUTBT.Size = new System.Drawing.Size(114, 19);
             this.lblMucUTBT.TabIndex = 44;
@@ -834,11 +834,11 @@
             // BtnNoilapdat
             // 
             this.BtnNoilapdat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnNoilapdat.Location = new System.Drawing.Point(418, 52);
+            this.BtnNoilapdat.Location = new System.Drawing.Point(432, 52);
             this.BtnNoilapdat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnNoilapdat.Name = "BtnNoilapdat";
             this.TableLayoutPanel27.SetRowSpan(this.BtnNoilapdat, 3);
-            this.BtnNoilapdat.Size = new System.Drawing.Size(14, 90);
+            this.BtnNoilapdat.Size = new System.Drawing.Size(15, 90);
             this.BtnNoilapdat.TabIndex = 24;
             this.BtnNoilapdat.Text = "...";
             this.BtnNoilapdat.Click += new System.EventHandler(this.BtnNoilapdat_Click);
@@ -850,33 +850,33 @@
             this.txtSO_NAM_SD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSO_NAM_SD.Name = "txtSO_NAM_SD";
             this.txtSO_NAM_SD.Properties.ReadOnly = true;
-            this.txtSO_NAM_SD.Size = new System.Drawing.Size(91, 20);
+            this.txtSO_NAM_SD.Size = new System.Drawing.Size(99, 20);
             this.txtSO_NAM_SD.TabIndex = 19;
             // 
             // cboMS_HIEN_TRANG
             // 
             this.TableLayoutPanel27.SetColumnSpan(this.cboMS_HIEN_TRANG, 2);
             this.cboMS_HIEN_TRANG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMS_HIEN_TRANG.Location = new System.Drawing.Point(340, 2);
+            this.cboMS_HIEN_TRANG.Location = new System.Drawing.Point(348, 2);
             this.cboMS_HIEN_TRANG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMS_HIEN_TRANG.Name = "cboMS_HIEN_TRANG";
             this.cboMS_HIEN_TRANG.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMS_HIEN_TRANG.Properties.NullText = "";
-            this.cboMS_HIEN_TRANG.Size = new System.Drawing.Size(92, 20);
+            this.cboMS_HIEN_TRANG.Size = new System.Drawing.Size(99, 20);
             this.cboMS_HIEN_TRANG.TabIndex = 18;
             // 
             // cboMUC_UU_TIEN
             // 
             this.TableLayoutPanel27.SetColumnSpan(this.cboMUC_UU_TIEN, 2);
             this.cboMUC_UU_TIEN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboMUC_UU_TIEN.Location = new System.Drawing.Point(340, 27);
+            this.cboMUC_UU_TIEN.Location = new System.Drawing.Point(348, 27);
             this.cboMUC_UU_TIEN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMUC_UU_TIEN.Name = "cboMUC_UU_TIEN";
             this.cboMUC_UU_TIEN.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMUC_UU_TIEN.Properties.NullText = "";
-            this.cboMUC_UU_TIEN.Size = new System.Drawing.Size(92, 20);
+            this.cboMUC_UU_TIEN.Size = new System.Drawing.Size(99, 20);
             this.cboMUC_UU_TIEN.TabIndex = 20;
             // 
             // TxtMS_BP_CHIU_PHI
@@ -887,7 +887,7 @@
             this.TxtMS_BP_CHIU_PHI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMS_BP_CHIU_PHI.Name = "TxtMS_BP_CHIU_PHI";
             this.TxtMS_BP_CHIU_PHI.Properties.ReadOnly = true;
-            this.TxtMS_BP_CHIU_PHI.Size = new System.Drawing.Size(289, 40);
+            this.TxtMS_BP_CHIU_PHI.Size = new System.Drawing.Size(303, 40);
             this.TxtMS_BP_CHIU_PHI.TabIndex = 23;
             // 
             // lblNoilapdat
@@ -911,7 +911,7 @@
             this.TxtMS_NHA_XUONG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMS_NHA_XUONG.Name = "TxtMS_NHA_XUONG";
             this.TxtMS_NHA_XUONG.Properties.ReadOnly = true;
-            this.TxtMS_NHA_XUONG.Size = new System.Drawing.Size(289, 20);
+            this.TxtMS_NHA_XUONG.Size = new System.Drawing.Size(303, 20);
             this.TxtMS_NHA_XUONG.TabIndex = 21;
             // 
             // TxtMS_HE_THONG
@@ -922,7 +922,7 @@
             this.TxtMS_HE_THONG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtMS_HE_THONG.Name = "TxtMS_HE_THONG";
             this.TxtMS_HE_THONG.Properties.ReadOnly = true;
-            this.TxtMS_HE_THONG.Size = new System.Drawing.Size(289, 20);
+            this.TxtMS_HE_THONG.Size = new System.Drawing.Size(303, 20);
             this.TxtMS_HE_THONG.TabIndex = 22;
             // 
             // TableLayoutPanel28
@@ -943,7 +943,7 @@
             this.TableLayoutPanel28.Controls.Add(this.cboMS_DVT_RT, 1, 4);
             this.TableLayoutPanel28.Controls.Add(this.lblDVTRuntime, 0, 4);
             this.TableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TableLayoutPanel28.Location = new System.Drawing.Point(444, 2);
+            this.TableLayoutPanel28.Location = new System.Drawing.Point(459, 2);
             this.TableLayoutPanel28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TableLayoutPanel28.Name = "TableLayoutPanel28";
             this.TableLayoutPanel28.RowCount = 7;
@@ -954,7 +954,7 @@
             this.TableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.TableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.TableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.TableLayoutPanel28.Size = new System.Drawing.Size(299, 144);
+            this.TableLayoutPanel28.Size = new System.Drawing.Size(310, 144);
             this.TableLayoutPanel28.TabIndex = 1;
             // 
             // lblNgayBDBH
@@ -998,7 +998,7 @@
             this.txtNGAY_BD_BAO_HANH.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtNGAY_BD_BAO_HANH.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtNGAY_BD_BAO_HANH.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.txtNGAY_BD_BAO_HANH.Size = new System.Drawing.Size(173, 20);
+            this.txtNGAY_BD_BAO_HANH.Size = new System.Drawing.Size(184, 20);
             this.txtNGAY_BD_BAO_HANH.TabIndex = 25;
             // 
             // lblSothangBH
@@ -1026,7 +1026,7 @@
             this.txtSO_THANG_BH.Properties.Mask.EditMask = "n0";
             this.txtSO_THANG_BH.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSO_THANG_BH.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtSO_THANG_BH.Size = new System.Drawing.Size(173, 20);
+            this.txtSO_THANG_BH.Size = new System.Drawing.Size(184, 20);
             this.txtSO_THANG_BH.TabIndex = 26;
             // 
             // txtNgayKTBH
@@ -1041,7 +1041,7 @@
             this.txtNgayKTBH.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.txtNgayKTBH.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtNgayKTBH.Properties.ReadOnly = true;
-            this.txtNgayKTBH.Size = new System.Drawing.Size(173, 20);
+            this.txtNgayKTBH.Size = new System.Drawing.Size(184, 20);
             this.txtNgayKTBH.TabIndex = 27;
             // 
             // lblSanLuong
@@ -1067,13 +1067,13 @@
             this.txtDinhMucSL.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtDinhMucSL.Properties.Mask.EditMask = "n";
             this.txtDinhMucSL.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDinhMucSL.Size = new System.Drawing.Size(83, 20);
+            this.txtDinhMucSL.Size = new System.Drawing.Size(89, 20);
             this.txtDinhMucSL.TabIndex = 29;
             // 
             // cmbDVTSL
             // 
             this.cmbDVTSL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbDVTSL.Location = new System.Drawing.Point(212, 75);
+            this.cmbDVTSL.Location = new System.Drawing.Point(218, 75);
             this.cmbDVTSL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDVTSL.Name = "cmbDVTSL";
             this.cmbDVTSL.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
@@ -1082,7 +1082,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbDVTSL.Properties.DropDownRows = 4;
             this.cmbDVTSL.Properties.NullText = "";
-            this.cmbDVTSL.Size = new System.Drawing.Size(84, 20);
+            this.cmbDVTSL.Size = new System.Drawing.Size(89, 20);
             this.cmbDVTSL.TabIndex = 30;
             // 
             // cboMS_DVT_RT
@@ -1098,7 +1098,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMS_DVT_RT.Properties.DropDownRows = 10;
             this.cboMS_DVT_RT.Properties.NullText = "";
-            this.cboMS_DVT_RT.Size = new System.Drawing.Size(173, 20);
+            this.cboMS_DVT_RT.Size = new System.Drawing.Size(184, 20);
             this.cboMS_DVT_RT.TabIndex = 31;
             // 
             // lblDVTRuntime
@@ -1120,11 +1120,11 @@
             this.GrpAnhthietbi.Appearance.Options.UseForeColor = true;
             this.GrpAnhthietbi.Controls.Add(this.TableLayoutPanel10);
             this.GrpAnhthietbi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrpAnhthietbi.Location = new System.Drawing.Point(452, 2);
+            this.GrpAnhthietbi.Location = new System.Drawing.Point(468, 2);
             this.GrpAnhthietbi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GrpAnhthietbi.Name = "GrpAnhthietbi";
             this.GrpAnhthietbi.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GrpAnhthietbi.Size = new System.Drawing.Size(307, 312);
+            this.GrpAnhthietbi.Size = new System.Drawing.Size(317, 312);
             this.GrpAnhthietbi.TabIndex = 4;
             this.GrpAnhthietbi.Text = "Ảnh thiết bị";
             // 
@@ -1142,7 +1142,7 @@
             this.TableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.TableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TableLayoutPanel10.Size = new System.Drawing.Size(297, 284);
+            this.TableLayoutPanel10.Size = new System.Drawing.Size(307, 284);
             this.TableLayoutPanel10.TabIndex = 41;
             // 
             // Panel8
@@ -1154,14 +1154,14 @@
             this.Panel8.Location = new System.Drawing.Point(3, 252);
             this.Panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel8.Name = "Panel8";
-            this.Panel8.Size = new System.Drawing.Size(291, 30);
+            this.Panel8.Size = new System.Drawing.Size(301, 30);
             this.Panel8.TabIndex = 5;
             // 
             // btnXemlon
             // 
             this.btnXemlon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXemlon.Location = new System.Drawing.Point(338, 0);
+            this.btnXemlon.Location = new System.Drawing.Point(348, 0);
             this.btnXemlon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemlon.Name = "btnXemlon";
             this.btnXemlon.Size = new System.Drawing.Size(88, 29);
@@ -1171,7 +1171,7 @@
             // btnChenhinh
             // 
             this.btnChenhinh.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnChenhinh.Location = new System.Drawing.Point(130, 2);
+            this.btnChenhinh.Location = new System.Drawing.Point(140, 2);
             this.btnChenhinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChenhinh.Name = "btnChenhinh";
             this.btnChenhinh.Size = new System.Drawing.Size(80, 26);
@@ -1182,7 +1182,7 @@
             // btnXoahinh
             // 
             this.btnXoahinh.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnXoahinh.Location = new System.Drawing.Point(211, 2);
+            this.btnXoahinh.Location = new System.Drawing.Point(221, 2);
             this.btnXoahinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoahinh.Name = "btnXoahinh";
             this.btnXoahinh.Size = new System.Drawing.Size(80, 26);
@@ -1197,7 +1197,7 @@
             this.pctHINH_ANH.Name = "pctHINH_ANH";
             this.pctHINH_ANH.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pctHINH_ANH.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pctHINH_ANH.Size = new System.Drawing.Size(291, 244);
+            this.pctHINH_ANH.Size = new System.Drawing.Size(301, 244);
             this.pctHINH_ANH.TabIndex = 6;
             // 
             // tabThongTinBoSung
@@ -1921,7 +1921,7 @@
             this.grdMay.Location = new System.Drawing.Point(2, 22);
             this.grdMay.MainView = this.grvMay;
             this.grdMay.Name = "grdMay";
-            this.grdMay.Size = new System.Drawing.Size(394, 453);
+            this.grdMay.Size = new System.Drawing.Size(368, 453);
             this.grdMay.TabIndex = 0;
             this.grdMay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMay});
@@ -2122,7 +2122,7 @@
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.TablePanel1.SetRow(this.splitContainerControl1, 3);
             this.splitContainerControl1.Size = new System.Drawing.Size(1194, 501);
-            this.splitContainerControl1.SplitterPosition = 398;
+            this.splitContainerControl1.SplitterPosition = 372;
             this.splitContainerControl1.TabIndex = 8;
             // 
             // GrpDanhsachTB
@@ -2131,7 +2131,7 @@
             this.GrpDanhsachTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpDanhsachTB.Location = new System.Drawing.Point(0, 24);
             this.GrpDanhsachTB.Name = "GrpDanhsachTB";
-            this.GrpDanhsachTB.Size = new System.Drawing.Size(398, 477);
+            this.GrpDanhsachTB.Size = new System.Drawing.Size(372, 477);
             this.GrpDanhsachTB.TabIndex = 1;
             this.GrpDanhsachTB.Text = "GrpDanhsachTB";
             // 
@@ -2147,7 +2147,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem("optDSD", "optDSD", true, "optDSD", "optDSD"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("optKSD", "optKSD", true, "optKSD", "optKSD"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("optCoVanDe", "optCoVanDe", true, "optCoVanDe", "optCoVanDe")});
-            this.optHienTrang.Size = new System.Drawing.Size(398, 24);
+            this.optHienTrang.Size = new System.Drawing.Size(372, 24);
             this.optHienTrang.TabIndex = 0;
             this.optHienTrang.SelectedIndexChanged += new System.EventHandler(this.optHienTrang_SelectedIndexChanged);
             // 

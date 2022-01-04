@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OEEDataConText.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NHA_XUONG">
+    <Key>
+      <PropertyRef Name="MS_N_XUONG" />
+    </Key>
+    <Property Name="MS_N_XUONG" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MS_CHA" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ten_N_XUONG" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TEN_N_XUONG_A" Type="nvarchar" MaxLength="100" />
+    <Property Name="TEN_N_XUONG_H" Type="nvarchar" MaxLength="100" />
+    <Property Name="TRU_SO" Type="nvarchar" MaxLength="100" />
+    <Property Name="NGUOI_DAI_DIEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIEN_THOAI" Type="nvarchar" MaxLength="20" />
+    <Property Name="MS_QG" Type="nvarchar" MaxLength="19" />
+    <Property Name="MS_DUONG" Type="nvarchar" MaxLength="30" />
+    <Property Name="DIA_CHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIEN_TICH" Type="float" />
+    <Property Name="KHOANG_CACH" Type="float" />
+    <Property Name="GHI_CHU" Type="nvarchar" MaxLength="200" />
+    <Property Name="MS_DON_VI" Type="nvarchar" MaxLength="6" />
+    <Property Name="HINH_ANH" Type="image" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GROUP_ID" Type="int" Nullable="false" />
+    <Property Name="FULL_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASS" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+    <Property Name="MS_TO" Type="int" />
+    <Property Name="USER_MAIL" Type="nvarchar" MaxLength="150" />
+    <Property Name="MS_CONG_NHAN" Type="nvarchar" MaxLength="9" />
+    <Property Name="ACTIVE" Type="bit" />
+  </EntityType>
+  <Association Name="FK_NHA_XUONG_NHA_XUONG">
+    <End Role="NHA_XUONG" Type="Self.NHA_XUONG" Multiplicity="0..1" />
+    <End Role="NHA_XUONG1" Type="Self.NHA_XUONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHA_XUONG">
+        <PropertyRef Name="MS_N_XUONG" />
+      </Principal>
+      <Dependent Role="NHA_XUONG1">
+        <PropertyRef Name="MS_CHA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spGetData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NNgu" Type="int" Mode="In" />
+    <Parameter Name="USERNAME" Type="nvarchar" Mode="In" />
+    <Parameter Name="NXuong" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spLCD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spLCDFull" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="OEEDataConTextStoreContainer">
+    <EntitySet Name="NHA_XUONG" EntityType="Self.NHA_XUONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_NHA_XUONG_NHA_XUONG" Association="Self.FK_NHA_XUONG_NHA_XUONG">
+      <End Role="NHA_XUONG" EntitySet="NHA_XUONG" />
+      <End Role="NHA_XUONG1" EntitySet="NHA_XUONG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

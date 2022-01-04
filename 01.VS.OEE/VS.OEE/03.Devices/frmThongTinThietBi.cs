@@ -179,8 +179,8 @@ namespace VS.OEE
             treHeThong.Properties.ReadOnly = !flag;
             cboLoaiMay.Properties.ReadOnly = !flag;
             cboNhomMay.Properties.ReadOnly = !flag;
-
-            ReadonlyControl(flag);
+            
+            //ReadonlyControl(flag);
             grdMay.Enabled = flag;
         }
         private void BingdingControl(bool them)

@@ -124,9 +124,9 @@ namespace VS.OEE
                             Adduac(new ucBaoCaoKeHoachSanXuat(), Convert.ToInt32(button.Tag));
                             break;
                         }
-                    case "mnuBCMoldingWeekly":
+                    case "mnuBCTieuThuDienNang":
                         {
-                            Adduac(new ucBaocaoMoldingWeekly(), Convert.ToInt32(button.Tag));
+                            Adduac(new ucBaoCaoTieuThuDienNang(), Convert.ToInt32(button.Tag));
                             break;
                         }
                     default:

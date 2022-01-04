@@ -125,6 +125,18 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -139,6 +151,10 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationClient" />
+    <Reference Include="Vs.Support, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Vs.Support.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -172,17 +188,17 @@
     <Compile Include="07.Report\ucBaoCaoKeHoachSanXuat.Designer.cs">
       <DependentUpon>ucBaoCaoKeHoachSanXuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="07.Report\ucBaocaoMoldingWeekly.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="07.Report\ucBaocaoMoldingWeekly.Designer.cs">
-      <DependentUpon>ucBaocaoMoldingWeekly.cs</DependentUpon>
-    </Compile>
     <Compile Include="07.Report\ucBaocaoMoldingDaily.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="07.Report\ucBaocaoMoldingDaily.Designer.cs">
       <DependentUpon>ucBaocaoMoldingDaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoTieuThuDienNang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoTieuThuDienNang.Designer.cs">
+      <DependentUpon>ucBaoCaoTieuThuDienNang.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\ClsMain.cs" />
     <Compile Include="formChoose\frmChooseOperator.cs">
@@ -588,6 +604,12 @@
     <Compile Include="02.Category\frmDeviceCause.Designer.cs">
       <DependentUpon>frmDeviceCause.cs</DependentUpon>
     </Compile>
+    <Compile Include="XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="02.Category\frmBoPhanChiuPhi.resx">
       <DependentUpon>frmBoPhanChiuPhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -603,11 +625,11 @@
     <EmbeddedResource Include="07.Report\ucBaoCaoKeHoachSanXuat.resx">
       <DependentUpon>ucBaoCaoKeHoachSanXuat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="07.Report\ucBaocaoMoldingWeekly.resx">
-      <DependentUpon>ucBaocaoMoldingWeekly.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaocaoMoldingDaily.resx">
       <DependentUpon>ucBaocaoMoldingDaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaoCaoTieuThuDienNang.resx">
+      <DependentUpon>ucBaoCaoTieuThuDienNang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formChoose\frmChooseOperator.resx">
       <DependentUpon>frmChooseOperator.cs</DependentUpon>
@@ -815,6 +837,9 @@
     <EmbeddedResource Include="02.Category\frmDeviceCause.resx">
       <DependentUpon>frmDeviceCause.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">

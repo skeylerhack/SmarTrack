@@ -295,7 +295,7 @@ namespace VS.OEE
                     grvItemMay.Columns["WorkingCycle"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
 
                     grvItemMay.Columns["Consumption"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvItemMay.Columns["Consumption"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvItemMay.Columns["Consumption"].DisplayFormat.FormatString = Commons.Modules.ObjSystems.sDinhDangSoLe(8);
 
                 }
                 else

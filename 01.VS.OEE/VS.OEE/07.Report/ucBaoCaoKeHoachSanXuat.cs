@@ -22,20 +22,21 @@ namespace VS.OEE
         private void ucBaoCaoKeHoachSanXuat_Load(object sender, EventArgs e)
         {
             Commons.Modules.sId = "0Load";
+            datNam.DateTime = DateTime.Now;
             LoadTuan();
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cboMay, Commons.Modules.ObjSystems.DataMay(true), "MS_MAY", "TEN_MAY", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_MAY"));
-            Loadgrdata();
             Commons.Modules.sId = "";
+            Loadgrdata();
         }
         public void LoadTuan()
         {
             DataTable tb = new DataTable();
-            tb = SqlHelper.ExecuteDataset(Commons.IConnections.CNStr, "GetTUAN_TRONG_NAM", "01/01/" + DateTime.Now.Year.ToString(), "31/12/" + DateTime.Now.Year.ToString(), Commons.Modules.TypeLanguage).Tables[0];
+            tb = SqlHelper.ExecuteDataset(Commons.IConnections.CNStr, "GetTUAN_TRONG_NAM", "01/01/" + datNam.DateTime.Year.ToString(), "31/12/" + datNam.DateTime.Year.ToString(), Commons.Modules.TypeLanguage).Tables[0];
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cboTuan, tb, "TUAN", "TEN_TUAN", "");
             try
             {
                 CultureInfo ciCurr = CultureInfo.CurrentCulture;
-                int weekNum = ciCurr.Calendar.GetWeekOfYear(DateTime.Now.Date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+                int weekNum = ciCurr.Calendar.GetWeekOfYear(DateTime.Now.Date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
                 cboTuan.EditValue = weekNum;
             }
             catch (Exception ex) { XtraMessageBox.Show(ex.ToString()); }
@@ -43,13 +44,16 @@ namespace VS.OEE
 
         private void Loadgrdata()
         {
+            if (Commons.Modules.sId == "0Load") return;
             DataTable dtmp = new DataTable();
             try
             {
+                grdKeHoachSanXuat.DataSource = null;
                 DateTime dTNgay = Convert.ToDateTime(cboTuan.Text.Split(' ')[2].Split('_')[0]);
                 DateTime dDNgay = Convert.ToDateTime(cboTuan.Text.Split(' ')[2].Split('_')[1]);
                 dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBCKeHoachSanXuat", Commons.Modules.UserName, Commons.Modules.TypeLanguage, dTNgay, dDNgay, cboMay.EditValue));
-                Modules.ObjSystems.MLoadXtraGrid(grdKeHoachSanXuat, grvKeHoachSanXuat, dtmp, false, true, true, true, this.Name);
+                Modules.ObjSystems.MLoadXtraGrid(grdKeHoachSanXuat, grvKeHoachSanXuat, dtmp, false,true, true, true, true, this.Name);
+
                 for (int i = 0; i < grvKeHoachSanXuat.Columns.Count; i++)
                 {
                     if (i > 4)
@@ -133,7 +137,7 @@ namespace VS.OEE
                         title.MergeCells = true;
                     }
                 }
-                Commons.Modules.MExcel.DinhDang(excelWorkSheet, cboTuan.Text , Dong,6,"@",9,true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter,true,Dong,13,13);
+                Commons.Modules.MExcel.DinhDang(excelWorkSheet, cboTuan.Text , Dong,6,"@",9,true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter,true,Dong, TCot, 13);
 
                 Dong = 11;
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true, Dong, 1, Dong + TDong, 1);
@@ -141,7 +145,7 @@ namespace VS.OEE
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 35, "@", true, Dong, 3, Dong + TDong, 3);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 8, "#,##0", true, Dong, 4, Dong + TDong, 4);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 14, "@", true, Dong, 5, Dong + TDong, 5);
-                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 11, "@", true, Dong, 6, Dong + TDong, 13);
+                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 11, "@", true, Dong, 6, Dong + TDong, TCot);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true, 1, 1, 1, 1);
                 excelWorkbook.Save();
                 excelApplication.Visible = true;
@@ -240,10 +244,11 @@ namespace VS.OEE
 
         private void grvKeHoachSanXuat_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
+            if (grvKeHoachSanXuat.DataSource == null) return;
             ColumnView view = sender as ColumnView;
             if (e.Column.VisibleIndex >4  && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
             {
-                string resulst = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Name_Resulst").ToString();
+                var resulst = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Name_Resulst");
                 decimal price;
                  price = Convert.ToDecimal(e.Value.ToString() == "" ? 0 :e.Value);
                 switch (resulst)
@@ -256,6 +261,11 @@ namespace VS.OEE
                         }
                 }
             }
+        }
+
+        private void datName_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadTuan();
         }
     }
 }

@@ -1,0 +1,753 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using OEE.Models;
+@model List<spGetData_Result>
+<head>
+    @*<meta http-equiv="refresh" content="60">*@
+</head>
+@{
+    string AutoRefresh = System.Configuration.ConfigurationManager.AppSettings["pagerefresh"];
+    this.Response.AppendHeader("Refresh", AutoRefresh);
+}
+<style>
+    .background {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        height: 100vh;
+    }
+
+    .table-hover thead tr:hover th, .table-hover tbody tr:hover td {
+        background-color: #000000;
+    }
+
+    .table tr td {
+        width: auto;
+    }
+
+    .table1 {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .table2 {
+        width: 100%;
+        height: 45vh;
+    }
+</style>
+@foreach (var itemchung in Model)
+{
+    string strMC = itemchung.COT0DD;
+    string[] arrListStrMC = strMC.Split(';');
+    int RMC = Convert.ToInt32(arrListStrMC[8]);
+    int GMC = Convert.ToInt32(arrListStrMC[9]);
+    int BMC = Convert.ToInt32(arrListStrMC[10]);
+    <body class="background" style="background-color:rgb(@RMC,@GMC,@BMC)" onload="startTime()">
+        <table>
+            <tr>
+                <td>
+                    @foreach (var item1 in Model)
+                    {
+                        string strshift = item1.COT0DD;
+                        string[] arrListStrshift = strshift.Split(';');
+                        int Rshift = Convert.ToInt32(arrListStrshift[0]);
+                        int Gshift = Convert.ToInt32(arrListStrshift[1]);
+                        int Bshift = Convert.ToInt32(arrListStrshift[2]);
+
+                        string fontchushift = arrListStrshift[3];
+                        string sizechushift = arrListStrshift[4];
+
+                        string indamshift = "normal";
+                        string nghienshift = "normal";
+                        string cangiuashift = "normal";
+
+                        if (arrListStrshift[5] == "T")
+                        {
+                            indamshift = "bold";
+                        }
+
+                        if (arrListStrshift[6] == "T")
+                        {
+                            nghienshift = "italic";
+                        }
+                        if (arrListStrshift[7] == "T")
+                        {
+                            cangiuashift = "center";
+                        }
+                        <div>
+                            <a href="https://logwork.com/current-time-in-ho-chi-minh-city-vietnam-ho-chi-minh" class="clock-widget-text" data-timezone="Asia/Phnom_Penh" data-language="vi"> </a>
+                        </div>
+                        <div style="display:inline">
+                            <label style="margin-top:10px;margin-left:30px;text-align:left;font-family:@fontchushift;font-weight:@indamshift;font-style:@nghienshift;font-size:@sizechushift;color:rgb(@Rshift,@Gshift,@Bshift)">@String.Format("{0:dd/MM/yyyy}", @DateTime.Now)</label>
+                            <label style="margin-top:10px;text-align:@cangiuashift;font-family:@fontchushift;font-weight:@indamshift;font-style:@nghienshift;font-size:@sizechushift;color:rgb(@Rshift,@Gshift,@Bshift);margin:auto">@item1.COT0</label>
+                            <label style="margin-top:10px;margin-right:30px;float:right;font-family:@fontchushift;font-weight:@indamshift;font-style:@nghienshift;font-size:@sizechushift;color:rgb(@Rshift,@Gshift,@Bshift)" id="gioht"></label>
+                        </div>
+                        break;
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-lg-6 col-sm-6">
+                            @{
+                                #region COT1DD
+                                string str = item.COTMAUNEN;
+                                string[] arrListStr = str.Split(';');
+                                int R = Convert.ToInt32(arrListStr[0]);
+                                int G = Convert.ToInt32(arrListStr[1]);
+                                int B = Convert.ToInt32(arrListStr[2]);
+
+
+                                string str1 = item.COT1DD;
+                                string[] arrListStr1 = str1.Split(';');
+                                int R1 = Convert.ToInt32(arrListStr1[0]);
+                                int G1 = Convert.ToInt32(arrListStr1[1]);
+                                int B1 = Convert.ToInt32(arrListStr1[2]);
+                                string fontchu = arrListStr1[3];
+                                string sizechu = arrListStr1[4];
+
+                                string indam = "normal";
+                                string nghien = "normal";
+                                string cangiua = "normal";
+
+                                if (arrListStr1[5] == "T")
+                                {
+                                    indam = "bold";
+                                }
+
+                                if (arrListStr1[6] == "T")
+                                {
+                                    nghien = "italic";
+                                }
+                                if (arrListStr1[7] == "T")
+                                {
+                                    cangiua = "center";
+                                }
+                                #endregion
+
+                                #region COT2DD
+                                string str2 = item.COT2DD;
+                                string[] arrListStr2 = str2.Split(';');
+                                int R2 = Convert.ToInt32(arrListStr2[0]);
+                                int G2 = Convert.ToInt32(arrListStr2[1]);
+                                int B2 = Convert.ToInt32(arrListStr2[2]);
+
+                                string fontchu2 = arrListStr2[3];
+                                string sizechu2 = arrListStr2[4];
+
+                                string indam2 = "normal";
+                                string nghien2 = "normal";
+                                string cangiua2 = "normal";
+
+                                if (arrListStr2[5] == "T")
+                                {
+                                    indam2 = "bold";
+                                }
+
+                                if (arrListStr2[6] == "T")
+                                {
+                                    nghien2 = "italic";
+                                }
+                                if (arrListStr2[7] == "T")
+                                {
+                                    cangiua2 = "center";
+                                }
+                                #endregion
+
+                                #region COT3DD
+                                string str3 = item.COT3DD;
+                                string[] arrListStr3 = str3.Split(';');
+                                int R3 = Convert.ToInt32(arrListStr3[0]);
+                                int G3 = Convert.ToInt32(arrListStr3[1]);
+                                int B3 = Convert.ToInt32(arrListStr3[2]);
+
+                                string fontchu3 = arrListStr3[3];
+                                string sizechu3 = arrListStr3[4];
+
+                                string indam3 = "normal";
+                                string nghien3 = "normal";
+                                string cangiua3 = "normal";
+
+                                if (arrListStr3[5] == "T")
+                                {
+                                    indam3 = "bold";
+                                }
+
+                                if (arrListStr3[6] == "T")
+                                {
+                                    nghien3 = "italic";
+                                }
+                                if (arrListStr3[7] == "T")
+                                {
+                                    cangiua3 = "center";
+                                }
+                                #endregion
+
+                                #region COT4DD
+                                string str4 = item.COT4DD;
+                                string[] arrListStr4 = str4.Split(';');
+                                int R4 = Convert.ToInt32(arrListStr4[0]);
+                                int G4 = Convert.ToInt32(arrListStr4[1]);
+                                int B4 = Convert.ToInt32(arrListStr4[2]);
+
+                                string fontchu4 = arrListStr4[3];
+                                string sizechu4 = arrListStr4[4];
+
+                                string indam4 = "normal";
+                                string nghien4 = "normal";
+                                string cangiua4 = "normal";
+
+                                if (arrListStr4[5] == "T")
+                                {
+                                    indam4 = "bold";
+                                }
+
+                                if (arrListStr4[6] == "T")
+                                {
+                                    nghien4 = "italic";
+                                }
+                                if (arrListStr4[7] == "T")
+                                {
+                                    cangiua4 = "center";
+                                }
+                                #endregion
+
+                                #region COT5DD
+                                string str5 = item.COT5DD;
+                                string[] arrListStr5 = str5.Split(';');
+                                int R5 = Convert.ToInt32(arrListStr5[0]);
+                                int G5 = Convert.ToInt32(arrListStr5[1]);
+                                int B5 = Convert.ToInt32(arrListStr5[2]);
+
+                                string fontchu5 = arrListStr5[3];
+                                string sizechu5 = arrListStr5[4];
+
+                                string indam5 = "normal";
+                                string nghien5 = "normal";
+                                string cangiua5 = "normal";
+
+                                if (arrListStr5[5] == "T")
+                                {
+                                    indam5 = "bold";
+                                }
+
+                                if (arrListStr5[6] == "T")
+                                {
+                                    nghien5 = "italic";
+                                }
+                                if (arrListStr5[7] == "T")
+                                {
+                                    cangiua5 = "center";
+                                }
+                                #endregion
+
+                                #region COT6DD
+                                string str6 = item.COT6DD;
+                                string[] arrListStr6 = str6.Split(';');
+                                int R6 = Convert.ToInt32(arrListStr6[0]);
+                                int G6 = Convert.ToInt32(arrListStr6[1]);
+                                int B6 = Convert.ToInt32(arrListStr6[2]);
+
+                                string fontchu6 = arrListStr6[3];
+                                string sizechu6 = arrListStr6[4];
+
+                                string indam6 = "normal";
+                                string nghien6 = "normal";
+                                string cangiua6 = "normal";
+
+                                if (arrListStr6[5] == "T")
+                                {
+                                    indam6 = "bold";
+                                }
+
+                                if (arrListStr6[6] == "T")
+                                {
+                                    nghien6 = "italic";
+                                }
+                                if (arrListStr6[7] == "T")
+                                {
+                                    cangiua6 = "center";
+                                }
+
+                                string strC6MN = item.COT6MAUNEN;
+                                string[] arrListStr6MN = strC6MN.Split(';');
+                                int R6MN = Convert.ToInt32(arrListStr6MN[0]);
+                                int G6MN = Convert.ToInt32(arrListStr6MN[1]);
+                                int B6MN = Convert.ToInt32(arrListStr6MN[2]);
+                                #endregion
+
+                                #region COT7DD
+                                string str7 = item.COT7DD;
+                                string[] arrListStr7 = str7.Split(';');
+                                int R7 = Convert.ToInt32(arrListStr7[0]);
+                                int G7 = Convert.ToInt32(arrListStr7[1]);
+                                int B7 = Convert.ToInt32(arrListStr7[2]);
+
+                                string fontchu7 = arrListStr7[3];
+                                string sizechu7 = arrListStr7[4];
+
+                                string indam7 = "normal";
+                                string nghien7 = "normal";
+                                string cangiua7 = "normal";
+
+                                if (arrListStr7[5] == "T")
+                                {
+                                    indam7 = "bold";
+                                }
+
+                                if (arrListStr7[6] == "T")
+                                {
+                                    nghien7 = "italic";
+                                }
+                                if (arrListStr7[7] == "T")
+                                {
+                                    cangiua7 = "center";
+                                }
+                                #endregion
+
+                                #region COT8DD
+                                string str8 = item.COT8DD;
+                                string[] arrListStr8 = str8.Split(';');
+                                int R8 = Convert.ToInt32(arrListStr8[0]);
+                                int G8 = Convert.ToInt32(arrListStr8[1]);
+                                int B8 = Convert.ToInt32(arrListStr8[2]);
+
+                                string fontchu8 = arrListStr8[3];
+                                string sizechu8 = arrListStr8[4];
+
+                                string indam8 = "normal";
+                                string nghien8 = "normal";
+                                string cangiua8 = "normal";
+
+                                if (arrListStr8[5] == "T")
+                                {
+                                    indam8 = "bold";
+                                }
+
+                                if (arrListStr8[6] == "T")
+                                {
+                                    nghien8 = "italic";
+                                }
+                                if (arrListStr8[7] == "T")
+                                {
+                                    cangiua8 = "center";
+                                }
+                                #endregion
+
+                                #region COT9DD
+                                string str9 = item.COT9DD;
+                                string[] arrListStr9 = str9.Split(';');
+                                int R9 = Convert.ToInt32(arrListStr9[0]);
+                                int G9 = Convert.ToInt32(arrListStr9[1]);
+                                int B9 = Convert.ToInt32(arrListStr9[2]);
+
+                                string fontchu9 = arrListStr9[3];
+                                string sizechu9 = arrListStr9[4];
+
+                                string indam9 = "normal";
+                                string nghien9 = "normal";
+                                string cangiua9 = "normal";
+
+                                if (arrListStr9[5] == "T")
+                                {
+                                    indam9 = "bold";
+                                }
+
+                                if (arrListStr9[6] == "T")
+                                {
+                                    nghien9 = "italic";
+                                }
+                                if (arrListStr9[7] == "T")
+                                {
+                                    cangiua9 = "center";
+                                }
+                                #endregion
+
+                                #region COT10DD
+                                string str10 = item.COT10DD;
+                                string[] arrListStr10 = str10.Split(';');
+                                int R10 = Convert.ToInt32(arrListStr10[0]);
+                                int G10 = Convert.ToInt32(arrListStr10[1]);
+                                int B10 = Convert.ToInt32(arrListStr10[2]);
+
+                                string fontchu10 = arrListStr10[3];
+                                string sizechu10 = arrListStr10[4];
+
+                                string indam10 = "normal";
+                                string nghien10 = "normal";
+                                string cangiua10 = "normal";
+
+                                if (arrListStr10[5] == "T")
+                                {
+                                    indam10 = "bold";
+                                }
+
+                                if (arrListStr10[6] == "T")
+                                {
+                                    nghien10 = "italic";
+                                }
+                                if (arrListStr10[7] == "T")
+                                {
+                                    cangiua10 = "center";
+                                }
+                                #endregion
+
+                                #region COT11DD
+                                string str11 = item.COT11DD;
+                                string[] arrListStr11 = str11.Split(';');
+                                int R11 = Convert.ToInt32(arrListStr11[0]);
+                                int G11 = Convert.ToInt32(arrListStr11[1]);
+                                int B11 = Convert.ToInt32(arrListStr11[2]);
+
+                                string fontchu11 = arrListStr11[3];
+                                string sizechu11 = arrListStr11[4];
+
+                                string indam11 = "normal";
+                                string nghien11 = "normal";
+                                string cangiua11 = "normal";
+
+                                if (arrListStr11[5] == "T")
+                                {
+                                    indam11 = "bold";
+                                }
+
+                                if (arrListStr11[6] == "T")
+                                {
+                                    nghien11 = "italic";
+                                }
+                                if (arrListStr11[7] == "T")
+                                {
+                                    cangiua11 = "center";
+                                }
+                                #endregion
+
+                                #region COT12DD
+                                string str12 = item.COT12DD;
+                                string[] arrListStr12 = str12.Split(';');
+                                int R12 = Convert.ToInt32(arrListStr12[0]);
+                                int G12 = Convert.ToInt32(arrListStr12[1]);
+                                int B12 = Convert.ToInt32(arrListStr12[2]);
+
+                                string fontchu12 = arrListStr12[3];
+                                string sizechu12 = arrListStr12[4];
+
+                                string indam12 = "normal";
+                                string nghien12 = "normal";
+                                string cangiua12 = "normal";
+
+                                if (arrListStr12[5] == "T")
+                                {
+                                    indam12 = "bold";
+                                }
+
+                                if (arrListStr12[6] == "T")
+                                {
+                                    nghien12 = "italic";
+                                }
+                                if (arrListStr12[7] == "T")
+                                {
+                                    cangiua12 = "center";
+                                }
+                                #endregion
+
+                                #region COT13DD
+                                string str13 = item.COT13DD;
+                                string[] arrListStr13 = str13.Split(';');
+                                int R13 = Convert.ToInt32(arrListStr13[0]);
+                                int G13 = Convert.ToInt32(arrListStr13[1]);
+                                int B13 = Convert.ToInt32(arrListStr13[2]);
+
+                                string fontchu13 = arrListStr13[3];
+                                string sizechu13 = arrListStr13[4];
+
+                                string indam13 = "normal";
+                                string nghien13 = "normal";
+                                string cangiua13 = "normal";
+
+                                if (arrListStr13[5] == "T")
+                                {
+                                    indam13 = "bold";
+                                }
+
+                                if (arrListStr13[6] == "T")
+                                {
+                                    nghien13 = "italic";
+                                }
+                                if (arrListStr13[7] == "T")
+                                {
+                                    cangiua13 = "center";
+                                }
+                                #endregion
+
+                                #region COT14DD
+                                string str14 = item.COT14DD;
+                                string[] arrListStr14 = str14.Split(';');
+                                int R14 = Convert.ToInt32(arrListStr14[0]);
+                                int G14 = Convert.ToInt32(arrListStr14[1]);
+                                int B14 = Convert.ToInt32(arrListStr14[2]);
+
+                                string fontchu14 = arrListStr13[3];
+                                string sizechu14 = arrListStr13[4];
+
+                                string indam14 = "normal";
+                                string nghien14 = "normal";
+                                string cangiua14 = "normal";
+
+                                if (arrListStr14[5] == "T")
+                                {
+                                    indam14 = "bold";
+                                }
+
+                                if (arrListStr14[6] == "T")
+                                {
+                                    nghien14 = "italic";
+                                }
+                                if (arrListStr14[7] == "T")
+                                {
+                                    cangiua14 = "center";
+                                }
+                                #endregion
+
+                                #region COT15DD
+                                string str15 = item.COT15DD;
+                                string[] arrListStr15 = str15.Split(';');
+                                int R15 = Convert.ToInt32(arrListStr15[0]);
+                                int G15 = Convert.ToInt32(arrListStr15[1]);
+                                int B15 = Convert.ToInt32(arrListStr15[2]);
+
+                                string fontchu15 = arrListStr15[3];
+                                string sizechu15 = arrListStr15[4];
+
+                                string indam15 = "normal";
+                                string nghien15 = "normal";
+                                string cangiua15 = "normal";
+
+                                if (arrListStr15[5] == "T")
+                                {
+                                    indam15 = "bold";
+                                }
+
+                                if (arrListStr15[6] == "T")
+                                {
+                                    nghien15 = "italic";
+                                }
+                                if (arrListStr15[7] == "T")
+                                {
+                                    cangiua15 = "center";
+                                }
+                                #endregion
+
+                                #region COT16DD
+                                string str16 = item.COT16DD;
+                                string[] arrListStr16 = str16.Split(';');
+                                int R16 = Convert.ToInt32(arrListStr16[0]);
+                                int G16 = Convert.ToInt32(arrListStr16[1]);
+                                int B16 = Convert.ToInt32(arrListStr16[2]);
+
+                                string fontchu16 = arrListStr16[3];
+                                string sizechu16 = arrListStr16[4];
+
+                                string indam16 = "normal";
+                                string nghien16 = "normal";
+                                string cangiua16 = "normal";
+
+                                if (arrListStr16[5] == "T")
+                                {
+                                    indam16 = "bold";
+                                }
+
+                                if (arrListStr16[6] == "T")
+                                {
+                                    nghien16 = "italic";
+                                }
+                                if (arrListStr16[7] == "T")
+                                {
+                                    cangiua16 = "center";
+                                }
+                                #endregion
+
+                                #region COT17DD
+                                string str17 = item.COT17DD;
+                                string[] arrListStr17 = str17.Split(';');
+                                int R17 = Convert.ToInt32(arrListStr17[1]);
+                                int G17 = Convert.ToInt32(arrListStr17[1]);
+                                int B17 = Convert.ToInt32(arrListStr17[2]);
+
+                                string fontchu17 = arrListStr17[3];
+                                string sizechu17 = arrListStr17[4];
+
+                                string indam17 = "normal";
+                                string nghien17 = "normal";
+                                string cangiua17 = "normal";
+
+                                if (arrListStr17[5] == "T")
+                                {
+                                    indam17 = "bold";
+                                }
+
+                                if (arrListStr17[6] == "T")
+                                {
+                                    nghien17 = "italic";
+                                }
+                                if (arrListStr17[7] == "T")
+                                {
+                                    cangiua17 = "center";
+                                }
+
+                                #endregion
+
+                                #region COT18DD
+                                string str18 = item.COT18DD;
+                                string[] arrListStr18 = str18.Split(';');
+                                int R18 = Convert.ToInt32(arrListStr18[0]);
+                                int G18 = Convert.ToInt32(arrListStr18[1]);
+                                int B18 = Convert.ToInt32(arrListStr18[2]);
+
+                                string fontchu18 = arrListStr18[3];
+                                string sizechu18 = arrListStr18[4];
+
+                                string indam18 = "normal";
+                                string nghien18 = "normal";
+                                string cangiua18 = "normal";
+
+                                if (arrListStr18[5] == "T")
+                                {
+                                    indam18 = "bold";
+                                }
+
+                                if (arrListStr18[6] == "T")
+                                {
+                                    nghien18 = "italic";
+                                }
+                                if (arrListStr18[7] == "T")
+                                {
+                                    cangiua18 = "center";
+                                }
+                                #endregion
+
+                                #region COT19DD
+                                string str19 = item.COT19DD;
+                                string[] arrListStr19 = str19.Split(';');
+                                int R19 = Convert.ToInt32(arrListStr19[0]);
+                                int G19 = Convert.ToInt32(arrListStr19[1]);
+                                int B19 = Convert.ToInt32(arrListStr19[2]);
+
+                                string fontchu19 = arrListStr19[3];
+                                string sizechu19 = arrListStr19[4];
+
+                                string indam19 = "normal";
+                                string nghien19 = "normal";
+                                string cangiua19 = "normal";
+
+                                if (arrListStr19[5] == "T")
+                                {
+                                    indam19 = "bold";
+                                }
+
+                                if (arrListStr19[6] == "T")
+                                {
+                                    nghien19 = "italic";
+                                }
+                                if (arrListStr19[7] == "T")
+                                {
+                                    cangiua19 = "center";
+                                }
+                                #endregion
+                            }
+
+                            <table class="table2 table table-bordered table-hover" style="margin-bottom:10px;table-layout:fixed;background-color: rgb(@R,@G,@B)">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" style="vertical-align: middle; border: 2px solid white"><label style="font-family:@fontchu;font-size:@sizechu;font-weight:@indam; font-style:@nghien;text-align:@cangiua;display:block; color:rgb(@R1,@G1,@B1)">@item.COT1</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 2px solid white; vertical-align: middle">
+                                            <div><br /></div>
+                                            <div>
+                                                <label style="font-family:@fontchu2;font-size:@sizechu2;font-weight:@indam2; font-style:@nghien2; color:rgb(@R2,@G2,@B2)">@item.COT2</label>
+                                                <label style="font-family:@fontchu3;font-size:@sizechu3;font-weight:@indam3; font-style:@nghien3; color:rgb(@R3,@G3,@B3)">@item.COT3</label>
+                                            </div>
+                                            <div>
+                                                <label style="font-family:@fontchu4;font-size:@sizechu4;font-weight:@indam4; font-style:@nghien4; color:rgb(@R4,@G4,@B4)">@item.COT4</label>
+                                                <label style="font-family:@fontchu5;font-size:@sizechu5;font-weight:@indam5; font-style:@nghien5; color:rgb(@R5,@G5,@B5)">@item.COT5</label>
+                                            </div>
+                                        </td>
+
+                                        <td style="border: 2px solid white; vertical-align: middle">
+                                            <div><label style="background-color:rgb(@R6MN,@G6MN,@B6MN);width:fit-content;margin:auto; display: block; text-align: @cangiua6 ; font-family:@fontchu6;font-size:@sizechu6;font-weight:@indam6; font-style:@nghien6; color:rgb(@R6,@G6,@B6)">@item.COT6 </label></div>
+                                            <div>
+                                                <label style="font-family:@fontchu7;font-size:@sizechu7;font-weight:@indam7; font-style:@nghien7; color:rgb(@R7,@G7,@B7)">@item.COT7</label>
+                                                <label style="font-family:@fontchu8;font-size:@sizechu8;font-weight:@indam8; font-style:@nghien8; color:rgb(@R8,@G8,@B8)">@item.COT8</label>
+                                            </div>
+                                            <div>
+                                                <label style="font-family:@fontchu9;font-size:@sizechu9;font-weight:@indam9; font-style:@nghien9; color:rgb(@R9,@G9,@B9)">@item.COT9:</label>
+                                                <label style="font-family:@fontchu10;font-size:@sizechu10;font-weight:@indam10; font-style:@nghien10; color:rgb(@R10,@G10,@B10)">@item.COT10</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 2px solid white; vertical-align: middle">
+                                            <div>
+                                                <label style="font-family:@fontchu11;font-size:@sizechu11;font-weight:@indam11; font-style:@nghien11; color:rgb(@R11,@G11,@B11)">@item.COT11 </label>
+                                                <label style="font-family:@fontchu12;font-size:@sizechu12;font-weight:@indam12; font-style:@nghien12; color:rgb(@R12,@G12,@B12)">@item.COT12</label>
+                                            </div>
+                                            <div>
+                                                <label style="font-family:@fontchu13;font-size:@sizechu13;font-weight:@indam13; font-style:@nghien13; color:rgb(@R13,@G13,@B13)">@item.COT13</label>
+                                                <label style="font-family:@fontchu14;font-size:@sizechu14;font-weight:@indam14; font-style:@nghien14; color:rgb(@R14,@G14,@B14)">@item.COT14</label>
+                                            </div>
+                                            <div>
+                                                <label style="font-family:@fontchu18;font-size:@sizechu18;font-weight:@indam18; font-style:@nghien18; color:rgb(@R18,@G18,@B18)">@item.COT18</label>
+                                                <label style="font-family:@fontchu19;font-size:@sizechu19;font-weight:@indam19; font-style:@nghien19; color:rgb(@R19,@G19,@B19)">@item.COT19</label>
+                                            </div>
+                                        </td>
+                                        <td style="border: 2px solid white; vertical-align: middle">
+                                            <div>
+                                                <label style="font-family:@fontchu15;font-size:@sizechu15;font-weight:@indam15; font-style:@nghien15; color:rgb(@R15,@G15,@B15)">@item.COT15</label>
+                                                <label style="font-family:@fontchu16;font-size:@sizechu16;font-weight:@indam16; font-style:@nghien16; color:rgb(@R16,@G16,@B16)">@item.COT16</label>
+                                            </div>
+                                            <div>
+                                                <label style="font-family:@fontchu17;font-size:@sizechu17;font-weight:@indam17; font-style:@nghien17; color:rgb(@R17,@G17,@B17)">@item.COT17</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    }
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <div></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+    break;
+}
+<script>
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('gioht').innerHTML = h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+

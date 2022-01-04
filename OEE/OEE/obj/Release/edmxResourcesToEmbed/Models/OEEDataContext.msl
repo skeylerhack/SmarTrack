@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OEEDataConTextStoreContainer" CdmEntityContainer="OEEDataContext">
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="OEEDataConText.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+          <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="MS_TO" ColumnName="MS_TO" />
+          <ScalarProperty Name="USER_MAIL" ColumnName="USER_MAIL" />
+          <ScalarProperty Name="MS_CONG_NHAN" ColumnName="MS_CONG_NHAN" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetData" FunctionName="OEEDataConText.Store.spGetData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OEEDataConText.spGetData_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="COTMAUNEN" ColumnName="COTMAUNEN" />
+          <ScalarProperty Name="COT0" ColumnName="COT0" />
+          <ScalarProperty Name="COT0DD" ColumnName="COT0DD" />
+          <ScalarProperty Name="COT1" ColumnName="COT1" />
+          <ScalarProperty Name="COT1DD" ColumnName="COT1DD" />
+          <ScalarProperty Name="COT2" ColumnName="COT2" />
+          <ScalarProperty Name="COT2DD" ColumnName="COT2DD" />
+          <ScalarProperty Name="COT3" ColumnName="COT3" />
+          <ScalarProperty Name="COT3DD" ColumnName="COT3DD" />
+          <ScalarProperty Name="COT4" ColumnName="COT4" />
+          <ScalarProperty Name="COT4DD" ColumnName="COT4DD" />
+          <ScalarProperty Name="COT5" ColumnName="COT5" />
+          <ScalarProperty Name="COT5DD" ColumnName="COT5DD" />
+          <ScalarProperty Name="COT6" ColumnName="COT6" />
+          <ScalarProperty Name="COT6DD" ColumnName="COT6DD" />
+          <ScalarProperty Name="COT6MAUNEN" ColumnName="COT6MAUNEN" />
+          <ScalarProperty Name="COT7" ColumnName="COT7" />
+          <ScalarProperty Name="COT7DD" ColumnName="COT7DD" />
+          <ScalarProperty Name="COT8" ColumnName="COT8" />
+          <ScalarProperty Name="COT8DD" ColumnName="COT8DD" />
+          <ScalarProperty Name="COT9" ColumnName="COT9" />
+          <ScalarProperty Name="COT9DD" ColumnName="COT9DD" />
+          <ScalarProperty Name="COT10" ColumnName="COT10" />
+          <ScalarProperty Name="COT10DD" ColumnName="COT10DD" />
+          <ScalarProperty Name="COT11" ColumnName="COT11" />
+          <ScalarProperty Name="COT11DD" ColumnName="COT11DD" />
+          <ScalarProperty Name="COT12" ColumnName="COT12" />
+          <ScalarProperty Name="COT12DD" ColumnName="COT12DD" />
+          <ScalarProperty Name="COT13" ColumnName="COT13" />
+          <ScalarProperty Name="COT13DD" ColumnName="COT13DD" />
+          <ScalarProperty Name="COT14" ColumnName="COT14" />
+          <ScalarProperty Name="COT14DD" ColumnName="COT14DD" />
+          <ScalarProperty Name="COT15" ColumnName="COT15" />
+          <ScalarProperty Name="COT15DD" ColumnName="COT15DD" />
+          <ScalarProperty Name="COT16" ColumnName="COT16" />
+          <ScalarProperty Name="COT16DD" ColumnName="COT16DD" />
+          <ScalarProperty Name="COT17" ColumnName="COT17" />
+          <ScalarProperty Name="COT17DD" ColumnName="COT17DD" />
+          <ScalarProperty Name="COT18" ColumnName="COT18" />
+          <ScalarProperty Name="COT18DD" ColumnName="COT18DD" />
+          <ScalarProperty Name="COT19" ColumnName="COT19" />
+          <ScalarProperty Name="COT19DD" ColumnName="COT19DD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spLCDFull" FunctionName="OEEDataConText.Store.spLCDFull">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OEEDataConText.spLCDFull_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="COTMAUCHUNG" ColumnName="COTMAUCHUNG" />
+          <ScalarProperty Name="COTMAUNEN" ColumnName="COTMAUNEN" />
+          <ScalarProperty Name="COT0" ColumnName="COT0" />
+          <ScalarProperty Name="COT0DD" ColumnName="COT0DD" />
+          <ScalarProperty Name="COT1" ColumnName="COT1" />
+          <ScalarProperty Name="COT1DD" ColumnName="COT1DD" />
+          <ScalarProperty Name="COT2" ColumnName="COT2" />
+          <ScalarProperty Name="COT2DD" ColumnName="COT2DD" />
+          <ScalarProperty Name="COT3" ColumnName="COT3" />
+          <ScalarProperty Name="COT3DD" ColumnName="COT3DD" />
+          <ScalarProperty Name="COT4" ColumnName="COT4" />
+          <ScalarProperty Name="COT4DD" ColumnName="COT4DD" />
+          <ScalarProperty Name="COT5" ColumnName="COT5" />
+          <ScalarProperty Name="COT5DD" ColumnName="COT5DD" />
+          <ScalarProperty Name="COT6" ColumnName="COT6" />
+          <ScalarProperty Name="COT6DD" ColumnName="COT6DD" />
+          <ScalarProperty Name="COT7" ColumnName="COT7" />
+          <ScalarProperty Name="COT7DD" ColumnName="COT7DD" />
+          <ScalarProperty Name="COT8" ColumnName="COT8" />
+          <ScalarProperty Name="COT8DD" ColumnName="COT8DD" />
+          <ScalarProperty Name="COT9BD" ColumnName="COT9BD" />
+          <ScalarProperty Name="MAUBD" ColumnName="MAUBD" />
+          <ScalarProperty Name="COT10BD" ColumnName="COT10BD" />
+          <ScalarProperty Name="DNCOT9BD" ColumnName="DNCOT9BD" />
+          <ScalarProperty Name="DNCOT10BD" ColumnName="DNCOT10BD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NHA_XUONG">
+      <EntityTypeMapping TypeName="OEEDataConText.NHA_XUONG">
+        <MappingFragment StoreEntitySet="NHA_XUONG">
+          <ScalarProperty Name="HINH_ANH" ColumnName="HINH_ANH" />
+          <ScalarProperty Name="MS_DON_VI" ColumnName="MS_DON_VI" />
+          <ScalarProperty Name="GHI_CHU" ColumnName="GHI_CHU" />
+          <ScalarProperty Name="KHOANG_CACH" ColumnName="KHOANG_CACH" />
+          <ScalarProperty Name="DIEN_TICH" ColumnName="DIEN_TICH" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="MS_DUONG" ColumnName="MS_DUONG" />
+          <ScalarProperty Name="MS_QG" ColumnName="MS_QG" />
+          <ScalarProperty Name="DIEN_THOAI" ColumnName="DIEN_THOAI" />
+          <ScalarProperty Name="NGUOI_DAI_DIEN" ColumnName="NGUOI_DAI_DIEN" />
+          <ScalarProperty Name="TRU_SO" ColumnName="TRU_SO" />
+          <ScalarProperty Name="TEN_N_XUONG_H" ColumnName="TEN_N_XUONG_H" />
+          <ScalarProperty Name="TEN_N_XUONG_A" ColumnName="TEN_N_XUONG_A" />
+          <ScalarProperty Name="Ten_N_XUONG" ColumnName="Ten_N_XUONG" />
+          <ScalarProperty Name="MS_CHA" ColumnName="MS_CHA" />
+          <ScalarProperty Name="MS_N_XUONG" ColumnName="MS_N_XUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spLCD" FunctionName="OEEDataConText.Store.spLCD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OEEDataConText.spLCD_Result">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="COTMAUNEN" ColumnName="COTMAUNEN" />
+          <ScalarProperty Name="COT0" ColumnName="COT0" />
+          <ScalarProperty Name="COT0DD" ColumnName="COT0DD" />
+          <ScalarProperty Name="COT1" ColumnName="COT1" />
+          <ScalarProperty Name="COT1DD" ColumnName="COT1DD" />
+          <ScalarProperty Name="COT2" ColumnName="COT2" />
+          <ScalarProperty Name="COT2DD" ColumnName="COT2DD" />
+          <ScalarProperty Name="COT3" ColumnName="COT3" />
+          <ScalarProperty Name="COT3DD" ColumnName="COT3DD" />
+          <ScalarProperty Name="COT4" ColumnName="COT4" />
+          <ScalarProperty Name="COT4DD" ColumnName="COT4DD" />
+          <ScalarProperty Name="COT5" ColumnName="COT5" />
+          <ScalarProperty Name="COT5DD" ColumnName="COT5DD" />
+          <ScalarProperty Name="COT6" ColumnName="COT6" />
+          <ScalarProperty Name="COT6DD" ColumnName="COT6DD" />
+          <ScalarProperty Name="COT6MAUNEN" ColumnName="COT6MAUNEN" />
+          <ScalarProperty Name="COT7" ColumnName="COT7" />
+          <ScalarProperty Name="COT7DD" ColumnName="COT7DD" />
+          <ScalarProperty Name="COT8" ColumnName="COT8" />
+          <ScalarProperty Name="COT8DD" ColumnName="COT8DD" />
+          <ScalarProperty Name="COT9" ColumnName="COT9" />
+          <ScalarProperty Name="COT9DD" ColumnName="COT9DD" />
+          <ScalarProperty Name="COT10" ColumnName="COT10" />
+          <ScalarProperty Name="COT10DD" ColumnName="COT10DD" />
+          <ScalarProperty Name="COT11" ColumnName="COT11" />
+          <ScalarProperty Name="COT11DD" ColumnName="COT11DD" />
+          <ScalarProperty Name="COT12" ColumnName="COT12" />
+          <ScalarProperty Name="COT12DD" ColumnName="COT12DD" />
+          <ScalarProperty Name="COT13" ColumnName="COT13" />
+          <ScalarProperty Name="COT13DD" ColumnName="COT13DD" />
+          <ScalarProperty Name="COT14" ColumnName="COT14" />
+          <ScalarProperty Name="COT14DD" ColumnName="COT14DD" />
+          <ScalarProperty Name="COT15" ColumnName="COT15" />
+          <ScalarProperty Name="COT15DD" ColumnName="COT15DD" />
+          <ScalarProperty Name="COT16" ColumnName="COT16" />
+          <ScalarProperty Name="COT16DD" ColumnName="COT16DD" />
+          <ScalarProperty Name="COT17" ColumnName="COT17" />
+          <ScalarProperty Name="COT17DD" ColumnName="COT17DD" />
+          <ScalarProperty Name="COT18" ColumnName="COT18" />
+          <ScalarProperty Name="COT18DD" ColumnName="COT18DD" />
+          <ScalarProperty Name="COT19" ColumnName="COT19" />
+          <ScalarProperty Name="COT19DD" ColumnName="COT19DD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

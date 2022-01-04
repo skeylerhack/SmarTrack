@@ -306,9 +306,20 @@ namespace VS.OEE
                 txtSoLSX.ResetText();
                 txtNote.ResetText();
                 cboTinhTrang.EditValue = Convert.ToInt16(1);
-                datNgayLap.DateTime = DateTime.Now;
-                datNgayBD.DateTime = DateTime.Now;
-                datNgayHTKH.DateTime = DateTime.Now.AddHours(1);
+                try
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT CONVERT(DATE,GETDATE()) + MIN(TU_GIO) AS TU_GIO, CONVERT(DATE,GETDATE()) + MAX(TU_GIO) AS DEN_GIO FROM dbo.CA"));
+                    datNgayBD.DateTime = Convert.ToDateTime(dt.Rows[0]["TU_GIO"]);
+                    datNgayHTKH.DateTime = Convert.ToDateTime(dt.Rows[0]["DEN_GIO"]);
+                    datNgayLap.DateTime = Convert.ToDateTime(dt.Rows[0]["TU_GIO"]);
+                }
+                catch
+                {
+                    datNgayBD.DateTime = DateTime.Now;
+                    datNgayHTKH.DateTime = DateTime.Now.AddHours(8);
+                    datNgayLap.DateTime = DateTime.Now;
+                }
             }
             else
             {
@@ -892,7 +903,7 @@ namespace VS.OEE
             try
             {
                 GridView view = sender as GridView;
-                view.SetFocusedRowCellValue("PlannedStartTime", Convert.ToDateTime(datNgayBD.DateTime.Date));
+                view.SetFocusedRowCellValue("PlannedStartTime", Convert.ToDateTime(datNgayBD.DateTime));
                 view.SetFocusedRowCellValue("DueTime", Convert.ToDateTime(grvPrODetails.GetFocusedRowCellValue("DueDate")));
                 view.SetFocusedRowCellValue(view.Columns["DetailsID"], grvPrODetails.GetFocusedRowCellValue("DetailsID"));
                 view.SetFocusedRowCellValue("PlannedQuantity", (TinhKhoiLuong()));

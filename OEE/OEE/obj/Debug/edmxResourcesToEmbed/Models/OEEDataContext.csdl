@@ -16,8 +16,18 @@
   </EntityType>
   <EntityContainer Name="OEEDataContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="USERS" EntityType="Self.USER" />
-    <FunctionImport Name="spGetData" ReturnType="Collection(OEEDataConText.spGetData_Result)" />
+    <FunctionImport Name="spGetData" ReturnType="Collection(OEEDataConText.spGetData_Result)">
+      <Parameter Name="NNgu" Mode="In" Type="Int32" />
+      <Parameter Name="USERNAME" Mode="In" Type="String" />
+      <Parameter Name="NXuong" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="spLCDFull" ReturnType="Collection(OEEDataConText.spLCDFull_Result)" />
+    <EntitySet Name="NHA_XUONG" EntityType="OEEDataConText.NHA_XUONG" />
+    <AssociationSet Name="FK_NHA_XUONG_NHA_XUONG" Association="OEEDataConText.FK_NHA_XUONG_NHA_XUONG">
+      <End Role="NHA_XUONG" EntitySet="NHA_XUONG" />
+      <End Role="NHA_XUONG1" EntitySet="NHA_XUONG" />
+    </AssociationSet>
+    <FunctionImport Name="spLCD" ReturnType="Collection(OEEDataConText.spLCD_Result)" />
   </EntityContainer>
   <ComplexType Name="spGetData_Result">
     <Property Type="Int32" Name="STT" Nullable="false" />
@@ -91,5 +101,85 @@
     <Property Type="String" Name="COT10BD" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="DNCOT9BD" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="DNCOT10BD" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="NHA_XUONG">
+    <Key>
+      <PropertyRef Name="MS_N_XUONG" />
+    </Key>
+    <Property Name="MS_N_XUONG" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MS_CHA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ten_N_XUONG" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TEN_N_XUONG_A" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TEN_N_XUONG_H" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TRU_SO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGUOI_DAI_DIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DIEN_THOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MS_QG" Type="String" MaxLength="19" FixedLength="false" Unicode="true" />
+    <Property Name="MS_DUONG" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DIA_CHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DIEN_TICH" Type="Double" />
+    <Property Name="KHOANG_CACH" Type="Double" />
+    <Property Name="GHI_CHU" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MS_DON_VI" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="HINH_ANH" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="NHA_XUONG1" Relationship="OEEDataConText.FK_NHA_XUONG_NHA_XUONG" FromRole="NHA_XUONG" ToRole="NHA_XUONG1" />
+    <NavigationProperty Name="NHA_XUONG2" Relationship="OEEDataConText.FK_NHA_XUONG_NHA_XUONG" FromRole="NHA_XUONG1" ToRole="NHA_XUONG" />
+  </EntityType>
+  <Association Name="FK_NHA_XUONG_NHA_XUONG">
+    <End Type="OEEDataConText.NHA_XUONG" Role="NHA_XUONG" Multiplicity="0..1" />
+    <End Type="OEEDataConText.NHA_XUONG" Role="NHA_XUONG1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHA_XUONG">
+        <PropertyRef Name="MS_N_XUONG" />
+      </Principal>
+      <Dependent Role="NHA_XUONG1">
+        <PropertyRef Name="MS_CHA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="spLCD_Result">
+    <Property Type="Int32" Name="STT" Nullable="false" />
+    <Property Type="String" Name="COTMAUNEN" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT0" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT0DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT1" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT1DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT2" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT2DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT3" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT3DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT4" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT4DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT5" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT5DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT6" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT6DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT6MAUNEN" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT7" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT7DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT8" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT8DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT9" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT9DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT10" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT10DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT11" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT11DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT12" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT12DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT13" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT13DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT14" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT14DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT15" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT15DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT16" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT16DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT17" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT17DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT18" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT18DD" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT19" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="COT19DD" Nullable="true" MaxLength="250" />
   </ComplexType>
 </Schema>

@@ -329,7 +329,7 @@ namespace VS.OEE
                 }
                 else
                 {
-                    int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.Operator WHERE OperatorCode =N'" + txtOperatorCode.Text.Trim() + "'"));
+                    int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.Operator WHERE OperatorCode =N'" + txtOperatorCode.Text.Trim() + "' " + (txtID.Text == "-1" ? "" : "AND ID_Operator <> " + txtID.Text)));
                     if (n > 0)
                     {
                         Modules.msgThayThe(ThongBao.msgDaTonTai, lblOperatorCode.Text, txtOperatorCode);

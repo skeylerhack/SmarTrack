@@ -38,6 +38,8 @@
             this.lblTuan = new DevExpress.XtraEditors.LabelControl();
             this.lblMay = new DevExpress.XtraEditors.LabelControl();
             this.cboMay = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblNam = new DevExpress.XtraEditors.LabelControl();
+            this.datNam = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
             this.panelNN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).BeginInit();
@@ -46,6 +48,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdKeHoachSanXuat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvKeHoachSanXuat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNN
@@ -54,20 +58,20 @@
             this.panelNN.Appearance.Options.UseBackColor = true;
             this.panelNN.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelChung.SetColumn(this.panelNN, 1);
-            this.panelChung.SetColumnSpan(this.panelNN, 5);
+            this.panelChung.SetColumnSpan(this.panelNN, 7);
             this.panelNN.Controls.Add(this.btnThoat);
             this.panelNN.Controls.Add(this.btnIn);
             this.panelNN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNN.Location = new System.Drawing.Point(139, 458);
+            this.panelNN.Location = new System.Drawing.Point(89, 458);
             this.panelNN.Name = "panelNN";
             this.panelChung.SetRow(this.panelNN, 4);
-            this.panelNN.Size = new System.Drawing.Size(821, 29);
+            this.panelNN.Size = new System.Drawing.Size(871, 29);
             this.panelNN.TabIndex = 6;
             // 
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(740, 1);
+            this.btnThoat.Location = new System.Drawing.Point(790, 1);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
             this.btnThoat.TabIndex = 5;
@@ -77,7 +81,7 @@
             // btnIn
             // 
             this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIn.Location = new System.Drawing.Point(659, 1);
+            this.btnIn.Location = new System.Drawing.Point(709, 1);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(80, 26);
             this.btnIn.TabIndex = 5;
@@ -92,13 +96,17 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 30F)});
+            this.panelChung.Controls.Add(this.datNam);
             this.panelChung.Controls.Add(this.cboTuan);
             this.panelChung.Controls.Add(this.grdKeHoachSanXuat);
             this.panelChung.Controls.Add(this.panelNN);
             this.panelChung.Controls.Add(this.lblTuan);
             this.panelChung.Controls.Add(this.lblMay);
             this.panelChung.Controls.Add(this.cboMay);
+            this.panelChung.Controls.Add(this.lblNam);
             this.panelChung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChung.Location = new System.Drawing.Point(0, 0);
             this.panelChung.Name = "panelChung";
@@ -113,21 +121,21 @@
             // 
             // cboTuan
             // 
-            this.panelChung.SetColumn(this.cboTuan, 2);
-            this.cboTuan.Location = new System.Drawing.Point(259, 11);
+            this.panelChung.SetColumn(this.cboTuan, 4);
+            this.cboTuan.Location = new System.Drawing.Point(473, 11);
             this.cboTuan.Name = "cboTuan";
             this.cboTuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboTuan.Properties.NullText = "";
             this.panelChung.SetRow(this.cboTuan, 1);
-            this.cboTuan.Size = new System.Drawing.Size(220, 20);
+            this.cboTuan.Size = new System.Drawing.Size(138, 20);
             this.cboTuan.TabIndex = 13;
             this.cboTuan.EditValueChanged += new System.EventHandler(this.cboTuan_EditValueChanged);
             // 
             // grdKeHoachSanXuat
             // 
             this.panelChung.SetColumn(this.grdKeHoachSanXuat, 0);
-            this.panelChung.SetColumnSpan(this.grdKeHoachSanXuat, 6);
+            this.panelChung.SetColumnSpan(this.grdKeHoachSanXuat, 8);
             this.grdKeHoachSanXuat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdKeHoachSanXuat.Location = new System.Drawing.Point(3, 45);
             this.grdKeHoachSanXuat.MainView = this.grvKeHoachSanXuat;
@@ -151,8 +159,8 @@
             // lblTuan
             // 
             this.lblTuan.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.panelChung.SetColumn(this.lblTuan, 1);
-            this.lblTuan.Location = new System.Drawing.Point(139, 11);
+            this.panelChung.SetColumn(this.lblTuan, 3);
+            this.lblTuan.Location = new System.Drawing.Point(353, 11);
             this.lblTuan.Name = "lblTuan";
             this.panelChung.SetRow(this.lblTuan, 1);
             this.lblTuan.Size = new System.Drawing.Size(114, 19);
@@ -162,8 +170,8 @@
             // lblMay
             // 
             this.lblMay.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.panelChung.SetColumn(this.lblMay, 3);
-            this.lblMay.Location = new System.Drawing.Point(485, 11);
+            this.panelChung.SetColumn(this.lblMay, 5);
+            this.lblMay.Location = new System.Drawing.Point(616, 11);
             this.lblMay.Name = "lblMay";
             this.panelChung.SetRow(this.lblMay, 1);
             this.lblMay.Size = new System.Drawing.Size(114, 19);
@@ -172,16 +180,49 @@
             // 
             // cboMay
             // 
-            this.panelChung.SetColumn(this.cboMay, 4);
-            this.cboMay.Location = new System.Drawing.Point(605, 11);
+            this.panelChung.SetColumn(this.cboMay, 6);
+            this.cboMay.Location = new System.Drawing.Point(736, 11);
             this.cboMay.Name = "cboMay";
             this.cboMay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboMay.Properties.NullText = "";
             this.panelChung.SetRow(this.cboMay, 1);
-            this.cboMay.Size = new System.Drawing.Size(220, 20);
+            this.cboMay.Size = new System.Drawing.Size(138, 20);
             this.cboMay.TabIndex = 10;
             this.cboMay.EditValueChanged += new System.EventHandler(this.cboTuan_EditValueChanged);
+            // 
+            // lblNam
+            // 
+            this.lblNam.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.panelChung.SetColumn(this.lblNam, 1);
+            this.lblNam.Location = new System.Drawing.Point(89, 11);
+            this.lblNam.Name = "lblNam";
+            this.panelChung.SetRow(this.lblNam, 1);
+            this.lblNam.Size = new System.Drawing.Size(114, 19);
+            this.lblNam.TabIndex = 1;
+            this.lblNam.Text = "lblNam";
+            // 
+            // datNam
+            // 
+            this.panelChung.SetColumn(this.datNam, 2);
+            this.datNam.EditValue = null;
+            this.datNam.Location = new System.Drawing.Point(209, 11);
+            this.datNam.Name = "datNam";
+            this.datNam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNam.Properties.DisplayFormat.FormatString = "yyyy";
+            this.datNam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datNam.Properties.EditFormat.FormatString = "yyyy";
+            this.datNam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datNam.Properties.Mask.EditMask = "yyyy";
+            this.datNam.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
+            this.datNam.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
+            this.panelChung.SetRow(this.datNam, 1);
+            this.datNam.Size = new System.Drawing.Size(138, 20);
+            this.datNam.TabIndex = 14;
+            this.datNam.EditValueChanged += new System.EventHandler(this.datName_EditValueChanged);
             // 
             // ucBaoCaoKeHoachSanXuat
             // 
@@ -199,6 +240,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdKeHoachSanXuat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvKeHoachSanXuat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +257,7 @@
         private DevExpress.XtraGrid.GridControl grdKeHoachSanXuat;
         private DevExpress.XtraGrid.Views.Grid.GridView grvKeHoachSanXuat;
         private DevExpress.XtraEditors.LookUpEdit cboTuan;
+        private DevExpress.XtraEditors.LabelControl lblNam;
+        private DevExpress.XtraEditors.DateEdit datNam;
     }
 }

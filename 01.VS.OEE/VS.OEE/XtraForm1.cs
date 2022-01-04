@@ -20,7 +20,7 @@ namespace VS.OEE
 
         private void XtraForm1_Load(object sender, EventArgs e)
         {
-            ucBaoCaoKeHoachSanXuat frm = new ucBaoCaoKeHoachSanXuat();
+            ucBaoCaoTieuThuDienNang frm = new ucBaoCaoTieuThuDienNang();
             this.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;
         }

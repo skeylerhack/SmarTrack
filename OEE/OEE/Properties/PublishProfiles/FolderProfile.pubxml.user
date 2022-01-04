@@ -4,21 +4,21 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>H:\Lamviec\Lamviec\07_12\OEE\OEE\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2021-12-13T09:12:35.3346657Z;True|2021-12-13T15:39:11.7312275+07:00;True|2021-12-13T13:22:51.5601938+07:00;True|2021-12-13T10:16:01.8702233+07:00;True|2021-12-11T09:36:05.1325122+07:00;</History>
+    <_PublishTargetUrl>G:\01.SmarTrack\OEE\Publish\LCD</_PublishTargetUrl>
+    <History>True|2021-12-17T03:50:54.5111026Z;True|2021-12-13T16:12:35.3346657+07:00;True|2021-12-13T15:39:11.7312275+07:00;True|2021-12-13T13:22:51.5601938+07:00;True|2021-12-13T10:16:01.8702233+07:00;True|2021-12-11T09:36:05.1325122+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>09/11/2013 07:29:20</publishTime>
+      <publishTime>11/09/2013 07:29:20</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
-      <publishTime>09/11/2013 07:29:20</publishTime>
+      <publishTime>11/09/2013 07:29:20</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>08/09/2012 09:00:50</publishTime>
+      <publishTime>09/08/2012 09:00:50</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>09/06/2018 07:10:50</publishTime>
+      <publishTime>06/09/2018 07:10:50</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/26/2012 02:48:56</publishTime>
@@ -27,10 +27,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/22/2019 16:06:16</publishTime>
     </File>
     <File Include="bin/OEE.dll">
-      <publishTime>12/16/2021 14:54:55</publishTime>
+      <publishTime>01/03/2022 11:53:50</publishTime>
     </File>
     <File Include="bin/OEE.pdb">
-      <publishTime>12/16/2021 14:54:55</publishTime>
+      <publishTime>01/03/2022 11:53:50</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/28/2016 12:50:24</publishTime>
@@ -117,7 +117,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/29/2018 03:59:46</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>02/12/2014 06:26:04</publishTime>
+      <publishTime>12/02/2014 06:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>11/29/2018 04:00:12</publishTime>
@@ -135,28 +135,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/24/2014 04:57:34</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css.map">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Content/Chart.css">
       <publishTime>12/14/2021 11:12:57</publishTime>
@@ -165,37 +165,37 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/14/2021 11:12:57</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="Models/OEEDataContext.edmx.diagram">
-      <publishTime>12/10/2021 12:15:17</publishTime>
+      <publishTime>12/18/2021 09:40:15</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>12/07/2021 08:12:14</publishTime>
+      <publishTime>07/12/2021 08:12:14</publishTime>
     </File>
     <File Include="Scripts/Chart.js">
       <publishTime>12/14/2021 11:12:57</publishTime>
@@ -972,25 +972,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/15/2021 16:51:01</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts-more/RadialAxis.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts-more/WaterfallSeries.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts/AreaSeries.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts/AreaSplineSeries.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts/Axis.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts/BarSeries.js">
-      <publishTime>12/15/2021 16:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/highcharts/7.1.2/es-modules/parts/CandlestickSeries.js">
       <publishTime>12/15/2021 16:50:59</publishTime>
@@ -1830,67 +1830,67 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/15/2021 16:50:35</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.js">
-      <publishTime>12/07/2021 08:12:15</publishTime>
+      <publishTime>07/12/2021 08:12:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.min.js">
-      <publishTime>12/07/2021 08:12:15</publishTime>
+      <publishTime>07/12/2021 08:12:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.min.map">
-      <publishTime>12/07/2021 08:12:15</publishTime>
+      <publishTime>07/12/2021 08:12:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.js">
-      <publishTime>12/07/2021 08:12:15</publishTime>
+      <publishTime>07/12/2021 08:12:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.min.js">
-      <publishTime>12/07/2021 08:12:15</publishTime>
+      <publishTime>07/12/2021 08:12:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
-      <publishTime>12/07/2021 08:12:15</publishTime>
+      <publishTime>07/12/2021 08:12:15</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>12/07/2021 08:12:17</publishTime>
+      <publishTime>07/12/2021 08:12:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>12/07/2021 08:12:17</publishTime>
+      <publishTime>07/12/2021 08:12:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>12/07/2021 08:12:17</publishTime>
+      <publishTime>07/12/2021 08:12:17</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>12/07/2021 08:12:17</publishTime>
+      <publishTime>07/12/2021 08:12:17</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
-      <publishTime>12/07/2021 08:12:17</publishTime>
+      <publishTime>07/12/2021 08:12:17</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
-      <publishTime>12/16/2021 15:09:47</publishTime>
+      <publishTime>12/21/2021 17:09:15</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/13/2021 16:12:22</publishTime>
+      <publishTime>12/21/2021 17:09:15</publishTime>
     </File>
     <File Include="Views/Login/Login.cshtml">
-      <publishTime>12/07/2021 11:05:00</publishTime>
+      <publishTime>01/03/2022 10:53:21</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>12/15/2021 17:00:04</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>12/07/2021 08:12:11</publishTime>
+      <publishTime>07/12/2021 08:12:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/16/2021 14:54:56</publishTime>
+      <publishTime>01/03/2022 11:51:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

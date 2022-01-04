@@ -15,7 +15,7 @@ namespace VS.OEE
         public frmMain()
         {
             InitializeComponent();
-        }   
+        }
         DocumentManager manager;
         public static frmMain _instance;
         private void frmMain_Load(object sender, EventArgs e)
@@ -36,8 +36,8 @@ namespace VS.OEE
                 }
             }
             AddBarItems();
-            string sVersionold =  Commons.Modules.ObjSystems.LayDuLieu("Version.txt");
-            barInfo.Caption = "Version: " + sVersionold.Substring(0, 4) + "." + sVersionold.Substring(4,2) + "." + sVersionold.Substring(6, 2) + "." + sVersionold.Substring(8,4);
+            string sVersionold = Commons.Modules.ObjSystems.LayDuLieu("Version.txt");
+            barInfo.Caption = "Version: " + sVersionold.Substring(0, 4) + "." + sVersionold.Substring(4, 2) + "." + sVersionold.Substring(6, 2) + "." + sVersionold.Substring(8, 4);
             barServer.Caption = "Server: " + Commons.IConnections.Server + "- Database: " + Commons.IConnections.Database + "- Login: " + Commons.Modules.UserName + "";
             barTTC.Caption = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT TEN_CTY_TIENG_VIET FROM dbo.THONG_TIN_CHUNG").ToString().ToUpper();
 
@@ -54,7 +54,7 @@ namespace VS.OEE
             bm.EndUpdate();
             DataTable dtRoot = new DataTable();
 
-            string sSql = "SELECT DISTINCT T1.ID_MENU,T1.KEY_MENU,CASE "+ Commons.Modules.TypeLanguage + " WHEN 0 THEN T1.TEN_MENU WHEN 1 THEN ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU) ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU) END AS TEN_MENU, T1.STT_MENU FROM dbo.MENU_OEE T1 INNER JOIN dbo.NHOM_MENU_OEE T2 ON T2.ID_MENU = T1.ID_MENU INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = '') AND(T3.USERNAME = '"+Commons.Modules.UserName+"') AND(ISNULL(T1.HIDE, 0) = 1) ORDER BY STT_MENU";
+            string sSql = "SELECT DISTINCT T1.ID_MENU,T1.KEY_MENU,CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN T1.TEN_MENU WHEN 1 THEN ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU) ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU) END AS TEN_MENU, T1.STT_MENU FROM dbo.MENU_OEE T1 INNER JOIN dbo.NHOM_MENU_OEE T2 ON T2.ID_MENU = T1.ID_MENU INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = '') AND(T3.USERNAME = '" + Commons.Modules.UserName + "') AND(ISNULL(T1.HIDE, 0) = 1) ORDER BY STT_MENU";
             dtRoot.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
             foreach (DataRow item in dtRoot.Rows)
             {
@@ -73,12 +73,12 @@ namespace VS.OEE
         private void AddBarChild(BarSubItem bsiRoot)
         {
             DataTable dtChild = new DataTable();
-            string sSql = "SELECT DISTINCT	T1.ID_MENU,	T1.KEY_MENU,	CASE "+Commons.Modules.TypeLanguage+"	WHEN 0 THEN	T1.TEN_MENU	WHEN 1 THEN	ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU)    ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU)	END AS TEN_MENU,	T1.MENU_PARENT,	T1.INACTIVE,	T1.STT_MENU,	T1.CONTROLS,	CONVERT(INT, ISNULL(T1.MENU_LINE, 0)) AS MENU_LINE, T1.MENU_PARAMETER,	T1.HOT_KEY FROM dbo.MENU_OEE T1    INNER JOIN dbo.NHOM_MENU_OEE T2     ON T2.ID_MENU = T1.ID_MENU  INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = N'"+bsiRoot.Name+"')    AND(T3.USERNAME = '"+Commons.Modules.UserName+"') AND(ISNULL(T1.INACTIVE, 0) = 1)    ORDER BY STT_MENU";            
+            string sSql = "SELECT DISTINCT	T1.ID_MENU,	T1.KEY_MENU,	CASE " + Commons.Modules.TypeLanguage + "	WHEN 0 THEN	T1.TEN_MENU	WHEN 1 THEN	ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU)    ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU)	END AS TEN_MENU,	T1.MENU_PARENT,	T1.INACTIVE,	T1.STT_MENU,	T1.CONTROLS,	CONVERT(INT, ISNULL(T1.MENU_LINE, 0)) AS MENU_LINE, T1.MENU_PARAMETER,	T1.HOT_KEY FROM dbo.MENU_OEE T1    INNER JOIN dbo.NHOM_MENU_OEE T2     ON T2.ID_MENU = T1.ID_MENU  INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = N'" + bsiRoot.Name + "')    AND(T3.USERNAME = '" + Commons.Modules.UserName + "') AND(ISNULL(T1.INACTIVE, 0) = 1)    ORDER BY STT_MENU";
             dtChild.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
             foreach (DataRow item in dtChild.Rows)
             {
                 DataTable dt = new DataTable();
-                sSql = "SELECT DISTINCT T1.ID_MENU,T1.KEY_MENU,CASE "+Commons.Modules.TypeLanguage +" WHEN 0 THEN T1.TEN_MENU WHEN 1 THEN ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU)ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU)END AS TEN_MENU,T1.MENU_PARENT,T1.INACTIVE,T1.STT_MENU,T1.CONTROLS,CONVERT(INT, ISNULL(T1.MENU_LINE, 0)) AS MENU_LINE,T1.MENU_PARAMETER,T1.HOT_KEY FROM dbo.MENU_OEE T1 INNER JOIN dbo.NHOM_MENU_OEE T2 ON T2.ID_MENU = T1.ID_MENU INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = N'"+ item["KEY_MENU"].ToString() + "')AND(T3.USERNAME = '"+Commons.Modules.UserName+"')AND(ISNULL(T1.INACTIVE, 0) = 1) ORDER BY STT_MENU";
+                sSql = "SELECT DISTINCT T1.ID_MENU,T1.KEY_MENU,CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN T1.TEN_MENU WHEN 1 THEN ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU)ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU)END AS TEN_MENU,T1.MENU_PARENT,T1.INACTIVE,T1.STT_MENU,T1.CONTROLS,CONVERT(INT, ISNULL(T1.MENU_LINE, 0)) AS MENU_LINE,T1.MENU_PARAMETER,T1.HOT_KEY FROM dbo.MENU_OEE T1 INNER JOIN dbo.NHOM_MENU_OEE T2 ON T2.ID_MENU = T1.ID_MENU INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = N'" + item["KEY_MENU"].ToString() + "')AND(T3.USERNAME = '" + Commons.Modules.UserName + "')AND(ISNULL(T1.INACTIVE, 0) = 1) ORDER BY STT_MENU";
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
                 if (dt.Rows.Count == 0)
                 {
@@ -154,7 +154,7 @@ namespace VS.OEE
                 return;
             }
             #endregion
-            Commons.Modules.iPermission = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, "SELECT ID_PERMISSION FROM dbo.NHOM_MENU_OEE WHERE ID_NHOM =(SELECT GROUP_ID FROM dbo.USERS WHERE USERNAME ='"+Commons.Modules.UserName+"') AND ID_MENU = '"+e.Item.Id+"'"));
+            Commons.Modules.iPermission = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID_PERMISSION FROM dbo.NHOM_MENU_OEE WHERE ID_NHOM =(SELECT GROUP_ID FROM dbo.USERS WHERE USERNAME ='" + Commons.Modules.UserName + "') AND ID_MENU = '" + e.Item.Id + "'"));
             switch (e.Item.Tag.ToString())
             {
                 case "ShowNNgu": { ShowNgonNgu((e.Item as BarCheckItem), e.Item.Description.ToString()); return; }
@@ -191,14 +191,14 @@ namespace VS.OEE
                 case "ShowThoiGiamLamViec": { ShowThoiGiamLamViec(); return; }
                 case "ShowCaLamViec": { ShowCaLamViec(); return; }
                 case "ShowBaoCao": { ShowBaoCao(); return; }
-                case "ShowPhanQuyenTheoCN" :{ ShowPhanQuyenTheoCN(); return;}
+                case "ShowPhanQuyenTheoCN": { ShowPhanQuyenTheoCN(); return; }
                 case "ShowPhanQuyenTheoDL": { ShowPhanQuyenTheoDL(); return; }
                 case "ShowDSNguoiDung": { ShowDSNguoiDung(); return; }
                 case "ShowNhomNguoiDung": { ShowNhomNguoiDung(); return; }
                 case "ShowThongTinChung": { ShowThongTinChung(); return; }
                 case "ShowBoPhanChiuPhi": { ShowBoPhanChiuPhi(); return; }
                 case "ShowCa": { ShowCa(); return; }
-                case "ShowDNTGNM":{ ShowDinhNghiaTHNM(); return; }
+                case "ShowDNTGNM": { ShowDinhNghiaTHNM(); return; }
                 case "ShowThongSoVanHanh": { ShowThongSoVanHanh(); return; }
                 case "ShowNguyenNhanNM": { ShowNguyenNhanNM(); return; }
                 case "ShowLoaiNM": { ShowLoaiNM(); return; }
@@ -209,6 +209,7 @@ namespace VS.OEE
                 case "ShowShiftLeader": { ShowShiftLeader(); return; }
                 case "ShowVaiTro": { ShowVaiTro(); return; }
                 case "ShowThoiGianNgungMay_KTTD": { ShowThoiGianNgungMay_KTTD(); return; }
+                case "ShowYeuCauHoTro": { ShowYeuCauHoTro(); return; }
                 default:
                     {
                         break;
@@ -265,13 +266,10 @@ namespace VS.OEE
             }
             catch (Exception ex)
             { XtraMessageBox.Show(ex.Message); }
-
-
-
-
             this.Cursor = Cursors.Default;
         }
-        
+
+
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -289,7 +287,7 @@ namespace VS.OEE
         }
 
         #region Load NN
-        private void ShowNgonNgu(  BarCheckItem  barItem, string NNgu)
+        private void ShowNgonNgu(BarCheckItem barItem, string NNgu)
         {
             try
             {
@@ -310,7 +308,7 @@ namespace VS.OEE
                 if (formCollection.Count > 1)
                 {
                     Commons.Modules.msgChung("msgVuiLongDongCacFormDangMo");
-                    
+
                     try { barItem.Checked = false; } catch { }
                     return;
                 }
@@ -345,7 +343,7 @@ namespace VS.OEE
             frmDangNhap frmDN = new frmDangNhap(1);
             //Xóa các form con
             if (frmDN.ShowDialog() != DialogResult.OK) return;
-            
+
             FormCollection formCollection = Application.OpenForms;
             List<XtraForm> ListFormToClose = new List<XtraForm>();
             foreach (XtraForm form in formCollection)
@@ -359,7 +357,7 @@ namespace VS.OEE
 
             bm.Items.Clear();
             AddBarItems();
-            
+
         }
         #endregion
 
@@ -741,7 +739,8 @@ namespace VS.OEE
             this.Cursor = Cursors.Default;
         }
         #endregion
-        #region ShowVaiTro
+
+        #region ShowThoiGianNgungMay_KTTD
         private void ShowThoiGianNgungMay_KTTD()
         {
             this.Cursor = Cursors.WaitCursor;
@@ -752,6 +751,16 @@ namespace VS.OEE
             this.Cursor = Cursors.Default;
         }
         #endregion
+
+        public  void ShowYeuCauHoTro()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, Commons.Modules.sTenNhanVienMD, Commons.Modules.ModuleName,"", "", "", "", 1);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.MdiParent = this;
+            frm.Show();
+            this.Cursor = Cursors.Default;
+        }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
@@ -765,24 +774,25 @@ namespace VS.OEE
                     {
                         //if (form.Name != "frmMain")
                         //{
-                            sform = sform + @", N@@" +  form.Name.ToString() + "@@ ";
+                        sform = sform + @", N@@" + form.Name.ToString() + "@@ ";
                         //}
                     }
-
-
-
                     frmNNgu frm = new frmNNgu(sform);
                     if (frm.ShowDialog() != DialogResult.OK) return;
-
                 }
                 catch { }
             }
         }
-
         private void barInfo_ItemDoubleClick(object sender, ItemClickEventArgs e)
         {
-            Form activeChild = this.ActiveMdiChild;
-            XtraInputBox.Show("Tên form", "Tên form", activeChild.Name);
+            try
+            {
+                Form activeChild = this.ActiveMdiChild;
+                XtraInputBox.Show("Tên form", "Tên form", activeChild.Name);
+            }
+            catch
+            {
+            }
         }
     }
 }

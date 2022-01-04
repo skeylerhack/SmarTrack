@@ -132,6 +132,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\NHA_XUONG.cs">
+      <DependentUpon>OEEDataContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OEEDataContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,10 +157,12 @@
     <Compile Include="Models\spLCDFull_Result.cs">
       <DependentUpon>OEEDataContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spLCD_Result.cs">
+      <DependentUpon>OEEDataContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\USER.cs">
       <DependentUpon>OEEDataContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -763,6 +769,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DAO\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

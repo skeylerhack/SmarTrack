@@ -796,7 +796,6 @@ namespace Commons
         }
         public bool MLoadXtraGrid(DevExpress.XtraGrid.GridControl grd, DevExpress.XtraGrid.Views.Grid.GridView grv, DataTable dtTmp, bool MPopulateColumns, bool MColumnAutoWidth, bool MBestFitColumns, bool MloadNNgu, string fName)
         {
-          
             try
             {
                 if (grv.Tag == null)
@@ -815,7 +814,7 @@ namespace Commons
                 if (MBestFitColumns)
                     grv.BestFitColumns();
                 grv.OptionsBehavior.FocusLeaveOnTab = true;
-
+                
                 //kiểm tra có trong table định dạng lưới chưa có thì load
                 if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI ='" + grv.Tag + "'")) == 1)
                 {

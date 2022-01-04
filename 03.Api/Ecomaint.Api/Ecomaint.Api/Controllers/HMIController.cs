@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.IO.Ports;
 using System.Linq;
-using System.Net.Sockets;
 using System.Threading;
 using System.Web.Mvc;
 namespace CMMSApi.Controllers
@@ -415,7 +414,6 @@ namespace CMMSApi.Controllers
                 }
             }
         }
-
         public List<CapNhatCa> CapNhatCa(DateTime TN, DateTime DN)
         {
             DateTime TNgay = TN;
@@ -470,7 +468,6 @@ namespace CMMSApi.Controllers
             return listResulst;
         }
         #endregion
-
         #region call department
 
         public JsonResult SendSupervisor(string Ngay, string MS_MAY)
@@ -584,7 +581,6 @@ namespace CMMSApi.Controllers
             }
         }
         #endregion
-
         #region hàm gửi mail
         private Boolean SendMail(List<PhoneMailViewModel> lstPhoneMail, DateTime Ngay)
         {
@@ -652,7 +648,6 @@ namespace CMMSApi.Controllers
         }
 
         #endregion
-
         public JsonResult UpdatreConsumption(string Ngay, string MS_MAY, string I1, string I2, string I3, string U1, string U2, string U3, string W)
         {
             int i = 1;
@@ -692,7 +687,6 @@ namespace CMMSApi.Controllers
                 }
             }
         }
-
         public JsonResult UpdateStatusMay(string MS_MAY,string TT)
         {
             int i = 1;
@@ -715,7 +709,6 @@ namespace CMMSApi.Controllers
                 }
             }
         }
-
     }
 }
 

@@ -1238,3 +1238,6 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmVaiTro.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmQLCa.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmThoiGianNgungMay_KTTD.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoKeHoachSanXuat.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.XtraForm1.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoTieuThuDienNang.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.dll

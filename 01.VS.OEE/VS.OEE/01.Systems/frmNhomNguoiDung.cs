@@ -210,7 +210,7 @@ namespace VS.OEE
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblGroupName.Text, txtDownTimeType);
                     return false;
                 }
-                object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.DownTimeType WHERE DownTimeTypeName = N'" + txtDownTimeType.Text + "' " + (txtID.Text == "-1" ? "" : "AND ID <> " + txtID.Text));
+                object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.DownTimeType WHERE DownTimeTypeName = N'" + txtDownTimeType.Text + "' " + (txtID.Text == "-1" ? "" : "AND ID_DownTime <> " + txtID.Text));
                 if (rs != null && (Int32)rs > 0)
                 {
                     Modules.msgThayThe(ThongBao.msgDaTonTai, lblGroupName.Text, txtDownTimeType);

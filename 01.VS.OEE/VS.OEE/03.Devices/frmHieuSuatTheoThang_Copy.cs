@@ -37,6 +37,11 @@ namespace VS.OEE
         {
             try
             {
+                if (datTU.DateTime > datDEN.DateTime)
+                {
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTuThangPhaiLonHonDenThang"));
+                    return;
+                }
                 Tu = datTU.DateTime;
                 Den = datDEN.DateTime;
                 this.DialogResult = DialogResult.OK;

@@ -155,8 +155,6 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["QualityRate"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    grvBCMoldDaily.Columns["17"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["17"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["18"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["18"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["19"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -171,23 +169,24 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["23"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["25"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["25"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    grvBCMoldDaily.Columns["26"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["26"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["27"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["27"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["28"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["28"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["29"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["29"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    grvBCMoldDaily.Columns["30"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["30"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvBCMoldDaily.Columns["31"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvBCMoldDaily.Columns["31"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["32"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["32"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    grvBCMoldDaily.Columns["33"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["33"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvBCMoldDaily.Columns["30"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvBCMoldDaily.Columns["30"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                     grvBCMoldDaily.Columns["34"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["34"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-
+                    grvBCMoldDaily.Columns["35"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvBCMoldDaily.Columns["35"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvBCMoldDaily.Columns["36"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvBCMoldDaily.Columns["36"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
                 }
                 else
                     grdBCMoldDaily.DataSource = dt;

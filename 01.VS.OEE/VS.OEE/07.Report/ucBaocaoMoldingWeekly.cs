@@ -142,7 +142,7 @@ namespace VS.OEE
 
                 string sBT_MS_MAY = "sBT_MS_MAY" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT_MS_MAY, dt_MS_MAY, "");
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingWeekly", dTNgay, dDNgay, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingWeekly", Commons.Modules.TypeLanguage, this.Name, dTNgay, dDNgay, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
            
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldWeekly, grvBCMoldWeekly, dt, true, true, true, true, this.Name);
 
@@ -219,12 +219,12 @@ namespace VS.OEE
                     MS_MAY.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblMS_MAY") + ": " + ccbMS_MAY.EditValue;
 
                 Dong = 6;
-                Excel.Range ID_CA = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 1, Dong, 4);
+                Excel.Range ID_CA = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 2, Dong, 4);
                 ID_CA.Merge();
                 ID_CA.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblID_CA") + ": " + cboID_CA.Text;
                 ID_CA.Font.Bold = true;
 
-                Excel.Range ShiftLeader = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 5, Dong, TCot);
+                Excel.Range ShiftLeader = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 5, Dong, TCot - 1);
                 ShiftLeader.Merge();
                 ShiftLeader.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblShiftLeader") + ": " + cboShiftLeader.Text;
                 ShiftLeader.Font.Bold = true;
@@ -234,6 +234,9 @@ namespace VS.OEE
                 HeaderColumn.Font.Bold = true;
                 HeaderColumn.WrapText = true;
                 HeaderColumn.Interior.Color = Color.FromArgb(141, 180, 226);
+
+                Excel.Range HeaderRow = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 4, 1, Dong + TDong + 5, 1);
+                HeaderRow.Font.Bold = true;
 
                 Excel.Range Summary = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 1, Dong + 3, 1);
                 Summary.Merge();

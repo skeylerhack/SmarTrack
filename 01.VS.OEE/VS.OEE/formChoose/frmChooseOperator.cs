@@ -31,35 +31,35 @@ namespace VS.OEE
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListChooseOperator", Commons.Modules.UserName, Commons.Modules.TypeLanguage,  sBTChon));
             //update data table những cái nào chọn ở dưới
             dt.Columns["CHON"].ReadOnly = false;
-            Commons.Modules.ObjSystems.MLoadXtraGrid(grdData, grvData, dt,false, false, true, true, true, this.Name);
-            grvData.Columns["CHON"].Visible = false;
-            grvData.Columns["ID_TO"].Visible = false;
-            grvData.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
-            grvData.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            grvData.OptionsSelection.CheckBoxSelectorField = "CHON";
-            grvData.ExpandAllGroups();
+            Commons.Modules.ObjSystems.MLoadXtraGrid(grdChooseOperator, grvChooseOperator, dt,false, false, false, true, true, this.Name);
+            grvChooseOperator.Columns["CHON"].Visible = false;
+            grvChooseOperator.Columns["ID_TO"].Visible = false;
+            grvChooseOperator.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
+            grvChooseOperator.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            grvChooseOperator.OptionsSelection.CheckBoxSelectorField = "CHON";
+            grvChooseOperator.ExpandAllGroups();
         }
         private void btnThucHien_Click(object sender, EventArgs e)
         {
             //lấy các giá trị chọn trên lưới
             try
             {
-                dt_Operator = Commons.Modules.ObjSystems.ConvertDatatable(grdData).AsEnumerable().Where(x => x.Field<bool>("CHON") == true).CopyToDataTable();
+                dt_Operator = Commons.Modules.ObjSystems.ConvertDatatable(grdChooseOperator).AsEnumerable().Where(x => x.Field<bool>("CHON") == true).CopyToDataTable();
             }
             catch 
             {
-                dt_Operator = ((DataTable)grdData.DataSource).Clone();
+                dt_Operator = ((DataTable)grdChooseOperator.DataSource).Clone();
             }
             DialogResult = DialogResult.OK;
         }
         private void btnALL_Click(object sender, EventArgs e)
         {
-            Commons.Modules.ObjSystems.MChooseGrid(true, "CHON", grvData);
+            Commons.Modules.ObjSystems.MChooseGrid(true, "CHON", grvChooseOperator);
         }
 
         private void btnNotALL_Click(object sender, EventArgs e)
         {
-            Commons.Modules.ObjSystems.MChooseGrid(false, "CHON", grvData);
+            Commons.Modules.ObjSystems.MChooseGrid(false, "CHON", grvChooseOperator);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

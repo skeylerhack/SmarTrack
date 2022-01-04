@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.grdData = new DevExpress.XtraGrid.GridControl();
-            this.grvData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdChooseDevice = new DevExpress.XtraGrid.GridControl();
+            this.grvChooseDevice = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.btnALL = new DevExpress.XtraEditors.SimpleButton();
@@ -39,8 +39,8 @@
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdChooseDevice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvChooseDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
@@ -50,7 +50,7 @@
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
-            this.tablePanel1.Controls.Add(this.grdData);
+            this.tablePanel1.Controls.Add(this.grdChooseDevice);
             this.tablePanel1.Controls.Add(this.panelControl1);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
@@ -61,26 +61,26 @@
             this.tablePanel1.Size = new System.Drawing.Size(898, 568);
             this.tablePanel1.TabIndex = 0;
             // 
-            // grdData
+            // grdChooseDevice
             // 
-            this.tablePanel1.SetColumn(this.grdData, 0);
-            this.grdData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdData.Location = new System.Drawing.Point(3, 3);
-            this.grdData.MainView = this.grvData;
-            this.grdData.Name = "grdData";
-            this.tablePanel1.SetRow(this.grdData, 0);
-            this.grdData.Size = new System.Drawing.Size(892, 525);
-            this.grdData.TabIndex = 1;
-            this.grdData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvData});
+            this.tablePanel1.SetColumn(this.grdChooseDevice, 0);
+            this.grdChooseDevice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdChooseDevice.Location = new System.Drawing.Point(3, 3);
+            this.grdChooseDevice.MainView = this.grvChooseDevice;
+            this.grdChooseDevice.Name = "grdChooseDevice";
+            this.tablePanel1.SetRow(this.grdChooseDevice, 0);
+            this.grdChooseDevice.Size = new System.Drawing.Size(892, 525);
+            this.grdChooseDevice.TabIndex = 1;
+            this.grdChooseDevice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvChooseDevice});
             // 
-            // grvData
+            // grvChooseDevice
             // 
-            this.grvData.GridControl = this.grdData;
-            this.grvData.Name = "grvData";
-            this.grvData.OptionsSelection.MultiSelect = true;
-            this.grvData.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.grvData.OptionsView.ShowGroupPanel = false;
+            this.grvChooseDevice.GridControl = this.grdChooseDevice;
+            this.grvChooseDevice.Name = "grvChooseDevice";
+            this.grvChooseDevice.OptionsSelection.MultiSelect = true;
+            this.grvChooseDevice.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.grvChooseDevice.OptionsView.ShowGroupPanel = false;
             // 
             // panelControl1
             // 
@@ -99,13 +99,13 @@
             // searchControl1
             // 
             this.searchControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.searchControl1.Client = this.grdData;
+            this.searchControl1.Client = this.grdChooseDevice;
             this.searchControl1.Location = new System.Drawing.Point(1, 10);
             this.searchControl1.Name = "searchControl1";
             this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Repository.ClearButton(),
             new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchControl1.Properties.Client = this.grdData;
+            this.searchControl1.Properties.Client = this.grdChooseDevice;
             this.searchControl1.Size = new System.Drawing.Size(201, 20);
             this.searchControl1.TabIndex = 11;
             // 
@@ -162,8 +162,8 @@
             this.Load += new System.EventHandler(this.frmChooseDevice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdChooseDevice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvChooseDevice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
@@ -175,8 +175,8 @@
 
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraGrid.GridControl grdData;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvData;
+        private DevExpress.XtraGrid.GridControl grdChooseDevice;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvChooseDevice;
         private DevExpress.XtraEditors.SimpleButton btnALL;
         private DevExpress.XtraEditors.SimpleButton btnNotALL;
         private DevExpress.XtraEditors.SimpleButton btnThucHien;

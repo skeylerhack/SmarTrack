@@ -203,7 +203,7 @@
             this.btnThoat.Location = new System.Drawing.Point(587, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
-            this.btnThoat.TabIndex = 10;
+            this.btnThoat.TabIndex = 11;
             this.btnThoat.Text = "btnThoat";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 

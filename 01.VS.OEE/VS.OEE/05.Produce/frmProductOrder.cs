@@ -1137,7 +1137,7 @@ namespace VS.OEE
                 DialogResult dr;
                 dr = XtraMessageBox.Show("Bạn muốn export template?", "Thông báo",
                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.Cancel) return;
+                if (dr != DialogResult.Yes) return;
                 //exprort mẫu templete
                 string sPath = "";
                 sPath = "";

@@ -59,10 +59,14 @@ namespace VS.OEE
 
                 int bGhi_De = 0;
                 string str = "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("dd-MM-yyyy") + "' AND '" + DenNgay.ToString("dd-MM-yyyy") + "') SELECT 1 ELSE SELECT 0";
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("MM-dd-yyyy") + "' AND '" + DenNgay.ToString("MM-dd-yyyy") + "') SELECT 1 ELSE SELECT 0")) == 1 && Modules.msgHoiThayThe(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonGhiDeChoNhungNgayDaCoDuLieu"), groShiftLeader.Text) == DialogResult.Yes)
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, str)) == 1 && Modules.msgHoiThayThe(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonGhiDeChoNhungNgayDaCoDuLieu"), groShiftLeader.Text) == DialogResult.Yes)
                 {
                         bGhi_De = 1;
                 }
+                //if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("MM-dd-yyyy") + "' AND '" + DenNgay.ToString("MM-dd-yyyy") + "') SELECT 1 ELSE SELECT 0")) == 1 && Modules.msgHoiThayThe(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonGhiDeChoNhungNgayDaCoDuLieu"), groShiftLeader.Text) == DialogResult.Yes)
+                //{
+                //    bGhi_De = 1;
+                //}
 
                 string sBT = "sBT_ShiftLeader" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdShiftLeader), "");
@@ -148,41 +152,41 @@ namespace VS.OEE
             }
             catch { }
         }
-        private void grvShiftLeader_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-            try
-            {
-                DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
-                GridControl grid = view.GridControl;
-                DataTable dt = new DataTable();
-                dt = (DataTable)grid.DataSource;
+        //private void grvShiftLeader_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        //{
+        //    try
+        //    {
+        //        DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+        //        GridControl grid = view.GridControl;
+        //        DataTable dt = new DataTable();
+        //        dt = (DataTable)grid.DataSource;
 
-                int count = 0;
+        //        int count = 0;
 
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    if ((string.IsNullOrEmpty(dt.Rows[i]["ID_Operator"].ToString()) ? 0 : Convert.ToInt64(dt.Rows[i]["ID_Operator"])) == (string.IsNullOrEmpty(view.GetFocusedRowCellValue("ID_Operator").ToString()) ? 0 : Convert.ToInt64(view.GetFocusedRowCellValue("ID_Operator"))))
-                    {
-                        count++;
-                    }
-                }
+        //        for (int i = 0; i < dt.Rows.Count; i++)
+        //        {
+        //            if ((string.IsNullOrEmpty(dt.Rows[i]["ID_Operator"].ToString()) ? 0 : Convert.ToInt64(dt.Rows[i]["ID_Operator"])) == (string.IsNullOrEmpty(view.GetFocusedRowCellValue("ID_Operator").ToString()) ? 0 : Convert.ToInt64(view.GetFocusedRowCellValue("ID_Operator"))))
+        //            {
+        //                count++;
+        //            }
+        //        }
 
-                DevExpress.XtraGrid.Columns.GridColumn ID = view.Columns["ID_Operator"];
-                if (view.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle && count == 2)
-                {
-                    e.Valid = false;
-                    XtraMessageBox.Show(ID.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
-                    view.SetColumnError(ID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
-                    view.FocusedColumn = ID;
-                    return;
-                }
-            }
-            catch { }
-        }
-        private void grvShiftLeader_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
-        {
-            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
-        }
+        //        DevExpress.XtraGrid.Columns.GridColumn ID = view.Columns["ID_Operator"];
+        //        if (view.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle && count == 2)
+        //        {
+        //            e.Valid = false;
+        //            XtraMessageBox.Show(ID.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+        //            view.SetColumnError(ID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
+        //            view.FocusedColumn = ID;
+        //            return;
+        //        }
+        //    }
+        //    catch { }
+        //}
+        //private void grvShiftLeader_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        //{
+        //    e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        //}
         #endregion
 
         #region Function

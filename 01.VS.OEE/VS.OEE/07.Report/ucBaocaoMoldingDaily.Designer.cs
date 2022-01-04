@@ -41,10 +41,10 @@
             this.cboShiftLeader = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelChung = new DevExpress.Utils.Layout.TablePanel();
-            this.lblMS_MAY = new DevExpress.XtraEditors.LabelControl();
-            this.ccbMS_MAY = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.grdBCMoldDaily = new DevExpress.XtraGrid.GridControl();
             this.grvBCMoldDaily = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ccbMS_MAY = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.lblMS_MAY = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
             this.panelNN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datTNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -56,9 +56,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).BeginInit();
             this.panelChung.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbMS_MAY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdBCMoldDaily)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvBCMoldDaily)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbMS_MAY.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblShiftLeader
@@ -151,6 +151,7 @@
             // datTNgay
             // 
             this.panelChung.SetColumn(this.datTNgay, 2);
+            this.datTNgay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datTNgay.EditValue = null;
             this.datTNgay.Location = new System.Drawing.Point(248, 11);
             this.datTNgay.Name = "datTNgay";
@@ -166,6 +167,7 @@
             // datDNgay
             // 
             this.panelChung.SetColumn(this.datDNgay, 4);
+            this.datDNgay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datDNgay.EditValue = null;
             this.datDNgay.Location = new System.Drawing.Point(493, 11);
             this.datDNgay.Name = "datDNgay";
@@ -181,6 +183,7 @@
             // cboID_CA
             // 
             this.panelChung.SetColumn(this.cboID_CA, 2);
+            this.cboID_CA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboID_CA.Location = new System.Drawing.Point(248, 37);
             this.cboID_CA.Name = "cboID_CA";
             this.cboID_CA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -194,6 +197,7 @@
             // cboShiftLeader
             // 
             this.panelChung.SetColumn(this.cboShiftLeader, 4);
+            this.cboShiftLeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboShiftLeader.EditValue = "";
             this.cboShiftLeader.Location = new System.Drawing.Point(493, 37);
             this.cboShiftLeader.Name = "cboShiftLeader";
@@ -250,28 +254,6 @@
             this.panelChung.Size = new System.Drawing.Size(986, 516);
             this.panelChung.TabIndex = 2;
             // 
-            // lblMS_MAY
-            // 
-            this.panelChung.SetColumn(this.lblMS_MAY, 5);
-            this.lblMS_MAY.Location = new System.Drawing.Point(619, 40);
-            this.lblMS_MAY.Name = "lblMS_MAY";
-            this.panelChung.SetRow(this.lblMS_MAY, 2);
-            this.lblMS_MAY.Size = new System.Drawing.Size(56, 13);
-            this.lblMS_MAY.TabIndex = 22;
-            this.lblMS_MAY.Text = "lblMS_MAY";
-            // 
-            // ccbMS_MAY
-            // 
-            this.panelChung.SetColumn(this.ccbMS_MAY, 6);
-            this.ccbMS_MAY.Location = new System.Drawing.Point(739, 37);
-            this.ccbMS_MAY.Name = "ccbMS_MAY";
-            this.ccbMS_MAY.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.panelChung.SetRow(this.ccbMS_MAY, 2);
-            this.ccbMS_MAY.Size = new System.Drawing.Size(119, 20);
-            this.ccbMS_MAY.TabIndex = 23;
-            this.ccbMS_MAY.EditValueChanged += new System.EventHandler(this.ccbMS_MAY_EditValueChanged);
-            // 
             // grdBCMoldDaily
             // 
             this.panelChung.SetColumn(this.grdBCMoldDaily, 0);
@@ -291,6 +273,30 @@
             this.grvBCMoldDaily.GridControl = this.grdBCMoldDaily;
             this.grvBCMoldDaily.Name = "grvBCMoldDaily";
             this.grvBCMoldDaily.OptionsView.ShowGroupPanel = false;
+            // 
+            // ccbMS_MAY
+            // 
+            this.panelChung.SetColumn(this.ccbMS_MAY, 6);
+            this.ccbMS_MAY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ccbMS_MAY.Location = new System.Drawing.Point(739, 37);
+            this.ccbMS_MAY.Name = "ccbMS_MAY";
+            this.ccbMS_MAY.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.panelChung.SetRow(this.ccbMS_MAY, 2);
+            this.ccbMS_MAY.Size = new System.Drawing.Size(119, 20);
+            this.ccbMS_MAY.TabIndex = 23;
+            this.ccbMS_MAY.EditValueChanged += new System.EventHandler(this.ccbMS_MAY_EditValueChanged);
+            // 
+            // lblMS_MAY
+            // 
+            this.panelChung.SetColumn(this.lblMS_MAY, 5);
+            this.lblMS_MAY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMS_MAY.Location = new System.Drawing.Point(619, 37);
+            this.lblMS_MAY.Name = "lblMS_MAY";
+            this.panelChung.SetRow(this.lblMS_MAY, 2);
+            this.lblMS_MAY.Size = new System.Drawing.Size(114, 20);
+            this.lblMS_MAY.TabIndex = 22;
+            this.lblMS_MAY.Text = "lblMS_MAY";
             // 
             // ucBaocaoMoldingDaily
             // 
@@ -313,9 +319,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).EndInit();
             this.panelChung.ResumeLayout(false);
             this.panelChung.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbMS_MAY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdBCMoldDaily)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvBCMoldDaily)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbMS_MAY.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

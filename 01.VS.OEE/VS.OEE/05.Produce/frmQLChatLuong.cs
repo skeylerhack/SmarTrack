@@ -84,7 +84,7 @@ namespace VS.OEE
         private void btnXoa_Click(object sender, EventArgs e)
         {
             btnThem.Visible = btnXoa.Visible = btnSua.Visible = btnThoat.Visible = false;
-            btnDelTo.Visible = btnDelNhaMay.Visible = btnDelPhanXuong.Visible = btnTroVe.Visible = true;
+            btnDelQCDefect.Visible = btnDelQCData.Visible = btnDelQCDetails.Visible = btnTroVe.Visible = true;
         }
         private void btnGhi_Click(object sender, EventArgs e)
         {
@@ -150,7 +150,7 @@ namespace VS.OEE
         private void btnTroVe_Click(object sender, EventArgs e)
         {
             btnThem.Visible = btnXoa.Visible = btnSua.Visible = btnThoat.Visible = true;
-            btnDelTo.Visible = btnDelNhaMay.Visible = btnDelPhanXuong.Visible = btnTroVe.Visible = false;
+            btnDelQCDefect.Visible = btnDelQCData.Visible = btnDelQCDetails.Visible = btnTroVe.Visible = false;
         }
         private void btnDelQCData_Click(object sender, EventArgs e)
         {
@@ -614,8 +614,6 @@ namespace VS.OEE
                 grdQCData.Enabled = flag;
                 grvQCDataDetails.OptionsBehavior.Editable = !flag;
                 grvQCDataDefect.OptionsBehavior.Editable = !flag;
-
-
                 if (grvQCDataDetails.RowCount > 0 && ithem != -1)
                 {
                     cboID_CA.Properties.ReadOnly = true;
@@ -625,6 +623,7 @@ namespace VS.OEE
                 {
                     cboID_CA.Properties.ReadOnly = flag;
                     datProductionDate.Properties.ReadOnly = flag;
+                    grdQCDataDetails.Enabled = !flag;
                 }
             }
             catch { }

@@ -26,7 +26,7 @@ namespace VS.OEE
         {
             try
             {
-                datTU.DateTime = DateTime.Now.Date.AddDays(- (DateTime.Now.Day) + 1);
+                datTU.DateTime = DateTime.Now.Date.AddDays(-(DateTime.Now.Day) + 1);
                 datDEN.DateTime = DateTime.Now.Date.AddDays(-(DateTime.Now.Day) + 1);
                 Commons.Modules.ObjSystems.ThayDoiNN(this);
             }

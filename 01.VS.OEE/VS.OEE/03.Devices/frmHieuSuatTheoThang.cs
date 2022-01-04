@@ -51,10 +51,18 @@ namespace VS.OEE
                 DateTime DenThang = frm.Den;
                 if (TuThang == null || DenThang == null) return;
 
+                int bGhi_De = 0;
+                string str = "IF EXISTS (SELECT * FROM dbo.Target WHERE  CONVERT(DATE, CONVERT(NVARCHAR(7), [MONTH], 121) + '-01') BETWEEN '" + TuThang.Date.ToString("yyyy-MM") + "-01' AND '" + DenThang.Date.ToString("yyyy-MM") + "-01') OR EXISTS (SELECT * FROM dbo.TargetOfMonth WHERE  CONVERT(DATE, CONVERT(NVARCHAR(7), [MONTH], 121) + '-01') BETWEEN '" + TuThang.Date.ToString("yyyy-MM") + "-01' AND '" + DenThang.Date.ToString("yyyy-MM") + "-01') SELECT 1 ELSE SELECT 0";
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, str)) == 1 && Modules.msgHoiThayThe(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonGhiDeChoNhungThangDaCoDuLieu"), groDanhSachHieuXuatKPI.Text) == DialogResult.Yes)
+                {
+                    bGhi_De = 1;
+                }
+
+
                 string sBT = "sBT_HieuSuatTheoThang" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdTarget), "");
 
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spCopyHieuSuatTheoThang", TuThang, DenThang, sBT)) == 1)
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spCopyHieuSuatTheoThang", TuThang, DenThang, sBT, bGhi_De)) == 1)
                     XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgCopySuccessful"));
                 Commons.Modules.ObjSystems.XoaTable(sBT);
             }
@@ -175,9 +183,6 @@ namespace VS.OEE
 
                     grvTarget.Columns["SpeedVar"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvTarget.Columns["SpeedVar"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-
-
-
                 }
                 else
                     grdTarget.DataSource = dtmp;

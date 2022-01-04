@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.txtTim = new DevExpress.XtraEditors.SearchControl();
@@ -65,15 +65,15 @@
             this.grvQCDataDefect = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelNN = new DevExpress.XtraEditors.PanelControl();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelNhaMay = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelPhanXuong = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelQCData = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelQCDetails = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnTroVe = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelTo = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelQCDefect = new DevExpress.XtraEditors.SimpleButton();
             this.btnChonQCDataDetails = new DevExpress.XtraEditors.SimpleButton();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -253,10 +253,10 @@
             this.TableLayout.SetRow(this.datProductionDate, 2);
             this.datProductionDate.Size = new System.Drawing.Size(177, 20);
             this.datProductionDate.TabIndex = 21;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.datProductionDate, conditionValidationRule1);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.datProductionDate, conditionValidationRule6);
             // 
             // cboID_CA
             // 
@@ -269,10 +269,10 @@
             this.TableLayout.SetRow(this.cboID_CA, 2);
             this.cboID_CA.Size = new System.Drawing.Size(177, 20);
             this.cboID_CA.TabIndex = 20;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.cboID_CA, conditionValidationRule2);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "This value is not valid";
+            conditionValidationRule7.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.cboID_CA, conditionValidationRule7);
             // 
             // cboCheckStepID
             // 
@@ -285,10 +285,10 @@
             this.TableLayout.SetRow(this.cboCheckStepID, 2);
             this.cboCheckStepID.Size = new System.Drawing.Size(177, 20);
             this.cboCheckStepID.TabIndex = 19;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.cboCheckStepID, conditionValidationRule3);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.cboCheckStepID, conditionValidationRule1);
             // 
             // datQCDate
             // 
@@ -303,10 +303,10 @@
             this.TableLayout.SetRow(this.datQCDate, 1);
             this.datQCDate.Size = new System.Drawing.Size(177, 20);
             this.datQCDate.TabIndex = 18;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.datQCDate, conditionValidationRule4);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.datQCDate, conditionValidationRule2);
             // 
             // txtQCName
             // 
@@ -316,10 +316,10 @@
             this.TableLayout.SetRow(this.txtQCName, 1);
             this.txtQCName.Size = new System.Drawing.Size(177, 20);
             this.txtQCName.TabIndex = 17;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "This value is not valid";
-            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.txtQCName, conditionValidationRule5);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.txtQCName, conditionValidationRule3);
             // 
             // txtDocNum
             // 
@@ -329,10 +329,10 @@
             this.TableLayout.SetRow(this.txtDocNum, 1);
             this.txtDocNum.Size = new System.Drawing.Size(177, 20);
             this.txtDocNum.TabIndex = 16;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.txtDocNum, conditionValidationRule6);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.txtDocNum, conditionValidationRule4);
             // 
             // lblProductionDate
             // 
@@ -502,15 +502,15 @@
             this.TableLayout.SetColumn(this.panelNN, 0);
             this.TableLayout.SetColumnSpan(this.panelNN, 6);
             this.panelNN.Controls.Add(this.btnThem);
-            this.panelNN.Controls.Add(this.btnDelNhaMay);
-            this.panelNN.Controls.Add(this.btnDelPhanXuong);
+            this.panelNN.Controls.Add(this.btnDelQCData);
+            this.panelNN.Controls.Add(this.btnDelQCDetails);
             this.panelNN.Controls.Add(this.btnXoa);
             this.panelNN.Controls.Add(this.btnKhong);
             this.panelNN.Controls.Add(this.btnSua);
             this.panelNN.Controls.Add(this.btnGhi);
             this.panelNN.Controls.Add(this.btnThoat);
             this.panelNN.Controls.Add(this.btnTroVe);
-            this.panelNN.Controls.Add(this.btnDelTo);
+            this.panelNN.Controls.Add(this.btnDelQCDefect);
             this.panelNN.Controls.Add(this.btnChonQCDataDetails);
             this.panelNN.Location = new System.Drawing.Point(3, 483);
             this.panelNN.Name = "panelNN";
@@ -524,31 +524,31 @@
             this.btnThem.Location = new System.Drawing.Point(581, 3);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
-            this.btnThem.TabIndex = 14;
+            this.btnThem.TabIndex = 13;
             this.btnThem.Text = "btnThem";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnDelNhaMay
+            // btnDelQCData
             // 
-            this.btnDelNhaMay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelNhaMay.Location = new System.Drawing.Point(581, 3);
-            this.btnDelNhaMay.Name = "btnDelNhaMay";
-            this.btnDelNhaMay.Size = new System.Drawing.Size(80, 26);
-            this.btnDelNhaMay.TabIndex = 15;
-            this.btnDelNhaMay.Text = "btnDelNhaMay";
-            this.btnDelNhaMay.Visible = false;
-            this.btnDelNhaMay.Click += new System.EventHandler(this.btnDelQCData_Click);
+            this.btnDelQCData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelQCData.Location = new System.Drawing.Point(581, 3);
+            this.btnDelQCData.Name = "btnDelQCData";
+            this.btnDelQCData.Size = new System.Drawing.Size(80, 26);
+            this.btnDelQCData.TabIndex = 15;
+            this.btnDelQCData.Text = "btnDelQCData";
+            this.btnDelQCData.Visible = false;
+            this.btnDelQCData.Click += new System.EventHandler(this.btnDelQCData_Click);
             // 
-            // btnDelPhanXuong
+            // btnDelQCDetails
             // 
-            this.btnDelPhanXuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelPhanXuong.Location = new System.Drawing.Point(662, 3);
-            this.btnDelPhanXuong.Name = "btnDelPhanXuong";
-            this.btnDelPhanXuong.Size = new System.Drawing.Size(80, 26);
-            this.btnDelPhanXuong.TabIndex = 18;
-            this.btnDelPhanXuong.Text = "btnDelPhanXuong";
-            this.btnDelPhanXuong.Visible = false;
-            this.btnDelPhanXuong.Click += new System.EventHandler(this.btnDelQCDataDetails_Click);
+            this.btnDelQCDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelQCDetails.Location = new System.Drawing.Point(662, 3);
+            this.btnDelQCDetails.Name = "btnDelQCDetails";
+            this.btnDelQCDetails.Size = new System.Drawing.Size(80, 26);
+            this.btnDelQCDetails.TabIndex = 18;
+            this.btnDelQCDetails.Text = "btnDelQCDetails";
+            this.btnDelQCDetails.Visible = false;
+            this.btnDelQCDetails.Click += new System.EventHandler(this.btnDelQCDataDetails_Click);
             // 
             // btnXoa
             // 
@@ -566,7 +566,7 @@
             this.btnKhong.Location = new System.Drawing.Point(824, 3);
             this.btnKhong.Name = "btnKhong";
             this.btnKhong.Size = new System.Drawing.Size(80, 26);
-            this.btnKhong.TabIndex = 22;
+            this.btnKhong.TabIndex = 23;
             this.btnKhong.Text = "btnKhong";
             this.btnKhong.Click += new System.EventHandler(this.btnKhong_Click);
             // 
@@ -576,7 +576,7 @@
             this.btnSua.Location = new System.Drawing.Point(662, 3);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
-            this.btnSua.TabIndex = 13;
+            this.btnSua.TabIndex = 14;
             this.btnSua.Text = "btnSua";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -586,7 +586,7 @@
             this.btnGhi.Location = new System.Drawing.Point(743, 3);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(80, 26);
-            this.btnGhi.TabIndex = 21;
+            this.btnGhi.TabIndex = 22;
             this.btnGhi.Text = "btnGhi";
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
             // 
@@ -611,16 +611,16 @@
             this.btnTroVe.Visible = false;
             this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
             // 
-            // btnDelTo
+            // btnDelQCDefect
             // 
-            this.btnDelTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelTo.Location = new System.Drawing.Point(743, 3);
-            this.btnDelTo.Name = "btnDelTo";
-            this.btnDelTo.Size = new System.Drawing.Size(80, 26);
-            this.btnDelTo.TabIndex = 16;
-            this.btnDelTo.Text = "btnDelTo";
-            this.btnDelTo.Visible = false;
-            this.btnDelTo.Click += new System.EventHandler(this.btnDelQCDataDefect_Click);
+            this.btnDelQCDefect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelQCDefect.Location = new System.Drawing.Point(743, 3);
+            this.btnDelQCDefect.Name = "btnDelQCDefect";
+            this.btnDelQCDefect.Size = new System.Drawing.Size(80, 26);
+            this.btnDelQCDefect.TabIndex = 16;
+            this.btnDelQCDefect.Text = "btnDelQCDefect";
+            this.btnDelQCDefect.Visible = false;
+            this.btnDelQCDefect.Click += new System.EventHandler(this.btnDelQCDataDefect_Click);
             // 
             // btnChonQCDataDetails
             // 
@@ -628,7 +628,7 @@
             this.btnChonQCDataDetails.Location = new System.Drawing.Point(662, 3);
             this.btnChonQCDataDetails.Name = "btnChonQCDataDetails";
             this.btnChonQCDataDetails.Size = new System.Drawing.Size(80, 26);
-            this.btnChonQCDataDetails.TabIndex = 23;
+            this.btnChonQCDataDetails.TabIndex = 21;
             this.btnChonQCDataDetails.Text = "btnChonQCDataDetails";
             this.btnChonQCDataDetails.Click += new System.EventHandler(this.btnChonQCDataDetails_Click);
             // 
@@ -699,15 +699,15 @@
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraEditors.PanelControl panelNN;
         private DevExpress.XtraEditors.SimpleButton btnThem;
-        private DevExpress.XtraEditors.SimpleButton btnDelNhaMay;
-        private DevExpress.XtraEditors.SimpleButton btnDelPhanXuong;
+        private DevExpress.XtraEditors.SimpleButton btnDelQCData;
+        private DevExpress.XtraEditors.SimpleButton btnDelQCDetails;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraEditors.SimpleButton btnKhong;
         private DevExpress.XtraEditors.SimpleButton btnSua;
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.SimpleButton btnTroVe;
-        private DevExpress.XtraEditors.SimpleButton btnDelTo;
+        private DevExpress.XtraEditors.SimpleButton btnDelQCDefect;
         private DevExpress.XtraEditors.DateEdit datQCDate;
         private DevExpress.XtraEditors.TextEdit txtQCName;
         private DevExpress.XtraEditors.TextEdit txtDocNum;

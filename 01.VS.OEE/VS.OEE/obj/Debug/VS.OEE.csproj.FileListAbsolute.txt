@@ -1224,3 +1224,5 @@ D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmChooseTGianNMay.resources
 D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmThoiGianNgungMay_KTTD_View.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoKeHoachSanXuat.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingWeekly.resources

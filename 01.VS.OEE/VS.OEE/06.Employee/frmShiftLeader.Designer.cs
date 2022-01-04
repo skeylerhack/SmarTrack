@@ -224,8 +224,6 @@
             this.grvShiftLeader.Name = "grvShiftLeader";
             this.grvShiftLeader.OptionsView.ShowGroupPanel = false;
             this.grvShiftLeader.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvShiftLeader_CellValueChanged);
-            this.grvShiftLeader.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvShiftLeader_InvalidRowException);
-            this.grvShiftLeader.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvShiftLeader_ValidateRow);
             // 
             // datNGAY
             // 

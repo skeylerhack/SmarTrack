@@ -28,8 +28,8 @@ namespace VS.OEE
         #region Event
         private void ucBaocaoMoldingDaily_Load(object sender, EventArgs e)
         {
-            datTNgay.DateTime = Convert.ToDateTime(DateTime.Now.ToString("01/MM/yyyy"));
-            datDNgay.DateTime = Convert.ToDateTime(DateTime.Now.ToString("01/MM/yyyy"));
+            datTNgay.DateTime = DateTime.Now;
+            datDNgay.DateTime = DateTime.Now;
             LoadCbo();
             LoadDataGrid();
         }
@@ -108,6 +108,7 @@ namespace VS.OEE
         }
         private void LoadDataGrid()
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 DataTable dt = new DataTable();
@@ -119,7 +120,6 @@ namespace VS.OEE
                 }
                 MS_MAY = MS_MAY.Substring(0, MS_MAY.Length - 1);
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingDaily", datTNgay.DateTime, datDNgay.DateTime, cboID_CA.EditValue, cboShiftLeader.EditValue, MS_MAY));
-
 
                 if (grdBCMoldDaily.DataSource == null)
                 {
@@ -192,8 +192,8 @@ namespace VS.OEE
                 else
                     grdBCMoldDaily.DataSource = dt;
             }
-            catch (Exception ex) { }
-           
+            catch  { }
+            Cursor.Current = Cursors.Default;
         }
         private void InDuLieu()
         {
@@ -226,16 +226,47 @@ namespace VS.OEE
                 excelWorkSheet.Application.ActiveWindow.FreezePanes = false;
                 Dong = Commons.Modules.MExcel.TaoTTChung(excelWorkSheet, 1, 2, 1, TCot);
                 Commons.Modules.MExcel.TaoLogo(excelWorkSheet, 0, 0, 110, 45, Application.StartupPath);
-                Commons.Modules.MExcel.ThemDong(excelWorkSheet, Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown, 0, Dong);
+                Commons.Modules.MExcel.ThemDong(excelWorkSheet, Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown, 3, Dong);
                 Dong = 4;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName,
                     this.Name, "rptMoldingDaily", Commons.Modules.TypeLanguage)
-                    , Dong, 2, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 1, 25);
+                    , Dong, 1, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 1, 25);
 
-                title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong -1, 1, Dong + TDong + 1, TCot);
+                title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 4, 1, Dong + TDong + 4, TCot);
                 title.Borders.LineStyle = 1;
 
-                Excel.Range HeaderColumn = Commons.Modules.MExcel.GetRange(excelWorkSheet, 5, 1, 5, TCot);
+                Dong = 5;
+                Excel.Range MS_MAY = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 1, Dong, TCot);
+                MS_MAY.Merge();
+                MS_MAY.Font.Bold = true;
+                MS_MAY.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                bool CheckAll = true;
+                for (int i = 0; i < ccbMS_MAY.Properties.Items.Count; i++)
+                {
+                    if (ccbMS_MAY.Properties.Items[i].CheckState != CheckState.Checked)
+                    {
+                        CheckAll = false;
+                        break;
+                    }
+                }
+                if (CheckAll == true)
+                    MS_MAY.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblMS_MAY") + ": < ALL >";
+                else
+                    MS_MAY.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblMS_MAY") + ": " + ccbMS_MAY.EditValue;
+
+                Dong = 6;
+                Excel.Range ID_CA = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 1, Dong, TCot / 2);
+                ID_CA.Merge();
+                ID_CA.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblID_CA") + ": " + cboID_CA.Text;
+                ID_CA.Font.Bold = true;
+
+                Excel.Range ShiftLeader = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, (TCot / 2) + 1, Dong, TCot);
+                ShiftLeader.Merge();
+                ShiftLeader.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblShiftLeader") + ": " + cboShiftLeader.Text;
+                ShiftLeader.Font.Bold = true;
+
+
+                Excel.Range HeaderColumn = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 1, Dong + 2, TCot);
                 HeaderColumn.Font.Bold = true;
                 HeaderColumn.WrapText = true;
                 HeaderColumn.Interior.Color = Color.FromArgb(141, 180, 226);

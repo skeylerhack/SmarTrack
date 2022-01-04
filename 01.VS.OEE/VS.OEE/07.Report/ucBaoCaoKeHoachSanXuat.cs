@@ -47,7 +47,7 @@ namespace VS.OEE
             try
             {
                 DateTime dTNgay = Convert.ToDateTime(cboTuan.Text.Split(' ')[2].Split('_')[0]);
-                DateTime dDNgay = dTNgay.AddDays(6);
+                DateTime dDNgay = Convert.ToDateTime(cboTuan.Text.Split(' ')[2].Split('_')[1]);
                 dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBCKeHoachSanXuat", Commons.Modules.UserName, Commons.Modules.TypeLanguage, dTNgay, dDNgay, cboMay.EditValue));
                 Modules.ObjSystems.MLoadXtraGrid(grdKeHoachSanXuat, grvKeHoachSanXuat, dtmp, false, true, true, true, this.Name);
                 for (int i = 0; i < grvKeHoachSanXuat.Columns.Count; i++)

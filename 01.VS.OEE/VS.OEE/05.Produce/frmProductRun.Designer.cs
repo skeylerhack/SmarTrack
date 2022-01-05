@@ -650,6 +650,7 @@
             this.mnuCapNhatTo.Name = "mnuCapNhatTo";
             this.mnuCapNhatTo.Size = new System.Drawing.Size(217, 22);
             this.mnuCapNhatTo.Text = "Cập nhật tổ";
+            this.mnuCapNhatTo.Visible = false;
             this.mnuCapNhatTo.Click += new System.EventHandler(this.mnuCapNhatTo_Click);
             // 
             // mnuHistory

@@ -49,6 +49,7 @@ namespace VS.OEE
             LoadgrdPrRunDetails();
             //LoadgrdEquiment();
             Commons.Modules.sId = "";
+            Commons.Modules.ObjSystems.DoiNNTooltip(contextMenuStrip1, this);
             Commons.Modules.ObjSystems.ThayDoiNN(this);
         }
         private void Loadngay()
@@ -74,8 +75,8 @@ namespace VS.OEE
             btnGhi.Visible = !flag;
             btnKhong.Visible = !flag;
             btnChonLSX.Visible = !flag;
-            mnuCapNhatTo.Visible = !flag;
-            mnuNhapTGNM.Visible = flag;
+            //mnuCapNhatTo.Visible = !flag;
+            //mnuNhapTGNM.Visible = flag;
         }
 
         private void ReadonlyControl(bool flag)
@@ -935,5 +936,7 @@ namespace VS.OEE
             frm.ProRunDetailID = Convert.ToInt64(grvPrRunDetails.GetFocusedRowCellValue("DetailID"));
             frm.ShowDialog();
         }
+
+     
     }
 }

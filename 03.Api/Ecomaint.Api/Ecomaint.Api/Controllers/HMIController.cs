@@ -595,7 +595,7 @@ namespace CMMSApi.Controllers
                 }
                 mailto = "bamboo2711@gmail.com;thanhduc66@gmail.com;";
                 phone = new List<string>();
-                phone.Add("0866054222");
+                phone.Add("0348694548");
                 string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY + ",gặp sự cố từ: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "</p>";
                 Thread thread = new Thread(() =>
                 {
@@ -640,6 +640,10 @@ namespace CMMSApi.Controllers
                     Thread.Sleep(100);
                     Seriport.Write(Mes + "\x1A");
                     Thread.Sleep(100);
+                    if (Seriport.IsOpen)
+                    {
+                        Seriport.Close();
+                    }
                 }
             }
             catch

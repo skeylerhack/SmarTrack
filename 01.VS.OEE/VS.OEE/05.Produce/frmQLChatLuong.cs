@@ -58,11 +58,13 @@ namespace VS.OEE
         {
             Commons.Modules.sId = "0Load";
             ithem = -1;
-            
             VisibleButon(false);
             BingdingControl(true);
             LoadgrdQCData(-1);
             Commons.Modules.sId = "";
+          
+            txtDocNum.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_SLHL(GETDATE())").ToString();
+         
             RowFilter(grdQCDataDetails, grvQCDataDetails.Columns["ID_QC"], -1);
             RowFilter(grdQCDataDefect, grvQCDataDefect.Columns["ID_TEMP"], -1);
             Commons.Modules.ObjSystems.AddnewRow(grvQCDataDefect, true);
@@ -91,7 +93,7 @@ namespace VS.OEE
             try
             {
                 if (!dxValidationProvider1.Validate()) return;
-
+                if (!KiemTrung()) return;
                 if (!Kiem_DefeactQuanity()) return;
 
                 string sBTQCDataDetails = "TMPQCDataDetails" + Commons.Modules.UserName;
@@ -99,8 +101,6 @@ namespace VS.OEE
 
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBTQCDataDetails, Commons.Modules.ObjSystems.ConvertDatatable(grdQCDataDetails), "");
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBTQCDataDefect, Commons.Modules.ObjSystems.ConvertDatatable(grdQCDataDefect), "");
-
-
 
                 System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
                 conn.Open();
@@ -269,7 +269,6 @@ namespace VS.OEE
             }
             catch { }
         }
-
         #endregion
 
         #region function 
@@ -639,6 +638,23 @@ namespace VS.OEE
             }
             catch { grdQCDataDefect.Enabled = false; }
         }
+        private bool KiemTrung()
+        {
+            int KTrung = 0;
+            string sql = "IF EXISTS (SELECT DocNum FROM dbo.QCData WHERE DocNum = '" + txtDocNum.Text + "' AND ID <> " + ithem + ") SELECT 1 ELSE SELECT 0";
+            KTrung = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sql));
+            if (KTrung == 1)
+            {
+                if (XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTrungSoPhieuQC"), this.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    txtDocNum.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_SLHL(GETDATE())").ToString();
+                    txtDocNum.Focus();
+                }
+                txtDocNum.ErrorText = Commons.Modules.ObjLanguages.GetLanguage("frmChung", ThongBao.msgDaTonTai).Replace("msgThayThe", lblDocNum.Text);
+                return false;
+            }
+            return true;
+        }
 
         #endregion
 
@@ -815,7 +831,6 @@ namespace VS.OEE
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
-      
         #endregion
     }
 }

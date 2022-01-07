@@ -194,6 +194,12 @@
     <Compile Include="07.Report\ucBaocaoMoldingDaily.Designer.cs">
       <DependentUpon>ucBaocaoMoldingDaily.cs</DependentUpon>
     </Compile>
+    <Compile Include="07.Report\ucBaocaoMoldingWeekly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaocaoMoldingWeekly.Designer.cs">
+      <DependentUpon>ucBaocaoMoldingWeekly.cs</DependentUpon>
+    </Compile>
     <Compile Include="07.Report\ucBaoCaoTieuThuDienNang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -627,6 +633,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaocaoMoldingDaily.resx">
       <DependentUpon>ucBaocaoMoldingDaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaocaoMoldingWeekly.resx">
+      <DependentUpon>ucBaocaoMoldingWeekly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaoCaoTieuThuDienNang.resx">
       <DependentUpon>ucBaoCaoTieuThuDienNang.cs</DependentUpon>

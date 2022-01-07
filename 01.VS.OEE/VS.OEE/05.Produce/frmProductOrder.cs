@@ -126,7 +126,6 @@ namespace VS.OEE
             }
             return ItemName;
         }
-
         private void btnGhi_Click(object sender, EventArgs e)
         {
             //kiểm tra dữ liệu
@@ -164,7 +163,8 @@ namespace VS.OEE
                     Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBTDetail, Commons.Modules.ObjSystems.ConvertDatatable(grdPrODetails), "");
                     Commons.Modules.ObjSystems.XoaTable(sBTSchedule);
                     Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBTSchedule, tbProSchedule, "");
-                    ithem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spEditProDucOrDer", ithem, txtSoLSX.EditValue, datNgayLap.DateTime, datNgayBD.DateTime, datNgayHTKH.DateTime, cboTinhTrang.EditValue, txtNote.EditValue, sBTDetail, sBTSchedule));
+                    ithem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spEditProDucOrDer", ithem, txtSoLSX.EditValue
+, datNgayLap.DateTime, datNgayBD.DateTime, datNgayHTKH.DateTime, cboTinhTrang.EditValue, txtNote.EditValue, sBTDetail, sBTSchedule));
                     Commons.Modules.ObjSystems.DeleteAddRow(grvPrODetails);
                     Commons.Modules.ObjSystems.DeleteAddRow(grvSchedule);
                     VisibleButon(true);
@@ -243,20 +243,9 @@ namespace VS.OEE
         {
             BingdingControl(false);
             if (Commons.Modules.sId == "0Load") return;
-            //LoadgrdProDuctOrDer(Convert.ToInt64(grvProDuctOD.GetFocusedRowCellValue("ID")));
             LoadgrdPrODetails();
         }
-        private void cboMacHang_EditValueChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    DataTable dt = new DataTable();
-            //    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT A.MS_MAY,B.TEN_MAY FROM dbo.ItemMay A INNER JOIN dbo.MAY B ON B.MS_MAY = A.MS_MAY WHERE   A.ItemID = " + Convert.ToInt64(cboMacHang.EditValue) + ""));
-            //    Commons.Modules.ObjSystems.AddCombXtra("MS_MAY", "TEN_MAY", "MS_MAY", grvPrODetails, dt, false,this.Name);
-            //    cboDVT.EditValue = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, "SELECT UOMID FROM dbo.UOMConversionGroupDetails WHERE ID = (SELECT BasedUOM FROM dbo.Item WHERE ID = '"+ cboMacHang.EditValue + "')"));
-            //}
-            //catch { }
-        }
+       
         private void rdoStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dtTmp = new DataTable();
@@ -303,7 +292,7 @@ namespace VS.OEE
         {
             if (them == true)
             {
-                txtSoLSX.ResetText();
+                txtSoLSX.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_KHSX(GETDATE())").ToString();
                 txtNote.ResetText();
                 cboTinhTrang.EditValue = Convert.ToInt16(1);
                 try
@@ -350,15 +339,6 @@ namespace VS.OEE
                 if (dt.Rows.Count < 2) return;
                 dt = dt.AsEnumerable().Where(x => !x.Field<Int64>("ID").Equals(grvProDuctOD.GetFocusedRowCellValue("ID"))).CopyToDataTable();
             }
-            //Commons.Modules.ObjSystems.MLoadLookUpEdit(cboLenhSXGoc, dt, "ID", "PrOrNumber", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "PrOrNumber"));
-            try
-            {
-                if (ithem != -1)
-                {
-                    //cboLenhSXGoc.EditValue = cboLenhSXGoc.EditValue = Convert.ToInt64(grvProDuctOD.GetFocusedRowCellValue("OriginPrOID"));
-                }
-            }
-            catch { }
         }
         private void LoadgrdProDuctOrDer(Int64 id)
         {
@@ -401,35 +381,28 @@ namespace VS.OEE
             {
                 DataTable dt = new DataTable();
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetListPrODetails", (ithem == -1 ? -1 : Convert.ToInt64(grvProDuctOD.GetFocusedRowCellValue("ID"))), Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-                //if (grdPrODetails.DataSource == null)
-                //{
-                Modules.ObjSystems.MLoadXtraGrid(grdPrODetails, grvPrODetails, dt, false, true, true, false, true, this.Name);
-                //load combo Item
-                try
+                if (grdPrODetails.DataSource == null)
                 {
-                    Commons.Modules.ObjSystems.AddCombXtra("ID", "ItemCode", "ItemID", grvPrODetails, Commons.Modules.ObjSystems.DataItem(0, "-1"), false, this.Name);
-                    Commons.Modules.ObjSystems.AddCombXtra("ID", "UOMName", "UOMID", grvPrODetails, Commons.Modules.ObjSystems.DataUOMShortName(true), false, this.Name);
+                    Modules.ObjSystems.MLoadXtraGrid(grdPrODetails, grvPrODetails, dt, false, true, true, false, true, this.Name);
+                    //load combo Item
+                    try
+                    {
+                        Commons.Modules.ObjSystems.AddCombXtra("ID", "ItemCode", "ItemID", grvPrODetails, Commons.Modules.ObjSystems.DataItem(0, "-1"), false, this.Name);
+                        Commons.Modules.ObjSystems.AddCombXtra("ID", "UOMName", "UOMID", grvPrODetails, Commons.Modules.ObjSystems.DataUOMShortName(true), false, this.Name);
 
-                    grvPrODetails.Columns["PlannedQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvPrODetails.Columns["PlannedQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    grvPrODetails.Columns["ModerQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvPrODetails.Columns["ModerQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    grvPrODetails.Columns["AllocatedQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvPrODetails.Columns["AllocatedQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-                    //format số trên lưới
+                        grvPrODetails.Columns["PlannedQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
+                        grvPrODetails.Columns["PlannedQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                        grvPrODetails.Columns["ModerQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
+                        grvPrODetails.Columns["ModerQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                        grvPrODetails.Columns["AllocatedQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
+                        grvPrODetails.Columns["AllocatedQuantity"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    }
+                    catch { }
                 }
-                catch { }
-                //}
-                //else
-                //{
-                //    for (int i = 0; i < dt.Columns.Count; i++)
-                //    {
-                //        dt.Columns[i].ReadOnly = false;
-                //    }
-                //    dt.Columns["AllocatedQuantity"].ReadOnly = true;
-                //    grvPrODetails.Columns["UOMID"].OptionsColumn.ReadOnly = true;
-                //    grdPrODetails.DataSource = dt;
-                //}
+                else
+                {
+                    grdPrODetails.DataSource = dt;
+                }
                 if (grvPrODetails.FocusedRowHandle < 1)
                 {
                     grvPrODetails_FocusedRowChanged(null, null);
@@ -491,17 +464,16 @@ namespace VS.OEE
                 }
                 else
                 {
-                    for (int i = 0; i < dt.Columns.Count; i++)
-                    {
-                        dt.Columns[i].ReadOnly = false;
-                    }
+                    //for (int i = 0; i < dt.Columns.Count; i++)
+                    //{
+                    //    dt.Columns[i].ReadOnly = false;
+                    //}
                     dt.Columns["ActualQuantity"].ReadOnly = true;
                     if (btnGhi.Visible == false)
                     {
                         grdSchedule.DataSource = dt; return;
                     }
                     DataTable tmp = new DataTable();
-
                     try
                     {
                         //lấy dữ liệu từ bảng tạm
@@ -1031,9 +1003,10 @@ namespace VS.OEE
                     }
 
                 }
-                view.Columns["UOMID"].OptionsColumn.ReadOnly = true;
-                view.Columns["MS_DV_TG_Output"].OptionsColumn.ReadOnly = true;
-                view.Columns["MS_DV_TG_Speed"].OptionsColumn.ReadOnly = true;
+                //view.Columns["UOMID"].OptionsColumn.ReadOnly = true;
+                //view.Columns["MS_DV_TG_Output"].OptionsColumn.ReadOnly = true;
+                //view.Columns["MS_DV_TG_Speed"].OptionsColumn.ReadOnly = true;
+
                 //if (view.FocusedColumn.Name == "colPlannedStartTime")
                 //{
                 //    //Kiểm tra từ ngày không lớn hơn đến ngày

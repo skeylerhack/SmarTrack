@@ -49,6 +49,7 @@ namespace VS.OEE
             LoadgrdPrRunDetails();
             //LoadgrdEquiment();
             Commons.Modules.sId = "";
+            Commons.Modules.ObjSystems.DoiNNTooltip(contextMenuStrip1, this);
             Commons.Modules.ObjSystems.ThayDoiNN(this);
         }
         private void Loadngay()
@@ -74,8 +75,8 @@ namespace VS.OEE
             btnGhi.Visible = !flag;
             btnKhong.Visible = !flag;
             btnChonLSX.Visible = !flag;
-            mnuCapNhatTo.Visible = !flag;
-            mnuNhapTGNM.Visible = flag;
+            //mnuCapNhatTo.Visible = !flag;
+            //mnuNhapTGNM.Visible = flag;
         }
 
         private void ReadonlyControl(bool flag)
@@ -326,15 +327,6 @@ namespace VS.OEE
             }
             txtNote.Text = "";
             Commons.Modules.sId = "";
-            //txtTH.ResetText();
-            //txtNPH.ResetText();
-            //txtGPH.ResetText();
-            //txtDT.ResetText();
-            //txtPE.ResetText();
-            //txtOEE.ResetText();
-            //txtDTPT.ResetText();
-            //txtEL.ResetText();
-            //txtELVer.EditValue="";
             LoadgrdPrRunDetails();
         }
 
@@ -387,6 +379,19 @@ namespace VS.OEE
         }
         private void btnGhi_Click(object sender, EventArgs e)
         {
+
+            if (txtCode.Text.Trim() == "")
+            {
+                Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblCode.Text, txtCode);
+                return;
+            }
+            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.ProductionRun WHERE Code ='" + txtCode.Text.Trim() + "'  " + (iThem == -1 ? "" : "AND ID <> " + iThem + "") + "  ");
+            if (rs != null && (Int32)rs > 0)
+            {
+                Modules.msgThayThe(ThongBao.msgDaTonTai, lblCode.Text, txtCode);
+                return;
+            }
+
             //kiểm tra chưa nhập ca
             if (Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails).AsEnumerable().Where(x => x.Field<int?>("ID_CA") == null).Count() > 0)
             {
@@ -400,6 +405,8 @@ namespace VS.OEE
                 Commons.Modules.msgThayThe(Commons.ThongBao.msgBanChuaNhapDuDuLieu, Commons.Modules.ObjLanguages.GetLanguage(this.Name, "OperatorName"));
                 return;
             }
+
+
             //kiểm tra giờ  không trùng lặp
             //tạo bảo tạm
             Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, "TMPPRORUN" + Commons.Modules.UserName, Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails), "");
@@ -935,5 +942,7 @@ namespace VS.OEE
             frm.ProRunDetailID = Convert.ToInt64(grvPrRunDetails.GetFocusedRowCellValue("DetailID"));
             frm.ShowDialog();
         }
+
+       
     }
 }

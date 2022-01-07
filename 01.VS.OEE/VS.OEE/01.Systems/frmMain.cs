@@ -756,10 +756,7 @@ namespace VS.OEE
         {
             this.Cursor = Cursors.WaitCursor;
             Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, Commons.Modules.sTenNhanVienMD, Commons.Modules.ModuleName,"", "", "", "", 1);
-            frm.WindowState = FormWindowState.Maximized;
-            frm.MdiParent = this;
-            frm.Show();
-            this.Cursor = Cursors.Default;
+            frm.ShowDialog();
         }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)

@@ -42,13 +42,16 @@ namespace VS.OEE
                 {
                     VisibleButon(true);
                 }
+                
                 ReadonlyControl(true);
                 Commons.Modules.sId = "0Load";
                 Loaddatacombo();
                 Loadngay();
                 LoadgrdTHOI_GIAN_DUNG_MAY(-1);
                 LoadgrdTHOI_GIAN_DUNG_MAY2();
+                chkTiepTuc.ToolTip = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "tolTiepTuc");
                 Commons.Modules.sId = "";
+                Commons.Modules.ObjSystems.DoiNNTooltip(contextMenuStrip1,this);
                 Commons.Modules.ObjSystems.ThayDoiNN(this);
             }
             catch (Exception ex)

@@ -14,7 +14,7 @@ namespace VS.OEE
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
             ClsMain.LayThongTinConfig();
-            Commons.Modules.ModuleName = "ECOMAIN";
+            Commons.Modules.ModuleName ="ECOMAIN";
             Commons.Modules.sPrivate = @"TRUNGNGUYEN";
             Commons.Modules.UserName = "admin";
             //1 Full ,2Read Only,3No access.

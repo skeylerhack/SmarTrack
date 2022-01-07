@@ -421,7 +421,7 @@ namespace Commons
                     cbo.Properties.DropDownRows = 15;
                 else
                     cbo.Properties.DropDownRows = 10;
-                    cbo.Properties.ShowHeader = true;
+                cbo.Properties.ShowHeader = true;
                 return true;
             }
             catch
@@ -814,7 +814,7 @@ namespace Commons
                 if (MBestFitColumns)
                     grv.BestFitColumns();
                 grv.OptionsBehavior.FocusLeaveOnTab = true;
-                
+
                 //kiểm tra có trong table định dạng lưới chưa có thì load
                 if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI ='" + grv.Tag + "'")) == 1)
                 {
@@ -824,7 +824,7 @@ namespace Commons
                     MemoryStream stream = new MemoryStream(byteArray);
                     grv.RestoreLayoutFromStream(stream);
                 }
-               
+
                 if (Commons.Modules.UserName.ToLower() == "admin")
                 {
                     grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
@@ -886,7 +886,7 @@ namespace Commons
             {
                 DevExpress.XtraGrid.Menu.GridViewMenu headerMenu = (DevExpress.XtraGrid.Menu.GridViewMenu)e.Menu;
 
-                if(headerMenu.Items.Count(x=>x.Caption.Equals("Reset Grid")) >0)
+                if (headerMenu.Items.Count(x => x.Caption.Equals("Reset Grid")) > 0)
                 {
                     return;
                 }
@@ -908,7 +908,7 @@ namespace Commons
             }
         }
 
-        
+
 
 
         private void MenuItemReset_Click(object sender, EventArgs e, GridView grv)
@@ -921,7 +921,7 @@ namespace Commons
                     try
                     {
                         grv.Columns[i].Visible = true;
-                        grv.Columns[i].VisibleIndex = i+1;
+                        grv.Columns[i].VisibleIndex = i + 1;
                     }
                     catch
                     {
@@ -1456,7 +1456,7 @@ namespace Commons
         #region Load hình database
         public byte[] SaveHinh(Image inImg)
         {
-            if (inImg == null) return null; 
+            if (inImg == null) return null;
             //ImageConverter imgCon = new ImageConverter();
             //return (byte[])imgCon.ConvertTo(inImg, typeof(byte[]));
 
@@ -1726,7 +1726,7 @@ namespace Commons
             //load nn control bên trong
             LoadNNGroupControl(frm, group, dtTmp);
             //load nn windowbitton
-           
+
         }
 
         private void LoadNNGroupControl(XtraForm frm, LayoutControlGroup group, DataTable dtTmp)
@@ -1956,7 +1956,7 @@ namespace Commons
                 {
                     CtlDev.Image = Commons.Properties.Resources.Schedule; return;
                 }
-               
+
                 if (sTenControl.Contains("IN") | sTenControl.Contains("PRINT"))
                 {
                     CtlDev.Image = Commons.Properties.Resources.Print; return;
@@ -1973,7 +1973,7 @@ namespace Commons
                 {
                     CtlDev.Image = Commons.Properties.Resources.TroVe; return;
                 }
- 
+
             }
             catch (Exception ex)
             {
@@ -1995,6 +1995,7 @@ namespace Commons
                             CtlDev.Properties.NullText = "";
                             break;
                         }
+
                     case "Label":
                     case "RadioButton":
                     case "CheckBox":
@@ -2213,7 +2214,13 @@ namespace Commons
             }
         }
 
-
+        public void DoiNNTooltip(ContextMenuStrip ctl, Form frm)
+        {
+            foreach (ToolStripMenuItem item in ctl.Items)
+            {
+                item.Text = Commons.Modules.ObjLanguages.GetLanguage(frm.Name, item.Name);
+            }
+        }
 
         public Form GetParentForm(Control parent)
         {

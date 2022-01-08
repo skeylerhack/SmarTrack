@@ -983,7 +983,6 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.Images.v20.1.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Microsoft.mshtml.dll
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ICSharpCode.SharpZipLib.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\NPOI.OpenXmlFormats.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\NPOI.OpenXml4Net.dll
@@ -1166,6 +1165,7 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmHieuSuatTheoThang_Copy.reso
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmQLChatLuong.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoKeHoachSanXuat.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingDaily.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingWeekly.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoTieuThuDienNang.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmChooseOperator.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmThoiGianNgungMay_KTTD_View.resources
@@ -1241,3 +1241,5 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CoreCompileInputs.cache
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.dll
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.xml

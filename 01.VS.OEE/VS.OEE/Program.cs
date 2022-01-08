@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DevExpress.UserSkins;
 using System.Threading;
+
 namespace VS.OEE
 {
     static class Program
@@ -36,6 +37,8 @@ namespace VS.OEE
         {
             try
             {
+
+                //Application.Run(new frmProductOrder(1));
                 Application.Run(new frmMain());
             }
             catch (Exception ex)

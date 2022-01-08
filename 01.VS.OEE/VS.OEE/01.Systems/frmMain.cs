@@ -210,6 +210,8 @@ namespace VS.OEE
                 case "ShowVaiTro": { ShowVaiTro(); return; }
                 case "ShowThoiGianNgungMay_KTTD": { ShowThoiGianNgungMay_KTTD(); return; }
                 case "ShowYeuCauHoTro": { ShowYeuCauHoTro(); return; }
+                case "ShowElearning": { ShowELearning(); return; }
+                    
                 default:
                     {
                         break;
@@ -752,29 +754,51 @@ namespace VS.OEE
         }
         #endregion
 
-        public  void ShowYeuCauHoTro()
+
+       
+        public void ShowYeuCauHoTro()
         {
-            this.Cursor = Cursors.WaitCursor;
-            Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, Commons.Modules.sTenNhanVienMD, Commons.Modules.ModuleName,"", "", "", "", 1);
+            string sTenCty = "VietSoft";
+            string sMail = "sales@vietsoft.com.vn";
+            string sDThoai = "(028) 38 110 770";
+            string iCus = "(028) 38 110 770";
+
+            try
+            {
+                DataTable dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT  ISNULL(EMAIL,'') AS EMAIL,ISNULL(Phone,'') AS DIEN_THOAI, CASE "+Commons.Modules.TypeLanguage.ToString() +" WHEN 0 THEN TEN_CTY_TIENG_VIET ELSE ISNULL(NULLIF(TEN_CTY_TIENG_ANH,''), TEN_CTY_TIENG_VIET)	END AS TEN_CTY,ISNULL(CustomerID,'-1') AS CustomerID FROM THONG_TIN_CHUNG"));
+
+                sTenCty = dt.Rows[0]["TEN_CTY"].ToString();
+                sMail = dt.Rows[0]["EMAIL"].ToString();
+                sDThoai = dt.Rows[0]["DIEN_THOAI"].ToString();
+                iCus = dt.Rows[0]["CustomerID"].ToString();
+            }
+            catch { }
+
+
+            Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, Commons.Modules.sTenNhanVienMD, Commons.Modules.ModuleName, sTenCty, sMail, sDThoai, sDThoai, int.Parse(iCus));
+
             frm.ShowDialog();
+        }
+
+        public  void ShowELearning()
+        {
+            try
+            {
+                Vs.Support.frmELearning frm = new Vs.Support.frmELearning(4);
+                frm.ShowDialog();
+            }
+            catch { }
         }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2 && e.Modifiers == (Keys.Control | Keys.Alt))
+            if (e.KeyCode == Keys.F2)
             {
                 try
                 {
-                    FormCollection formCollection = Application.OpenForms;
-                    string sform = @"N@@frmChung@@ ";
-                    foreach (XtraForm form in formCollection)
-                    {
-                        //if (form.Name != "frmMain")
-                        //{
-                        sform = sform + @", N@@" + form.Name.ToString() + "@@ ";
-                        //}
-                    }
-                    frmNNgu frm = new frmNNgu(sform);
+                    Form activeChild = this.ActiveMdiChild;
+                    frmNNgu frm = new frmNNgu(activeChild.Name);
                     if (frm.ShowDialog() != DialogResult.OK) return;
                 }
                 catch { }

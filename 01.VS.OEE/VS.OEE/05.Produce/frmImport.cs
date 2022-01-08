@@ -11,6 +11,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using System.Drawing;
 using DevExpress.XtraGrid.Columns;
 using System.Linq;
+using System.Globalization;
 
 namespace VS.OEE
 {
@@ -386,6 +387,17 @@ namespace VS.OEE
                     _table = Commons.Modules.MExcel.MGetData2xlsx(fileName);
                 this.grdImport.DataSource = null;
                 grvImport.Columns.Clear();
+
+                foreach (DataRow item in _table.Rows)
+                {
+                    if(string.IsNullOrEmpty(item[0].ToString()))
+                    {
+                        string Ngay = Convert.ToDateTime(DateTime.ParseExact(item[6].ToString(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)).ToString("MM/dd/yyyy");
+                        item[0] = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_KHSX('"+ Ngay + "')").ToString();
+                        _table.AcceptChanges();
+
+                    }
+                }
                 if (_table != null)
                 {
                     try

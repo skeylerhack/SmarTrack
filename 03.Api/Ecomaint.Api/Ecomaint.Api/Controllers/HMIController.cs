@@ -247,6 +247,7 @@ namespace CMMSApi.Controllers
                 return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
             }
         }
+
         //cập nhật số lượng thực tế chỗ lấy 5p một lần
         public JsonResult UpdateSoLuong(string Ngay, string Data, string MS_MAY, string ID_NV)
         {

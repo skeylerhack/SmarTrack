@@ -119,7 +119,7 @@ namespace VS.OEE
                 if (!dxValidationProvider1.Validate()) return;
                 Validate();
 
-                if (KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))))
+                if (iThem != -1 && KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))))
                 {
                     XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgNgungMayTiepTucKhongTheSua"));
                     return;

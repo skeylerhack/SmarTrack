@@ -273,17 +273,26 @@ namespace VS.OEE
         }
         private void btnChon_Click(object sender, EventArgs e)
         {
-            frmChooseTGianNMay frm = new frmChooseTGianNMay(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")), (string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID_CHA").ToString()) ? 0 : Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID_CHA"))), datTU_GIO.DateTime);
-            if (frm.ShowDialog() != DialogResult.OK) return;
+            try
+            {
+                if ((string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID").ToString()) ? -1 : Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))) == -1) return;
 
-            SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "	UPDATE dbo.THOI_GIAN_DUNG_MAY SET ID_CHA = CASE " + frm.iID + " WHEN 0 THEN NULL ELSE " + frm.iID + " END WHERE ID = " + grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"));
-            LoadgrdTHOI_GIAN_DUNG_MAY2();
+                frmChooseTGianNMay frm = new frmChooseTGianNMay(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")), (string.IsNullOrEmpty(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID_CHA").ToString()) ? 0 : Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID_CHA"))), datTU_GIO.DateTime);
+                if (frm.ShowDialog() != DialogResult.OK) return;
 
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "UPDATE dbo.THOI_GIAN_DUNG_MAY SET ID_CHA = CASE " + frm.iID + " WHEN 0 THEN NULL ELSE " + frm.iID + " END WHERE ID = " + grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"));
+                LoadgrdTHOI_GIAN_DUNG_MAY2();
+            }
+            catch { }
         }
         private void mnuTiepTuc_Click(object sender, EventArgs e)
         {
-            frmThoiGianNgungMay_KTTD_View frm = new frmThoiGianNgungMay_KTTD_View(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")));
-            frm.ShowDialog();
+            try
+            {
+                frmThoiGianNgungMay_KTTD_View frm = new frmThoiGianNgungMay_KTTD_View(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID")));
+                frm.ShowDialog();
+            }
+            catch { }
         }
         #endregion
 

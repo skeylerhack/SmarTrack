@@ -39,15 +39,19 @@ namespace VS.OEE
         }
         private void rdoDK_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rdoDK.SelectedIndex == 0)
+            try
             {
-                VisibleControl(false);
+                if (rdoDK.SelectedIndex == 0)
+                {
+                    VisibleControl(false);
+                }
+                else
+                {
+                    VisibleControl(true);
+                }
+                LoadgrdThoiGianNgungMay();
             }
-            else
-            {
-                VisibleControl(true);
-            }
-            LoadgrdThoiGianNgungMay();
+            catch { }
         }
         private void cboUser_EditValueChanged(object sender, EventArgs e)
         {
@@ -100,6 +104,18 @@ namespace VS.OEE
                     grvHistoryTGDM.Columns["ID_HANH_DONG"].Visible = false;
                     grvHistoryTGDM.Columns["ID"].Visible = false;
                     grvHistoryTGDM.Columns["NGUYEN_NHAN_CU_THE"].Visible = false;
+
+                    grvHistoryTGDM.Columns["DateEdit"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                    grvHistoryTGDM.Columns["DateEdit"].DisplayFormat.FormatString = "G";
+                    grvHistoryTGDM.Columns["TU_GIO"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                    grvHistoryTGDM.Columns["TU_GIO"].DisplayFormat.FormatString = "G";
+                    grvHistoryTGDM.Columns["DEN_GIO"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime; ;
+                    grvHistoryTGDM.Columns["DEN_GIO"].DisplayFormat.FormatString = "G";
+
+                    grvHistoryTGDM.Columns["THOI_GIAN_SUA_CHUA"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                    grvHistoryTGDM.Columns["THOI_GIAN_SUA_CHUA"].DisplayFormat.FormatString = Commons.Modules.sSoLeTT;
+                    grvHistoryTGDM.Columns["THOI_GIAN_SUA"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime; ;
+                    grvHistoryTGDM.Columns["THOI_GIAN_SUA"].DisplayFormat.FormatString = Commons.Modules.sSoLeTT;
                 }
                 else
                     grdHistoryTGDM.DataSource = dtmp;

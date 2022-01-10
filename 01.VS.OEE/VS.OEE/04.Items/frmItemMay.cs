@@ -236,7 +236,7 @@ namespace VS.OEE
             DataTable dt = new DataTable();
             try
             {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID, ItemCode, CASE "+Commons.Modules.TypeLanguage+" WHEN 0 THEN ItemName WHEN 1 THEN ISNULL(NULLIF(ItemNameA,''),ItemName) ELSE ISNULL(NULLIF(ItemNameH,''),ItemName) END AS ItemName,ItemNameA,ItemNameH, OtherName, Barcode, IDItemGroup, Description,UOMConverionGroupID, UOM FROM dbo.Item"));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID, ItemCode, CASE "+Commons.Modules.TypeLanguage+ " WHEN 0 THEN ItemName WHEN 1 THEN ISNULL(NULLIF(ItemNameA,''),ItemName) ELSE ISNULL(NULLIF(ItemNameH,''),ItemName) END AS ItemName,ItemNameA,ItemNameH, OtherName, Barcode, IDItemGroup, Description,UOMConverionGroupID, UOM FROM dbo.Item ORDER BY ItemCode"));
                 dt.PrimaryKey = new DataColumn[] { dt.Columns["ID"] };
                 if (grdItem.DataSource == null)
                 {

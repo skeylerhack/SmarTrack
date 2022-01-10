@@ -1241,3 +1241,8 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CoreCompileInputs.cache
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
+D:\SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.dll
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoKeHoachSanXuat.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingWeekly.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoTieuThuDienNang.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.XtraForm1.resources

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Reflection;
@@ -22,7 +16,6 @@ namespace VS.OEE
             drRow = row;
             AddEdit = bAddEdit;
             InitializeComponent();
-
             try
             {
                 if (drRow["MS_LOAI_MAY"] == null)
@@ -31,7 +24,6 @@ namespace VS.OEE
                     iMS_LOAI_MAY = drRow["MS_LOAI_MAY"].ToString();
             }
             catch { iMS_LOAI_MAY = "-1"; }
-
             this.lblMS_LOAI_MAY.Font = new System.Drawing.Font(lblMS_LOAI_MAY.Font, System.Drawing.FontStyle.Bold);
             this.lblTEN_LOAI_MAY.Font = new System.Drawing.Font(lblTEN_LOAI_MAY.Font, System.Drawing.FontStyle.Bold);
         }
@@ -51,7 +43,6 @@ namespace VS.OEE
                 txtTEN_LOAI_MAY_ANH.Text = drRow["TEN_LOAI_MAY_ANH"].ToString();
                 txtTEN_LOAI_MAY_HOA.Text = drRow["TEN_LOAI_MAY_HOA"].ToString();
                 txtGHI_CHU.Text = drRow["GHI_CHU"].ToString();
-                chkATTACHMENT.EditValue = drRow["ATTACHMENT"];
             }
             catch (Exception ex)
             {
@@ -73,8 +64,6 @@ namespace VS.OEE
                 if (txtTEN_LOAI_MAY_ANH.Text.Trim() != "") if (!KiemTrung(3)) return;
                 //kiem ten hoa
                 if (txtTEN_LOAI_MAY_HOA.Text.Trim() != "") if (!KiemTrung(4)) return;
-
-
                 #region Them
                 System.Data.SqlClient.SqlConnection conn;
                 conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
@@ -89,7 +78,6 @@ namespace VS.OEE
                 cmd.Parameters.Add("@COT4", SqlDbType.NVarChar).Value = txtTEN_LOAI_MAY_HOA.Text;
                 cmd.Parameters.Add("@COT5", SqlDbType.NVarChar).Value = txtGHI_CHU.Text;
                 cmd.Parameters.Add("@COT8", SqlDbType.Int).Value = txtSTT_MAY.EditValue;
-                cmd.Parameters.Add("@COT6", SqlDbType.Int).Value = chkATTACHMENT.EditValue;
                 cmd.CommandType = CommandType.StoredProcedure;
                 Commons.Modules.sId = Convert.ToString(cmd.ExecuteScalar());
                 this.DialogResult = DialogResult.OK;

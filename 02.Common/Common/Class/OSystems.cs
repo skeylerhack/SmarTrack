@@ -1339,10 +1339,10 @@ namespace Commons
             try
             {
                 //kiểm tra có trong table định dạng lưới chưa có thì load
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE TEN_FORM = '" + fName + "' AND TEN_GRID = '" + grv.Name + "'")) == 1)
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT count(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '"+fName.ToString()+"'")) == 1)
                 {
                     // RESTORE  
-                    var layoutString = (string)SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT DINH_DANG FROM dbo.DINH_DANG_LUOI WHERE TEN_FORM = '" + fName + "' AND TEN_GRID = '" + grv.Name + "'");
+                    var layoutString = (string)SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT DINH_DANG_LUOI FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString()+"'");
                     Stream s = new MemoryStream();
                     StreamWriter sw = new StreamWriter(s);
                     sw.Write(layoutString);
@@ -1401,18 +1401,16 @@ namespace Commons
                 string text = reader.ReadToEnd();
 
 
-
-
                 //kiểm tra xem tồn tại chưa có thì update chưa có thì inser
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE TEN_FORM = '" + fName + "' AND TEN_GRID = '" + grv.Name + "'")) == 0)
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'")) == 0)
                 {
                     //insert
-                    SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "INSERT INTO dbo.DINH_DANG_LUOI ( TEN_FORM, TEN_GRID, DINH_DANG,MAC_DINH )VALUES  ( N'" + fName + "',N'" + grv.Name + "',N'" + text + "',N'" + reader.ReadToEnd() + "')");
+                    SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "INSERT INTO dbo.DINH_DANG_LUOI ( MS_LUOI, DINH_DANG_LUOI )VALUES  ( N'" + fName.ToString() + "',N'" + text + "')");
                 }
                 else
                 {
                     //update
-                    SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "UPDATE dbo.DINH_DANG_LUOI SET DINH_DANG = '" + text + "' WHERE TEN_FORM = '" + fName + "' AND TEN_GRID = '" + grv.Name + "'");
+                    SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "UPDATE dbo.DINH_DANG_LUOI SET DINH_DANG_LUOI = '" + text + "' WHERE MS_LUOI  = '" + fName.ToString() + "'");
                 }
 
 

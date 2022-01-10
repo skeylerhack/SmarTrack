@@ -49,6 +49,7 @@ namespace VS.OEE
 
                     txtDiachi_V.Text = dr["DIA_CHI_VIET"].ToString();
                     txtDiachi_A.Text = dr["DIA_CHI_ANH"].ToString();
+                    txtDienthoai.Text = dr["PHONE"].ToString();
                     txtSofax.Text = dr["FAX"].ToString();
                     txtChieucao.Text = dr["HEIGHT"].ToString();
                     txtDorong.Text = dr["WIDTH"].ToString();

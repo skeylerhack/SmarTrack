@@ -247,6 +247,7 @@ namespace CMMSApi.Controllers
                 return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
             }
         }
+
         //cập nhật số lượng thực tế chỗ lấy 5p một lần
         public JsonResult UpdateSoLuong(string Ngay, string Data, string MS_MAY, string ID_NV)
         {
@@ -433,7 +434,15 @@ namespace CMMSApi.Controllers
                 List<SqlParameter> listParameter = new List<SqlParameter>();
                 listParameter.Add(new SqlParameter("@TN", ListNgay[i]));
                 listCA = Ecomaint.Api.DBUtils.ExecuteSPList<CapNhatCa>("spAPIGet_CA", listParameter);
-
+                if(ListNgay.Count() == 1 && listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).ToList().Count() ==1)
+                {
+                    var item = listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).FirstOrDefault();
+                    item.NGAY_KT = DNgay;
+                    item.NGAY_BD = TNgay;
+                    listResulst.Add(item);
+                    return listResulst;
+                }
+                //listCA = listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).ToList();
                 //ngày bắc đầu nằm trong ca
                 foreach (var item in listCA.Where(x => x.NGAY_BD <= DNgay))
                 {
@@ -593,9 +602,9 @@ namespace CMMSApi.Controllers
                     mailto += item.MAIL + ";";
                     phone.Add(item.PHONE.Trim());
                 }
-                mailto = "bamboo2711@gmail.com;thanhduc66@gmail.com;";
-                phone = new List<string>();
-                phone.Add("0348694548");
+                //mailto = "bamboo2711@gmail.com;thanhduc66@gmail.com;";
+                //phone = new List<string>();
+                //phone.Add("0348694548");
                 string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY + ",gặp sự cố từ: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "</p>";
                 Thread thread = new Thread(() =>
                 {

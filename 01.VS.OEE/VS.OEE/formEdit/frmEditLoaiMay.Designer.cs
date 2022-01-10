@@ -41,7 +41,6 @@
             this.txtTEN_LOAI_MAY_ANH = new DevExpress.XtraEditors.TextEdit();
             this.txtTEN_LOAI_MAY_HOA = new DevExpress.XtraEditors.TextEdit();
             this.lblGHI_CHU = new DevExpress.XtraEditors.LabelControl();
-            this.chkATTACHMENT = new DevExpress.XtraEditors.CheckEdit();
             this.txtGHI_CHU = new DevExpress.XtraEditors.MemoEdit();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
@@ -53,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN_LOAI_MAY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN_LOAI_MAY_ANH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN_LOAI_MAY_HOA.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkATTACHMENT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGHI_CHU.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -161,12 +159,12 @@
             // txtTEN_LOAI_MAY_HOA
             // 
             this.tablePanel1.SetColumn(this.txtTEN_LOAI_MAY_HOA, 1);
-            this.tablePanel1.SetColumnSpan(this.txtTEN_LOAI_MAY_HOA, 2);
+            this.tablePanel1.SetColumnSpan(this.txtTEN_LOAI_MAY_HOA, 3);
             this.txtTEN_LOAI_MAY_HOA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTEN_LOAI_MAY_HOA.Location = new System.Drawing.Point(184, 94);
             this.txtTEN_LOAI_MAY_HOA.Name = "txtTEN_LOAI_MAY_HOA";
             this.tablePanel1.SetRow(this.txtTEN_LOAI_MAY_HOA, 4);
-            this.txtTEN_LOAI_MAY_HOA.Size = new System.Drawing.Size(290, 20);
+            this.txtTEN_LOAI_MAY_HOA.Size = new System.Drawing.Size(402, 20);
             this.txtTEN_LOAI_MAY_HOA.TabIndex = 9;
             // 
             // lblGHI_CHU
@@ -180,18 +178,6 @@
             this.lblGHI_CHU.Size = new System.Drawing.Size(170, 46);
             this.lblGHI_CHU.TabIndex = 10;
             this.lblGHI_CHU.Text = "lblGHI_CHU";
-            // 
-            // chkATTACHMENT
-            // 
-            this.tablePanel1.SetColumn(this.chkATTACHMENT, 3);
-            this.chkATTACHMENT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkATTACHMENT.Location = new System.Drawing.Point(480, 94);
-            this.chkATTACHMENT.Name = "chkATTACHMENT";
-            this.chkATTACHMENT.Properties.Caption = "";
-            this.chkATTACHMENT.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tablePanel1.SetRow(this.chkATTACHMENT, 4);
-            this.chkATTACHMENT.Size = new System.Drawing.Size(106, 20);
-            this.chkATTACHMENT.TabIndex = 12;
             // 
             // txtGHI_CHU
             // 
@@ -236,7 +222,6 @@
             this.tablePanel1.Controls.Add(this.panelControl1);
             this.tablePanel1.Controls.Add(this.txtSTT_MAY);
             this.tablePanel1.Controls.Add(this.txtGHI_CHU);
-            this.tablePanel1.Controls.Add(this.chkATTACHMENT);
             this.tablePanel1.Controls.Add(this.lblGHI_CHU);
             this.tablePanel1.Controls.Add(this.txtTEN_LOAI_MAY_HOA);
             this.tablePanel1.Controls.Add(this.txtTEN_LOAI_MAY_ANH);
@@ -313,7 +298,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN_LOAI_MAY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN_LOAI_MAY_ANH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTEN_LOAI_MAY_HOA.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkATTACHMENT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGHI_CHU.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
@@ -334,7 +318,6 @@
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.SimpleButton btnGhi;
         private DevExpress.XtraEditors.MemoEdit txtGHI_CHU;
-        private DevExpress.XtraEditors.CheckEdit chkATTACHMENT;
         private DevExpress.XtraEditors.LabelControl lblGHI_CHU;
         private DevExpress.XtraEditors.TextEdit txtTEN_LOAI_MAY_HOA;
         private DevExpress.XtraEditors.TextEdit txtTEN_LOAI_MAY_ANH;

@@ -25,7 +25,7 @@ namespace VS.OEE
             iPQ = PQ;
             InitializeComponent();
         }
-        private void frmProductRun_Load(object sender, EventArgs e)
+        public void frmProductRun_Load(object sender, EventArgs e)
         {
             if (iPQ != 1)
             {

@@ -785,8 +785,8 @@ namespace VS.OEE
         {
             try
             {
-                Vs.Support.frmELearning frm = new Vs.Support.frmELearning(4);
-                frm.ShowDialog();
+                //Vs.Support.frmELearning frm = new Vs.Support.frmELearning(4);
+                //frm.ShowDialog();
             }
             catch { }
         }

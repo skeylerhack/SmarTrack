@@ -434,7 +434,6 @@ G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ko\System.Spatial.resources
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ru\System.Spatial.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\zh-Hans\System.Spatial.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\zh-Hant\System.Spatial.resources.dll
-G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csprojAssemblyReference.cache
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csproj.CoreCompileInputs.cache
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csproj.CopyComplete
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\CMMSApi.dll

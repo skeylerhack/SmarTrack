@@ -39,7 +39,7 @@ namespace VS.OEE
             {
 
                 //Application.Run(new frmProductOrder(1));
-                Application.Run(new frmProductRun(1));
+                Application.Run(new frmMain());
             }
             catch (Exception ex)
             {

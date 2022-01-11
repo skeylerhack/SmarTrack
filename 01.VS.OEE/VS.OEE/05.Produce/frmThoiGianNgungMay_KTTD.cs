@@ -20,6 +20,7 @@ namespace VS.OEE
     {
         static int iPQ = 1;
         Int64 iThem = 0;
+        DateTime NGAY;
         public frmThoiGianNgungMay_KTTD(int PQ)
         {
             iPQ = PQ;
@@ -130,7 +131,8 @@ namespace VS.OEE
                 ReadonlyControl(true);
                 grvTHOI_GIAN_DUNG_MAY2.OptionsBehavior.Editable = false;
                 LoadgrdTHOI_GIAN_DUNG_MAY(-1);
-                LoadgrdTHOI_GIAN_DUNG_MAY2();
+                grvTHOI_GIAN_DUNG_MAY.FocusedRowHandle = grvTHOI_GIAN_DUNG_MAY.LocateByValue("NGAY", NGAY);
+                grvTHOI_GIAN_DUNG_MAY2.FocusedRowHandle = grvTHOI_GIAN_DUNG_MAY2.LocateByValue("ID", iThem);
             }
             catch (Exception ex)
             {
@@ -469,13 +471,16 @@ namespace VS.OEE
         {
             try
             {
+                //Ngay => Focus sau khi ghi
+                NGAY = datTU_GIO.DateTime.Date;
+
+                //them
                 DataTable dt = new DataTable();
                 dt = BocTach_TheoCa(datTU_GIO.DateTime, datDEN_GIO.DateTime);
 
                 string sBT = "sBTTGDM" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, dt, "");
                 iThem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spSaveTGDM", sBT, Commons.Modules.UserName, iThem, cboMS_MAY.EditValue, datTU_GIO.EditValue, datDEN_GIO.EditValue, cboMS_NGUYEN_NHAN.EditValue, null, cboID_Operator.EditValue, txtTHOI_GIAN_SUA_CHUA.EditValue, txtTHOI_GIAN_SUA.EditValue, txtNGUYEN_NHAN.Text, null, txtHIEN_TUONG.Text, cboCaID.EditValue, null, null));
-                LoadgrdTHOI_GIAN_DUNG_MAY(iThem);
             }
             catch {}
         }
@@ -527,6 +532,7 @@ namespace VS.OEE
                 if (Commons.Modules.sId == "0Load") return;
                 TimeSpan THOI_GIAN_SUA = datDEN_GIO.DateTime - datTU_GIO.DateTime;
                 txtTHOI_GIAN_SUA.EditValue = Math.Round(THOI_GIAN_SUA.TotalMinutes, 3);
+                txtTHOI_GIAN_SUA_CHUA.EditValue = Math.Round(THOI_GIAN_SUA.TotalMinutes, 3);
             }
             catch { }
         }
@@ -573,40 +579,40 @@ namespace VS.OEE
                     //kiểm tra từ ngày có nằm trong item không
                     DataRow r = dt_Result.NewRow();
 
-                    if (TNgay > Convert.ToDateTime(row["NGAY_BD"]) && DNgay < Convert.ToDateTime(row["NGAY_KT"]))
+                    if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]) && DNgay < Convert.ToDateTime(row["NGAY_KT"]))
                     {
-                        r["NGAY_KT"] = DNgay;
                         r["NGAY_BD"] = TNgay;
+                        r["NGAY_KT"] = DNgay;
                         r["ID_CA"] = row["ID_CA"];
                         dt_Result.Rows.Add(r);
                         dt_Result.AcceptChanges();
                         //item.NGAY_BD = TNgay;
                     }
-                    else
-                    {
-                        if (DNgay <= Convert.ToDateTime(row["NGAY_KT"]))
-                        {
-                            DataRow r1 = dt_Result.NewRow();
-                            r1["NGAY_BD"] = row["NGAY_BD"];
-                            r1["NGAY_KT"] = DN;
-                            r1["ID_CA"] = row["ID_CA"];
-                            dt_Result.Rows.Add(r1);
-                            dt_Result.AcceptChanges();
-                            //listResulst.Add(item);
-                            break;
-                        }
+                    //else
+                    //{
+                    //    if (DNgay <= Convert.ToDateTime(row["NGAY_KT"]))
+                    //    {
+                    //        DataRow r1 = dt_Result.NewRow();
+                    //        r1["NGAY_BD"] = row["NGAY_BD"];
+                    //        r1["NGAY_KT"] = DN;
+                    //        r1["ID_CA"] = row["ID_CA"];
+                    //        dt_Result.Rows.Add(r1);
+                    //        dt_Result.AcceptChanges();
+                    //        //listResulst.Add(item);
+                    //        break;
+                    //    }
 
-                        if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]))
-                        {
-                            r["NGAY_BD"] = TNgay;
-                            r["NGAY_KT"] = row["NGAY_KT"];
-                            r["ID_CA"] = row["ID_CA"];
-                            dt_Result.Rows.Add(r);
-                            dt_Result.AcceptChanges();
-                            //listResulst.Add(item);
-                            TNgay = Convert.ToDateTime(row["NGAY_KT"]);
-                        }
-                    }
+                    //    if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]))
+                    //    {
+                    //        r["NGAY_BD"] = TNgay;
+                    //        r["NGAY_KT"] = row["NGAY_KT"];
+                    //        r["ID_CA"] = row["ID_CA"];
+                    //        dt_Result.Rows.Add(r);
+                    //        dt_Result.AcceptChanges();
+                    //        //listResulst.Add(item);
+                    //        TNgay = Convert.ToDateTime(row["NGAY_KT"]);
+                    //    }
+                    //}
                 }
             }
             return dt_Result;

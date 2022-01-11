@@ -1243,3 +1243,9 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.xml
+D:\SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.dll
+D:\SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.xml
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoKeHoachSanXuat.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingWeekly.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoTieuThuDienNang.resources
+D:\SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.XtraForm1.resources

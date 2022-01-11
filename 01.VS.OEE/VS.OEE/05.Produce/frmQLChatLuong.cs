@@ -269,6 +269,15 @@ namespace VS.OEE
             }
             catch { }
         }
+        private void datQCDate_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ithem == -1)
+                    txtDocNum.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_SLHL('" + datQCDate.DateTime.ToString("yyyy-MM-dd") + "')").ToString();
+            }
+            catch { }
+        }
         #endregion
 
         #region function 
@@ -832,5 +841,7 @@ namespace VS.OEE
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
         #endregion
+
+      
     }
 }

@@ -719,6 +719,7 @@
             this.TableLayout.SetRow(this.datNgayLap, 1);
             this.datNgayLap.Size = new System.Drawing.Size(209, 20);
             this.datNgayLap.TabIndex = 4;
+            this.datNgayLap.EditValueChanged += new System.EventHandler(this.datNgayLap_EditValueChanged);
             // 
             // cboTinhTrang
             // 

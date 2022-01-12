@@ -2957,6 +2957,18 @@ namespace Commons
             grv.Columns[col].Width = 150;
             grv.Columns[col].ColumnEdit = cbo;
         }
+        public void AddCombDateMinuteEdit(string col, GridView grv)
+        {
+            RepositoryItemDateEdit cbo = new RepositoryItemDateEdit();
+            cbo.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            cbo.EditMask = "dd/MM/yyyy HH:mm";
+            cbo.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            cbo.EditFormat.FormatString = "dd/MM/yyyy HH:mm";
+            cbo.CalendarView = CalendarView.TouchUI;
+
+            grv.Columns[col].Width = 150;
+            grv.Columns[col].ColumnEdit = cbo;
+        }
 
         public void AddCombXtra(string Value, string Display, string Cot, GridView grv, DataTable tempt, bool Search, string form)
         {

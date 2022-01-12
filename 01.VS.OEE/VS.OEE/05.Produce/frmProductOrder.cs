@@ -1156,6 +1156,15 @@ namespace VS.OEE
             }
         }
 
-       
+
+        private void datNgayLap_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ithem == -1)
+                    txtSoLSX.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_KHSX('" + datNgayLap.DateTime.ToString("yyyy-MM-dd") + "')").ToString();
+            }
+            catch { }
+        }
     }
 }

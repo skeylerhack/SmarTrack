@@ -249,11 +249,6 @@ namespace VS.OEE
                 }
                 else
                     grdPrRunDetails.DataSource = dt;
-
-                if (grvPrRunDetails.FocusedRowHandle < 1)
-                {
-                    grvPrRunDetails_FocusedRowChanged(null, null);
-                }
             }
             catch
             {
@@ -537,25 +532,6 @@ namespace VS.OEE
                 //XtraMessageBox.Show(MethodBase.GetCurrentMethod().Name + ": " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void datBD_EditValueChanged(object sender, EventArgs e)
-        {
-            //LoadgrdEquiment();
-            if (Commons.Modules.sId == "0Load") return;
-            //cboCa.EditValue = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text,
-            //    "SELECT TOP 1 STT FROM dbo.CA WHERE CONVERT (TIME, '" + datBD.DateTime.TimeOfDay +
-            //    "')  BETWEEN CONVERT (TIME,TU_GIO) AND CONVERT (TIME,DEN_GIO)"));
-            if (Commons.Modules.ObjSystems.ConvertDatatable(grdPrRunDetails).Rows.Count == 0) return;
-            if (Commons.Modules.msgHoi("msgBanCoMuonCapNhatLaiGio") == DialogResult.Yes)
-            {
-                if (!dxValidationProvider1.Validate()) return;
-                Validate();
-                for (int i = 0; i < grvPrRunDetails.RowCount; i++)
-                {
-                    grvPrRunDetails.SetRowCellValue(i, "StartTime", datBD.DateTime);
-                    grvPrRunDetails.SetRowCellValue(i, "EndTime", datKT.DateTime);
-                }
-            }
-        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -816,23 +792,6 @@ namespace VS.OEE
             }
         }
 
-        private void grvPrRunDetails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            //if (btnGhi.Visible == true) return;
-            //DataTable dt = new DataTable();
-            //dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetProDuctionOEE", grvPrRunDetails.GetFocusedRowCellValue("DetailID")));
-            //txtTH.EditValue = dt.Rows[0]["TH"];
-            //txtNPH.EditValue = dt.Rows[0]["NPH"];
-            //txtGPH.EditValue = dt.Rows[0]["GPH"];
-            //txtDT.EditValue = dt.Rows[0]["DT"];
-            //txtPE.EditValue = dt.Rows[0]["PE"];
-            //txtOEE.EditValue = dt.Rows[0]["OEE"];
-            //txtDTPT.EditValue = dt.Rows[0]["DTP"];
-            //txtEL.EditValue = dt.Rows[0]["EL"];
-            //txtELVer.EditValue = dt.Rows[0]["ELV"];
-            //LoadgrdEquiment();
-        }
-
         private void mnuNhapTGNM_Click(object sender, EventArgs e)
         {
             try
@@ -862,33 +821,6 @@ namespace VS.OEE
             {
             }
         }
-
-        //private void cboCa_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    //if(Commons.Modules.sId == "0Load") return;
-        //    DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        if (Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails).Rows.Count == 0)
-        //        {
-        //            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT CONVERT(NVARCHAR(20), GETDATE(), 103) + ' ' + CONVERT(NVARCHAR(20), TU_GIO, 108) AS TU_GIO,CONVERT(NVARCHAR(20), GETDATE(), 103) + ' ' + CONVERT(NVARCHAR(20), DEN_GIO, 108) AS DEN_GIO FROM dbo.CA WHERE STT = " + cboCa.EditValue + ""));
-        //            datBD.DateTime = Convert.ToDateTime(dt.Rows[0]["TU_GIO"]);
-        //            datKT.DateTime = Convert.ToDateTime(dt.Rows[0]["DEN_GIO"]);
-        //            if (datKT.DateTime.TimeOfDay < datBD.DateTime.TimeOfDay)
-        //            {
-        //                datKT.DateTime = datKT.DateTime.AddDays(1);
-        //            }
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        //datBD.DateTime = DateTime.Now;
-        //        //datKT.DateTime = DateTime.Now.AddHours(1);
-        //    }
-        //    LoadgrdEquiment();
-        //}
-
-
         private void grvPrRunDetails_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
             try
@@ -943,6 +875,14 @@ namespace VS.OEE
             frm.ShowDialog();
         }
 
-       
+        private void datNgayTao_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (iThem == -1)
+                    txtCode.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_TDSX('" + datNgayTao.DateTime.ToString("yyyy-MM-dd") + "')").ToString();
+            }
+            catch { }
+        }
     }
 }

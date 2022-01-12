@@ -32,8 +32,8 @@
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.datKT = new DevExpress.XtraEditors.DateEdit();
             this.datBD = new DevExpress.XtraEditors.DateEdit();
+            this.datKT = new DevExpress.XtraEditors.DateEdit();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
@@ -73,10 +73,10 @@
             this.mnuCapNhatTo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datBD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datBD.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -112,35 +112,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // datKT
-            // 
-            this.tablePanel3.SetColumn(this.datKT, 5);
-            this.datKT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datKT.EditValue = null;
-            this.datKT.Location = new System.Drawing.Point(682, 37);
-            this.datKT.Name = "datKT";
-            this.datKT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datKT.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.datKT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datKT.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
-            this.datKT.Properties.DisplayFormat.FormatString = "G";
-            this.datKT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datKT.Properties.EditFormat.FormatString = "G";
-            this.datKT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datKT.Properties.Mask.EditMask = "G";
-            this.datKT.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel3.SetRow(this.datKT, 2);
-            this.datKT.Size = new System.Drawing.Size(153, 20);
-            this.datKT.TabIndex = 2;
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
-            compareAgainstControlValidationRule2.Control = this.datBD;
-            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
-            compareAgainstControlValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.datKT, compareAgainstControlValidationRule2);
-            this.datKT.EditValueChanged += new System.EventHandler(this.datBD_EditValueChanged);
-            // 
             // datBD
             // 
             this.tablePanel3.SetColumn(this.datBD, 5);
@@ -164,12 +135,39 @@
             this.tablePanel3.SetRow(this.datBD, 1);
             this.datBD.Size = new System.Drawing.Size(153, 20);
             this.datBD.TabIndex = 2;
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.datKT;
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.datKT;
+            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
+            compareAgainstControlValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.datBD, compareAgainstControlValidationRule2);
+            // 
+            // datKT
+            // 
+            this.tablePanel3.SetColumn(this.datKT, 5);
+            this.datKT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datKT.EditValue = null;
+            this.datKT.Location = new System.Drawing.Point(682, 37);
+            this.datKT.Name = "datKT";
+            this.datKT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datKT.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.datKT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datKT.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.datKT.Properties.DisplayFormat.FormatString = "G";
+            this.datKT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datKT.Properties.EditFormat.FormatString = "G";
+            this.datKT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datKT.Properties.Mask.EditMask = "G";
+            this.datKT.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel3.SetRow(this.datKT, 2);
+            this.datKT.Size = new System.Drawing.Size(153, 20);
+            this.datKT.TabIndex = 2;
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
+            compareAgainstControlValidationRule1.Control = this.datBD;
             compareAgainstControlValidationRule1.ErrorText = "This value is not valid";
             compareAgainstControlValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.datBD, compareAgainstControlValidationRule1);
-            this.datBD.EditValueChanged += new System.EventHandler(this.datBD_EditValueChanged);
+            this.dxValidationProvider1.SetValidationRule(this.datKT, compareAgainstControlValidationRule1);
             // 
             // tablePanel1
             // 
@@ -425,7 +423,6 @@
             this.grvPrRunDetails.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.grvPrRunDetails_PopupMenuShowing);
             this.grvPrRunDetails.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.grvPrRunDetails_ShowingEditor);
             this.grvPrRunDetails.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvPrRunDetails_InitNewRow);
-            this.grvPrRunDetails.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvPrRunDetails_FocusedRowChanged);
             this.grvPrRunDetails.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvPrRunDetails_InvalidRowException);
             this.grvPrRunDetails.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPrRunDetails_ValidateRow);
             this.grvPrRunDetails.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.grvPrRunDetails_ValidatingEditor);
@@ -454,6 +451,7 @@
             this.tablePanel3.SetRow(this.datNgayTao, 1);
             this.datNgayTao.Size = new System.Drawing.Size(153, 20);
             this.datNgayTao.TabIndex = 8;
+            this.datNgayTao.EditValueChanged += new System.EventHandler(this.datNgayTao_EditValueChanged);
             // 
             // txtCode
             // 
@@ -670,10 +668,10 @@
             this.Text = "frmProductRun";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmProductRun_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datBD.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datBD.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datKT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();

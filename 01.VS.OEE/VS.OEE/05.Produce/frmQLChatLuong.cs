@@ -832,5 +832,10 @@ namespace VS.OEE
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
         #endregion
+
+        private void datQCDate_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

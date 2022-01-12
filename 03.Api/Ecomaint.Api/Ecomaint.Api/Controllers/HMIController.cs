@@ -242,7 +242,7 @@ namespace CMMSApi.Controllers
                 lstRequest.AddRange(listnotexit);
                 return Json(lstRequest, JsonRequestBehavior.AllowGet);
             }
-            catch
+            catch(Exception ex)
             {
                 return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
             }
@@ -420,12 +420,13 @@ namespace CMMSApi.Controllers
             DateTime TNgay = TN;
             DateTime DNgay = DN;
             List<DateTime> ListNgay = new List<DateTime>();
+            ListNgay.Add(TN.AddDays(-1));
             //lấy tất cả các ngày có trong list
             do
             {
                 ListNgay.Add(TN);
                 TN = TN.AddDays(1);
-            } while (TN <= DN);
+            } while (TN.Date <= DN.Date);
             List<CapNhatCa> listResulst = new List<CapNhatCa>();
             for (int i = 0; i < ListNgay.Count; i++)
             {
@@ -434,7 +435,7 @@ namespace CMMSApi.Controllers
                 List<SqlParameter> listParameter = new List<SqlParameter>();
                 listParameter.Add(new SqlParameter("@TN", ListNgay[i]));
                 listCA = Ecomaint.Api.DBUtils.ExecuteSPList<CapNhatCa>("spAPIGet_CA", listParameter);
-                if(ListNgay.Count() == 1 && listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).ToList().Count() ==1)
+                if(ListNgay.Count() == 2 && listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).ToList().Count() ==1)
                 {
                     var item = listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).FirstOrDefault();
                     item.NGAY_KT = DNgay;
@@ -447,30 +448,23 @@ namespace CMMSApi.Controllers
                 foreach (var item in listCA.Where(x => x.NGAY_BD <= DNgay))
                 {
                     //kiểm tra từ ngày có nằm trong item không
-                    if (TNgay > item.NGAY_BD && DNgay < item.NGAY_KT)
+                    if (TNgay >= item.NGAY_BD && TNgay < item.NGAY_KT)
                     {
-                        item.NGAY_KT = DNgay;
-                        item.NGAY_BD = TNgay;
-                        listResulst.Add(item);
-                        item.NGAY_BD = TNgay;
-                    }
-                    else
-                    {
-                        if (DNgay < item.NGAY_KT)
+                        //kiểm tra đến ngày có nhỏ hơn ngày kết thúc không
+                        if (DN > item.NGAY_KT)
                         {
-                            if (TNgay >= item.NGAY_BD)
-                                item.NGAY_KT = DN;
-                            listResulst.Add(item);
-                            break;
-                        }
-                        if (TNgay >= item.NGAY_BD)
-                        {
+                            // Đến ngày lớn hơn ngày kết thúc
                             item.NGAY_BD = TNgay;
                             listResulst.Add(item);
                             TNgay = item.NGAY_KT;
                         }
-                      
-
+                        else
+                        {
+                            // Đến ngày nhỏ hơn ngày kết thúc
+                            item.NGAY_KT = DN;
+                            listResulst.Add(item);
+                            break;
+                        }
                     }
                 }
             }

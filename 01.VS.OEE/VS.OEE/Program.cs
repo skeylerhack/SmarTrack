@@ -37,9 +37,10 @@ namespace VS.OEE
         {
             try
             {
-
+                Application.Run(new frmItemMay(1));
                 //Application.Run(new frmProductOrder(1));
-                Application.Run(new frmProductRun(1));
+                //Application.Run(new frmProductOrder(1));
+                //Application.Run(new frmProductRun(1));
             }
             catch (Exception ex)
             {

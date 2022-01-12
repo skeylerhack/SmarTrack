@@ -63,9 +63,15 @@ namespace VS.OEE
             {
                 GridView View = sender as GridView;
                 if (Convert.ToInt32(grvHistoryTGDM.GetRowCellValue(e.RowHandle, "ID_HANH_DONG")) == 2)
+                {
                     e.Appearance.BackColor = Color.FromArgb(204, 236, 255);
+                    e.Appearance.ForeColor = Color.Black;
+                }
                 if (Convert.ToInt32(grvHistoryTGDM.GetRowCellValue(e.RowHandle, "ID_HANH_DONG")) == 3)
+                {
                     e.Appearance.BackColor = Color.FromArgb(255, 204, 255);
+                    e.Appearance.ForeColor = Color.Black;
+                }
             }
             catch
             {
@@ -89,6 +95,7 @@ namespace VS.OEE
             LoadgrdThoiGianNgungMay();
         }
         #endregion
+
         #region Function
         private void LoadgrdThoiGianNgungMay()
         {

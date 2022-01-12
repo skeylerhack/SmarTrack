@@ -558,66 +558,76 @@ namespace VS.OEE
             DateTime DNgay = DN;
             List<DateTime> ListNgay = new List<DateTime>();
             //lấy tất cả các ngày có trong list
+            ListNgay.Add(TN.AddDays(-1));
             do
             {
                 ListNgay.Add(TN);
                 TN = TN.AddDays(1);
-            } while (TN <= DN);
+            } while (TN.Date <= DN.Date);
             //List<CapNhatCa> listResulst = new List<CapNhatCa>();
             DataTable dt_Result = new DataTable();
             for (int i = 0; i < ListNgay.Count; i++)
             {
                 //lấy các ca của ngày hôm đó
-                List<CapNhatCa> listCA = new List<CapNhatCa>();
                 DataTable dt = new DataTable();
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spAPIGet_CA", ListNgay[i]));
                 if (dt_Result == null || dt_Result.Rows.Count == 0)
                     dt_Result = dt.Clone().Copy();
+                if (ListNgay.Count() == 2 && dt.AsEnumerable().Where(x => TNgay >= Convert.ToDateTime(x["NGAY_BD"]) && DNgay <= Convert.ToDateTime(x["NGAY_KT"])).ToList().Count() == 1)
+                {
+                    //var item = listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).FirstOrDefault();
+
+                    //item.NGAY_BD = TN;
+                    //item.NGAY_KT= DN;
+                    //listCA.Add(item);
+
+
+                    DataRow r = dt_Result.NewRow();
+                    r["NGAY_BD"] = TNgay;
+                    r["NGAY_KT"] = DN;
+                    r["ID_CA"] = dt.AsEnumerable().Where(x => TNgay >= Convert.ToDateTime(x["NGAY_BD"]) && DNgay <= Convert.ToDateTime(x["NGAY_KT"])).CopyToDataTable().Rows[0]["ID_CA"];
+                    dt_Result.Rows.Add(r);
+                    dt_Result.AcceptChanges();
+                    return dt_Result;
+                }
+
                 //ngày bắc đầu nằm trong ca
                 foreach (var row in dt.AsEnumerable().Where(x => x.Field<DateTime>("NGAY_BD") <= DNgay))
                 {
                     //kiểm tra từ ngày có nằm trong item không
                     DataRow r = dt_Result.NewRow();
 
-                    if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]) && DNgay < Convert.ToDateTime(row["NGAY_KT"]))
+                    if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]) && TNgay < Convert.ToDateTime(row["NGAY_KT"]))
                     {
-                        r["NGAY_BD"] = TNgay;
-                        r["NGAY_KT"] = DNgay;
-                        r["ID_CA"] = row["ID_CA"];
-                        dt_Result.Rows.Add(r);
-                        dt_Result.AcceptChanges();
-                        //item.NGAY_BD = TNgay;
+                        //kiểm tra đến ngày có nhỏ hơn ngày kết thúc không
+                        if (DN > Convert.ToDateTime(row["NGAY_KT"]))
+                        {
+                            // Đến ngày lớn hơn ngày kết thúc
+                            r["NGAY_BD"] = TNgay;
+                            r["NGAY_KT"] = row["NGAY_KT"];
+                            r["ID_CA"] = row["ID_CA"];
+                            dt_Result.Rows.Add(r);
+                            dt_Result.AcceptChanges();
+                            TNgay = Convert.ToDateTime(row["NGAY_KT"]);
+                        }
+                        else
+                        {
+                            // Đến ngày nhỏ hơn ngày kết thúc
+                            r["NGAY_BD"] = row["NGAY_BD"];
+                            r["NGAY_KT"] = DN;
+                            r["ID_CA"] = row["ID_CA"];
+                            dt_Result.Rows.Add(r);
+                            dt_Result.AcceptChanges();
+                            break;
+                        }
                     }
-                    //else
-                    //{
-                    //    if (DNgay <= Convert.ToDateTime(row["NGAY_KT"]))
-                    //    {
-                    //        DataRow r1 = dt_Result.NewRow();
-                    //        r1["NGAY_BD"] = row["NGAY_BD"];
-                    //        r1["NGAY_KT"] = DN;
-                    //        r1["ID_CA"] = row["ID_CA"];
-                    //        dt_Result.Rows.Add(r1);
-                    //        dt_Result.AcceptChanges();
-                    //        //listResulst.Add(item);
-                    //        break;
-                    //    }
 
-                    //    if (TNgay >= Convert.ToDateTime(row["NGAY_BD"]))
-                    //    {
-                    //        r["NGAY_BD"] = TNgay;
-                    //        r["NGAY_KT"] = row["NGAY_KT"];
-                    //        r["ID_CA"] = row["ID_CA"];
-                    //        dt_Result.Rows.Add(r);
-                    //        dt_Result.AcceptChanges();
-                    //        //listResulst.Add(item);
-                    //        TNgay = Convert.ToDateTime(row["NGAY_KT"]);
-                    //    }
-                    //}
                 }
             }
             return dt_Result;
         }
+
         #endregion
-    
+
     }
 }

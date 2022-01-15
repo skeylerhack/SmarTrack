@@ -1131,13 +1131,20 @@ namespace VS.OEE
                 Workbook book = new Workbook();
                 Worksheet sheet = book.Worksheets[0];
                 DataTable dtTmp = new DataTable();
-                string sSql = "SELECT TOP 10 PrOrNumber AS PO,C.MS_MAY AS 'Máy',B.ItemID AS 'Mã sản phẩm',C.BOMVersion AS 'BOM Version',C.PlannedQuantity AS 'SL Kế Hoạch',C.SoCaSX AS 'Số ca sản xuất',C.PlannedStartTime AS 'Ngày bắt đầu ',D.CA AS 'Ca bắt đầu',C.DueTime AS 'Thời gian kết thúc',D.CA AS 'Ca kết thúc 'FROM dbo.ProductionOrder A INNER JOIN  dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.ProSchedule C ON C.DetailsID = B.DetailsID INNER JOIN dbo.CA D ON C.CaID = D.STT";
+                string sSql = "SELECT TOP 10 PrOrNumber AS PO,C.MS_MAY AS 'Máy',B.ItemID AS 'Mã sản phẩm',C.BOMVersion AS 'BOM Version',C.PlannedQuantity AS 'SL Kế Hoạch',C.SoCaSX AS 'Số ca sản xuất',C.PlannedStartTime AS 'Thời gian bắt đầu ',D.CA AS 'Ca bắt đầu',C.DueTime AS 'Thời gian kết thúc',D.CA AS 'Ca kết thúc 'FROM dbo.ProductionOrder A INNER JOIN  dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.ProSchedule C ON C.DetailsID = B.DetailsID INNER JOIN dbo.CA D ON C.CaID = D.STT";
                 dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
                 //export datatable to excel
                 sheet.DefaultColumnWidth = 20;
                 sheet.Range[1, 1, dtTmp.Rows.Count + 1, dtTmp.Columns.Count].Style.WrapText = true;
                 sheet.Range[1, 1, 1, dtTmp.Columns.Count].Style.VerticalAlignment = VerticalAlignType.Center;
                 sheet.Range[1, 1, 1, dtTmp.Columns.Count].Style.HorizontalAlignment = HorizontalAlignType.Center;
+
+                sheet.Range[1,2,1,2].Style.Font.Color = Color.Red;
+                sheet.Range[1, 3, 1, 3].Style.Font.Color = Color.Red;
+                sheet.Range[1, 5, 1, 5].Style.Font.Color = Color.Red;
+                sheet.Range[1, 7, 1, 7].Style.Font.Color = Color.Red;
+                sheet.Range[1, 9, 1, 9].Style.Font.Color = Color.Red;
+
                 if (dtTmp.Rows.Count > 0)
                 {
                     sheet.Range[2, 1, dtTmp.Rows.Count + 1, dtTmp.Columns.Count].Style.VerticalAlignment = VerticalAlignType.Center;

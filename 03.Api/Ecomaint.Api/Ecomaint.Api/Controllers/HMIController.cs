@@ -86,9 +86,9 @@ namespace CMMSApi.Controllers
             {
                 List<SqlParameter> listParameter = new List<SqlParameter>();
                 List<DepartMentViewModel> list = new List<DepartMentViewModel>();
-                list.Add(new DepartMentViewModel { ID_DepartMent = 1, Ten_DepartMent = "Sự cố máy" });
-                list.Add(new DepartMentViewModel { ID_DepartMent = 2, Ten_DepartMent = "Sự cố chất lượng" });
-                list.Add(new DepartMentViewModel { ID_DepartMent = 3, Ten_DepartMent = "Sự cố logistic" });
+                list.Add(new DepartMentViewModel { ID_DepartMent = 1, Ten_DepartMent = "Bộ phận kỹ thuật" });
+                list.Add(new DepartMentViewModel { ID_DepartMent = 2, Ten_DepartMent = "Bộ phận chất lượng" });
+                list.Add(new DepartMentViewModel { ID_DepartMent = 3, Ten_DepartMent = "Bộ phận cung ứng" });
                 if (list.Count == 0)
                 {
                     list.Add(new DepartMentViewModel { ID_DepartMent = -1, Ten_DepartMent = "NON" });
@@ -106,9 +106,12 @@ namespace CMMSApi.Controllers
         {
             try
             {
+                //1 : là có kế hoạch
+                // lớn hơn 1 là không có kế hoạch
+
                 List<SqlParameter> listParameter = new List<SqlParameter>();
                 List<DowtimeTypeViewModel> list = new List<DowtimeTypeViewModel>();
-                listParameter.Add(new SqlParameter("@Planned", Convert.ToBoolean(Convert.ToInt32(Planned))));
+                listParameter.Add(new SqlParameter("@Planned", Convert.ToInt32(Planned)));
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<DowtimeTypeViewModel>("spApiGETDowTimeType", listParameter);
                 if (list.Count == 0)
                 {
@@ -471,6 +474,7 @@ namespace CMMSApi.Controllers
             return listResulst;
         }
         #endregion
+
         #region call department
 
         public JsonResult SendSupervisor(string Ngay, string MS_MAY)
@@ -584,6 +588,7 @@ namespace CMMSApi.Controllers
             }
         }
         #endregion
+
         #region hàm gửi mail
         private Boolean SendMail(List<PhoneMailViewModel> lstPhoneMail, DateTime Ngay)
         {
@@ -655,6 +660,7 @@ namespace CMMSApi.Controllers
         }
 
         #endregion
+
         public JsonResult UpdatreConsumption(string Ngay, string MS_MAY, string I1, string I2, string I3, string U1, string U2, string U3, string W)
         {
             int i = 1;
@@ -694,6 +700,7 @@ namespace CMMSApi.Controllers
                 }
             }
         }
+
         public JsonResult UpdateStatusMay(string MS_MAY,string TT)
         {
             int i = 1;

@@ -1131,7 +1131,10 @@ namespace VS.OEE
                 Workbook book = new Workbook();
                 Worksheet sheet = book.Worksheets[0];
                 DataTable dtTmp = new DataTable();
-                string sSql = "SELECT TOP 10 PrOrNumber AS PO,C.MS_MAY AS 'Máy',B.ItemID AS 'Mã sản phẩm',C.BOMVersion AS 'BOM Version',C.PlannedQuantity AS 'SL Kế Hoạch',C.SoCaSX AS 'Số ca sản xuất',C.PlannedStartTime AS 'Thời gian bắt đầu ',D.CA AS 'Ca bắt đầu',C.DueTime AS 'Thời gian kết thúc',D.CA AS 'Ca kết thúc 'FROM dbo.ProductionOrder A INNER JOIN  dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.ProSchedule C ON C.DetailsID = B.DetailsID INNER JOIN dbo.CA D ON C.CaID = D.STT";
+                //string sSql = "SELECT TOP 10 PrOrNumber AS PO,C.MS_MAY AS 'Máy',B.ItemID AS 'Mã sản phẩm',C.BOMVersion AS 'BOM Version',C.PlannedQuantity AS 'SL Kế Hoạch',C.SoCaSX AS 'Số ca sản xuất',C.PlannedStartTime AS 'Thời gian bắt đầu ',D.CA AS 'Ca bắt đầu',C.DueTime AS 'Thời gian kết thúc',D.CA AS 'Ca kết thúc 'FROM dbo.ProductionOrder A INNER JOIN  dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.ProSchedule C ON C.DetailsID = B.DetailsID INNER JOIN dbo.CA D ON C.CaID = D.STT";
+
+                string sSql = "SELECT TOP 0 ItemCode AS 'Item number',ItemName,B.PlannedQuantity AS Quantity,B.PlannedStartTime AS Delivery,B.MS_MAY AS 'Machine code',CONVERT(BIGINT, 0) AS weekend FROM dbo.Item A INNER JOIN dbo.ProSchedule B ON A.ID = B.ScheduleID";
+
                 dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
                 //export datatable to excel
                 sheet.DefaultColumnWidth = 20;
@@ -1139,17 +1142,13 @@ namespace VS.OEE
                 sheet.Range[1, 1, 1, dtTmp.Columns.Count].Style.VerticalAlignment = VerticalAlignType.Center;
                 sheet.Range[1, 1, 1, dtTmp.Columns.Count].Style.HorizontalAlignment = HorizontalAlignType.Center;
 
-                sheet.Range[1,2,1,2].Style.Font.Color = Color.Red;
-                sheet.Range[1, 3, 1, 3].Style.Font.Color = Color.Red;
-                sheet.Range[1, 5, 1, 5].Style.Font.Color = Color.Red;
-                sheet.Range[1, 7, 1, 7].Style.Font.Color = Color.Red;
-                sheet.Range[1, 9, 1, 9].Style.Font.Color = Color.Red;
+                //sheet.Range[1,2,1,2].Style.Font.Color = Color.Red;
+                //sheet.Range[1, 3, 1, 3].Style.Font.Color = Color.Red;
+                //sheet.Range[1, 5, 1, 5].Style.Font.Color = Color.Red;
+                //sheet.Range[1, 7, 1, 7].Style.Font.Color = Color.Red;
+                //sheet.Range[1, 9, 1, 9].Style.Font.Color = Color.Red;
 
-                if (dtTmp.Rows.Count > 0)
-                {
-                    sheet.Range[2, 1, dtTmp.Rows.Count + 1, dtTmp.Columns.Count].Style.VerticalAlignment = VerticalAlignType.Center;
-                    sheet.Range[2, 1, dtTmp.Rows.Count + 1, dtTmp.Columns.Count].Style.HorizontalAlignment = HorizontalAlignType.Left;
-                }
+          
                 sheet.Range[1, 1, 1, dtTmp.Columns.Count].Style.Font.IsBold = true;
                 sheet.InsertDataTable(dtTmp, true, 1, 1);
                 book.SaveToFile(sPath);

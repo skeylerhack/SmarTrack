@@ -37,7 +37,7 @@ namespace VS.OEE
         {
             try
             {
-                Application.Run(new frmMain());
+                Application.Run(new frmShiftLeader(1));
                 //Application.Run(new frmProductOrder(1));
                 //Application.Run(new frmProductOrder(1));
                 //Application.Run(new frmProductRun(1));

@@ -87,8 +87,8 @@
             // 
             this.grvImport.GridControl = this.grdImport;
             this.grvImport.Name = "grvImport";
+            this.grvImport.OptionsCustomization.AllowSort = false;
             this.grvImport.OptionsView.ShowGroupPanel = false;
-            this.grvImport.ShownEditor += new System.EventHandler(this.grvImport_ShownEditor);
             this.grvImport.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grvImport_KeyDown);
             // 
             // panelControl1

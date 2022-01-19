@@ -53,7 +53,6 @@ namespace VS.OEE
             bar2.ClearLinks();
             bm.EndUpdate();
             DataTable dtRoot = new DataTable();
-
             string sSql = "SELECT DISTINCT T1.ID_MENU,T1.KEY_MENU,CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN T1.TEN_MENU WHEN 1 THEN ISNULL(NULLIF(T1.TEN_MENU_A, ''), T1.TEN_MENU) ELSE ISNULL(NULLIF(T1.TEN_MENU_H, ''), T1.TEN_MENU) END AS TEN_MENU, T1.STT_MENU FROM dbo.MENU_OEE T1 INNER JOIN dbo.NHOM_MENU_OEE T2 ON T2.ID_MENU = T1.ID_MENU INNER JOIN dbo.USERS T3 ON T3.GROUP_ID = T2.ID_NHOM WHERE(ISNULL(T1.MENU_PARENT, '') = '') AND(T3.USERNAME = '" + Commons.Modules.UserName + "') AND(ISNULL(T1.HIDE, 0) = 1) ORDER BY STT_MENU";
             dtRoot.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
             foreach (DataRow item in dtRoot.Rows)
@@ -211,7 +210,8 @@ namespace VS.OEE
                 case "ShowThoiGianNgungMay_KTTD": { ShowThoiGianNgungMay_KTTD(); return; }
                 case "ShowYeuCauHoTro": { ShowYeuCauHoTro(); return; }
                 case "ShowElearning": { ShowELearning(); return; }
-                    
+                case "ShowXemTraLoi": { ShowPhanHoiVietSoft(); return; }
+
                 default:
                     {
                         break;
@@ -758,25 +758,37 @@ namespace VS.OEE
        
         public void ShowYeuCauHoTro()
         {
-            string sTenCty = "VietSoft";
-            string sMail = "sales@vietsoft.com.vn";
-            string sDThoai = "(028) 38 110 770";
-            string iCus = "(028) 38 110 770";
-
+             string sDThoai = "", sTenNV = "", sTenCty = "", sMail ="";
             try
             {
                 DataTable dt = new DataTable();
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT  ISNULL(EMAIL,'') AS EMAIL,ISNULL(Phone,'') AS DIEN_THOAI, CASE "+Commons.Modules.TypeLanguage.ToString() +" WHEN 0 THEN TEN_CTY_TIENG_VIET ELSE ISNULL(NULLIF(TEN_CTY_TIENG_ANH,''), TEN_CTY_TIENG_VIET)	END AS TEN_CTY,ISNULL(CustomerID,'-1') AS CustomerID FROM THONG_TIN_CHUNG"));
-
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT A.FULL_NAME,ISNULL(A.USER_MAIL,B.MAIL) AS MAIL ,B.PHONE,(SELECT TOP 1 TEN_CTY_TIENG_VIET FROM dbo.THONG_TIN_CHUNG) AS TEN_CTY FROM dbo.USERS A LEFT JOIN dbo.Operator B ON A.MS_CONG_NHAN = B.ID_Operator WHERE A.USERNAME = '"+ Commons.Modules.UserName +"'"));
                 sTenCty = dt.Rows[0]["TEN_CTY"].ToString();
-                sMail = dt.Rows[0]["EMAIL"].ToString();
-                sDThoai = dt.Rows[0]["DIEN_THOAI"].ToString();
-                iCus = dt.Rows[0]["CustomerID"].ToString();
+                sMail = dt.Rows[0]["MAIL"].ToString();
+                sDThoai = dt.Rows[0]["PHONE"].ToString();
+                sTenNV = dt.Rows[0]["FULL_NAME"].ToString();
+            }
+            catch { }
+            Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, Commons.Modules.ModuleName, sTenCty, sMail, sDThoai, sDThoai, 1);
+
+            frm.ShowDialog();
+        }
+
+        public void ShowPhanHoiVietSoft()
+        {
+            string sDThoai = "", sTenNV = "", sTenCty = "", sMail = "";
+            try
+            {
+                DataTable dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT A.FULL_NAME,ISNULL(A.USER_MAIL,B.MAIL) AS MAIL ,B.PHONE,(SELECT TOP 1 TEN_CTY_TIENG_VIET FROM dbo.THONG_TIN_CHUNG) AS TEN_CTY FROM dbo.USERS A LEFT JOIN dbo.Operator B ON A.MS_CONG_NHAN = B.ID_Operator WHERE A.USERNAME = '" + Commons.Modules.UserName + "'"));
+                sTenCty = dt.Rows[0]["TEN_CTY"].ToString();
+                sMail = dt.Rows[0]["MAIL"].ToString();
+                sDThoai = dt.Rows[0]["PHONE"].ToString();
+                sTenNV = dt.Rows[0]["FULL_NAME"].ToString();
             }
             catch { }
 
-
-            Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, Commons.Modules.sTenNhanVienMD, Commons.Modules.ModuleName, sTenCty, sMail, sDThoai, sDThoai, int.Parse(iCus));
+            Vs.Support.frmVSReply frm =  new Vs.Support.frmVSReply(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, Commons.Modules.ModuleName,sTenCty, sMail, sDThoai, sDThoai, 1);
 
             frm.ShowDialog();
         }

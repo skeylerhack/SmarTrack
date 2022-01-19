@@ -26,6 +26,7 @@ namespace VS.OEE
             }
             catch { sUserName = "-1"; }
             LoadCbo();
+            Commons.Modules.ObjSystems.MLoadLookUpEdit(cboCongNhan, Commons.Modules.ObjSystems.DataOpetator(false), "ID", "OperatorName",Commons.Modules.ObjLanguages.GetLanguage(this.Name, "OperatorName"));
         }
         private void frmEditThemNguoiDung_Load(object sender, EventArgs e)
         {
@@ -51,8 +52,6 @@ namespace VS.OEE
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cboID_NHOM, dt, "GROUP_ID", "GROUP_NAME", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "GROUP_NAME"));
         }
 
-
-
         private void LoadText()
         {
             try
@@ -64,6 +63,13 @@ namespace VS.OEE
                 txtDESCRIPTION.Text = drRow["DESCRIPTION"].ToString();
                 txtUSER_MAIL.Text = drRow["USER_MAIL"].ToString();
                 ckbACTIVE.EditValue = drRow["ACTIVE"];
+                try
+                {
+                    cboCongNhan.EditValue = Convert.ToInt64(drRow["MS_CONG_NHAN"]);
+                }
+                catch
+                {
+                }
             }
             catch (Exception ex)
             {
@@ -112,6 +118,7 @@ namespace VS.OEE
             cmd.Parameters.Add("@sDMuc", SqlDbType.NVarChar).Value = "mnuThemNguoiDung";
             cmd.Parameters.Add("@iLoai", SqlDbType.Int).Value = 3;
             cmd.Parameters.Add("@COT8", SqlDbType.Int).Value = cboID_NHOM.EditValue;
+            cmd.Parameters.Add("@COT9", SqlDbType.Int).Value = cboCongNhan.EditValue;
             cmd.Parameters.Add("@COT1", SqlDbType.NVarChar).Value = txtUSER_NAME.Text;
             cmd.Parameters.Add("@COT2", SqlDbType.NVarChar).Value = txtFULL_NAME.Text;
             cmd.Parameters.Add("@COT3", SqlDbType.NVarChar).Value = Commons.Modules.OXtraGrid.MaHoaDL(txtPASSWORD.Text);

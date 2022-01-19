@@ -92,10 +92,10 @@
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel1.SetColumn(this.panelControl1, 0);
             this.tablePanel1.SetColumnSpan(this.panelControl1, 4);
-            this.panelControl1.Controls.Add(this.btnSua);
             this.panelControl1.Controls.Add(this.btnXoa);
-            this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Controls.Add(this.btnThoat);
+            this.panelControl1.Controls.Add(this.btnSua);
+            this.panelControl1.Controls.Add(this.btnThem);
             this.panelControl1.Controls.Add(this.txtTim);
             this.panelControl1.Location = new System.Drawing.Point(3, 439);
             this.panelControl1.Name = "panelControl1";

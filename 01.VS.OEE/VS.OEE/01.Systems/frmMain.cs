@@ -60,12 +60,20 @@ namespace VS.OEE
                 bm.BeginUpdate();
                 BarSubItem bsRoot = new BarSubItem(bm, item["TEN_MENU"].ToString());
                 bsRoot.Name = item["KEY_MENU"].ToString();
-                ////bsRoot.Tag = item["CONTROLS"].ToString();
                 bsRoot.Id = int.Parse(item["ID_MENU"].ToString());
+                bsRoot.ItemClick += BsRoot_ItemClick;
                 ////bsRoot.Description = item["MENU_PARAMETER"].ToString();
                 bm.MainMenu.AddItem(bsRoot);
                 AddBarChild(bsRoot);
                 bm.EndUpdate();
+            }
+        }
+
+        private void BsRoot_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (e.Item.Id.ToString() == "1")
+            {
+                ShowBaoCao();
             }
         }
 
@@ -755,14 +763,14 @@ namespace VS.OEE
         #endregion
 
 
-       
+
         public void ShowYeuCauHoTro()
         {
-             string sDThoai = "", sTenNV = "", sTenCty = "", sMail ="";
+            string sDThoai = "", sTenNV = "", sTenCty = "", sMail = "";
             try
             {
                 DataTable dt = new DataTable();
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT A.FULL_NAME,ISNULL(A.USER_MAIL,B.MAIL) AS MAIL ,B.PHONE,(SELECT TOP 1 TEN_CTY_TIENG_VIET FROM dbo.THONG_TIN_CHUNG) AS TEN_CTY FROM dbo.USERS A LEFT JOIN dbo.Operator B ON A.MS_CONG_NHAN = B.ID_Operator WHERE A.USERNAME = '"+ Commons.Modules.UserName +"'"));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT A.FULL_NAME,ISNULL(A.USER_MAIL,B.MAIL) AS MAIL ,B.PHONE,(SELECT TOP 1 TEN_CTY_TIENG_VIET FROM dbo.THONG_TIN_CHUNG) AS TEN_CTY FROM dbo.USERS A LEFT JOIN dbo.Operator B ON A.MS_CONG_NHAN = B.ID_Operator WHERE A.USERNAME = '" + Commons.Modules.UserName + "'"));
                 sTenCty = dt.Rows[0]["TEN_CTY"].ToString();
                 sMail = dt.Rows[0]["MAIL"].ToString();
                 sDThoai = dt.Rows[0]["PHONE"].ToString();
@@ -788,12 +796,12 @@ namespace VS.OEE
             }
             catch { }
 
-            Vs.Support.frmVSReply frm =  new Vs.Support.frmVSReply(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, Commons.Modules.ModuleName,sTenCty, sMail, sDThoai, sDThoai, 1);
+            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, Commons.Modules.ModuleName, sTenCty, sMail, sDThoai, sDThoai, 1);
 
             frm.ShowDialog();
         }
 
-        public  void ShowELearning()
+        public void ShowELearning()
         {
             try
             {

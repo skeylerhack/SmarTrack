@@ -8,8 +8,6 @@ using DevExpress.XtraGrid;
 using Microsoft.ApplicationBlocks.Data;
 using System.Drawing;
 using DevExpress.XtraGrid.Columns;
-using System.Globalization;
-using DevExpress.Utils;
 using System.Linq;
 
 namespace VS.OEE

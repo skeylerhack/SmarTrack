@@ -338,12 +338,12 @@ namespace VS.OEE
         private void btnGhi_Click(object sender, EventArgs e)
         {
 
-            if (txtCode.Text.Trim() == "")
+            if (txtCode.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblCode.Text, txtCode);
                 return;
             }
-            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.ProductionRun WHERE Code ='" + txtCode.Text.Trim() + "'  " + (iThem == -1 ? "" : "AND ID <> " + iThem + "") + "  ");
+            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.ProductionRun WHERE Code ='" + txtCode.Text + "'  " + (iThem == -1 ? "" : "AND ID <> " + iThem + "") + "  ");
             if (rs != null && (Int32)rs > 0)
             {
                 Modules.msgThayThe(ThongBao.msgDaTonTai, lblCode.Text, txtCode);
@@ -580,7 +580,7 @@ namespace VS.OEE
                 //kiểm tra dữ liệu trùng trên lưới
                 DataTable dt = Commons.Modules.ObjSystems.ConvertDatatable(grdPrRunDetails);
                 
-                int n = dt.AsEnumerable().Count(x => x["PrOID"].ToString().Equals(PrOID) && x["ItemID"].ToString().Equals(ItemID) && x["MS_MAY"].ToString().Trim().Equals(MS_MAY.Trim()) && x["ID_CA"].ToString().Trim().Equals(ID_CA.Trim()));
+                int n = dt.AsEnumerable().Count(x => x["PrOID"].ToString().Equals(PrOID) && x["ItemID"].ToString().Equals(ItemID) && x["MS_MAY"].ToString().Equals(MS_MAY) && x["ID_CA"].ToString().Equals(ID_CA));
 
                 //Kiểm dữ liệu trùng dưới database
                 int m = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = "+ PrOID + " AND ItemID = "+ ItemID + " AND MS_MAY = '"+ MS_MAY + "' AND ID_CA = "+ID_CA+ " AND dbo.fnGetNgayTheoCa(StartTime) =dbo.fnGetNgayTheoCa('"+ Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "StartTime")).ToString("yyyy-MM-dd HH:mm:ss") + "') AND ProductionRunID != "+ iThem +" "));
@@ -866,6 +866,7 @@ namespace VS.OEE
             if (e.Column != view.Columns["ActualQuantity"])
                 return;
             e.Appearance.BackColor = Color.FromArgb(255, 204, 255);
+            e.Appearance.ForeColor = Color.Black;
         }
 
         private void mnuHistory_Click(object sender, EventArgs e)

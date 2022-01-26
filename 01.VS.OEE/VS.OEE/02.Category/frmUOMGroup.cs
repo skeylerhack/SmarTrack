@@ -87,12 +87,12 @@ namespace VS.OEE
         private void btnGhi_Click(object sender, EventArgs e)
         {
             #region Kiem du lieu
-            if (txtGroupName.Text.Trim() == "")
+            if (txtGroupName.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblGroupName.Text, txtGroupName);
                 return ;
             }
-            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.UOMConversionGroup WHERE GroupName ='"+ txtGroupName.Text.Trim() + "'  "+ (ithem == -1 ? "" : "AND ID <> "+ ithem +"") +"  ");
+            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.UOMConversionGroup WHERE GroupName ='"+ txtGroupName.Text + "'  "+ (ithem == -1 ? "" : "AND ID <> "+ ithem +"") +"  ");
             if (rs != null && (Int32)rs > 0)
             {
                 Modules.msgThayThe(ThongBao.msgDaTonTai, lblGroupName.Text, txtGroupName);

@@ -170,12 +170,12 @@ namespace VS.OEE
             {
                 if (cboID_CA.EditValue == null || Convert.ToInt32(cboID_CA.EditValue) < 1)
                 {
-                    XtraMessageBox.Show(lblID_CA.Text.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
+                    XtraMessageBox.Show(lblID_CA.Text + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
                     return;
                 }
                 if (datProductionDate.Text == "")
                 {
-                    XtraMessageBox.Show(lblProductionDate.Text.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
+                    XtraMessageBox.Show(lblProductionDate.Text + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
                     return;
                 }
 
@@ -811,7 +811,7 @@ namespace VS.OEE
                 if ((count == 2 && !grvQCDataDefect.IsNewItemRow(grvQCDataDefect.FocusedRowHandle)) || (count == 1 && grvQCDataDefect.IsNewItemRow(grvQCDataDefect.FocusedRowHandle)))
                 {
                     e.Valid = false;
-                    XtraMessageBox.Show(ID_Defect.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                    XtraMessageBox.Show(ID_Defect.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                     view.SetColumnError(ID_Defect, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                     view.FocusedColumn = ID_Defect;
                     return;

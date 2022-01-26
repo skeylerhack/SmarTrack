@@ -48,11 +48,11 @@ namespace VS.OEE
             //kiem ma don vi
             if (!KiemTrung(1)) return;
             //kiem ten viet
-            if (txtTEN_DON_VI.Text.Trim() != "") if (!KiemTrung(2)) return;
+            if (txtTEN_DON_VI.Text != "") if (!KiemTrung(2)) return;
             //kiem ten anh
-            if (txtTEN_DON_VI_ANH.Text.Trim() != "") if (!KiemTrung(3)) return;
+            if (txtTEN_DON_VI_ANH.Text != "") if (!KiemTrung(3)) return;
             //kiem ten hoa
-            if (txtTEN_DON_VI_HOA.Text.Trim() != "") if (!KiemTrung(4)) return;
+            if (txtTEN_DON_VI_HOA.Text != "") if (!KiemTrung(4)) return;
 
             #region Them
             System.Data.SqlClient.SqlConnection conn;

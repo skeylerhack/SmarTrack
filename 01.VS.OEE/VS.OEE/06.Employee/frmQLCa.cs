@@ -95,35 +95,35 @@ namespace VS.OEE
         {
             //kiểm tra dữ liệu
             #region kiem trong
-            if (txtCA.Text.Trim() == "")
+            if (txtCA.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblCA.Text, txtCA);
                 return;
             }
-            if (txtCA_ANH.Text.Trim() == "")
+            if (txtCA_ANH.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblCA_ANH.Text, txtCA_ANH);
                 return;
             }
-            if (datTU_GIO.Text.Trim() == "")
+            if (datTU_GIO.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblTU_GIO.Text, datTU_GIO);
                 return;
             }
-            if (datDEN_GIO.Text.Trim() == "")
+            if (datDEN_GIO.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblDEN_GIO.Text, datDEN_GIO);
                 return;
             }
             #endregion
             #region kiem trung 
-            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.CA WHERE CA = '" + txtCA.Text.Trim() + "' " + (ithem == -1 ? "" : "AND STT <> " + ithem + "") + "  ");
+            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.CA WHERE CA = '" + txtCA.Text + "' " + (ithem == -1 ? "" : "AND STT <> " + ithem + "") + "  ");
             if (rs != null && (Int32)rs > 0)
             {
                 Modules.msgThayThe(ThongBao.msgDaTonTai, txtCA.Text, txtCA);
                 return;
             }
-            rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.CA WHERE CA_ANH ='" + txtCA_ANH.Text.Trim() + "'  " + (ithem == -1 ? "" : "AND STT <> " + ithem + "") + "  ");
+            rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.CA WHERE CA_ANH ='" + txtCA_ANH.Text + "'  " + (ithem == -1 ? "" : "AND STT <> " + ithem + "") + "  ");
             if (rs != null && (Int32)rs > 0)
             {
                 Modules.msgThayThe(ThongBao.msgDaTonTai, txtCA_ANH.Text, txtCA_ANH);
@@ -258,7 +258,7 @@ namespace VS.OEE
                 if (view.FocusedRowHandle == DevExpress.XtraGrid.GridControl.NewItemRowHandle && count == 1)
                 {
                     e.Valid = false;
-                    XtraMessageBox.Show(ID.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                    XtraMessageBox.Show(ID.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                     view.SetColumnError(ID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                     view.FocusedColumn = ID;
                     return;
@@ -267,7 +267,7 @@ namespace VS.OEE
                 if (view.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle && count == 2)
                 {
                     e.Valid = false;
-                    XtraMessageBox.Show(ID.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                    XtraMessageBox.Show(ID.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                     view.SetColumnError(ID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                     view.FocusedColumn = ID;
                     return;

@@ -132,7 +132,7 @@ namespace VS.OEE
             try
             {
 
-                if (cbtNXuong.EditValue.ToString().Trim() != "")
+                if (cbtNXuong.EditValue.ToString() != "")
                 {
                     if (KiemDL("MAY_NHA_XUONG", "MS_N_XUONG", cbtNXuong.EditValue.ToString(), datNgayNX.DateTime, "NhaXuong") == false)
                     {
@@ -141,7 +141,7 @@ namespace VS.OEE
                     }
                 }
 
-                if (cbtHThong.EditValue.ToString().Trim() != "")
+                if (cbtHThong.EditValue.ToString() != "")
                 {
                     if (KiemDL("MAY_HE_THONG", "MS_HE_THONG", cbtHThong.EditValue.ToString(), datNgayHT.DateTime, "HeThong") == false)
                     {
@@ -152,7 +152,7 @@ namespace VS.OEE
 
 
 
-                if (cboTenBPCP.Text.ToString().Trim() != "")
+                if (cboTenBPCP.Text.ToString() != "")
                 {
                     if (KiemDL("MAY_BO_PHAN_CHIU_PHI", "MS_BP_CHIU_PHI", cboTenBPCP.EditValue.ToString(), datNgayBPCP.DateTime, "BPCP") == false)
                     {
@@ -171,20 +171,20 @@ namespace VS.OEE
                     if (ThemSua)
                     {
                         // NX
-                        if (cbtNXuong.EditValue.ToString().Trim() != "")
+                        if (cbtNXuong.EditValue.ToString() != "")
                         {
                             SqlHelper.ExecuteScalar(tran, "AddMAY_NHA_XUONG", txtMsMay.Text, datNgayNX.DateTime.Date, cbtNXuong.EditValue);
                             SqlHelper.ExecuteScalar(tran, "UPDATE_MAY_NHA_XUONG_LOG", txtMsMay.Text, datNgayNX.DateTime, this.Name, Commons.Modules.UserName, 1);
                         }
                         // May He Thong
-                        if (cbtHThong.EditValue.ToString().Trim() != "")
+                        if (cbtHThong.EditValue.ToString() != "")
                         {
                             SqlHelper.ExecuteScalar(tran, "AddMAY_HE_THONG", txtMsMay.Text, datNgayHT.DateTime.Date, cbtHThong.EditValue);
                             SqlHelper.ExecuteScalar(tran, "UPDATE_MAY_HE_THONG_LOG", txtMsMay.Text, datNgayHT.DateTime.Date, this.Name, Commons.Modules.UserName, 1);
                         }
 
                         // BPCP
-                        if (cboTenBPCP.Text.ToString().Trim() != "")
+                        if (cboTenBPCP.Text.ToString() != "")
                         {
                             SqlHelper.ExecuteScalar(tran, "AddMAY_BPCP", txtMsMay.Text, datNgayBPCP.DateTime.Date, cboTenBPCP.EditValue);
                             SqlHelper.ExecuteNonQuery(tran, "UPDATE_MAY_BO_PHAN_CHIU_PHI_LOG", txtMsMay.Text, datNgayBPCP.DateTime.Date, this.Name, Commons.Modules.UserName, 1);
@@ -193,20 +193,20 @@ namespace VS.OEE
                     else
                     {
                         // Sua
-                        if (cbtNXuong.EditValue.ToString().Trim() == "")
+                        if (cbtNXuong.EditValue.ToString() == "")
                         {
                             XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgLoiChuaNhapNhaXuong", Commons.Modules.TypeLanguage));
                             cbtNXuong.Focus();
                             return;
                         }
-                        if (cbtHThong.EditValue.ToString().Trim() == "")
+                        if (cbtHThong.EditValue.ToString() == "")
                         {
                             XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgLoiChuaNhapHeThong", Commons.Modules.TypeLanguage));
                             cbtHThong.Focus();
                             return;
                         }
 
-                        if (cboTenBPCP.Text.ToString().Trim() == "")
+                        if (cboTenBPCP.Text.ToString() == "")
                         {
                             XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgLoiChuaNhapBPCP", Commons.Modules.TypeLanguage));
                             cboTenBPCP.Focus();
@@ -485,7 +485,7 @@ namespace VS.OEE
                 s = "";
             }
 
-            if (ThemSua & sMaSoGT.ToString().Trim() == s)
+            if (ThemSua & sMaSoGT.ToString() == s)
             {
                 XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgLoiNhap" + sLoi + "lientuc", Commons.Modules.TypeLanguage));
                 return false;
@@ -493,7 +493,7 @@ namespace VS.OEE
 
             sSql = " SELECT ISNULL(CONVERT(NVARCHAR," + sCotMaso + "), '')  FROM " + sTable + " A INNER JOIN (SELECT MIN(NGAY_NHAP ) AS NGAY_NHAP, MS_MAY " + " FROM " + sTable + " WHERE (dbo." + sTable + ".MS_MAY = '" + txtMsMay.Text + "')  " + " AND NGAY_NHAP > '" + dNgay.Date.ToString("MM/dd/yyyy") + "' GROUP BY MS_MAY ) B ON A.MS_MAY = B.MS_MAY AND A.NGAY_NHAP = B.NGAY_NHAP ";
 
-            if (ThemSua & sMaSoGT.ToString().Trim() == SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql) as string)
+            if (ThemSua & sMaSoGT.ToString() == SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql) as string)
             {
                 XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgLoiNhap" + sLoi + "lientuc", Commons.Modules.TypeLanguage));
                 return false;

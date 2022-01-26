@@ -221,7 +221,7 @@ namespace VS.OEE
         private Boolean SaveData()
         {
             object rs;
-            if (txtID.Text.Trim() == "") return false;
+            if (txtID.Text == "") return false;
             try
             {
                 #region Kiem du lieu
@@ -240,7 +240,7 @@ namespace VS.OEE
                 }
 
                 //Tên bộ phận chiu phí không trống
-                if (txtTenBoPhanChiuPhi.Text.Trim() == "")
+                if (txtTenBoPhanChiuPhi.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblTenBPChiuPhi.Text, txtTenBoPhanChiuPhi);
                     return false;

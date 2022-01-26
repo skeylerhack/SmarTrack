@@ -135,7 +135,7 @@ namespace VS.OEE
                     dt_MS_MAY.Columns.Add("MS_MAY");
                     foreach (string MS_MAY in arrMS_MAY)
                     {
-                        dt_MS_MAY.Rows.Add(MS_MAY.Trim());
+                        dt_MS_MAY.Rows.Add(MS_MAY);
                     }
                 }
                 catch { }

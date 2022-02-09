@@ -117,7 +117,7 @@ namespace VS.OEE
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtDownTimeType.Text.Trim() == "")
+            if (txtDownTimeType.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuSua, lblGroupName.Text);
                 return;
@@ -126,7 +126,7 @@ namespace VS.OEE
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtDownTimeType.Text.Trim() == "")
+            if (txtDownTimeType.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblGroupName.Text);
                 return;
@@ -200,12 +200,12 @@ namespace VS.OEE
 
         private Boolean SaveData()
         {
-            if (txtID.Text.Trim() == "") return false;
+            if (txtID.Text == "") return false;
             try
             {
                 #region Kiem du lieu
 
-                if (txtDownTimeType.Text.Trim() == "")
+                if (txtDownTimeType.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblGroupName.Text, txtDownTimeType);
                     return false;

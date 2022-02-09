@@ -281,13 +281,13 @@ namespace Commons
                     string[] sArr1 = Strings.Split(sData, "~");
                     if (sArr1.Length == 1)
                     {
-                        if (sArr1[0].ToString().Trim().ToUpper() == "DEMO")
+                        if (sArr1[0].ToString().ToUpper() == "DEMO")
                             Commons.Modules.LicDemo = true;
                         else
                             Commons.Modules.LicDemo = false;
                     }
                     //if (sArr1.Length > 1)
-                    //    sSql = IIf(sSql.Length == 0, " SELECT N'" + sArr1[0].ToString().Trim() + "' AS NAME, N'" + Commons.Modules.MExcel.MCot(sArr1[1].ToString().Trim()) + "' AS LIC, " + iSTT.ToString() + " AS STT ", sSql + " UNION SELECT N'" + sArr1[0].ToString().Trim() + "' AS NAME, N'" + Commons.Modules.MExcel.MCot(sArr1[1].ToString().Trim()) + "' AS LIC , " + iSTT.ToString() + " AS STT ");
+                    //    sSql = IIf(sSql.Length == 0, " SELECT N'" + sArr1[0].ToString() + "' AS NAME, N'" + Commons.Modules.MExcel.MCot(sArr1[1].ToString()) + "' AS LIC, " + iSTT.ToString() + " AS STT ", sSql + " UNION SELECT N'" + sArr1[0].ToString() + "' AS NAME, N'" + Commons.Modules.MExcel.MCot(sArr1[1].ToString()) + "' AS LIC , " + iSTT.ToString() + " AS STT ");
                     //iSTT = iSTT + 1;
                 }
                 stmp = "13";

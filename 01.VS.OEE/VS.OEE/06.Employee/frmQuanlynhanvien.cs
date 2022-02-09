@@ -132,16 +132,16 @@ namespace VS.OEE
                 cmd.Parameters.Add("@TEN_CHUC_VU", SqlDbType.NVarChar).Value = txtTEN_CHUC_VU.Text;
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //if (txtHINH_CN.Text.Trim() != "")
+                //if (txtHINH_CN.Text != "")
                 //{
                 //    clsCONG_NHANController objCONG_NHANController = new clsCONG_NHANController();
 
                 //    string strDuongDan = @"";
                 //    strDuongDan = Commons.Modules.ObjSystems.CapnhatTL(false, MS_CN_Temp);
                 //    string str = "";
-                //    str = strDuongDan + "\\" + "NV_" + MS_CN_Temp.Replace("/", "_") + "_" + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + Commons.Modules.ObjSystems.LayDuoiFile(txtHINH_CN.Text.Trim());
+                //    str = strDuongDan + "\\" + "NV_" + MS_CN_Temp.Replace("/", "_") + "_" + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + Commons.Modules.ObjSystems.LayDuoiFile(txtHINH_CN.Text);
 
-                //    Commons.Modules.ObjSystems.LuuDuongDan(txtHINH_CN.Text.Trim(), str);
+                //    Commons.Modules.ObjSystems.LuuDuongDan(txtHINH_CN.Text, str);
                 //    txtHINH_CN.Text = str;
                 //    objCONG_NHANController.UpdateHinhCONG_NHAN(MS_CN_Temp, str);
                 //}

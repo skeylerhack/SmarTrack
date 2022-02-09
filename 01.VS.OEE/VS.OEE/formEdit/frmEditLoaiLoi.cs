@@ -50,11 +50,11 @@ namespace VS.OEE
             {
                 if (!dxValidationProvider1.Validate()) return;
                 //kiem ten viet
-                if (txtDefectName.Text.Trim() != "") if (!KiemTrung(1)) return;
+                if (txtDefectName.Text != "") if (!KiemTrung(1)) return;
                 //kiem ten anh
-                if (txtDefectName_E.Text.Trim() != "") if (!KiemTrung(2)) return;
+                if (txtDefectName_E.Text != "") if (!KiemTrung(2)) return;
                 //kiem ten hoa
-                if (txtDefectName_C.Text.Trim() != "") if (!KiemTrung(3)) return;
+                if (txtDefectName_C.Text != "") if (!KiemTrung(3)) return;
 
 
                 #region Them

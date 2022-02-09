@@ -92,8 +92,6 @@ namespace VS.OEE
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, "" + lblLoaiMay.Text + "" + ": " + cboLoaiMay.Text,Dong, (TCot / 2) + 1, "@", 9, true, Excel.XlHAlign.xlHAlignLeft, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 3,15);
 
 
-
-
                 //thêm ghi chú
                 title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong - 1, TCot - 2, Dong - 1, TCot - 2);
                 title.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#ffc000"));
@@ -106,16 +104,7 @@ namespace VS.OEE
 
                 Dong = Dong + 2;
                 //format colums header
-                title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 1, Dong, 6);
-                title.Merge(true);
-                title.Value2 = "" + lblTuNgay.Text + "" + ": " + datTuNgay.Text + "     " + lblDenNgay.Text + ": " + datDenNgay.Text + "";
-                title.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                title.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                title.Borders.LineStyle = 1;
-                title.Interior.Color = Color.FromArgb(141, 180, 226);
-                title.Font.Bold = true;
-                title.WrapText = true;
-                title.RowHeight = 25;
+                 
 
                 title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 7, Dong, 10);
                 title.Merge(true);

@@ -115,13 +115,13 @@ namespace VS.OEE
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.tablePanel1.Size = new System.Drawing.Size(984, 382);
+            this.tablePanel1.Size = new System.Drawing.Size(1048, 491);
             this.tablePanel1.TabIndex = 7;
             // 
             // lblNhom
             // 
             this.tablePanel1.SetColumn(this.lblNhom, 1);
-            this.lblNhom.Location = new System.Drawing.Point(291, 14);
+            this.lblNhom.Location = new System.Drawing.Point(312, 14);
             this.lblNhom.Name = "lblNhom";
             this.tablePanel1.SetRow(this.lblNhom, 1);
             this.lblNhom.Size = new System.Drawing.Size(44, 13);
@@ -137,7 +137,7 @@ namespace VS.OEE
             this.tabPhanQuyen.Name = "tabPhanQuyen";
             this.tablePanel1.SetRow(this.tabPhanQuyen, 3);
             this.tabPhanQuyen.SelectedTabPage = this.tabDiaDiemDayChuyen;
-            this.tabPhanQuyen.Size = new System.Drawing.Size(978, 299);
+            this.tabPhanQuyen.Size = new System.Drawing.Size(1042, 408);
             this.tabPhanQuyen.TabIndex = 7;
             this.tabPhanQuyen.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabDiaDiemDayChuyen,
@@ -149,7 +149,7 @@ namespace VS.OEE
             // 
             this.tabDiaDiemDayChuyen.Controls.Add(this.splitContainerControl1);
             this.tabDiaDiemDayChuyen.Name = "tabDiaDiemDayChuyen";
-            this.tabDiaDiemDayChuyen.Size = new System.Drawing.Size(973, 273);
+            this.tabDiaDiemDayChuyen.Size = new System.Drawing.Size(1037, 382);
             this.tabDiaDiemDayChuyen.Text = "tabDiaDiemDayChuyen";
             // 
             // splitContainerControl1
@@ -161,7 +161,7 @@ namespace VS.OEE
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.grpQuyenTrenDayTruyen);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(973, 273);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1037, 382);
             this.splitContainerControl1.SplitterPosition = 509;
             this.splitContainerControl1.TabIndex = 0;
             // 
@@ -172,7 +172,7 @@ namespace VS.OEE
             this.grpQuyenTrenKhuVuc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpQuyenTrenKhuVuc.Location = new System.Drawing.Point(0, 0);
             this.grpQuyenTrenKhuVuc.Name = "grpQuyenTrenKhuVuc";
-            this.grpQuyenTrenKhuVuc.Size = new System.Drawing.Size(509, 273);
+            this.grpQuyenTrenKhuVuc.Size = new System.Drawing.Size(509, 382);
             this.grpQuyenTrenKhuVuc.TabIndex = 0;
             this.grpQuyenTrenKhuVuc.Text = "grpQuyenTrenKhuVuc";
             // 
@@ -182,7 +182,7 @@ namespace VS.OEE
             this.grdDiaDiem.Location = new System.Drawing.Point(2, 42);
             this.grdDiaDiem.MainView = this.grvDiaDiem;
             this.grdDiaDiem.Name = "grdDiaDiem";
-            this.grdDiaDiem.Size = new System.Drawing.Size(505, 229);
+            this.grdDiaDiem.Size = new System.Drawing.Size(505, 338);
             this.grdDiaDiem.TabIndex = 2;
             this.grdDiaDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDiaDiem});
@@ -217,7 +217,7 @@ namespace VS.OEE
             this.grpQuyenTrenDayTruyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpQuyenTrenDayTruyen.Location = new System.Drawing.Point(0, 0);
             this.grpQuyenTrenDayTruyen.Name = "grpQuyenTrenDayTruyen";
-            this.grpQuyenTrenDayTruyen.Size = new System.Drawing.Size(458, 273);
+            this.grpQuyenTrenDayTruyen.Size = new System.Drawing.Size(522, 382);
             this.grpQuyenTrenDayTruyen.TabIndex = 0;
             this.grpQuyenTrenDayTruyen.Text = "grpQuyenTrenDayTruyen";
             // 
@@ -227,7 +227,7 @@ namespace VS.OEE
             this.grdDayChuyen.Location = new System.Drawing.Point(2, 42);
             this.grdDayChuyen.MainView = this.grvDayChuyen;
             this.grdDayChuyen.Name = "grdDayChuyen";
-            this.grdDayChuyen.Size = new System.Drawing.Size(454, 229);
+            this.grdDayChuyen.Size = new System.Drawing.Size(518, 338);
             this.grdDayChuyen.TabIndex = 2;
             this.grdDayChuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDayChuyen});
@@ -252,7 +252,7 @@ namespace VS.OEE
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl2.Properties.Client = this.grdDayChuyen;
             this.searchControl2.Properties.FindDelay = 100;
-            this.searchControl2.Size = new System.Drawing.Size(454, 20);
+            this.searchControl2.Size = new System.Drawing.Size(518, 20);
             this.searchControl2.TabIndex = 1;
             // 
             // tabLoaiMayBPCP
@@ -369,11 +369,11 @@ namespace VS.OEE
             // 
             this.tablePanel1.SetColumn(this.cboNhom, 2);
             this.cboNhom.FormattingEnabled = true;
-            this.cboNhom.Location = new System.Drawing.Point(410, 10);
+            this.cboNhom.Location = new System.Drawing.Point(431, 10);
             this.cboNhom.Margin = new System.Windows.Forms.Padding(2);
             this.cboNhom.Name = "cboNhom";
             this.tablePanel1.SetRow(this.cboNhom, 1);
-            this.cboNhom.Size = new System.Drawing.Size(284, 21);
+            this.cboNhom.Size = new System.Drawing.Size(305, 21);
             this.cboNhom.TabIndex = 6;
             this.cboNhom.SelectedValueChanged += new System.EventHandler(this.cboNhom_SelectedValueChanged);
             // 
@@ -385,17 +385,17 @@ namespace VS.OEE
             this.panel1.Controls.Add(this.btnKhong);
             this.panel1.Controls.Add(this.btnGhi);
             this.panel1.Controls.Add(this.btnThoat);
-            this.panel1.Location = new System.Drawing.Point(2, 349);
+            this.panel1.Location = new System.Drawing.Point(2, 458);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.tablePanel1.SetRow(this.panel1, 4);
-            this.panel1.Size = new System.Drawing.Size(980, 31);
+            this.panel1.Size = new System.Drawing.Size(1044, 31);
             this.panel1.TabIndex = 4;
             // 
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(818, 3);
+            this.btnSua.Location = new System.Drawing.Point(882, 3);
             this.btnSua.Margin = new System.Windows.Forms.Padding(2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
@@ -406,7 +406,7 @@ namespace VS.OEE
             // btnKhong
             // 
             this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong.Location = new System.Drawing.Point(899, 3);
+            this.btnKhong.Location = new System.Drawing.Point(963, 3);
             this.btnKhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnKhong.Name = "btnKhong";
             this.btnKhong.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -419,7 +419,7 @@ namespace VS.OEE
             // btnGhi
             // 
             this.btnGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi.Location = new System.Drawing.Point(818, 3);
+            this.btnGhi.Location = new System.Drawing.Point(882, 3);
             this.btnGhi.Margin = new System.Windows.Forms.Padding(2);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(80, 26);
@@ -431,7 +431,7 @@ namespace VS.OEE
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(899, 3);
+            this.btnThoat.Location = new System.Drawing.Point(963, 3);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
@@ -447,7 +447,7 @@ namespace VS.OEE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 382);
+            this.ClientSize = new System.Drawing.Size(1048, 491);
             this.Controls.Add(this.tablePanel1);
             this.Name = "frmPhanQuyenDuLieu";
             this.Text = "frmPhanQuyenDuLieu";

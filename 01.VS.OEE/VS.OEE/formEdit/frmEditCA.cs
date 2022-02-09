@@ -42,9 +42,9 @@ namespace VS.OEE
             //kiem ten viet
             if (!KiemTrung(1)) return;
             //kiem ten anh
-            if (txtCA_ANH.Text.Trim() != "") if (!KiemTrung(2)) return;
+            if (txtCA_ANH.Text != "") if (!KiemTrung(2)) return;
             //kiem ten hoa
-            if (txtCA_HOA.Text.Trim() != "") if (!KiemTrung(3)) return;
+            if (txtCA_HOA.Text != "") if (!KiemTrung(3)) return;
 
             #region Them
             System.Data.SqlClient.SqlConnection conn;

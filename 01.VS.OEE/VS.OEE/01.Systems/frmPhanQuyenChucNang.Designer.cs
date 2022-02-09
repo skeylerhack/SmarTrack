@@ -67,9 +67,9 @@
             this.tablePanel1.SetColumn(this.panel1, 0);
             this.tablePanel1.SetColumnSpan(this.panel1, 4);
             this.panel1.Controls.Add(this.btnSua);
-            this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.btnGhi);
             this.panel1.Controls.Add(this.btnKhong);
+            this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Location = new System.Drawing.Point(2, 454);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";

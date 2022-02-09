@@ -194,7 +194,7 @@ namespace VS.OEE
                 try
                 {
                     txtMS_MAY.Text = grvMay.GetFocusedRowCellValue("MS_MAY").ToString();
-                    sMS_MAY = txtMS_MAY.Text.Trim();
+                    sMS_MAY = txtMS_MAY.Text;
                     try
                     {
                         DataTable tbHinh = new DataTable();
@@ -508,7 +508,7 @@ namespace VS.OEE
 
         private void BtnGhi_Click(object sender, EventArgs e)
         {
-            if (txtMS_MAY.Text.Trim() == "")
+            if (txtMS_MAY.Text == "")
             {
                 XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, sForm, "MsgQuyenGhi1", Commons.Modules.TypeLanguage), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtMS_MAY.Focus();
@@ -525,7 +525,7 @@ namespace VS.OEE
                     return;
                 }
             }
-            if (txtTEN_MAY.Text.Trim() == "")
+            if (txtTEN_MAY.Text == "")
             {
                 XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, sForm, "msgChuaNhapTenMay", Commons.Modules.TypeLanguage), this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtTEN_MAY.Focus();

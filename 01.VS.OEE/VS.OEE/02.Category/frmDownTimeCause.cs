@@ -141,7 +141,7 @@ namespace VS.OEE
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtTenNN.Text.Trim() == "")
+            if (txtTenNN.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuSua, lblTenNN.Text);
                 return;
@@ -150,7 +150,7 @@ namespace VS.OEE
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtTenNN.Text.Trim() == "")
+            if (txtTenNN.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblTenNN.Text);
                 return;
@@ -288,7 +288,7 @@ namespace VS.OEE
             //Loại nguyên nhân dừng máy, nếu NoEdit = true => Không cho sửa
             if ((string.IsNullOrEmpty(grvDownTimeCause.GetFocusedRowCellValue("NoEdit").ToString()) ? false : Convert.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("NoEdit"))) == true) return false;
 
-            if (txtID.Text.Trim() == "") return false;
+            if (txtID.Text == "") return false;
             try
             {
                 #region Kiem du lieu
@@ -306,7 +306,7 @@ namespace VS.OEE
                     return false;
                 }
                 //nguyên nhân không trống
-                if (txtTenNN.Text.Trim() == "")
+                if (txtTenNN.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblTenNN.Text, txtTenNN);
                     return false;

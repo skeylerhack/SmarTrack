@@ -211,6 +211,7 @@ namespace VS.OEE
                 int Dong = 1;
                 excelApplication.Visible = false;
                 grvBCMoldDaily.ActiveFilter.Clear();
+                DataTable dt = new DataTable();
                 grvBCMoldDaily.ExportToXlsx(sPath);
                 System.Globalization.CultureInfo oldCultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");

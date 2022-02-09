@@ -40,6 +40,7 @@ namespace VS.OEE
             btnThoat.Visible = visible;
             btnGhi.Visible = !visible;
             btnKhong.Visible = !visible;
+            cboNhom.Enabled = visible;
         }
         private void LoadCbo()
         {

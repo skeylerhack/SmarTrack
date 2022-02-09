@@ -428,7 +428,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][MS.FieldName].ToString()) ? "" : dt.Rows[i][MS.FieldName].ToString()) == sMS)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(MS.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(MS.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(MS, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = MS;
                         return;
@@ -448,7 +448,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][TEN.FieldName].ToString()) ? "" : dt.Rows[i][TEN.FieldName].ToString()) == sTEN)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(TEN.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(TEN.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(TEN, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = TEN;
                         return;
@@ -469,7 +469,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][TEN_A.FieldName].ToString()) ? "" : dt.Rows[i][TEN_A.FieldName].ToString()) == sTEN_A)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(TEN_A.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(TEN_A.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(TEN_A, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = TEN_A;
                         return;
@@ -538,7 +538,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][MS.FieldName].ToString()) ? "" : dt.Rows[i][MS.FieldName].ToString()) == sMS)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(MS.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(MS.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(MS, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = MS;
                         return;
@@ -558,7 +558,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][TEN.FieldName].ToString()) ? "" : dt.Rows[i][TEN.FieldName].ToString()) == sTEN)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(TEN.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(TEN.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(TEN, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = TEN;
                         return;
@@ -579,7 +579,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][TEN_A.FieldName].ToString()) ? "" : dt.Rows[i][TEN_A.FieldName].ToString()) == sTEN_A)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(TEN_A.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(TEN_A.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(TEN_A, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = TEN_A;
                         return;
@@ -693,7 +693,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][MS.FieldName].ToString()) ? "" : dt.Rows[i][MS.FieldName].ToString()) == sMS)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(MS.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(MS.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(MS, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = MS;
                         return;
@@ -713,7 +713,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][TEN.FieldName].ToString()) ? "" : dt.Rows[i][TEN.FieldName].ToString()) == sTEN)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(TEN.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(TEN.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(TEN, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = TEN;
                         return;
@@ -734,7 +734,7 @@ namespace VS.OEE
                     if ((string.IsNullOrEmpty(dt.Rows[i][ID.FieldName].ToString()) ? -1 : Convert.ToInt64(dt.Rows[i][ID.FieldName])) != iID && (string.IsNullOrEmpty(dt.Rows[i][TEN_A.FieldName].ToString()) ? "" : dt.Rows[i][TEN_A.FieldName].ToString()) == sTEN_A)
                     {
                         e.Valid = false;
-                        XtraMessageBox.Show(TEN_A.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                        XtraMessageBox.Show(TEN_A.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                         view.SetColumnError(TEN_A, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                         view.FocusedColumn = TEN_A;
                         return;

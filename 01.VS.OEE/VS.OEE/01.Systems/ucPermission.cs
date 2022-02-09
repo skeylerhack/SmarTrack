@@ -311,12 +311,12 @@ namespace VS.OEE
             if (view.FocusedColumn.Name == "colGROUP_NAME")
             {
                 DataTable dt = Commons.Modules.ObjSystems.ConvertDatatable(grdGroup);
-                int n = dt.AsEnumerable().Count(x => x.Field<string>("GROUP_NAME").ToString().Trim().ToUpper().Equals(e.Value.ToString().Trim().ToUpper()));
-                if (dt.AsEnumerable().Count(x => x.Field<string>("GROUP_NAME").ToString().Trim().ToUpper().Equals(e.Value.ToString().Trim().ToUpper())) > 0 )
+                int n = dt.AsEnumerable().Count(x => x.Field<string>("GROUP_NAME").ToString().ToUpper().Equals(e.Value.ToString().ToUpper()));
+                if (dt.AsEnumerable().Count(x => x.Field<string>("GROUP_NAME").ToString().ToUpper().Equals(e.Value.ToString().ToUpper())) > 0 )
                 {
                     if(ithem != -1)
                     {
-                        if (e.Value.ToString().Trim().ToUpper() == txtIDGroup.EditValue.ToString().Trim().ToUpper()) return;
+                        if (e.Value.ToString().ToUpper() == txtIDGroup.EditValue.ToString().ToUpper()) return;
                     }
                     e.Valid = false;
                     e.ErrorText = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "erTrungDuLieu"); return;
@@ -339,7 +339,7 @@ namespace VS.OEE
             //kiểm tra mail hợp lệ
             if (view.FocusedColumn.Name == "colUSER_MAIL")
             {
-                if (!Commons.Modules.ObjSystems.isEmail(e.Value.ToString().Trim()))
+                if (!Commons.Modules.ObjSystems.isEmail(e.Value.ToString()))
                 {
                     e.Valid = false;
                     e.ErrorText = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "erEmailKhonghople"); return;

@@ -84,7 +84,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -158,7 +158,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -191,7 +191,7 @@ namespace Commons
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
                 cbo.Properties.Columns[Ma].Caption = MaCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -229,7 +229,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -267,7 +267,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -307,7 +307,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -345,7 +345,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -381,7 +381,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -454,7 +454,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -493,7 +493,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -531,7 +531,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -2081,7 +2081,7 @@ namespace Commons
                     //                    {
                     //                        try
                     //                        {
-                    //                            cl.Caption = dtItem.Select().Where(x => x("REPORT_NAME").ToString().Trim() == cl.Name.Trim()).Take(1).Single()("TEN_REPORT");
+                    //                            cl.Caption = dtItem.Select().Where(x => x("REPORT_NAME").ToString() == cl.Name).Take(1).Single()("TEN_REPORT");
                     //                        }
                     //                        catch (Exception ex)
                     //                        {
@@ -2254,7 +2254,7 @@ namespace Commons
                             sName = GetParentForm(Ctl).Name.ToString();
                         }
                     }
-                    if (sName.Trim().ToString() == "")
+                    if (sName.ToString() == "")
                         sName = GetParentForm(Ctl).Name.ToString();
                     sText = XtraInputBox.Show(Ctl.Text, "Sửa ngôn ngữ", "");
                     if (sText == "")
@@ -2575,7 +2575,7 @@ namespace Commons
 
                 foreach (string s in chuoi_tach)
                 {
-                    if (s.ToString().Trim() != "")
+                    if (s.ToString() != "")
                     {
                         try
                         {

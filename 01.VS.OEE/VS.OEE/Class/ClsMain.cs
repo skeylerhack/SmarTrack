@@ -19,9 +19,15 @@ namespace VS.OEE
                     string[] sArr = sRowStream.Split('!');
                     Commons.IConnections.Server = sArr[0];
                     Commons.IConnections.Database = sArr[1];
-                    Commons.IConnections.Database = "CMMS_WAHL";
+                    Commons.IConnections.Database = "CMMS_SMT";
                     Commons.IConnections.Username = sArr[2];
                     Commons.IConnections.Password = sArr[3];
+
+
+                    Commons.IConnections.Server = ".\\SQLEXPRESS01";
+                    Commons.IConnections.Database = "CMMS_SMT";
+                    Commons.IConnections.Username = "sa";
+                    Commons.IConnections.Password = "123";
                 }
                 catch (Exception Excep)
                 {

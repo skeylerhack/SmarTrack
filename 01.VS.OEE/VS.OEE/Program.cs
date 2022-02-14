@@ -18,6 +18,9 @@ namespace VS.OEE
             Commons.Modules.ModuleName ="ECOMAIN";
             Commons.Modules.sPrivate = @"TRUNGNGUYEN";
             Commons.Modules.UserName = "admin";
+
+
+
             //1 Full ,2Read Only,3No access.
             Commons.Modules.iPermission = 1;
             Commons.Modules.iSoLeSL = 0;
@@ -37,7 +40,9 @@ namespace VS.OEE
         {
             try
             {
-                Application.Run(new frmItemMay(1));
+                //Application.Run(new frmMain());
+
+                Application.Run(new frmReport());
                 //Application.Run(new frmProductOrder(1));
                 //Application.Run(new frmProductOrder(1));
                 //Application.Run(new frmProductRun(1));

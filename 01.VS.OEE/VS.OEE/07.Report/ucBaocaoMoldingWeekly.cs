@@ -154,6 +154,7 @@ namespace VS.OEE
                 }
 
                 grvBCMoldWeekly.Columns["ID_Result"].Visible = false;
+                
             }
             catch (Exception ex) { }
             Cursor.Current = Cursors.Default;

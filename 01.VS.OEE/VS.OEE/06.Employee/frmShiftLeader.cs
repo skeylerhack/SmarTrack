@@ -24,7 +24,7 @@ namespace VS.OEE
             InitializeComponent();
         }
        
-        #region Event
+         #region Event
         private void frmShiftLeader_Load(object sender, EventArgs e)
         {
             if (iPQ != 1)

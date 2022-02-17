@@ -216,7 +216,7 @@ namespace VS.OEE
             btnGhi.Visible = !flag;
             btnKhong.Visible = !flag;
             btnChooseOperator.Visible = !flag;
-            ReadonlyControl(flag);
+            //ReadonlyControl(flag);
             grdVaiTro.Enabled = flag;
         }
         private void BingdingControl()
@@ -225,12 +225,12 @@ namespace VS.OEE
             txtTEN_VAI_TRO_A.EditValue = grvVaiTro.GetFocusedRowCellValue("TEN_VAI_TRO_A");
             txtTEN_VAI_TRO_H.EditValue = grvVaiTro.GetFocusedRowCellValue("TEN_VAI_TRO_H");
         }
-        private void ReadonlyControl(bool flag)
-        {
-            txtTEN_VAI_TRO.Properties.ReadOnly = flag;
-            txtTEN_VAI_TRO_A.Properties.ReadOnly = flag;
-            txtTEN_VAI_TRO_H.Properties.ReadOnly = flag;
-        }
+        //private void ReadonlyControl(bool flag)
+        //{
+        //    txtTEN_VAI_TRO.Properties.ReadOnly = flag;
+        //    txtTEN_VAI_TRO_A.Properties.ReadOnly = flag;
+        //    txtTEN_VAI_TRO_H.Properties.ReadOnly = flag;
+        //}
         private void LoadgrdVaiTro(Int64 id)
         {
             DataTable dt = new DataTable();

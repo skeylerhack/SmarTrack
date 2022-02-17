@@ -594,7 +594,7 @@ namespace VS.OEE
                 }
                 else
                 {
-                    if (Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = " + iIdPro + "  ")) > 0)
+                    if (Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = " + iIdPro + " AND ItemID =  "+ Modules.ToInt64(grvPrODetails.GetFocusedRowCellValue("ItemID")) + " ")) > 0)
                     {
                         Commons.Modules.msgChung(Commons.ThongBao.msgDuLieuDaPhatSinh);
                         return;
@@ -779,7 +779,7 @@ namespace VS.OEE
                 Validate();
                 GridView view = sender as GridView;
                 view.SetFocusedRowCellValue(view.Columns["PROID"], Convert.ToInt64(grvProDuctOD.GetFocusedRowCellValue("ID")));
-                view.SetFocusedRowCellValue(view.Columns["DueDate"], datNgayHTKH.DateTime);
+                view.SetFocusedRowCellValue(view.Columns["DueDate"], datNgayBD.DateTime.AddDays(1).AddMinutes(-1));
                 view.SetFocusedRowCellValue(view.Columns["PlannedStartTime"], datNgayBD.DateTime);
                 //nếu thêm thì set PrOID  = -1 ngược lại set bằng lưới pro
                 if (ithem == -1)
@@ -840,7 +840,7 @@ namespace VS.OEE
                     tbProSchedule.Merge(tmp);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 tbProSchedule = tmp;
             }
@@ -896,6 +896,21 @@ namespace VS.OEE
                 e.Valid = false;
                 View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraMayNULL", Commons.Modules.TypeLanguage)); return;
             }
+            //kiểm tra xem số lượng phân bổ có đủ để xản xuất trong thời gian không
+
+            int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spKiemTraSanLuong", View.GetRowCellValue(e.RowHandle, "MS_MAY") , Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "PlannedStartTime")) , Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "DueTime")) , View.GetRowCellValue(e.RowHandle, "PlannedQuantity"), View.GetRowCellValue(e.RowHandle, "StandardOutput")));
+            if(n < 0)
+            {
+                e.Valid = false;
+                View.SetColumnError(View.Columns["PlannedQuantity"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgPhanBoQuaTGSX", Commons.Modules.TypeLanguage)); return;
+            }
+
+            //                   @MS_MAY NVARCHAR(30),  
+            //@TuNgay DATETIME,
+            //   @DenNgay DATETIME,
+            //@Pland DECIMAL(18,2),
+            //@Standard DECIMAL(18,2)
+
             //DevExpress.XtraGrid.Columns.GridColumn colQUa = View.Columns["PlannedQuantity"];
             //if (Commons.Modules.ObjSystems.IsnullorEmpty(View.GetRowCellValue(e.RowHandle, colQUa)))
             //{
@@ -1018,17 +1033,21 @@ namespace VS.OEE
                 //        return;
                 //    }
                 //}
-                //if (view.FocusedColumn.Name == "colDueTime")
-                //{
-                //    //Kiểm tra từ ngày không lớn hơn đến ngày
-                //    if (DateTime.Compare(Convert.ToDateTime(e.Value), Convert.ToDateTime(view.GetFocusedRowCellValue("PlannedStartTime"))) != 1)
-                //    {
-                //        e.Valid = false;
-                //        e.ErrorText = "This value is not valid";
-                //        view.SetColumnError(view.Columns["DueTime"], e.ErrorText);
-                //        return;
-                //    }
-                //}
+
+                //kiểm tra ngày kết thúc không lớn hơn ngày mặt định
+
+                if (view.FocusedColumn.Name == "colDueTime")
+                {
+                    //Kiểm tra từ ngày không lớn hơn đến ngày
+                    if (DateTime.Compare(Convert.ToDateTime(e.Value), datNgayBD.DateTime.AddDays(1).AddSeconds(-1)) == 1)
+                    {
+                        e.Valid = false;
+                        e.ErrorText = Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKhongDuocQuaNgay", Commons.Modules.TypeLanguage);
+                        view.SetColumnError(view.Columns["DueTime"], e.ErrorText);
+                        return;
+                    }
+
+                }
             }
             catch { }
 
@@ -1133,7 +1152,7 @@ namespace VS.OEE
                 DataTable dtTmp = new DataTable();
                 //string sSql = "SELECT TOP 10 PrOrNumber AS PO,C.MS_MAY AS 'Máy',B.ItemID AS 'Mã sản phẩm',C.BOMVersion AS 'BOM Version',C.PlannedQuantity AS 'SL Kế Hoạch',C.SoCaSX AS 'Số ca sản xuất',C.PlannedStartTime AS 'Thời gian bắt đầu ',D.CA AS 'Ca bắt đầu',C.DueTime AS 'Thời gian kết thúc',D.CA AS 'Ca kết thúc 'FROM dbo.ProductionOrder A INNER JOIN  dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.ProSchedule C ON C.DetailsID = B.DetailsID INNER JOIN dbo.CA D ON C.CaID = D.STT";
 
-                string sSql = "SELECT TOP 0 ItemCode AS 'Item number',ItemName,B.PlannedQuantity AS Quantity,B.PlannedStartTime AS Delivery,B.MS_MAY AS 'Machine code',CONVERT(BIGINT, 0) AS weekend FROM dbo.Item A INNER JOIN dbo.ProSchedule B ON A.ID = B.ScheduleID";
+                string sSql = "SELECT TOP 0 B.MS_MAY AS 'MS Máy',A.ItemCode AS	 'Mã sản phẩm',B.PlannedQuantity AS 'SL Kế hoạch' ,B.PlannedStartTime AS 'Ngày' FROM dbo.Item A INNER JOIN dbo.ProSchedule B ON A.ID = B.ScheduleID";
 
                 dtTmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, sSql));
                 //export datatable to excel

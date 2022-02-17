@@ -318,7 +318,6 @@ namespace VS.OEE
             {
                 DeleteDatadetails();
             }
-            DeleteData();
         }
         private void DeleteDatadetails()
         {
@@ -464,7 +463,7 @@ namespace VS.OEE
 
         private void grdPrRunDetails_ProcessGridKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Delete && btnSua.Visible == false)
+            if (e.KeyData == Keys.Delete && btnGhi.Visible == false)
             {
                 if (btnGhi.Visible == false)
                     DeleteDataDetails();

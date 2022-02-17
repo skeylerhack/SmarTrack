@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.groVaiTro = new DevExpress.XtraEditors.GroupControl();
@@ -87,7 +86,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.tablecontrol);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(932, 452);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1070, 452);
             this.splitContainerControl1.SplitterPosition = 251;
             this.splitContainerControl1.TabIndex = 1;
             // 
@@ -177,7 +176,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.tablecontrol.Size = new System.Drawing.Size(675, 452);
+            this.tablecontrol.Size = new System.Drawing.Size(813, 452);
             this.tablecontrol.TabIndex = 0;
             // 
             // panelNN
@@ -194,13 +193,13 @@
             this.panelNN.Location = new System.Drawing.Point(3, 420);
             this.panelNN.Name = "panelNN";
             this.tablecontrol.SetRow(this.panelNN, 4);
-            this.panelNN.Size = new System.Drawing.Size(669, 29);
+            this.panelNN.Size = new System.Drawing.Size(807, 29);
             this.panelNN.TabIndex = 6;
             // 
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(587, 2);
+            this.btnThoat.Location = new System.Drawing.Point(725, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
             this.btnThoat.TabIndex = 11;
@@ -210,7 +209,7 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(506, 2);
+            this.btnXoa.Location = new System.Drawing.Point(644, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 26);
             this.btnXoa.TabIndex = 10;
@@ -220,7 +219,7 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(425, 2);
+            this.btnSua.Location = new System.Drawing.Point(563, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 6;
@@ -230,7 +229,7 @@
             // btnChooseOperator
             // 
             this.btnChooseOperator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChooseOperator.Location = new System.Drawing.Point(425, 2);
+            this.btnChooseOperator.Location = new System.Drawing.Point(563, 2);
             this.btnChooseOperator.Name = "btnChooseOperator";
             this.btnChooseOperator.Size = new System.Drawing.Size(80, 26);
             this.btnChooseOperator.TabIndex = 8;
@@ -240,7 +239,7 @@
             // btnGhi
             // 
             this.btnGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi.Location = new System.Drawing.Point(506, 2);
+            this.btnGhi.Location = new System.Drawing.Point(644, 2);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(80, 26);
             this.btnGhi.TabIndex = 11;
@@ -250,7 +249,7 @@
             // btnKhong
             // 
             this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong.Location = new System.Drawing.Point(587, 2);
+            this.btnKhong.Location = new System.Drawing.Point(725, 2);
             this.btnKhong.Name = "btnKhong";
             this.btnKhong.Size = new System.Drawing.Size(80, 26);
             this.btnKhong.TabIndex = 12;
@@ -263,8 +262,9 @@
             this.txtTEN_VAI_TRO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTEN_VAI_TRO.Location = new System.Drawing.Point(123, 11);
             this.txtTEN_VAI_TRO.Name = "txtTEN_VAI_TRO";
+            this.txtTEN_VAI_TRO.Properties.ReadOnly = true;
             this.tablecontrol.SetRow(this.txtTEN_VAI_TRO, 1);
-            this.txtTEN_VAI_TRO.Size = new System.Drawing.Size(99, 20);
+            this.txtTEN_VAI_TRO.Size = new System.Drawing.Size(145, 20);
             this.txtTEN_VAI_TRO.TabIndex = 4;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
@@ -286,11 +286,11 @@
             // 
             // lblTEN_VAI_TRO_A
             // 
-            this.lblTEN_VAI_TRO_A.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTEN_VAI_TRO_A.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTEN_VAI_TRO_A.Appearance.Options.UseFont = true;
             this.tablecontrol.SetColumn(this.lblTEN_VAI_TRO_A, 2);
             this.lblTEN_VAI_TRO_A.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTEN_VAI_TRO_A.Location = new System.Drawing.Point(228, 11);
+            this.lblTEN_VAI_TRO_A.Location = new System.Drawing.Point(274, 11);
             this.lblTEN_VAI_TRO_A.Name = "lblTEN_VAI_TRO_A";
             this.tablecontrol.SetRow(this.lblTEN_VAI_TRO_A, 1);
             this.lblTEN_VAI_TRO_A.Size = new System.Drawing.Size(114, 20);
@@ -301,30 +301,28 @@
             // 
             this.tablecontrol.SetColumn(this.txtTEN_VAI_TRO_A, 3);
             this.txtTEN_VAI_TRO_A.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTEN_VAI_TRO_A.Location = new System.Drawing.Point(348, 11);
+            this.txtTEN_VAI_TRO_A.Location = new System.Drawing.Point(394, 11);
             this.txtTEN_VAI_TRO_A.Name = "txtTEN_VAI_TRO_A";
+            this.txtTEN_VAI_TRO_A.Properties.ReadOnly = true;
             this.tablecontrol.SetRow(this.txtTEN_VAI_TRO_A, 1);
-            this.txtTEN_VAI_TRO_A.Size = new System.Drawing.Size(99, 20);
+            this.txtTEN_VAI_TRO_A.Size = new System.Drawing.Size(145, 20);
             this.txtTEN_VAI_TRO_A.TabIndex = 4;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.txtTEN_VAI_TRO_A, conditionValidationRule2);
             // 
             // txtTEN_VAI_TRO_H
             // 
             this.tablecontrol.SetColumn(this.txtTEN_VAI_TRO_H, 5);
-            this.txtTEN_VAI_TRO_H.Location = new System.Drawing.Point(573, 11);
+            this.txtTEN_VAI_TRO_H.Location = new System.Drawing.Point(665, 11);
             this.txtTEN_VAI_TRO_H.Name = "txtTEN_VAI_TRO_H";
+            this.txtTEN_VAI_TRO_H.Properties.ReadOnly = true;
             this.tablecontrol.SetRow(this.txtTEN_VAI_TRO_H, 1);
-            this.txtTEN_VAI_TRO_H.Size = new System.Drawing.Size(99, 20);
+            this.txtTEN_VAI_TRO_H.Size = new System.Drawing.Size(145, 20);
             this.txtTEN_VAI_TRO_H.TabIndex = 4;
             // 
             // lblTEN_VAI_TRO_H
             // 
             this.tablecontrol.SetColumn(this.lblTEN_VAI_TRO_H, 4);
             this.lblTEN_VAI_TRO_H.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTEN_VAI_TRO_H.Location = new System.Drawing.Point(453, 11);
+            this.lblTEN_VAI_TRO_H.Location = new System.Drawing.Point(545, 11);
             this.lblTEN_VAI_TRO_H.Name = "lblTEN_VAI_TRO_H";
             this.tablecontrol.SetRow(this.lblTEN_VAI_TRO_H, 1);
             this.lblTEN_VAI_TRO_H.Size = new System.Drawing.Size(114, 20);
@@ -340,7 +338,7 @@
             this.groVTOperator.Location = new System.Drawing.Point(3, 45);
             this.groVTOperator.Name = "groVTOperator";
             this.tablecontrol.SetRow(this.groVTOperator, 3);
-            this.groVTOperator.Size = new System.Drawing.Size(669, 369);
+            this.groVTOperator.Size = new System.Drawing.Size(807, 369);
             this.groVTOperator.TabIndex = 7;
             this.groVTOperator.Text = "groVTOperator";
             // 
@@ -350,7 +348,7 @@
             this.grdVTOperator.Location = new System.Drawing.Point(2, 22);
             this.grdVTOperator.MainView = this.grvVTOperator;
             this.grdVTOperator.Name = "grdVTOperator";
-            this.grdVTOperator.Size = new System.Drawing.Size(665, 345);
+            this.grdVTOperator.Size = new System.Drawing.Size(803, 345);
             this.grdVTOperator.TabIndex = 5;
             this.grdVTOperator.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvVTOperator});
@@ -370,7 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 452);
+            this.ClientSize = new System.Drawing.Size(1070, 452);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmVaiTro";
             this.Text = "frmVaiTro";

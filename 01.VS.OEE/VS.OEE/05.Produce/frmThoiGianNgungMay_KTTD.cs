@@ -120,7 +120,7 @@ namespace VS.OEE
                 if (!dxValidationProvider1.Validate()) return;
                 Validate();
 
-                if (iThem != -1 && KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))))
+                if (iThem != -1 && KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))) && Convert.ToInt64(cboID_DownTime.EditValue) ==31)
                 {
                     XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgNgungMayTiepTucKhongTheSua"));
                     return;
@@ -251,7 +251,7 @@ namespace VS.OEE
                 BingDingData();
                 Commons.Modules.sId = "";
 
-                if (KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))))
+                if (KiemTra_TiepTuc(Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"))) && Convert.ToInt64(cboID_DownTime.EditValue) == 31)
                     btnSua.Enabled = false;
                 else
                     btnSua.Enabled = true;

@@ -210,7 +210,7 @@ namespace CMMSApi.Controllers
                 }
                 if (lstRequest.Count(x => x.RUN == 1) == 0)
                 {
-                    listParameter = new List<SqlParameter>();
+                    listParameter = new List<SqlParameter>(0);
                     listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                     listParameter.Add(new SqlParameter("@TTHMI", 0));
                     Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiUnselectProduction", listParameter);
@@ -222,14 +222,18 @@ namespace CMMSApi.Controllers
                     listParameter.Add(new SqlParameter("@TTHMI", 1));
                     Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiUnselectProduction", listParameter);
                 }
-
                 listParameter = new List<SqlParameter>();
                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                 var lstnew = Ecomaint.Api.DBUtils.ExecuteSPList<ProductionViewModel>("spApiGetProDuction", listParameter);
+
+                //
+                List<ProductionViewModel> lstResulst = new List<ProductionViewModel>();
+                lstResulst = lstRequest.Where(x => x.RUN == 1).ToList();
+
                 //add dữ liệu  của listnew không tồn tại vào lstRequest.
                 foreach (var itemnew in lstnew)
                 {
-                    foreach (var item in lstRequest)
+                    foreach (var item in lstResulst)
                     {
                         if (itemnew.ItemID == item.ItemID && itemnew.PROID == item.PROID)
                         {
@@ -241,11 +245,11 @@ namespace CMMSApi.Controllers
                         }
                     }
                 }
-                var listnotexit = lstnew.Where(x1 => !lstRequest.Any(x2 => x2.ItemID == x1.ItemID && x2.PROID == x1.PROID)).ToList();
-                lstRequest.AddRange(listnotexit);
-                return Json(lstRequest, JsonRequestBehavior.AllowGet);
+                var listnotexit = lstnew.Where(x1 => !lstResulst.Any(x2 => x2.ItemID == x1.ItemID && x2.PROID == x1.PROID)).ToList();
+                lstResulst.AddRange(listnotexit);
+                return Json(lstResulst, JsonRequestBehavior.AllowGet);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
             }
@@ -438,7 +442,7 @@ namespace CMMSApi.Controllers
                 List<SqlParameter> listParameter = new List<SqlParameter>();
                 listParameter.Add(new SqlParameter("@TN", ListNgay[i]));
                 listCA = Ecomaint.Api.DBUtils.ExecuteSPList<CapNhatCa>("spAPIGet_CA", listParameter);
-                if(ListNgay.Count() == 2 && listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).ToList().Count() ==1)
+                if (ListNgay.Count() == 2 && listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).ToList().Count() == 1)
                 {
                     var item = listCA.Where(x => TNgay >= x.NGAY_BD && DNgay <= x.NGAY_KT).FirstOrDefault();
                     item.NGAY_KT = DNgay;
@@ -603,25 +607,14 @@ namespace CMMSApi.Controllers
                 }
                 //mailto = "bamboo2711@gmail.com;thanhduc66@gmail.com;";
                 //phone = new List<string>();
-                //phone.Add("0348694548");
+                //phone.Add("0337785544");
+                //phone.Add("0866054222");
                 string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY + ",gặp sự cố từ: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "</p>";
                 Thread thread = new Thread(() =>
                 {
-                    try
-                    {
-                        foreach (var item in phone)
-                        {
-                            if (item.ToString().Trim() != "")
-                            {
-                                SendSMS(item, "May :" + lstPhoneMail[0].MS_MAY + ",gap su co tu: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "");
-                            }
-                        }
-                    }
-                    catch
-                    {
-                    }
-                    Ecomaint.Api.DBUtils.SendEmailCC(mailto, "WAHL-WON", Mes);
-                }, 1000);
+                SendSMS(phone,"May :" + lstPhoneMail[0].MS_MAY + ",gap su co tu: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "");
+                Ecomaint.Api.DBUtils.SendEmailCC(mailto, "WAHL-WON", Mes);
+                }, 60000);
                 thread.Start();
                 return true;
             }
@@ -630,24 +623,93 @@ namespace CMMSApi.Controllers
                 return false;
             }
         }
-        private void SendSMS(string Phone, string Mes)
+
+        public string TestSMS()
+        {
+            string Phone = "0866054222";
+            string Mes = "Thanh Cong";
+            try
+            {
+                //string Port = ConfigurationManager.AppSettings["sPort"].ToString();
+                using (SerialPort Seriport = new SerialPort("COM3", 115200, Parity.None, 8, StopBits.One))
+                {
+                    if (!Seriport.IsOpen)
+                    {
+                        Seriport.Open();
+                    }
+                    Thread.Sleep(1000);
+                    Seriport.Write("AT+CMGF=1\r");
+                    Thread.Sleep(1000);
+                    Seriport.Write("AT+CMGS=\"" + Phone + "\"\r\n");
+                    Thread.Sleep(1000);
+                    Seriport.Write(Mes + "\x1A");
+                    Thread.Sleep(1000);
+                    if (Seriport.IsOpen)
+                    {
+                        Seriport.Close();
+                    }
+                }
+                return "Succes";
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
+        //private void SendSMS(string Phone, string Mes)
+        //{
+        //    try
+        //    {
+        //        //string Port = ConfigurationManager.AppSettings["sPort"].ToString();
+        //        using (SerialPort Seriport = new SerialPort("COM3", 115200, Parity.None, 8, StopBits.One))
+        //        {
+        //            if (!Seriport.IsOpen)
+        //            {
+        //                Seriport.Open();
+        //            }
+        //            Thread.Sleep(100);
+        //            Seriport.Write("AT+CMGF=1\r");
+        //            Thread.Sleep(100);
+
+        //            Seriport.Write("AT+CMGS=\"" + Phone + "\"\r\n");
+        //            Thread.Sleep(100);
+        //            Seriport.Write(Mes + "\x1A");
+        //            Thread.Sleep(100);
+
+
+        //            if (Seriport.IsOpen)
+        //            {
+        //                Seriport.Close();
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+        //}
+
+        private void SendSMS(List<string> Phone, string Mes)
         {
             try
             {
                 string Port = ConfigurationManager.AppSettings["sPort"].ToString();
                 using (SerialPort Seriport = new SerialPort(Port, 115200, Parity.None, 8, StopBits.One))
                 {
-                    if(!Seriport.IsOpen)
+                    if (!Seriport.IsOpen)
                     {
                         Seriport.Open();
                     }
-                    Thread.Sleep(100);
+                    Thread.Sleep(2000);
                     Seriport.Write("AT+CMGF=1\r");
-                    Thread.Sleep(100);
-                    Seriport.Write("AT+CMGS=\"" + Phone + "\"\r\n");
-                    Thread.Sleep(100);
-                    Seriport.Write(Mes + "\x1A");
-                    Thread.Sleep(100);
+                    Thread.Sleep(2000);
+                    foreach (var item in Phone)
+                    {
+                        Seriport.Write("AT+CMGS=\"" + item + "\"\r\n");
+                        Thread.Sleep(2000);
+                        Seriport.Write(Mes + "\x1A");
+                        Thread.Sleep(7000);
+                    }
                     if (Seriport.IsOpen)
                     {
                         Seriport.Close();
@@ -658,6 +720,7 @@ namespace CMMSApi.Controllers
             {
             }
         }
+
 
         #endregion
 
@@ -701,7 +764,7 @@ namespace CMMSApi.Controllers
             }
         }
 
-        public JsonResult UpdateStatusMay(string MS_MAY,string TT)
+        public JsonResult UpdateStatusMay(string MS_MAY, string TT)
         {
             int i = 1;
             try

@@ -296,11 +296,11 @@ namespace Ecomaint.Api
                 else
                     datatable = new DataTable();
 
-                
+
                 try
                 {
                     Temp = ConvertToList<T>(datatable);
-                    
+
 
                 }
                 catch { }
@@ -314,31 +314,31 @@ namespace Ecomaint.Api
             ////////        //foreach (DataColumn DataColumn in datatable.Columns)
             ////////        //    columnsNames.Add(DataColumn.ColumnName);
 
-                ////////        //Temp = datatable.AsEnumerable().ToList().ConvertAll<T>(row => getObjectMSSql<T>(row, columnsNames));
+            ////////        //Temp = datatable.AsEnumerable().ToList().ConvertAll<T>(row => getObjectMSSql<T>(row, columnsNames));
 
 
-                ////////        List<string> columnsNames = new List<string>();
-                ////////        foreach (DataColumn DataColumn in datatable.Columns)
-                ////////            columnsNames.Add(DataColumn.ColumnName);
-                ////////        Temp = datatable.AsEnumerable().ToList().ConvertAll<T>(row => getObject<T>(row, columnsNames));
+            ////////        List<string> columnsNames = new List<string>();
+            ////////        foreach (DataColumn DataColumn in datatable.Columns)
+            ////////            columnsNames.Add(DataColumn.ColumnName);
+            ////////        Temp = datatable.AsEnumerable().ToList().ConvertAll<T>(row => getObject<T>(row, columnsNames));
 
 
 
 
 
-                ////////        return Temp;
+            ////////        return Temp;
 
-                ////////    }
-                ////////    catch
-                ////////    {
-                ////////        return Temp;
-                ////////    }
-                ////////}
-                ////////catch (Exception ex)
-                ////////{
-                ////////    throw ex;
-                ////////}
-            }
+            ////////    }
+            ////////    catch
+            ////////    {
+            ////////        return Temp;
+            ////////    }
+            ////////}
+            ////////catch (Exception ex)
+            ////////{
+            ////////    throw ex;
+            ////////}
+        }
         public static T getObject<T>(DataRow row, List<string> columnsName) where T : new()
         {
             T obj = new T();
@@ -655,83 +655,98 @@ namespace Ecomaint.Api
         }
         public static void SendEmailCC(string address, string subject, string message)
         {
-            DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(CMMSConnectionString(), CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
-            string str = dt.Rows[0]["PASS_MAIL"].ToString();
-            string password = "";
-            const int _CODE_ = 354;
-            for (int i = 0; i < str.Length; i++)
+            try
             {
-                password += System.Convert.ToChar(((int)System.Convert.ToChar(str.Substring(i, 1)) / 2) - _CODE_).ToString();
-            }
-            string email = dt.Rows[0]["MAIL_FROM"].ToString();
-            var loginInfo = new NetworkCredential(email, password);
-            var msg = new MailMessage();
-            var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
-            msg.From = new MailAddress(email, "ANDON -  WAHL");
-            var mail = address.Split(';');
-            foreach (var item in mail)
-            {
-                if (item.Trim() != "")
+
+                DataTable dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(CMMSConnectionString(), CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
+                string str = dt.Rows[0]["PASS_MAIL"].ToString();
+                string password = "";
+                const int _CODE_ = 354;
+                for (int i = 0; i < str.Length; i++)
                 {
-                    msg.To.Add(new MailAddress(item));
+                    password += System.Convert.ToChar(((int)System.Convert.ToChar(str.Substring(i, 1)) / 2) - _CODE_).ToString();
                 }
+                string email = dt.Rows[0]["MAIL_FROM"].ToString();
+                var loginInfo = new NetworkCredential(email, password);
+                var msg = new MailMessage();
+                var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
+                msg.From = new MailAddress(email, "ANDON -  WAHL");
+                var mail = address.Split(';');
+                foreach (var item in mail)
+                {
+                    if (item.Trim() != "")
+                    {
+                        msg.To.Add(new MailAddress(item));
+                    }
+                }
+                msg.Subject = subject;
+                msg.Body = message;
+                msg.IsBodyHtml = true;
+                msg.SubjectEncoding = Encoding.UTF8;
+                msg.BodyEncoding = Encoding.UTF8;
+                //msg.Priority = MailPriority.High;
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = loginInfo;
+                smtpClient.Send(msg);
             }
-            msg.Subject = subject;
-            msg.Body = message;
-            msg.IsBodyHtml = true;
-            msg.SubjectEncoding = Encoding.UTF8;
-            msg.BodyEncoding = Encoding.UTF8;
-            //msg.Priority = MailPriority.High;
-            smtpClient.EnableSsl = true;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = loginInfo;
-            smtpClient.Send(msg);
+            catch
+            {
+
+            }
         }
 
 
         public static void SendEmailCC(string address, string CC, string subject, string message)
         {
-            DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(CMMSConnectionString(), CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
-            string str = dt.Rows[0]["PASS_MAIL"].ToString();
-            string password = "";
-            const int _CODE_ = 354;
-            for (int i = 0; i < str.Length; i++)
-            {
-                password += System.Convert.ToChar(((int)System.Convert.ToChar(str.Substring(i, 1)) / 2) - _CODE_).ToString();
-            }
-            string email = dt.Rows[0]["MAIL_FROM"].ToString();
-            var loginInfo = new NetworkCredential(email, password);
-            var msg = new MailMessage();
-            var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
-            msg.From = new MailAddress(email, "ANDON -  WAHL");
-            var mail = address.Split(';');
-            foreach (var item in mail)
-            {
-                msg.To.Add(new MailAddress(item));
-            }
-            var mailcc = CC.Split(';');
             try
             {
-                foreach (var item in mailcc)
+
+                DataTable dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(CMMSConnectionString(), CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL,LINK_WEB FROM dbo.THONG_TIN_CHUNG"));
+                string str = dt.Rows[0]["PASS_MAIL"].ToString();
+                string password = "";
+                const int _CODE_ = 354;
+                for (int i = 0; i < str.Length; i++)
                 {
-                    msg.CC.Add(new MailAddress(item));
+                    password += System.Convert.ToChar(((int)System.Convert.ToChar(str.Substring(i, 1)) / 2) - _CODE_).ToString();
                 }
+                string email = dt.Rows[0]["MAIL_FROM"].ToString();
+                var loginInfo = new NetworkCredential(email, password);
+                var msg = new MailMessage();
+                var smtpClient = new SmtpClient(dt.Rows[0]["SMTP_MAIL"].ToString());
+                msg.From = new MailAddress(email, "ANDON -  WAHL");
+                var mail = address.Split(';');
+                foreach (var item in mail)
+                {
+                    msg.To.Add(new MailAddress(item));
+                }
+                var mailcc = CC.Split(';');
+                try
+                {
+                    foreach (var item in mailcc)
+                    {
+                        msg.CC.Add(new MailAddress(item));
+                    }
+                }
+                catch
+                {
+                }
+                msg.Subject = subject;
+                msg.Body = message;
+                msg.IsBodyHtml = true;
+                msg.SubjectEncoding = Encoding.UTF8;
+                msg.BodyEncoding = Encoding.UTF8;
+                //msg.Priority = MailPriority.High;
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = loginInfo;
+                smtpClient.Send(msg);
             }
             catch
             {
             }
-            msg.Subject = subject;
-            msg.Body = message;
-            msg.IsBodyHtml = true;
-            msg.SubjectEncoding = Encoding.UTF8;
-            msg.BodyEncoding = Encoding.UTF8;
-            //msg.Priority = MailPriority.High;
-            smtpClient.EnableSsl = true;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = loginInfo;
-            smtpClient.Send(msg);
         }
     }
 }

@@ -354,8 +354,8 @@ D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ko\System.Spatial.resources
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ru\System.Spatial.resources.dll
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\zh-Hans\System.Spatial.resources.dll
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\zh-Hant\System.Spatial.resources.dll
+D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\Ecomaint.Api.csproj.AssemblyReference.cache
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\Ecomaint.Api.csproj.CoreCompileInputs.cache
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\Ecomaint.Api.csproj.CopyComplete
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\CMMSApi.dll
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\CMMSApi.pdb
-D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Release\Ecomaint.Api.csproj.AssemblyReference.cache

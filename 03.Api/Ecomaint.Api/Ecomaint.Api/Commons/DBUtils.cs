@@ -580,6 +580,19 @@ namespace Ecomaint.Api
             {
             }
         }
+
+        public static string GetChuoi(string Query)
+        {
+            try
+            {
+                return SqlHelper.ExecuteScalar(CMMSConnectionString(), CommandType.Text, Query).ToString();
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
         public static string MGetTypeSql(object type, int columnSize, int numericPrecision, int numericScale)
         {
             switch (type.ToString())

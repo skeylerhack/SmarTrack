@@ -278,6 +278,8 @@
             this.grvBCMoldWeekly.GridControl = this.grdBCMoldWeekly;
             this.grvBCMoldWeekly.Name = "grvBCMoldWeekly";
             this.grvBCMoldWeekly.OptionsView.ShowGroupPanel = false;
+            this.grvBCMoldWeekly.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.grvBCMoldWeekly_ShowingEditor);
+            this.grvBCMoldWeekly.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvBCMoldWeekly_CellValueChanged);
             // 
             // ccbMS_MAY
             // 

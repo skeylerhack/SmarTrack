@@ -11,7 +11,6 @@ using DevExpress.Utils;
 using DevExpress.XtraEditors.Repository;
 using System.Drawing;
 using Spire.Xls;
-using System.IO;
 
 namespace VS.OEE
 {

@@ -194,7 +194,7 @@ namespace CMMSApi.Controllers
                         listParameter.Add(new SqlParameter("@PrOID", item.PROID));
                         listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
-                    } 
+                    }
                     else
                     {
                         listParameter = new List<SqlParameter>();
@@ -234,14 +234,14 @@ namespace CMMSApi.Controllers
                     if (item.ORDER.Trim().StartsWith("---") == true)
                     {
                         item.ORDER = Ecomaint.Api.DBUtils.GetChuoi("SELECT TOP 1 SUBSTRING(PrOrNumber, 8,2) +'-'+C.ItemCode  FROM dbo.ProductionOrder A INNER JOIN dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.Item C ON B.ItemID = C.ID WHERE A.ID = " + item.PROID + " AND B.ItemID = " + item.ItemID + " ");
-                    }   
+                    }
                 }
 
                 //add dữ liệu  của listnew không tồn tại vào lstRequest.
                 foreach (var itemnew in lstnew)
                 {
                     foreach (var item in lstResulst)
-                    { 
+                    {
                         if (itemnew.ItemID == item.ItemID)
                         {
                             if (itemnew.PROID == item.PROID)
@@ -257,7 +257,7 @@ namespace CMMSApi.Controllers
                             {
                                 lstResulst = lstRequest.Where(x => x.ItemID != item.ItemID && x.PROID != item.PROID).ToList();
                                 itemnew.RUN = 1;
-                            }    
+                            }
 
                         }
                     }
@@ -631,10 +631,14 @@ namespace CMMSApi.Controllers
                 string Mes = "<p>Máy :" + lstPhoneMail[0].MS_MAY + ",gặp sự cố từ: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "</p>";
                 Thread thread = new Thread(() =>
                 {
-                SendSMS(phone,"May :" + lstPhoneMail[0].MS_MAY + ",gap su co tu: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "");
-                Ecomaint.Api.DBUtils.SendEmailCC(mailto, "WAHL-WON", Mes);
+                    SendSMS(phone, "May :" + lstPhoneMail[0].MS_MAY + ",gap su co tu: " + Ngay.ToString("dd/MM/yyyy HH:mm:ss") + "");
                 }, 60000);
                 thread.Start();
+                Thread thread1 = new Thread(() =>
+                {
+                    Ecomaint.Api.DBUtils.SendEmailCC(mailto, "WAHL-VN", Mes);
+                }, 5000);
+                thread1.Start();
                 return true;
             }
             catch

@@ -164,7 +164,6 @@
             new DevExpress.XtraEditors.Repository.ClearButton(),
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl1.Properties.Client = this.grdItem;
-            this.searchControl1.Properties.FindDelay = 100;
             this.tablePanel2.SetRow(this.searchControl1, 1);
             this.searchControl1.Size = new System.Drawing.Size(338, 20);
             this.searchControl1.TabIndex = 6;

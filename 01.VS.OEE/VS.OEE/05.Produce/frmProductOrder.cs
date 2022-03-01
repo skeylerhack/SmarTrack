@@ -610,6 +610,7 @@ namespace VS.OEE
                 SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.ProSchedule WHERE DetailsID = " + Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("DetailsID")) + " DELETE dbo.PrODetails WHERE DetailsID = " + Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("DetailsID") + ""));
                 string DetailID = grvPrODetails.GetFocusedRowCellValue("DetailsID").ToString();
                 grvPrODetails.DeleteSelectedRows();
+                Commons.Modules.ObjSystems.ConvertDatatable(grdPrODetails).AcceptChanges();
                 AddbtProSchedule();
                 grvPrODetails_FocusedRowChanged(null, null);
                 try

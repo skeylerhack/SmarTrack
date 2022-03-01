@@ -195,18 +195,18 @@ namespace CMMSApi.Controllers
                         listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
                     }
-                    else
-                    {
-                        listParameter = new List<SqlParameter>();
-                        //insert dữ liệu vào productionRundetails
-                        listParameter.Add(new SqlParameter("@Ngay", dNgay));
-                        listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
-                        listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
-                        listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
-                        listParameter.Add(new SqlParameter("@PrOID", item.PROID));
-                        listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
-                        Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiUpdateSoLuong", listParameter);
-                    }
+                    //else
+                    //{
+                    //    listParameter = new List<SqlParameter>();
+                    //    //insert dữ liệu vào productionRundetails
+                    //    listParameter.Add(new SqlParameter("@Ngay", dNgay));
+                    //    listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
+                    //    listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
+                    //    listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
+                    //    listParameter.Add(new SqlParameter("@PrOID", item.PROID));
+                    //    listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
+                    //    Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiUpdateSoLuong", listParameter);
+                    //}
                 }
                 if (lstRequest.Count(x => x.RUN == 1) == 0)
                 {
@@ -229,15 +229,14 @@ namespace CMMSApi.Controllers
                 //Dữ liệu đang chọn HMI
                 List<ProductionViewModel> lstResulst = new List<ProductionViewModel>();
                 lstResulst = lstRequest.Where(x => x.RUN == 1).ToList();
-                foreach (var item in lstResulst)
-                {
-                    if (item.ORDER.Trim().StartsWith("---") == true)
-                    {
-                        item.ORDER = Ecomaint.Api.DBUtils.GetChuoi("SELECT TOP 1 SUBSTRING(PrOrNumber, 8,2) +'-'+C.ItemCode  FROM dbo.ProductionOrder A INNER JOIN dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.Item C ON B.ItemID = C.ID WHERE A.ID = " + item.PROID + " AND B.ItemID = " + item.ItemID + " ");
-                    }
-                }
-
-                //add dữ liệu  của listnew không tồn tại vào lstRequest.
+                //foreach (var item in lstResulst)
+                //{
+                //    if (item.ORDER.Trim().StartsWith("---") == true)
+                //    {
+                //        item.ORDER = Ecomaint.Api.DBUtils.GetChuoi("SELECT TOP 1 SUBSTRING(PrOrNumber, 8,2) +'-'+C.ItemCode  FROM dbo.ProductionOrder A INNER JOIN dbo.PrODetails B ON B.PrOID = A.ID INNER JOIN dbo.Item C ON B.ItemID = C.ID WHERE A.ID = " + item.PROID + " AND B.ItemID = " + item.ItemID + " ");
+                //    }
+                //}
+                //lấy những thèn của
                 foreach (var itemnew in lstnew)
                 {
                     foreach (var item in lstResulst)
@@ -247,26 +246,20 @@ namespace CMMSApi.Controllers
                             if (itemnew.PROID == item.PROID)
                             {
                                 //nếu cùng order thì cập nhật thông tin vào củ
-                                item.ORDER = itemnew.ORDER;
-                                item.DataCollectionCycle = itemnew.DataCollectionCycle;
-                                item.WorkingCycle = itemnew.WorkingCycle;
-                                item.PLAN = itemnew.PLAN;
-                                item.QTY = itemnew.QTY;
+                                itemnew.RUN = 1;
+                                itemnew.Actual = item.Actual;
                             }
                             else
                             {
-                                lstResulst = lstRequest.Where(x => x.ItemID != item.ItemID && x.PROID != item.PROID).ToList();
                                 itemnew.RUN = 1;
                             }
-
                         }
                     }
                 }
-                var listnotexit = lstnew.Where(x1 => !lstResulst.Any(x2 => x2.ItemID == x1.ItemID && x2.PROID == x1.PROID)).ToList();
-                lstResulst.AddRange(listnotexit);
-                return Json(lstResulst, JsonRequestBehavior.AllowGet);
-
-                //return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
+                //add dữ liệu  của listnew không tồn tại vào lstRequest.
+                //var listnotexit = lstnew.Where(x1 => !lstResulst.Any(x2 => x2.ItemID == x1.ItemID && x2.PROID == x1.PROID)).ToList();
+                //lstResulst.AddRange(listnotexit);
+                return Json(lstnew, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

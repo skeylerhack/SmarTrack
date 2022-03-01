@@ -318,9 +318,7 @@ D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csproj.C
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csproj.CopyComplete
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\CMMSApi.dll
 D:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\CMMSApi.pdb
-G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\WebGrease.dll
-G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ko\Microsoft.Data.OData.resources.dll
+G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\DevExtreme.AspNet.Mvc.xml
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ApplicationInsights.config
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\CMMSApi.dll.config
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\CMMSApi.dll
@@ -338,6 +336,7 @@ G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.CodeAnalys
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.CSharp.Core.targets
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\System.AppContext.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\roslyn\System.Collections.Immutable.dll
@@ -381,8 +380,8 @@ G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\System.Web.Razor.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\System.Web.WebPages.Deployment.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\System.Web.WebPages.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\System.Web.WebPages.Razor.dll
+G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\WebGrease.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\DevExtreme.AspNet.Data.xml
-G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\DevExtreme.AspNet.Mvc.xml
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\EntityFramework.xml
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\EntityFramework.SqlServer.xml
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\Microsoft.Data.Edm.xml
@@ -421,6 +420,7 @@ G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\es\Microsoft.Data.OData.res
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\fr\Microsoft.Data.OData.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\it\Microsoft.Data.OData.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ja\Microsoft.Data.OData.resources.dll
+G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ko\Microsoft.Data.OData.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\ru\Microsoft.Data.OData.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\zh-Hans\Microsoft.Data.OData.resources.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\bin\zh-Hant\Microsoft.Data.OData.resources.dll

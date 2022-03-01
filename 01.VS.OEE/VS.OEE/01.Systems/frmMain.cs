@@ -777,9 +777,15 @@ namespace VS.OEE
                 sTenNV = dt.Rows[0]["FULL_NAME"].ToString();
             }
             catch { }
-            Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, Commons.Modules.ModuleName, sTenCty, sMail, sDThoai, sDThoai, 1);
+            try
+            {
+                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 34, 14, "trammp335@gmail.com", "thanhthuy2612", "smtp.gmail.com", 587);
+                frm.ShowDialog();
+            }
+            catch (Exception)
+            {
 
-            frm.ShowDialog();
+            }
         }
 
         public void ShowPhanHoiVietSoft()
@@ -796,8 +802,7 @@ namespace VS.OEE
             }
             catch { }
 
-            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(Commons.IConnections.CNStr, Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, Commons.Modules.ModuleName, sTenCty, sMail, sDThoai, sDThoai, 1);
-
+            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 34,"trammp335@gmail.com", "thanhthuy2612", "smtp.gmail.com", 587);
             frm.ShowDialog();
         }
 

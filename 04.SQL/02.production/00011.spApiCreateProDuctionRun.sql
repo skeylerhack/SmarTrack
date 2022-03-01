@@ -1,12 +1,11 @@
-﻿
-ALTER proc [dbo].[spApiCreateProDuctionRun]
-	@Ngay DATETIME ='2022-02-20 17:24:12.603',
-	@MS_MAY NVARCHAR(30) = 'MOLD-05',
-	@ID_Operator BIGINT = 20031,
-	@ItemID BIGINT=3,
-	@PrOID BIGINT=27,
-	@ActualQuantity NUMERIC(18,2) = 91
-AS
+﻿ALTER proc [dbo].[spApiCreateProDuctionRun]
+	@Ngay DATETIME ='2022-02-23 08:20:01.337',
+	@MS_MAY NVARCHAR(30) = 'MOLD-15',
+	@ID_Operator BIGINT = 20026,
+	@ItemID BIGINT=144,
+	@PrOID BIGINT=148,
+	@ActualQuantity NUMERIC(18,2) = 924.00
+	AS
 BEGIN
 		DECLARE @Actual NUMERIC(18,2)
 		DECLARE @NgayHT DATETIME = GETDATE()
@@ -35,7 +34,7 @@ BEGIN
 				BEGIN
 
 				--kiểm tra đơn hàng hiện tại có item đó không
-				SET @Actual = @ActualQuantity - (SELECT SUM(ActualQuantity) FROM dbo.ProductionRunDetails WHERE MS_MAY =@MS_MAY AND PrOID = @PrOID)
+				SET @Actual = @ActualQuantity - (SELECT SUM(ActualQuantity) FROM dbo.ProductionRunDetails WHERE MS_MAY =@MS_MAY AND ItemID =@ItemID AND PrOID = @PrOID)
 
 					SET @PrOID = (SELECT TOP 1 A.PrOID FROM dbo.PrODetails A
 				INNER JOIN dbo.ProSchedule B ON B.DetailsID = A.DetailsID
@@ -46,7 +45,6 @@ BEGIN
 					SET @Actual = 0
 				END
 			END
-
 			ELSE
 			BEGIN
 			SET @Actual = 0
@@ -54,9 +52,8 @@ BEGIN
 
 		IF NOT EXISTS(SELECT * FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND ID_CA = @ID_CA AND (SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay))
 		BEGIN
-			
 			-- nếu chưa tồn tại insert vào details
-			INSERT INTO dbo.ProductionRunDetails			(ProductionRunID,PrOID,ItemID,MS_HE_THONG,MS_MAY,OperatorID,StartTime,EndTime,ActualQuantity,DefectQuantity,DefectQuantity1,ActualSpeed,StandardSpeed,StandardOutput,
+			INSERT INTO dbo.ProductionRunDetails(ProductionRunID,PrOID,ItemID,MS_HE_THONG,MS_MAY,OperatorID,StartTime,EndTime,ActualQuantity,DefectQuantity,DefectQuantity1,ActualSpeed,StandardSpeed,StandardOutput,
 			WorkingCycle,NumberPerCycle,DownTimeRecord,ID_CA)
 			SELECT TOP 1 @IDRun,@PrOID,@ItemID,A.MS_HE_THONG,@MS_MAY,@ID_Operator,@NgayHT,@NgayHT,@Actual,0,0,0,A.StandardSpeed,A.StandardOutput,
 			A.WorkingCycle,A.NumberPerCycle,A.DownTimeRecord,@ID_CA
@@ -74,9 +71,8 @@ BEGIN
 
 			SET @Actual = (SELECT SUM(ActualQuantity) FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND DetailID != @IDRunDetails
 			)
-
 			UPDATE dbo.ProductionRunDetails 
-			SET ActualQuantity = @ActualQuantity - ISNULL(@Actual,0),
+			SET ActualQuantity = ABS(@ActualQuantity - ISNULL(@Actual,0)),
 			EndTime = @NgayHT,
 			OperatorID =@ID_Operator
 			WHERE PrOID =@PrOID AND ItemID =@ItemID AND MS_MAY = @MS_MAY  AND ID_CA = @ID_CA AND (SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay)
@@ -85,6 +81,5 @@ BEGIN
 		END
 			UPDATE dbo.MAY SET TT_HMI = 1 WHERE MS_MAY = @MS_MAY
 END	
-
 
 

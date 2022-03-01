@@ -5,7 +5,6 @@ using DevExpress.XtraEditors;
 using Commons;
 using System.Reflection;
 using Microsoft.ApplicationBlocks.Data;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Linq;
 using DevExpress.Utils;
@@ -393,7 +392,7 @@ namespace VS.OEE
                     return;
                 }
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, "Device") == DialogResult.No) return;
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.ItemMay WHERE MS_MAY ='" + (grvItemMay.GetFocusedRowCellValue("MS_MAY") + "'"));
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.ItemMay WHERE MS_MAY ='" + (grvItemMay.GetFocusedRowCellValue("MS_MAY") + "' AND ItemID ='" + Convert.ToInt64(grvItem.GetFocusedRowCellValue("ID")) + "'"));
                 grvItemMay.DeleteSelectedRows();
             }
             catch (Exception)

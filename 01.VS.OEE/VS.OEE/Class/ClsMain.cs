@@ -21,6 +21,8 @@ namespace VS.OEE
                     Commons.IConnections.Database = sArr[1];
                     Commons.IConnections.Username = sArr[2];
                     Commons.IConnections.Password = sArr[3];
+
+
                 }
                 catch (Exception Excep)
                 {

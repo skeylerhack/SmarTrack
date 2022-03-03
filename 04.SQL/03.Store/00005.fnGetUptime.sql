@@ -1,5 +1,4 @@
 ﻿
-
 --SELECT [dbo].fnGetUptime('MOLD-11',GETDATE(),1)
 ALTER FUNCTION [dbo].[fnGetUptime]
 (
@@ -29,18 +28,16 @@ declare @Runtime DECIMAL(18,2)= DATEDIFF(MINUTE,@TuNgay,@DenNgay);/*thời gian 
 			SET @Dowtime =(SELECT SUM(A.THOI_GIAN_SUA_CHUA) AS SO_PHUT FROM dbo.THOI_GIAN_DUNG_MAY A
 			INNER JOIN dbo.NGUYEN_NHAN_DUNG_MAY B ON B.MS_NGUYEN_NHAN = A.MS_NGUYEN_NHAN
 			INNER JOIN dbo.DownTimeType C ON C.ID_DownTime = B.DownTimeTypeID
-			WHERE CONVERT(DATE,A.NGAY_DUNG) = CONVERT(DATE,@TuNgay) AND (B.MS_NGUYEN_NHAN != 14 AND A.DEN_GIO <= @Ngay) AND A.MS_MAY = @MS_MAY) /*trừ ra thằng nào không có đơn hàng điều kiệu thời gian kết thúc không hớn hơn ngày*/
+			WHERE CONVERT(DATE,A.NGAY_DUNG) = CONVERT(DATE,@TuNgay) AND B.OEE = 1 AND A.MS_MAY = @MS_MAY) /*trừ ra thằng nào không có đơn hàng điều kiệu thời gian kết thúc không hớn hơn ngày*/
 	END
 	ELSE
 	BEGIN
 		SET @Dowtime =(SELECT SUM(A.THOI_GIAN_SUA_CHUA) AS SO_PHUT FROM dbo.THOI_GIAN_DUNG_MAY A
 			INNER JOIN dbo.NGUYEN_NHAN_DUNG_MAY B ON B.MS_NGUYEN_NHAN = A.MS_NGUYEN_NHAN
 			INNER JOIN dbo.DownTimeType C ON C.ID_DownTime = B.DownTimeTypeID
-			WHERE CONVERT(DATE,A.NGAY_DUNG) = CONVERT(DATE,@TuNgay) AND A.MS_MAY = @MS_MAY)/*trừ ra thằng nào không có đơn hàng*/
+			WHERE CONVERT(DATE,A.NGAY_DUNG) = CONVERT(DATE,@TuNgay) AND B.OEE = 1 AND  A.MS_MAY = @MS_MAY)/*trừ ra thằng nào không có đơn hàng*/
 	END
 	SET @Resulst = CONVERT(DECIMAL(18,2),((@Runtime - ISNULL(@Dowtime,0))/ISNULL(@Runtime,1)) * 100);
 
 return ISNULL(@Resulst,0)
 end
-GO
-

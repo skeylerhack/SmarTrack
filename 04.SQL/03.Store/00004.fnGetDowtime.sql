@@ -1,5 +1,4 @@
 ﻿
---SELECT [dbo].[fnGetDowtime]('MOLD-05',GETDATE(),1)
 ALTER FUNCTION [dbo].[fnGetDowtime]
 (
 	@MS_MAY NVARCHAR(30),

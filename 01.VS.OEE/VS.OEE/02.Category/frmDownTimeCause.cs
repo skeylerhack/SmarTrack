@@ -60,6 +60,7 @@ namespace VS.OEE
             cboPlanned.Properties.ReadOnly = bLock;
             chkHuHong.Properties.ReadOnly = bLock;
             chkSanXuat.Properties.ReadOnly = bLock;
+            chkOEE.Properties.ReadOnly = bLock;
             txtSearch.ReadOnly = !bLock;
             grdDownTimeCause.Enabled = bLock;
 
@@ -86,6 +87,7 @@ namespace VS.OEE
                 cboDownTimeType.EditValue =Modules.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("DownTimeTypeID"));
                 chkHuHong.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("HU_HONG"));
                 chkSanXuat.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("BTDK"));
+                chkOEE.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("OEE"));
                 txtCauseCode.EditValue = (nullText ? "" : grvDownTimeCause.GetFocusedRowCellValue("CauseCode"));
                 cboPlanned.EditValue = Convert.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("Planned"));
             }
@@ -336,6 +338,7 @@ namespace VS.OEE
                 comd.Parameters.Add(new SqlParameter("@DownTimeTypeID", Modules.ToInt32(cboDownTimeType.EditValue)));
                 comd.Parameters.Add(new SqlParameter("@HU_HONG",chkHuHong.Checked));
                 comd.Parameters.Add(new SqlParameter("@BTDK", chkSanXuat.Checked));
+                comd.Parameters.Add(new SqlParameter("OEE", chkOEE.Checked));
                 comd.Parameters.Add(new SqlParameter("@MAC_DINH", 0));
                 comd.Parameters.Add(new SqlParameter("@CauseCode", txtCauseCode.EditValue));
                 comd.Parameters.Add(new SqlParameter("@Planned", cboPlanned.EditValue));
@@ -391,6 +394,7 @@ namespace VS.OEE
                 cboDownTimeType.EditValue = Modules.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("DownTimeTypeID"));
                 chkHuHong.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("HU_HONG"));
                 chkSanXuat.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("BTDK"));
+                chkOEE.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("OEE"));
                 txtCauseCode.EditValue = grvDownTimeCause.GetFocusedRowCellValue("CauseCode");
                 cboPlanned.EditValue = Convert.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("Planned"));
             }

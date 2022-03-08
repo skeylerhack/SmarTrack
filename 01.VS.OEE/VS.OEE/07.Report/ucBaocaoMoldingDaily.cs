@@ -115,13 +115,20 @@ namespace VS.OEE
             {
                 DataTable dt = new DataTable();
                 string[] arrMS_MAY = ccbMS_MAY.EditValue.ToString().Split(',');
-                string MS_MAY = "";
-                for (int i = 0; i < arrMS_MAY.Length; i++)
+                DataTable dt_MS_MAY = new DataTable();
+                try
                 {
-                    MS_MAY += "'" + arrMS_MAY[i].TrimStart().TrimEnd() + "',";
+                    dt_MS_MAY.Columns.Add("MS_MAY");
+                    foreach (string MS_MAY in arrMS_MAY)
+                    {
+                        dt_MS_MAY.Rows.Add(MS_MAY.Trim());
+                    }
                 }
-                MS_MAY = MS_MAY.Substring(0, MS_MAY.Length - 1);
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingDaily", Commons.Modules.TypeLanguage, datTNgay.DateTime, datDNgay.DateTime, cboID_CA.EditValue, cboShiftLeader.EditValue, MS_MAY));
+                catch { }
+
+                string sBT_MS_MAY = "sBT_MS_MAY" + Commons.Modules.UserName;
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT_MS_MAY, dt_MS_MAY, "");
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingDaily", Commons.Modules.TypeLanguage, datTNgay.DateTime, datDNgay.DateTime, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
 
                 if (grdBCMoldDaily.DataSource == null)
                 {

@@ -15,6 +15,11 @@ namespace VS.OEE
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
             ClsMain.LayThongTinConfig();
+            //if(ClsMain.Kiemtrathongtinserver() == false)
+            //{
+            //    Commons.Modules.msgChung("Không đúng server!");
+            //    return;
+            //}
             Commons.Modules.ModuleName ="ECOMAIN";
             Commons.Modules.sPrivate = @"TRUNGNGUYEN";
             Commons.Modules.UserName = "admin";

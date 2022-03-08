@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.IO;
+using System.Net;
+using System.Text;
 using System.Windows.Forms;
 
 namespace VS.OEE
@@ -38,7 +40,14 @@ namespace VS.OEE
             }
             return true;
         }
-
+        public static bool Kiemtrathongtinserver()
+        {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            WebClient client = new WebClient();
+            client.Encoding = Encoding.UTF8;
+            string response = client.DownloadString("http://192.168.2.55/apiServer/api/Management/GetProcessID");
+            return Convert.ToBoolean(response);
+        }
 
 
        

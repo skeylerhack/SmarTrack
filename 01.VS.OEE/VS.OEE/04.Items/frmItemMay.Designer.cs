@@ -164,9 +164,11 @@
             new DevExpress.XtraEditors.Repository.ClearButton(),
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl1.Properties.Client = this.grdItem;
+            this.searchControl1.Properties.FindDelay = 100;
             this.tablePanel2.SetRow(this.searchControl1, 1);
             this.searchControl1.Size = new System.Drawing.Size(338, 20);
             this.searchControl1.TabIndex = 6;
+            this.searchControl1.TextChanged += new System.EventHandler(this.searchControl1_TextChanged);
             // 
             // tablecontrol
             // 
@@ -562,7 +564,6 @@
             this.grvItemMay.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvItemMay_InitNewRow);
             this.grvItemMay.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvItemMay_CellValueChanged);
             this.grvItemMay.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvItemMay_InvalidRowException);
-            this.grvItemMay.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvItemMay_ValidateRow);
             this.grvItemMay.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.grvItemMay_ValidatingEditor);
             this.grvItemMay.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.grvItemMay_InvalidValueException);
             // 

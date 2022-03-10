@@ -25,6 +25,7 @@ using DevExpress.Utils;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace Commons
 {
@@ -768,6 +769,8 @@ namespace Commons
                 grv.OptionsView.ColumnAutoWidth = MColumnAutoWidth;
                 grv.OptionsView.AllowHtmlDrawHeaders = true;
                 grv.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                grv.OptionsClipboard.ClipboardMode = DevExpress.Export.ClipboardMode.Formatted;
+                grv.OptionsSelection.MultiSelect = true;
                 grv.DoubleClick += delegate (object a, EventArgs b) { Grv_DoubleClick(a, b, fName); };
                 if (MBestFitColumns)
                     grv.BestFitColumns();
@@ -781,10 +784,9 @@ namespace Commons
                     MemoryStream stream = new MemoryStream(byteArray);
                     grv.RestoreLayoutFromStream(stream);
                 }
-                if (Commons.Modules.UserName.ToLower() == "admin")
-                {
+               
                     grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
-                }
+                
                 if (MloadNNgu)
                     MLoadNNXtraGrid(grv, fName);
                 return true;
@@ -891,17 +893,26 @@ namespace Commons
                     return;
                 }
                 // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
-                menuItem.BeginGroup = true;
-                menuItem.Tag = e.Menu;
-                menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv); };
-                headerMenu.Items.Add(menuItem);
-                // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
-                menuSave.BeginGroup = true;
-                menuSave.Tag = e.Menu;
-                menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
-                headerMenu.Items.Add(menuSave);
+                if (Commons.Modules.UserName.ToLower() == "admin")
+                {
+                    DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
+                    menuItem.BeginGroup = true;
+                    menuItem.Tag = e.Menu;
+                    menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv); };
+                    headerMenu.Items.Add(menuItem);
+                    // menu resetgrid
+                    DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
+                    menuSave.BeginGroup = true;
+                    menuSave.Tag = e.Menu;
+                    menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
+                    headerMenu.Items.Add(menuSave);
+                }
+                // menu export to excel
+                DevExpress.Utils.Menu.DXMenuItem menuExport = new DevExpress.Utils.Menu.DXMenuItem("Export to Excel");
+                menuExport.BeginGroup = true;
+                menuExport.Tag = e.Menu;
+                menuExport.Click += delegate (object a, EventArgs b) { ExportToExcel(null, null, grv); };
+                headerMenu.Items.Add(menuExport);
             }
             catch
             {
@@ -1286,6 +1297,16 @@ namespace Commons
                 //update
                 SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "UPDATE dbo.DINH_DANG_LUOI SET DINH_DANG_LUOI = '" + text + "' WHERE MS_LUOI  = '" + grv.Tag + "'");
             }
+        }
+
+        public void ExportToExcel(System.Object sender, System.EventArgs e, GridView grv)
+        {
+            // SAVE  
+            string sPath = "";
+            sPath = Commons.Modules.MExcel.SaveFiles("Excel file (*.xls)|*.xls");
+            if (sPath == "") return;
+            grv.ExportToXls(sPath, new DevExpress.XtraPrinting.XlsExportOptions { ShowGridLines = true,FitToPrintedPageHeight = true,FitToPrintedPageWidth=true, TextExportMode = DevExpress.XtraPrinting.TextExportMode.Text });
+            Process.Start(sPath);
         }
 
         public void MLoadNNXtraGrid(DevExpress.XtraGrid.Views.Grid.GridView grv, string fName)

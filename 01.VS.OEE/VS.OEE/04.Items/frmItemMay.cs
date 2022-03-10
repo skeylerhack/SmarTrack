@@ -491,9 +491,13 @@ namespace VS.OEE
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
-        private void grvItemMay_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void searchControl1_TextChanged(object sender, EventArgs e)
         {
-
+            if (grvItem.GetFocusedRowCellValue("ItemCode").ToString() != txtItemCode.Text.Trim())
+            {
+                LoadgrdItemMay(Convert.ToInt64(grvItem.GetFocusedRowCellValue("ID")), null);
+                BingdingControl(false);
+            }
         }
     }
 }

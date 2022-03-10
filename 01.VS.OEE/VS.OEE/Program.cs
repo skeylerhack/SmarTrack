@@ -38,6 +38,7 @@ namespace VS.OEE
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
         }
+
         static void MRunForm()
         {
             try

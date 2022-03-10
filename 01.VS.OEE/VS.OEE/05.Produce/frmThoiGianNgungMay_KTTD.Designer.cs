@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.txtTHOI_GIAN_SUA = new DevExpress.XtraEditors.SpinEdit();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -158,6 +159,11 @@
             this.tablePanel3.SetRow(this.txtTHOI_GIAN_SUA, 4);
             this.txtTHOI_GIAN_SUA.Size = new System.Drawing.Size(220, 20);
             this.txtTHOI_GIAN_SUA.TabIndex = 27;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            conditionValidationRule6.Value1 = "";
+            conditionValidationRule6.Value2 = "";
+            this.dxValidationProvider1.SetValidationRule(this.txtTHOI_GIAN_SUA, conditionValidationRule6);
             // 
             // tablePanel1
             // 
@@ -544,10 +550,10 @@
             this.tablePanel3.SetRow(this.datTU_GIO, 2);
             this.datTU_GIO.Size = new System.Drawing.Size(220, 20);
             this.datTU_GIO.TabIndex = 20;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.datTU_GIO, conditionValidationRule4);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Less;
+            compareAgainstControlValidationRule2.Control = this.datDEN_GIO;
+            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.datTU_GIO, compareAgainstControlValidationRule2);
             this.datTU_GIO.EditValueChanged += new System.EventHandler(this.datTU_GIO_EditValueChanged);
             // 
             // lblHIEN_TUONG
@@ -710,10 +716,10 @@
             this.tablePanel3.SetRow(this.cboMS_NGUYEN_NHAN, 2);
             this.cboMS_NGUYEN_NHAN.Size = new System.Drawing.Size(220, 20);
             this.cboMS_NGUYEN_NHAN.TabIndex = 12;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "This value is not valid";
-            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.cboMS_NGUYEN_NHAN, conditionValidationRule5);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.cboMS_NGUYEN_NHAN, conditionValidationRule4);
             // 
             // cboID_DownTime
             // 
@@ -727,10 +733,10 @@
             this.tablePanel3.SetRow(this.cboID_DownTime, 2);
             this.cboID_DownTime.Size = new System.Drawing.Size(220, 20);
             this.cboID_DownTime.TabIndex = 11;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.cboID_DownTime, conditionValidationRule6);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "This value is not valid";
+            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.cboID_DownTime, conditionValidationRule5);
             this.cboID_DownTime.EditValueChanged += new System.EventHandler(this.cboID_DownTime_EditValueChanged);
             // 
             // cboCaID

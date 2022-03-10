@@ -44,7 +44,8 @@ namespace VS.OEE
             }
         
             Commons.Modules.sId = "0Load";
-
+            datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
+            datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
             LoadCbo();
             LoadgrdQCData(-1);
             LoadgrdQCDataDetails();
@@ -297,7 +298,7 @@ namespace VS.OEE
             DataTable dt = new DataTable();
             try
             {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetQCData", Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetQCData", datTuNgay.DateTime.Date, datDenNgay.DateTime.Date, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 if (grdQCData.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdQCData, grvQCData, dt, false, true, false, false, true, this.Name);
@@ -840,8 +841,13 @@ namespace VS.OEE
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
+
         #endregion
 
-      
+        private void datTuNgay_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Commons.Modules.sId == "0Load") return;
+            LoadgrdQCData(-1);
+        }
     }
 }

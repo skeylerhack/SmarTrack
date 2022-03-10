@@ -32,8 +32,8 @@
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.datNgayBD = new DevExpress.XtraEditors.DateEdit();
             this.datNgayHTKH = new DevExpress.XtraEditors.DateEdit();
+            this.datNgayBD = new DevExpress.XtraEditors.DateEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.datTuNgay = new DevExpress.XtraEditors.DateEdit();
@@ -80,10 +80,10 @@
             this.cboTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -122,25 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // datNgayBD
-            // 
-            this.TableLayout.SetColumn(this.datNgayBD, 5);
-            this.datNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datNgayBD.EditValue = null;
-            this.datNgayBD.Location = new System.Drawing.Point(794, 11);
-            this.datNgayBD.Name = "datNgayBD";
-            this.datNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.TableLayout.SetRow(this.datNgayBD, 1);
-            this.datNgayBD.Size = new System.Drawing.Size(209, 20);
-            this.datNgayBD.TabIndex = 4;
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.datNgayHTKH;
-            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.datNgayBD, compareAgainstControlValidationRule2);
-            // 
             // datNgayHTKH
             // 
             this.TableLayout.SetColumn(this.datNgayHTKH, 5);
@@ -157,10 +138,29 @@
             this.TableLayout.SetRow(this.datNgayHTKH, 2);
             this.datNgayHTKH.Size = new System.Drawing.Size(209, 20);
             this.datNgayHTKH.TabIndex = 4;
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
-            compareAgainstControlValidationRule1.Control = this.datNgayBD;
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
+            compareAgainstControlValidationRule2.Control = this.datNgayBD;
+            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.datNgayHTKH, compareAgainstControlValidationRule2);
+            // 
+            // datNgayBD
+            // 
+            this.TableLayout.SetColumn(this.datNgayBD, 5);
+            this.datNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datNgayBD.EditValue = null;
+            this.datNgayBD.Location = new System.Drawing.Point(794, 11);
+            this.datNgayBD.Name = "datNgayBD";
+            this.datNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TableLayout.SetRow(this.datNgayBD, 1);
+            this.datNgayBD.Size = new System.Drawing.Size(209, 20);
+            this.datNgayBD.TabIndex = 4;
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.datNgayHTKH;
             compareAgainstControlValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.datNgayHTKH, compareAgainstControlValidationRule1);
+            this.dxValidationProvider1.SetValidationRule(this.datNgayBD, compareAgainstControlValidationRule1);
             // 
             // splitContainerControl1
             // 
@@ -755,10 +755,10 @@
             this.Text = "frmProductOrder";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmItemMay_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();

@@ -1,4 +1,4 @@
- (SELECT [dbo].[fnGetThoiGianChay]('MOLD-05',GETDATE()))
+ (SELECT [dbo].[fnGetThoiGianChay]('MOLD-04',GETDATE()))
 
 
 SELECT DISTINCT  

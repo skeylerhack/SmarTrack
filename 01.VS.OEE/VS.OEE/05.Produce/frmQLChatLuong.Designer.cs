@@ -42,6 +42,10 @@
             this.grvQCData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groQCData = new DevExpress.XtraEditors.GroupControl();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            this.datDenNgay = new DevExpress.XtraEditors.DateEdit();
+            this.datTuNgay = new DevExpress.XtraEditors.DateEdit();
+            this.lblDenNgay = new DevExpress.XtraEditors.LabelControl();
+            this.lblTuNgay = new DevExpress.XtraEditors.LabelControl();
             this.TableLayout = new DevExpress.Utils.Layout.TablePanel();
             this.datProductionDate = new DevExpress.XtraEditors.DateEdit();
             this.cboID_CA = new DevExpress.XtraEditors.LookUpEdit();
@@ -87,6 +91,10 @@
             this.groQCData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datDenNgay.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDenNgay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTuNgay.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTuNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TableLayout)).BeginInit();
             this.TableLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datProductionDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -122,7 +130,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.TableLayout);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1177, 515);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1253, 559);
             this.splitContainerControl1.SplitterPosition = 262;
             this.splitContainerControl1.TabIndex = 1;
             // 
@@ -139,7 +147,7 @@
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel2.Size = new System.Drawing.Size(262, 515);
+            this.tablePanel2.Size = new System.Drawing.Size(262, 559);
             this.tablePanel2.TabIndex = 0;
             // 
             // txtTim
@@ -147,7 +155,7 @@
             this.txtTim.Client = this.grdQCData;
             this.tablePanel2.SetColumn(this.txtTim, 0);
             this.tablePanel2.SetColumnSpan(this.txtTim, 2);
-            this.txtTim.Location = new System.Drawing.Point(3, 492);
+            this.txtTim.Location = new System.Drawing.Point(3, 536);
             this.txtTim.Name = "txtTim";
             this.txtTim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Repository.ClearButton(),
@@ -160,12 +168,13 @@
             // grdQCData
             // 
             this.tablePanel1.SetColumn(this.grdQCData, 0);
+            this.tablePanel1.SetColumnSpan(this.grdQCData, 2);
             this.grdQCData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdQCData.Location = new System.Drawing.Point(3, 3);
+            this.grdQCData.Location = new System.Drawing.Point(3, 71);
             this.grdQCData.MainView = this.grvQCData;
             this.grdQCData.Name = "grdQCData";
-            this.tablePanel1.SetRow(this.grdQCData, 0);
-            this.grdQCData.Size = new System.Drawing.Size(246, 453);
+            this.tablePanel1.SetRow(this.grdQCData, 4);
+            this.grdQCData.Size = new System.Drawing.Size(246, 429);
             this.grdQCData.TabIndex = 5;
             this.grdQCData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvQCData});
@@ -187,22 +196,85 @@
             this.groQCData.Location = new System.Drawing.Point(3, 3);
             this.groQCData.Name = "groQCData";
             this.tablePanel2.SetRow(this.groQCData, 0);
-            this.groQCData.Size = new System.Drawing.Size(256, 483);
+            this.groQCData.Size = new System.Drawing.Size(256, 527);
             this.groQCData.TabIndex = 8;
             this.groQCData.Text = "groQCData";
             // 
             // tablePanel1
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 55F)});
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
+            this.tablePanel1.Controls.Add(this.datDenNgay);
+            this.tablePanel1.Controls.Add(this.datTuNgay);
+            this.tablePanel1.Controls.Add(this.lblDenNgay);
+            this.tablePanel1.Controls.Add(this.lblTuNgay);
             this.tablePanel1.Controls.Add(this.grdQCData);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(2, 22);
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F)});
-            this.tablePanel1.Size = new System.Drawing.Size(252, 459);
+            this.tablePanel1.Size = new System.Drawing.Size(252, 503);
             this.tablePanel1.TabIndex = 6;
+            // 
+            // datDenNgay
+            // 
+            this.tablePanel1.SetColumn(this.datDenNgay, 1);
+            this.datDenNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datDenNgay.EditValue = null;
+            this.datDenNgay.Location = new System.Drawing.Point(123, 37);
+            this.datDenNgay.Name = "datDenNgay";
+            this.datDenNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datDenNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tablePanel1.SetRow(this.datDenNgay, 2);
+            this.datDenNgay.Size = new System.Drawing.Size(126, 20);
+            this.datDenNgay.TabIndex = 13;
+            this.datDenNgay.EditValueChanged += new System.EventHandler(this.datTuNgay_EditValueChanged);
+            // 
+            // datTuNgay
+            // 
+            this.tablePanel1.SetColumn(this.datTuNgay, 1);
+            this.datTuNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datTuNgay.EditValue = null;
+            this.datTuNgay.Location = new System.Drawing.Point(123, 11);
+            this.datTuNgay.Name = "datTuNgay";
+            this.datTuNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datTuNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tablePanel1.SetRow(this.datTuNgay, 1);
+            this.datTuNgay.Size = new System.Drawing.Size(126, 20);
+            this.datTuNgay.TabIndex = 12;
+            this.datTuNgay.EditValueChanged += new System.EventHandler(this.datTuNgay_EditValueChanged);
+            // 
+            // lblDenNgay
+            // 
+            this.tablePanel1.SetColumn(this.lblDenNgay, 0);
+            this.lblDenNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDenNgay.Location = new System.Drawing.Point(3, 37);
+            this.lblDenNgay.Name = "lblDenNgay";
+            this.tablePanel1.SetRow(this.lblDenNgay, 2);
+            this.lblDenNgay.Size = new System.Drawing.Size(114, 20);
+            this.lblDenNgay.TabIndex = 11;
+            this.lblDenNgay.Text = "lblDenNgay";
+            // 
+            // lblTuNgay
+            // 
+            this.tablePanel1.SetColumn(this.lblTuNgay, 0);
+            this.lblTuNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTuNgay.Location = new System.Drawing.Point(3, 11);
+            this.lblTuNgay.Name = "lblTuNgay";
+            this.tablePanel1.SetRow(this.lblTuNgay, 1);
+            this.lblTuNgay.Size = new System.Drawing.Size(114, 20);
+            this.lblTuNgay.TabIndex = 10;
+            this.lblTuNgay.Text = "lblTuNgay";
             // 
             // TableLayout
             // 
@@ -237,21 +309,21 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
-            this.TableLayout.Size = new System.Drawing.Size(909, 515);
+            this.TableLayout.Size = new System.Drawing.Size(985, 559);
             this.TableLayout.TabIndex = 0;
             // 
             // datProductionDate
             // 
             this.TableLayout.SetColumn(this.datProductionDate, 5);
             this.datProductionDate.EditValue = null;
-            this.datProductionDate.Location = new System.Drawing.Point(729, 37);
+            this.datProductionDate.Location = new System.Drawing.Point(780, 37);
             this.datProductionDate.Name = "datProductionDate";
             this.datProductionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.datProductionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.TableLayout.SetRow(this.datProductionDate, 2);
-            this.datProductionDate.Size = new System.Drawing.Size(177, 20);
+            this.datProductionDate.Size = new System.Drawing.Size(202, 20);
             this.datProductionDate.TabIndex = 21;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This value is not valid";
@@ -261,13 +333,13 @@
             // cboID_CA
             // 
             this.TableLayout.SetColumn(this.cboID_CA, 3);
-            this.cboID_CA.Location = new System.Drawing.Point(426, 37);
+            this.cboID_CA.Location = new System.Drawing.Point(451, 37);
             this.cboID_CA.Name = "cboID_CA";
             this.cboID_CA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboID_CA.Properties.NullText = "";
             this.TableLayout.SetRow(this.cboID_CA, 2);
-            this.cboID_CA.Size = new System.Drawing.Size(177, 20);
+            this.cboID_CA.Size = new System.Drawing.Size(202, 20);
             this.cboID_CA.TabIndex = 20;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "This value is not valid";
@@ -283,7 +355,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboCheckStepID.Properties.NullText = "";
             this.TableLayout.SetRow(this.cboCheckStepID, 2);
-            this.cboCheckStepID.Size = new System.Drawing.Size(177, 20);
+            this.cboCheckStepID.Size = new System.Drawing.Size(202, 20);
             this.cboCheckStepID.TabIndex = 19;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "This value is not valid";
@@ -294,14 +366,14 @@
             // 
             this.TableLayout.SetColumn(this.datQCDate, 5);
             this.datQCDate.EditValue = null;
-            this.datQCDate.Location = new System.Drawing.Point(729, 11);
+            this.datQCDate.Location = new System.Drawing.Point(780, 11);
             this.datQCDate.Name = "datQCDate";
             this.datQCDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.datQCDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.TableLayout.SetRow(this.datQCDate, 1);
-            this.datQCDate.Size = new System.Drawing.Size(177, 20);
+            this.datQCDate.Size = new System.Drawing.Size(202, 20);
             this.datQCDate.TabIndex = 18;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "This value is not valid";
@@ -312,10 +384,10 @@
             // txtQCName
             // 
             this.TableLayout.SetColumn(this.txtQCName, 3);
-            this.txtQCName.Location = new System.Drawing.Point(426, 11);
+            this.txtQCName.Location = new System.Drawing.Point(451, 11);
             this.txtQCName.Name = "txtQCName";
             this.TableLayout.SetRow(this.txtQCName, 1);
-            this.txtQCName.Size = new System.Drawing.Size(177, 20);
+            this.txtQCName.Size = new System.Drawing.Size(202, 20);
             this.txtQCName.TabIndex = 17;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "This value is not valid";
@@ -328,7 +400,7 @@
             this.txtDocNum.Location = new System.Drawing.Point(123, 11);
             this.txtDocNum.Name = "txtDocNum";
             this.TableLayout.SetRow(this.txtDocNum, 1);
-            this.txtDocNum.Size = new System.Drawing.Size(177, 20);
+            this.txtDocNum.Size = new System.Drawing.Size(202, 20);
             this.txtDocNum.TabIndex = 16;
             conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule6.ErrorText = "This value is not valid";
@@ -341,7 +413,7 @@
             this.lblProductionDate.Appearance.Options.UseFont = true;
             this.TableLayout.SetColumn(this.lblProductionDate, 4);
             this.lblProductionDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProductionDate.Location = new System.Drawing.Point(609, 37);
+            this.lblProductionDate.Location = new System.Drawing.Point(660, 37);
             this.lblProductionDate.Name = "lblProductionDate";
             this.TableLayout.SetRow(this.lblProductionDate, 2);
             this.lblProductionDate.Size = new System.Drawing.Size(114, 20);
@@ -354,7 +426,7 @@
             this.lblID_CA.Appearance.Options.UseFont = true;
             this.TableLayout.SetColumn(this.lblID_CA, 2);
             this.lblID_CA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblID_CA.Location = new System.Drawing.Point(306, 37);
+            this.lblID_CA.Location = new System.Drawing.Point(331, 37);
             this.lblID_CA.Name = "lblID_CA";
             this.TableLayout.SetRow(this.lblID_CA, 2);
             this.lblID_CA.Size = new System.Drawing.Size(114, 20);
@@ -367,7 +439,7 @@
             this.lblQCDate.Appearance.Options.UseFont = true;
             this.TableLayout.SetColumn(this.lblQCDate, 4);
             this.lblQCDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQCDate.Location = new System.Drawing.Point(609, 11);
+            this.lblQCDate.Location = new System.Drawing.Point(660, 11);
             this.lblQCDate.Name = "lblQCDate";
             this.TableLayout.SetRow(this.lblQCDate, 1);
             this.lblQCDate.Size = new System.Drawing.Size(114, 20);
@@ -380,7 +452,7 @@
             this.lblQCName.Appearance.Options.UseFont = true;
             this.TableLayout.SetColumn(this.lblQCName, 2);
             this.lblQCName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQCName.Location = new System.Drawing.Point(306, 11);
+            this.lblQCName.Location = new System.Drawing.Point(331, 11);
             this.lblQCName.Name = "lblQCName";
             this.TableLayout.SetRow(this.lblQCName, 1);
             this.lblQCName.Size = new System.Drawing.Size(114, 20);
@@ -426,7 +498,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.groQCDataDefect);
             this.splitContainerControl2.Panel2.Text = "Panel2";
             this.TableLayout.SetRow(this.splitContainerControl2, 4);
-            this.splitContainerControl2.Size = new System.Drawing.Size(903, 406);
+            this.splitContainerControl2.Size = new System.Drawing.Size(979, 450);
             this.splitContainerControl2.SplitterPosition = 222;
             this.splitContainerControl2.TabIndex = 9;
             // 
@@ -436,7 +508,7 @@
             this.groQCDataDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groQCDataDetails.Location = new System.Drawing.Point(0, 0);
             this.groQCDataDetails.Name = "groQCDataDetails";
-            this.groQCDataDetails.Size = new System.Drawing.Size(903, 222);
+            this.groQCDataDetails.Size = new System.Drawing.Size(979, 222);
             this.groQCDataDetails.TabIndex = 8;
             this.groQCDataDetails.Text = "groQCDataDetails";
             // 
@@ -446,7 +518,7 @@
             this.grdQCDataDetails.Location = new System.Drawing.Point(2, 22);
             this.grdQCDataDetails.MainView = this.grvQCDataDetails;
             this.grdQCDataDetails.Name = "grdQCDataDetails";
-            this.grdQCDataDetails.Size = new System.Drawing.Size(899, 198);
+            this.grdQCDataDetails.Size = new System.Drawing.Size(975, 198);
             this.grdQCDataDetails.TabIndex = 5;
             this.grdQCDataDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvQCDataDetails,
@@ -472,7 +544,7 @@
             this.groQCDataDefect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groQCDataDefect.Location = new System.Drawing.Point(0, 0);
             this.groQCDataDefect.Name = "groQCDataDefect";
-            this.groQCDataDefect.Size = new System.Drawing.Size(903, 178);
+            this.groQCDataDefect.Size = new System.Drawing.Size(979, 222);
             this.groQCDataDefect.TabIndex = 1;
             this.groQCDataDefect.Text = "groQCDataDefect";
             // 
@@ -482,7 +554,7 @@
             this.grdQCDataDefect.Location = new System.Drawing.Point(2, 22);
             this.grdQCDataDefect.MainView = this.grvQCDataDefect;
             this.grdQCDataDefect.Name = "grdQCDataDefect";
-            this.grdQCDataDefect.Size = new System.Drawing.Size(899, 154);
+            this.grdQCDataDefect.Size = new System.Drawing.Size(975, 198);
             this.grdQCDataDefect.TabIndex = 0;
             this.grdQCDataDefect.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvQCDataDefect});
@@ -513,16 +585,16 @@
             this.panelNN.Controls.Add(this.btnTroVe);
             this.panelNN.Controls.Add(this.btnDelQCDefect);
             this.panelNN.Controls.Add(this.btnChonQCDataDetails);
-            this.panelNN.Location = new System.Drawing.Point(3, 483);
+            this.panelNN.Location = new System.Drawing.Point(3, 527);
             this.panelNN.Name = "panelNN";
             this.TableLayout.SetRow(this.panelNN, 5);
-            this.panelNN.Size = new System.Drawing.Size(903, 29);
+            this.panelNN.Size = new System.Drawing.Size(979, 29);
             this.panelNN.TabIndex = 6;
             // 
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(581, 3);
+            this.btnThem.Location = new System.Drawing.Point(655, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(80, 26);
             this.btnThem.TabIndex = 13;
@@ -532,7 +604,7 @@
             // btnDelQCData
             // 
             this.btnDelQCData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelQCData.Location = new System.Drawing.Point(581, 3);
+            this.btnDelQCData.Location = new System.Drawing.Point(655, 2);
             this.btnDelQCData.Name = "btnDelQCData";
             this.btnDelQCData.Size = new System.Drawing.Size(80, 26);
             this.btnDelQCData.TabIndex = 15;
@@ -543,7 +615,7 @@
             // btnDelQCDetails
             // 
             this.btnDelQCDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelQCDetails.Location = new System.Drawing.Point(662, 3);
+            this.btnDelQCDetails.Location = new System.Drawing.Point(736, 2);
             this.btnDelQCDetails.Name = "btnDelQCDetails";
             this.btnDelQCDetails.Size = new System.Drawing.Size(80, 26);
             this.btnDelQCDetails.TabIndex = 18;
@@ -554,7 +626,7 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(743, 3);
+            this.btnXoa.Location = new System.Drawing.Point(817, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 26);
             this.btnXoa.TabIndex = 19;
@@ -564,7 +636,7 @@
             // btnKhong
             // 
             this.btnKhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKhong.Location = new System.Drawing.Point(824, 3);
+            this.btnKhong.Location = new System.Drawing.Point(898, 2);
             this.btnKhong.Name = "btnKhong";
             this.btnKhong.Size = new System.Drawing.Size(80, 26);
             this.btnKhong.TabIndex = 23;
@@ -574,7 +646,7 @@
             // btnSua
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(662, 3);
+            this.btnSua.Location = new System.Drawing.Point(736, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(80, 26);
             this.btnSua.TabIndex = 14;
@@ -584,7 +656,7 @@
             // btnGhi
             // 
             this.btnGhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGhi.Location = new System.Drawing.Point(743, 3);
+            this.btnGhi.Location = new System.Drawing.Point(817, 2);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(80, 26);
             this.btnGhi.TabIndex = 22;
@@ -594,7 +666,7 @@
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(824, 3);
+            this.btnThoat.Location = new System.Drawing.Point(898, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 26);
             this.btnThoat.TabIndex = 20;
@@ -604,7 +676,7 @@
             // btnTroVe
             // 
             this.btnTroVe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTroVe.Location = new System.Drawing.Point(824, 3);
+            this.btnTroVe.Location = new System.Drawing.Point(898, 2);
             this.btnTroVe.Name = "btnTroVe";
             this.btnTroVe.Size = new System.Drawing.Size(80, 26);
             this.btnTroVe.TabIndex = 17;
@@ -615,7 +687,7 @@
             // btnDelQCDefect
             // 
             this.btnDelQCDefect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelQCDefect.Location = new System.Drawing.Point(743, 3);
+            this.btnDelQCDefect.Location = new System.Drawing.Point(817, 2);
             this.btnDelQCDefect.Name = "btnDelQCDefect";
             this.btnDelQCDefect.Size = new System.Drawing.Size(80, 26);
             this.btnDelQCDefect.TabIndex = 16;
@@ -626,7 +698,7 @@
             // btnChonQCDataDetails
             // 
             this.btnChonQCDataDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChonQCDataDetails.Location = new System.Drawing.Point(662, 3);
+            this.btnChonQCDataDetails.Location = new System.Drawing.Point(736, 2);
             this.btnChonQCDataDetails.Name = "btnChonQCDataDetails";
             this.btnChonQCDataDetails.Size = new System.Drawing.Size(80, 26);
             this.btnChonQCDataDetails.TabIndex = 21;
@@ -637,7 +709,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 515);
+            this.ClientSize = new System.Drawing.Size(1253, 559);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmQLChatLuong";
             this.Text = "frmQLChatLuong";
@@ -654,6 +726,11 @@
             this.groQCData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
+            this.tablePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datDenNgay.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDenNgay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTuNgay.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTuNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TableLayout)).EndInit();
             this.TableLayout.ResumeLayout(false);
             this.TableLayout.PerformLayout();
@@ -726,5 +803,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grvQCDataDefect;
         private DevExpress.XtraEditors.GroupControl groQCDataDefect;
         private DevExpress.XtraEditors.SearchControl txtTim;
+        private DevExpress.XtraEditors.LabelControl lblTuNgay;
+        private DevExpress.XtraEditors.LabelControl lblDenNgay;
+        private DevExpress.XtraEditors.DateEdit datTuNgay;
+        private DevExpress.XtraEditors.DateEdit datDenNgay;
     }
 }

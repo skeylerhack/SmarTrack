@@ -26,6 +26,8 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing;
 using System.Diagnostics;
+using DevExpress.XtraPrinting;
+using DevExpress.Export;
 
 namespace Commons
 {
@@ -784,9 +786,9 @@ namespace Commons
                     MemoryStream stream = new MemoryStream(byteArray);
                     grv.RestoreLayoutFromStream(stream);
                 }
-               
-                    grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
-                
+
+                grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
+
                 if (MloadNNgu)
                     MLoadNNXtraGrid(grv, fName);
                 return true;
@@ -826,11 +828,7 @@ namespace Commons
                     MemoryStream stream = new MemoryStream(byteArray);
                     grv.RestoreLayoutFromStream(stream);
                 }
-
-                if (Commons.Modules.UserName.ToLower() == "admin")
-                {
-                    grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
-                }
+                grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
                 if (MloadNNgu)
                     MLoadNNXtraGrid(grv, fName);
                 return true;
@@ -1302,10 +1300,14 @@ namespace Commons
         public void ExportToExcel(System.Object sender, System.EventArgs e, GridView grv)
         {
             // SAVE  
+            grv.BestFitColumns();
+            grv.OptionsPrint.AutoWidth = false;
             string sPath = "";
             sPath = Commons.Modules.MExcel.SaveFiles("Excel file (*.xls)|*.xls");
             if (sPath == "") return;
-            grv.ExportToXls(sPath, new DevExpress.XtraPrinting.XlsExportOptions { ShowGridLines = true,FitToPrintedPageHeight = true,FitToPrintedPageWidth=true, TextExportMode = DevExpress.XtraPrinting.TextExportMode.Text });
+            var options = new XlsExportOptionsEx();
+            options.ExportType = ExportType.WYSIWYG;
+            grv.ExportToXls(sPath, options);
             Process.Start(sPath);
         }
 
@@ -1331,7 +1333,6 @@ namespace Commons
                     catch
                     {
                         col.Caption = Modules.ObjLanguages.GetLanguage(Modules.ModuleName, fName, col.FieldName, Modules.TypeLanguage);
-
                     }
                 }
             }
@@ -1360,10 +1361,10 @@ namespace Commons
             try
             {
                 //kiểm tra có trong table định dạng lưới chưa có thì load
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT count(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '"+fName.ToString()+"'")) == 1)
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT count(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'")) == 1)
                 {
                     // RESTORE  
-                    var layoutString = (string)SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT DINH_DANG_LUOI FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString()+"'");
+                    var layoutString = (string)SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT DINH_DANG_LUOI FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'");
                     Stream s = new MemoryStream();
                     StreamWriter sw = new StreamWriter(s);
                     sw.Write(layoutString);
@@ -1377,11 +1378,7 @@ namespace Commons
                     // SAVE  
                     SaveLayOutGrid(grv, fName);
                 }
-                if (Commons.Modules.UserName.ToLower() == "admin")
-                {
-                    grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv, fName); };
-                }
-
+                grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv, fName); };
             }
             catch
             {
@@ -1420,8 +1417,6 @@ namespace Commons
                 str.Seek(0, System.IO.SeekOrigin.Begin);
                 StreamReader reader = new StreamReader(str);
                 string text = reader.ReadToEnd();
-
-
                 //kiểm tra xem tồn tại chưa có thì update chưa có thì inser
                 if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'")) == 0)
                 {
@@ -1433,11 +1428,6 @@ namespace Commons
                     //update
                     SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "UPDATE dbo.DINH_DANG_LUOI SET DINH_DANG_LUOI = '" + text + "' WHERE MS_LUOI  = '" + fName.ToString() + "'");
                 }
-
-
-
-
-
             }
             catch { }
         }
@@ -1449,18 +1439,26 @@ namespace Commons
             try
             {
                 DevExpress.XtraGrid.Menu.GridViewMenu headerMenu = (DevExpress.XtraGrid.Menu.GridViewMenu)e.Menu;
-                // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
-                menuItem.BeginGroup = true;
-                menuItem.Tag = e.Menu;
-                menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv, fName); };
-                headerMenu.Items.Add(menuItem);
-                // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
-                menuSave.BeginGroup = true;
-                menuSave.Tag = e.Menu;
-                menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv, fName); };
-                headerMenu.Items.Add(menuSave);
+                if (Commons.Modules.UserName.ToLower() == "admin")
+                {
+                    DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
+                    menuItem.BeginGroup = true;
+                    menuItem.Tag = e.Menu;
+                    menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv); };
+                    headerMenu.Items.Add(menuItem);
+                    // menu resetgrid
+                    DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
+                    menuSave.BeginGroup = true;
+                    menuSave.Tag = e.Menu;
+                    menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
+                    headerMenu.Items.Add(menuSave);
+                }
+                // menu export to excel
+                DevExpress.Utils.Menu.DXMenuItem menuExport = new DevExpress.Utils.Menu.DXMenuItem("Export to Excel");
+                menuExport.BeginGroup = true;
+                menuExport.Tag = e.Menu;
+                menuExport.Click += delegate (object a, EventArgs b) { ExportToExcel(null, null, grv); };
+                headerMenu.Items.Add(menuExport);
             }
             catch
             {

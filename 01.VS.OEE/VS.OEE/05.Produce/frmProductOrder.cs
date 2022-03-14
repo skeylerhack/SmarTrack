@@ -565,6 +565,13 @@ namespace VS.OEE
                 Modules.msgChung(ThongBao.msgKhongCoDuLieuXoa);
                 return;
             }
+            //kiểm tra proID có trong tiến độ sản xuất không
+            
+            if(Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = " + iId + "")) > 0)
+            {
+                Commons.Modules.msgChung(Commons.ThongBao.msgDuLieuDaPhatSinh);
+                return;
+            }
             if (Modules.msgHoiThayThe(ThongBao.msgXoa, lblSoLSX.Text) == DialogResult.No) return;
             try
             {

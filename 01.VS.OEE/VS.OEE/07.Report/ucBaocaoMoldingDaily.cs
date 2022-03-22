@@ -138,7 +138,7 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatString = "#,##0";
                     grvBCMoldDaily.Columns["WorkingCycle"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["WorkingCycle"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["WorkingCycle"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["ActualQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["ActualQuantity"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["ScrapRate"].DisplayFormat.FormatType = FormatType.Numeric;

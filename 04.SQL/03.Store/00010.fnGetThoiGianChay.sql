@@ -37,6 +37,6 @@ declare @Runtime DECIMAL(18,2)= DATEDIFF(MINUTE,@TuNgay,@DenNgay);/*thời gian 
 	WHERE (A.TU_GIO BETWEEN @TuNgay AND @DenNgay) AND B.OEE = 0 AND A.MS_MAY = @MS_MAY) /*trừ ra thằng nào không có đơn hàng điều kiệu thời gian kết thúc không hớn hơn ngày*/
 
 	SET @Resulst = CONVERT(DECIMAL(18,2),(@Runtime - ISNULL(@Dowtime,0))/60);
-	RETURN ISNULL(@Resulst,1)
+	RETURN ISNULL(CASE @Resulst WHEN 0 THEN 1 ELSE @Resulst END	,1)
 end
 GO

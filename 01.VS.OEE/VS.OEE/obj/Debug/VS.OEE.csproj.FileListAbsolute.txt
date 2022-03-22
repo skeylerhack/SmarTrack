@@ -954,10 +954,6 @@ D:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
 D:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\VS.OEE.exe.config
 D:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\VS.OEE.pdb
 D:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.Diagram.v20.1.Core.xml
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\es\DevExpress.XtraReports.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\VS.OEE.exe.config
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\VS.OEE.exe
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\VS.OEE.pdb
@@ -1057,8 +1053,10 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.XtraTreeList.v20.1.xml
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.XtraTreeMap.v20.1.xml
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\Newtonsoft.Json.xml
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.XtraDiagram.v20.1.xml
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.Diagram.v20.1.Core.xml
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.Pdf.v20.1.Core.xml
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\de\DevExpress.Dashboard.v20.1.Core.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\es\DevExpress.Dashboard.v20.1.Core.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ja\DevExpress.Dashboard.v20.1.Core.resources.dll
@@ -1127,6 +1125,7 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\de\DevExpress.XtraCharts.v20.1.Wizard
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\es\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ja\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ru\DevExpress.XtraCharts.v20.1.Wizard.resources.dll
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\es\DevExpress.XtraEditors.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ja\DevExpress.XtraEditors.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ru\DevExpress.XtraEditors.v20.1.resources.dll
@@ -1159,6 +1158,7 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\es\DevExpress.XtraPrinting.v20.1.reso
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ja\DevExpress.XtraPrinting.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ru\DevExpress.XtraPrinting.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\de\DevExpress.XtraReports.v20.1.resources.dll
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\es\DevExpress.XtraReports.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ja\DevExpress.XtraReports.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ru\DevExpress.XtraReports.v20.1.resources.dll
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\de\DevExpress.XtraRichEdit.v20.1.resources.dll

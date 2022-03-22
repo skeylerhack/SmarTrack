@@ -814,6 +814,8 @@ namespace Commons
                 //grv.OptionsView.ColumnHeaderAutoHeight = DefaultBoolean.True;
                 grv.OptionsView.AllowHtmlDrawHeaders = true;
                 grv.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                grv.OptionsClipboard.ClipboardMode = DevExpress.Export.ClipboardMode.Formatted;
+                grv.OptionsSelection.MultiSelect = true;
                 grv.DoubleClick += delegate (object a, EventArgs b) { Grv_DoubleClick(a, b, fName); };
                 if (MBestFitColumns)
                     grv.BestFitColumns();

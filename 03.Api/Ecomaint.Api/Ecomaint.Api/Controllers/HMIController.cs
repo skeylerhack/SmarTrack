@@ -263,6 +263,7 @@ namespace CMMSApi.Controllers
             }
             catch (Exception ex)
             {
+                UpdateStatusMay(MS_MAY, "0");
                 return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
             }
         }
@@ -736,7 +737,6 @@ namespace CMMSApi.Controllers
             {
             }
         }
-
 
         #endregion
 

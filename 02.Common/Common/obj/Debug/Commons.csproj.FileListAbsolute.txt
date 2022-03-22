@@ -1905,10 +1905,10 @@ D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CoreCompileInputs.cach
 D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CopyComplete
 D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.dll
 D:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.pdb
-G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.BonusSkins.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.dll.config
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.pdb
+G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.BonusSkins.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Data.v20.1.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Printing.v20.1.Core.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Utils.v20.1.dll

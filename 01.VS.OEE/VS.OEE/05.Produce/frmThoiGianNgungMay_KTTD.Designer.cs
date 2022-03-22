@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.txtTHOI_GIAN_SUA = new DevExpress.XtraEditors.SpinEdit();
+            this.datDEN_GIO = new DevExpress.XtraEditors.DateEdit();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
@@ -58,7 +59,6 @@
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTHOI_GIAN_SUA_CHUA = new DevExpress.XtraEditors.SpinEdit();
             this.txtNGUYEN_NHAN = new DevExpress.XtraEditors.MemoEdit();
-            this.datDEN_GIO = new DevExpress.XtraEditors.DateEdit();
             this.datTU_GIO = new DevExpress.XtraEditors.DateEdit();
             this.lblHIEN_TUONG = new DevExpress.XtraEditors.LabelControl();
             this.lblNGUYEN_NHAN = new DevExpress.XtraEditors.LabelControl();
@@ -92,6 +92,8 @@
             this.mnuHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTiepTuc = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -116,8 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA_CHUA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNGUYEN_NHAN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datTU_GIO.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datTU_GIO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groTHOI_GIAN_DUNG_MAY2)).BeginInit();
@@ -164,6 +164,39 @@
             conditionValidationRule6.Value1 = "";
             conditionValidationRule6.Value2 = "";
             this.dxValidationProvider1.SetValidationRule(this.txtTHOI_GIAN_SUA, conditionValidationRule6);
+            // 
+            // datDEN_GIO
+            // 
+            this.tablePanel3.SetColumn(this.datDEN_GIO, 5);
+            this.datDEN_GIO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datDEN_GIO.EditValue = null;
+            this.datDEN_GIO.Location = new System.Drawing.Point(816, 63);
+            this.datDEN_GIO.Name = "datDEN_GIO";
+            this.datDEN_GIO.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datDEN_GIO.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.datDEN_GIO.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datDEN_GIO.Properties.CalendarTimeProperties.DisplayFormat.FormatString = "G";
+            this.datDEN_GIO.Properties.CalendarTimeProperties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datDEN_GIO.Properties.CalendarTimeProperties.EditFormat.FormatString = "G";
+            this.datDEN_GIO.Properties.CalendarTimeProperties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datDEN_GIO.Properties.CalendarTimeProperties.Mask.EditMask = "G";
+            this.datDEN_GIO.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.datDEN_GIO.Properties.DisplayFormat.FormatString = "G";
+            this.datDEN_GIO.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datDEN_GIO.Properties.EditFormat.FormatString = "G";
+            this.datDEN_GIO.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.datDEN_GIO.Properties.Mask.EditMask = "G";
+            this.datDEN_GIO.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.tablePanel3.SetRow(this.datDEN_GIO, 3);
+            this.datDEN_GIO.Size = new System.Drawing.Size(220, 20);
+            this.datDEN_GIO.TabIndex = 21;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.datDEN_GIO, conditionValidationRule3);
+            this.datDEN_GIO.EditValueChanged += new System.EventHandler(this.datDEN_GIO_EditValueChanged);
             // 
             // tablePanel1
             // 
@@ -488,39 +521,6 @@
             this.tablePanel3.SetRowSpan(this.txtNGUYEN_NHAN, 2);
             this.txtNGUYEN_NHAN.Size = new System.Drawing.Size(566, 46);
             this.txtNGUYEN_NHAN.TabIndex = 25;
-            // 
-            // datDEN_GIO
-            // 
-            this.tablePanel3.SetColumn(this.datDEN_GIO, 5);
-            this.datDEN_GIO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datDEN_GIO.EditValue = null;
-            this.datDEN_GIO.Location = new System.Drawing.Point(816, 63);
-            this.datDEN_GIO.Name = "datDEN_GIO";
-            this.datDEN_GIO.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datDEN_GIO.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.datDEN_GIO.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datDEN_GIO.Properties.CalendarTimeProperties.DisplayFormat.FormatString = "G";
-            this.datDEN_GIO.Properties.CalendarTimeProperties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datDEN_GIO.Properties.CalendarTimeProperties.EditFormat.FormatString = "G";
-            this.datDEN_GIO.Properties.CalendarTimeProperties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datDEN_GIO.Properties.CalendarTimeProperties.Mask.EditMask = "G";
-            this.datDEN_GIO.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
-            this.datDEN_GIO.Properties.DisplayFormat.FormatString = "G";
-            this.datDEN_GIO.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datDEN_GIO.Properties.EditFormat.FormatString = "G";
-            this.datDEN_GIO.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datDEN_GIO.Properties.Mask.EditMask = "G";
-            this.datDEN_GIO.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.tablePanel3.SetRow(this.datDEN_GIO, 3);
-            this.datDEN_GIO.Size = new System.Drawing.Size(220, 20);
-            this.datDEN_GIO.TabIndex = 21;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.datDEN_GIO, conditionValidationRule3);
-            this.datDEN_GIO.EditValueChanged += new System.EventHandler(this.datDEN_GIO_EditValueChanged);
             // 
             // datTU_GIO
             // 
@@ -927,6 +927,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmThoiGianNgungMay_KTTD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -953,8 +955,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTHOI_GIAN_SUA_CHUA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNGUYEN_NHAN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datDEN_GIO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datTU_GIO.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datTU_GIO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groTHOI_GIAN_DUNG_MAY2)).EndInit();

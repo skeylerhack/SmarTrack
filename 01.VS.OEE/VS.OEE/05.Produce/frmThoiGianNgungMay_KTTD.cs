@@ -6,13 +6,9 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Commons;
 using Microsoft.ApplicationBlocks.Data;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils;
-using DevExpress.XtraEditors.Controls;
-using System.Drawing;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace VS.OEE
 {
@@ -147,6 +143,7 @@ namespace VS.OEE
                 iThem = Convert.ToInt64(grvTHOI_GIAN_DUNG_MAY2.GetFocusedRowCellValue("ID"));
                 grvTHOI_GIAN_DUNG_MAY2.OptionsBehavior.Editable = false;
                 LoadgrdTHOI_GIAN_DUNG_MAY(iThem);
+                dxValidationProvider1.Validate();
             }
             catch (Exception ex)
             {
@@ -460,8 +457,8 @@ namespace VS.OEE
                 txtHIEN_TUONG.Text = "";
                 txtTHOI_GIAN_SUA.EditValue = 0;
                 txtTHOI_GIAN_SUA_CHUA.EditValue = 0;
-                datTU_GIO.EditValue = DateTime.Now;
-                datDEN_GIO.EditValue = DateTime.Now;
+                datTU_GIO.DateTime = DateTime.Now;
+                datDEN_GIO.DateTime = datTU_GIO.DateTime;
                 chkTiepTuc.Checked = false;
             }
             catch { }
@@ -470,9 +467,23 @@ namespace VS.OEE
         {
             try
             {
+                //kiểm tra từ ngày đến ngày năm trong một ca hiện tại
+                if (iThem != -1)
+                {
+                    DataTable dtCa = new DataTable();
+                    dtCa.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetCaTuNgayDenNgay", Convert.ToDateTime("1900/01/01 " + datTU_GIO.DateTime.TimeOfDay), Convert.ToDateTime("1900/01/01 " + datDEN_GIO.DateTime.TimeOfDay)));
+                    if (dtCa.Rows.Count == 0)
+                    {
+                        Commons.Modules.msgChung("MsgThoiGianKhongNamTrongCa");
+                        return false;
+                    }
+                }
                 DataTable dt = new DataTable();
                 if (cboMS_MAY.EditValue.ToString() == "-1")
                 {
+
+                    //nếu là sữa thì kiểm tra chỉ nằm trong 1 ca
+                  
                     dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spKiemTraNgayTrung", datTU_GIO.DateTime, datDEN_GIO.DateTime));
                     //nếu thêm thì đếm được không sữa thì không lớn hơn 2
                     if (dt.Rows.Count > 0)
@@ -488,7 +499,6 @@ namespace VS.OEE
                 }
                 //Ngay => Focus sau khi ghi
                 NGAY = datTU_GIO.DateTime.Date;
-
                 //them
                 dt = new DataTable();
                 dt = BocTach_TheoCa(datTU_GIO.DateTime, datDEN_GIO.DateTime);
@@ -548,7 +558,7 @@ namespace VS.OEE
             try
             {
                 if (Commons.Modules.sId == "0Load") return;
-                TimeSpan THOI_GIAN_SUA = datDEN_GIO.DateTime - datTU_GIO.DateTime;
+                TimeSpan THOI_GIAN_SUA = Convert.ToDateTime(datDEN_GIO.DateTime.ToString("dd/MM/yyyy HH:mm:ss")) - Convert.ToDateTime(datTU_GIO.DateTime.ToString("dd/MM/yyyy HH:mm:ss"));
                 txtTHOI_GIAN_SUA.EditValue = Math.Round(THOI_GIAN_SUA.TotalMinutes, 3);
                 txtTHOI_GIAN_SUA_CHUA.EditValue = Math.Round(THOI_GIAN_SUA.TotalMinutes, 3);
             }

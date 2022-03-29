@@ -470,6 +470,10 @@ namespace VS.OEE
                 else
                     grvPrRunDetails.DeleteSelectedRows();
             }
+            if(e.KeyData == Keys.F5 && btnGhi.Visible == false)
+            {
+                LoadgrdPrRunDetails();
+            }
         }
         private void grdProDuctRun_ProcessGridKey(object sender, KeyEventArgs e)
         {

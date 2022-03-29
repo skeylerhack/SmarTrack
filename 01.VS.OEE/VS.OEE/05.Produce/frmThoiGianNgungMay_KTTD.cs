@@ -233,6 +233,12 @@ namespace VS.OEE
                         ((DataTable)grdTHOI_GIAN_DUNG_MAY2.DataSource).AcceptChanges();
                     }
                 }
+                if (e.KeyData == Keys.F5 && btnGhi.Visible == false)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    LoadgrdTHOI_GIAN_DUNG_MAY2();
+                    Cursor.Current = Cursors.Default;
+                }
             }
             catch (Exception ex)
             {
@@ -404,7 +410,6 @@ namespace VS.OEE
             DateTime Ngay = new DateTime();
             try { MS_MAY = grvTHOI_GIAN_DUNG_MAY.GetFocusedRowCellValue("MS_MAY").ToString(); } catch { }
             try { Ngay = Convert.ToDateTime(grvTHOI_GIAN_DUNG_MAY.GetFocusedRowCellValue("NGAY")); } catch { }
-
 
             DataTable dtmp = new DataTable();
             try

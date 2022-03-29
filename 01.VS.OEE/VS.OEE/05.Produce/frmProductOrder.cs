@@ -1092,6 +1092,12 @@ namespace VS.OEE
             {
                 DeleteDataDetail();
             }
+            if(e.KeyData == Keys.F5 && btnGhi.Visible == false)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                LoadgrdPrODetails();
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void grdProDuctOD_ProcessGridKey(object sender, KeyEventArgs e)

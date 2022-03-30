@@ -56,23 +56,23 @@ namespace VS.OEE
             {
                 string sSql;
                 //kiểm tra user đã có hay chưa
-                sSql = "SELECT COUNT(*) FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString().Trim() + "'";
+                sSql = "SELECT COUNT(*) FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString() + "'";
                 if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)) == 0)
                 {
-                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaDangKy"), this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error); return false;
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaDangKy"), Commons.Modules.ObjLanguages.GetLanguage("frmChung", "sThongBao"), MessageBoxButtons.OK, MessageBoxIcon.Error); return false;
                 }
                 
                 //kiểm tra mật khẩu có đúng hay không
-                sSql = "SELECT PASS FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString().Trim() + "'";
-                if (Commons.Modules.OXtraGrid.GiaiMaDL(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString()).ToString() != txt_pass.EditValue.ToString().Trim())
+                sSql = "SELECT PASS FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString() + "'";
+                if (Commons.Modules.OXtraGrid.GiaiMaDL(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString()).ToString() != txt_pass.EditValue.ToString())
                 {
-                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgsaiPassword"), this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error); return false;
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgsaiPassword"), Commons.Modules.ObjLanguages.GetLanguage("frmChung", "sThongBao"), MessageBoxButtons.OK, MessageBoxIcon.Error); return false;
                 }
                 //kiểm tra tài khoảng có được active hay chưa
-                sSql = "SELECT ACTIVE FROM dbo.USERS WHERE USERNAME ='" + txt_user.EditValue.ToString().Trim() + "'";
+                sSql = "SELECT ACTIVE FROM dbo.USERS WHERE USERNAME ='" + txt_user.EditValue.ToString() + "'";
                 if (Convert.ToBoolean(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql)) != true)
                 {
-                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaKichHoat"), this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error); return false;
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTaiKhoanChuaKichHoat"), Commons.Modules.ObjLanguages.GetLanguage("frmChung", "sThongBao"), MessageBoxButtons.OK, MessageBoxIcon.Error); return false;
                 }
                 return true;
             }
@@ -118,7 +118,7 @@ namespace VS.OEE
                     xml.WriteStartElement("Row");
                     xml.WriteElementString("U", user);
                     xml.WriteElementString("P", pass);
-                    xml.WriteElementString("D", cbo_database.Text.Trim());
+                    xml.WriteElementString("D", cbo_database.Text);
                     xml.WriteElementString("N", "0");
                     xml.WriteEndElement();
                     xml.WriteEndElement();
@@ -130,7 +130,7 @@ namespace VS.OEE
                     ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
                     ds.Tables[0].Rows[0]["U"] = user;
                     ds.Tables[0].Rows[0]["P"] = pass;
-                    ds.Tables[0].Rows[0]["D"] = cbo_database.Text.Trim();
+                    ds.Tables[0].Rows[0]["D"] = cbo_database.Text;
 
                     ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\savelogin.xml");
 
@@ -141,7 +141,7 @@ namespace VS.OEE
                 XtraMessageBox.Show(ex.Message);
             }
             Commons.Modules.UserName = txt_user.Text;
-            Commons.IConnections.Database = cbo_database.Text.Trim();
+            Commons.IConnections.Database = cbo_database.Text;
 
 
         }
@@ -151,7 +151,7 @@ namespace VS.OEE
             ds.ReadXml(AppDomain.CurrentDomain.BaseDirectory + "\\saveconfig.xml");
             ds.Tables[0].Rows[0]["D"] = cbo_database.EditValue;
             ds.WriteXml(AppDomain.CurrentDomain.BaseDirectory + "\\saveconfig.xml");
-            Commons.IConnections.Database = cbo_database.Text.Trim();
+            Commons.IConnections.Database = cbo_database.Text;
 
             Commons.Modules.LicensePro = "5";
             SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "SP_INSERT_LOGIN", Commons.Modules.UserName, Commons.Modules.LicensePro);
@@ -211,18 +211,6 @@ namespace VS.OEE
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            //if (iChangUser == 1)
-            //{
-            //    System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(Commons.IConnections.CNStr);
-            //    conn.Open();
-            //    System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("spNguoiDung", conn);
-            //    cmd.Parameters.Add("@sDMuc", SqlDbType.NVarChar).Value = "mnuDangNhap";
-            //    cmd.Parameters.Add("@iLoai", SqlDbType.Int).Value = 1;
-            //    cmd.Parameters.Add("@COT1", SqlDbType.NVarChar).Value = Commons.Modules.UserName;
-            //    cmd.Parameters.Add("@COT12", SqlDbType.DateTime).Value = DateTime.Now;
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    cmd.ExecuteNonQuery();
-            //}
             Close();
         }
 
@@ -259,7 +247,7 @@ namespace VS.OEE
             //If e.Modifiers = Keys.Alt And e.KeyCode = Keys.H Then
             if (e.Modifiers == Keys.Alt && e.KeyCode == Keys.H)
             {
-                String  sSql = "SELECT PASS FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString().Trim() + "'";
+                String  sSql = "SELECT PASS FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString() + "'";
                 sSql = Commons.Modules.OXtraGrid.GiaiMaDL(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString()).ToString();
                 txt_pass.Text = sSql;
 
@@ -269,7 +257,7 @@ namespace VS.OEE
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            String sSql = "SELECT PASS FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString().Trim() + "'";
+            String sSql = "SELECT PASS FROM dbo.USERS WHERE USERNAME = '" + txt_user.EditValue.ToString() + "'";
             sSql = Commons.Modules.OXtraGrid.GiaiMaDL(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, sSql).ToString()).ToString();
             txt_pass.Text = sSql;
 

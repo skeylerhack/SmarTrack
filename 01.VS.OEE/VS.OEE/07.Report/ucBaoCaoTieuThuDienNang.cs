@@ -32,7 +32,7 @@ namespace VS.OEE
                 dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBaoCaoTieuThuDienNang", cboMay.EditValue, datTuNgay.DateTime, datDenNgay.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 Modules.ObjSystems.MLoadXtraGrid(grdTongHopHieuXuat, grvTongHopHieuXuat, dtmp, false, true, true, true, this.Name);
 
-                Commons.Modules.ObjSystems.AddCombDateTimeEdit("THOI_GIAN", grvTongHopHieuXuat);
+                Commons.Modules.ObjSystems.AddCombDateMinuteEdit("THOI_GIAN", grvTongHopHieuXuat);
                 
 
                 //for (int i = grvTongHopHieuXuat.Columns.Count - 4; i < grvTongHopHieuXuat.Columns.Count; i++)

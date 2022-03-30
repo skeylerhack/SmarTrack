@@ -28,9 +28,11 @@ namespace VS.OEE
         #region Event
         private void ucBaocaoMoldingDaily_Load(object sender, EventArgs e)
         {
+            Commons.Modules.sId = "0Load";
             datTNgay.DateTime = DateTime.Now;
             datDNgay.DateTime = DateTime.Now;
             LoadCbo();
+            Commons.Modules.sId = "";
             LoadDataGrid();
         }
         private void btnIn_Click(object sender, EventArgs e)
@@ -113,24 +115,30 @@ namespace VS.OEE
             {
                 DataTable dt = new DataTable();
                 string[] arrMS_MAY = ccbMS_MAY.EditValue.ToString().Split(',');
-                string MS_MAY = "";
-                for (int i = 0; i < arrMS_MAY.Length; i++)
+                DataTable dt_MS_MAY = new DataTable();
+                try
                 {
-                    MS_MAY += "'" + arrMS_MAY[i].TrimStart().TrimEnd() + "',";
+                    dt_MS_MAY.Columns.Add("MS_MAY");
+                    foreach (string MS_MAY in arrMS_MAY)
+                    {
+                        dt_MS_MAY.Rows.Add(MS_MAY.Trim());
+                    }
                 }
-                MS_MAY = MS_MAY.Substring(0, MS_MAY.Length - 1);
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingDaily", datTNgay.DateTime, datDNgay.DateTime, cboID_CA.EditValue, cboShiftLeader.EditValue, MS_MAY));
+                catch { }
+
+                string sBT_MS_MAY = "sBT_MS_MAY" + Commons.Modules.UserName;
+                Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT_MS_MAY, dt_MS_MAY, "");
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingDaily", Commons.Modules.TypeLanguage, datTNgay.DateTime, datDNgay.DateTime, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
 
                 if (grdBCMoldDaily.DataSource == null)
                 {
                     Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldDaily, grvBCMoldDaily, dt, true, false, false, true, this.Name);
 
                     grvBCMoldDaily.Columns["StartTime"].DisplayFormat.FormatType = FormatType.DateTime;
-                    grvBCMoldDaily.Columns["StartTime"].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatString = "#,##0";
                     grvBCMoldDaily.Columns["WorkingCycle"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["WorkingCycle"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["WorkingCycle"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["ActualQuantity"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["ActualQuantity"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["ScrapRate"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -139,8 +147,6 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["ScrapParts"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["AcceptableParts"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["AcceptableParts"].DisplayFormat.FormatString = "#,##0.00";
-                    grvBCMoldDaily.Columns["QCPassedParts"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["QCPassedParts"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["TheoreticalOutput"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["TheoreticalOutput"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["PlanProductionTime"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -150,13 +156,13 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["IdealRunRate"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["IdealRunRate"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["AvailabilityRate"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["AvailabilityRate"].DisplayFormat.FormatString = "##0.00%";
+                    grvBCMoldDaily.Columns["AvailabilityRate"].DisplayFormat.FormatString = "#,##0.00%";
                     grvBCMoldDaily.Columns["PerformanceRate"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["PerformanceRate"].DisplayFormat.FormatString = "##0.00%";
+                    grvBCMoldDaily.Columns["PerformanceRate"].DisplayFormat.FormatString = "#,##0.00%";
                     grvBCMoldDaily.Columns["QualityRate"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["QualityRate"].DisplayFormat.FormatString = "##0.00%";
+                    grvBCMoldDaily.Columns["QualityRate"].DisplayFormat.FormatString = "#,##0.00%";
                     grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatString = "##0.00 %";
+                    grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatString = "#,##0.00%";
                     grvBCMoldDaily.Columns["18"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["18"].DisplayFormat.FormatString = "#,##0";
                     grvBCMoldDaily.Columns["19"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -193,7 +199,7 @@ namespace VS.OEE
                 else
                     grdBCMoldDaily.DataSource = dt;
             }
-            catch  { }
+            catch (Exception ex)  { }
             Cursor.Current = Cursors.Default;
         }
         private void InDuLieu()
@@ -213,6 +219,7 @@ namespace VS.OEE
                 int Dong = 1;
                 excelApplication.Visible = false;
                 grvBCMoldDaily.ActiveFilter.Clear();
+                DataTable dt = new DataTable();
                 grvBCMoldDaily.ExportToXlsx(sPath);
                 System.Globalization.CultureInfo oldCultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");

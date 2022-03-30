@@ -89,6 +89,26 @@ namespace VS.OEE
             if (Commons.Modules.sId == "0Load") return;
             LoadDataGrid();
         }
+
+        private void grvBCMoldWeekly_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            int ID_Result = string.IsNullOrEmpty(grvBCMoldWeekly.GetFocusedRowCellValue("ID_Result").ToString()) ? 0 : Convert.ToInt32(grvBCMoldWeekly.GetFocusedRowCellValue("ID_Result"));
+            if (ID_Result == 19)// Actual_Labor
+            {
+                try
+                {
+                    SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, "spSaveActualLabor", Convert.ToDateTime(grvBCMoldWeekly.FocusedColumn.FieldName), Convert.ToDouble(grvBCMoldWeekly.GetFocusedRowCellValue(grvBCMoldWeekly.FocusedColumn.FieldName)));
+                }
+                catch { }
+            }
+        }
+
+        private void grvBCMoldWeekly_ShowingEditor(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            int ID_Result = string.IsNullOrEmpty(grvBCMoldWeekly.GetFocusedRowCellValue("ID_Result").ToString()) ? 0 : Convert.ToInt32(grvBCMoldWeekly.GetFocusedRowCellValue("ID_Result"));
+            if (ID_Result != 19 || grvBCMoldWeekly.FocusedColumn.FieldName == "ID_Result" || grvBCMoldWeekly.FocusedColumn.FieldName == "Name_Result")
+                e.Cancel = true;
+        }
         #endregion
 
         #region Function
@@ -144,19 +164,29 @@ namespace VS.OEE
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT_MS_MAY, dt_MS_MAY, "");
                 dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingWeekly", Commons.Modules.TypeLanguage, this.Name, dTNgay, dDNgay, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
            
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldWeekly, grvBCMoldWeekly, dt, true, true, true, true, this.Name);
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    if (dt.Columns[i].ColumnName == "ID_Result" || dt.Columns[i].ColumnName == "Name_Result") continue;
+                    dt.Columns[i].ReadOnly = false;
+                }
 
-                for(int i = 0; i < grvBCMoldWeekly.Columns.Count; i++)
+                Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldWeekly, grvBCMoldWeekly, dt, true, true, true, true, this.Name);
+                grvBCMoldWeekly.OptionsBehavior.Editable = true;
+                for (int i = 0; i < grvBCMoldWeekly.Columns.Count; i++)
                 {
                     if (grvBCMoldWeekly.Columns[i].FieldName == "ID_Result" || grvBCMoldWeekly.Columns[i].FieldName == "Name_Result") continue;
                     grvBCMoldWeekly.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldWeekly.Columns[i].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvBCMoldWeekly.Columns[i].OptionsColumn.AllowEdit = true;
                 }
 
                 grvBCMoldWeekly.Columns["ID_Result"].Visible = false;
                 
             }
-            catch (Exception ex) { }
+            catch(Exception ex)
+            {
+                
+            }
             Cursor.Current = Cursors.Default;
         }
         private void InDuLieu()
@@ -257,8 +287,11 @@ namespace VS.OEE
             }
             catch (Exception ex)  { XtraMessageBox.Show(ex.Message); }
         }
+
+
+
         #endregion
 
-        
+      
     }
 }

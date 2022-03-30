@@ -44,7 +44,8 @@ namespace VS.OEE
             }
         
             Commons.Modules.sId = "0Load";
-
+            datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
+            datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
             LoadCbo();
             LoadgrdQCData(-1);
             LoadgrdQCDataDetails();
@@ -170,12 +171,12 @@ namespace VS.OEE
             {
                 if (cboID_CA.EditValue == null || Convert.ToInt32(cboID_CA.EditValue) < 1)
                 {
-                    XtraMessageBox.Show(lblID_CA.Text.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
+                    XtraMessageBox.Show(lblID_CA.Text + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
                     return;
                 }
                 if (datProductionDate.Text == "")
                 {
-                    XtraMessageBox.Show(lblProductionDate.Text.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
+                    XtraMessageBox.Show(lblProductionDate.Text + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrong"));
                     return;
                 }
 
@@ -297,7 +298,7 @@ namespace VS.OEE
             DataTable dt = new DataTable();
             try
             {
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetQCData", Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetQCData", datTuNgay.DateTime.Date, datDenNgay.DateTime.Date, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 if (grdQCData.DataSource == null)
                 {
                     Modules.ObjSystems.MLoadXtraGrid(grdQCData, grvQCData, dt, false, true, false, false, true, this.Name);
@@ -811,7 +812,7 @@ namespace VS.OEE
                 if ((count == 2 && !grvQCDataDefect.IsNewItemRow(grvQCDataDefect.FocusedRowHandle)) || (count == 1 && grvQCDataDefect.IsNewItemRow(grvQCDataDefect.FocusedRowHandle)))
                 {
                     e.Valid = false;
-                    XtraMessageBox.Show(ID_Defect.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+                    XtraMessageBox.Show(ID_Defect.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
                     view.SetColumnError(ID_Defect, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
                     view.FocusedColumn = ID_Defect;
                     return;
@@ -840,8 +841,13 @@ namespace VS.OEE
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
+
         #endregion
 
-      
+        private void datTuNgay_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Commons.Modules.sId == "0Load") return;
+            LoadgrdQCData(-1);
+        }
     }
 }

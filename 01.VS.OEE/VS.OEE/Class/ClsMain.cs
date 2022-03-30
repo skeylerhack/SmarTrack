@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.IO;
+using System.Net;
+using System.Text;
 using System.Windows.Forms;
 
 namespace VS.OEE
@@ -19,15 +21,10 @@ namespace VS.OEE
                     string[] sArr = sRowStream.Split('!');
                     Commons.IConnections.Server = sArr[0];
                     Commons.IConnections.Database = sArr[1];
-                    Commons.IConnections.Database = "CMMS_SMT";
                     Commons.IConnections.Username = sArr[2];
                     Commons.IConnections.Password = sArr[3];
 
 
-                    Commons.IConnections.Server = ".\\SQLEXPRESS01";
-                    Commons.IConnections.Database = "CMMS_SMT";
-                    Commons.IConnections.Username = "sa";
-                    Commons.IConnections.Password = "123";
                 }
                 catch (Exception Excep)
                 {
@@ -43,7 +40,14 @@ namespace VS.OEE
             }
             return true;
         }
-
+        public static bool Kiemtrathongtinserver()
+        {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            WebClient client = new WebClient();
+            client.Encoding = Encoding.UTF8;
+            string response = client.DownloadString("http://192.168.2.55/apiServer/api/Management/GetProcessID");
+            return Convert.ToBoolean(response);
+        }
 
 
        

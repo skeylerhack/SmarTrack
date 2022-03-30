@@ -50,11 +50,11 @@ namespace VS.OEE
             //DVT
             if (!KiemTrung(1)) return;
             //kiem ten viet
-            if (txtTEN_1.Text.Trim() != "") if (!KiemTrung(2)) return;
+            if (txtTEN_1.Text != "") if (!KiemTrung(2)) return;
             //kiem ten anh
-            if (txtTEN_2.Text.Trim() != "") if (!KiemTrung(3)) return;
+            if (txtTEN_2.Text != "") if (!KiemTrung(3)) return;
             //kiem ten hoa
-            if (txtTEN_3.Text.Trim() != "") if (!KiemTrung(4)) return;
+            if (txtTEN_3.Text != "") if (!KiemTrung(4)) return;
 
             #region Them
             System.Data.SqlClient.SqlConnection conn;

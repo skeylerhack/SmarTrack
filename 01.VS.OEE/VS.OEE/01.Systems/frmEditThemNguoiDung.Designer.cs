@@ -50,6 +50,8 @@
             this.lblFULL_NAME = new DevExpress.XtraEditors.LabelControl();
             this.lblUSER_MAIL = new DevExpress.XtraEditors.LabelControl();
             this.lblDESCRIPTION = new DevExpress.XtraEditors.LabelControl();
+            this.lblCongNhan = new DevExpress.XtraEditors.LabelControl();
+            this.cboCongNhan = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cboID_NHOM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUSER_MAIL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPASSWORD.Properties)).BeginInit();
@@ -63,6 +65,7 @@
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCongNhan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cboID_NHOM
@@ -106,11 +109,10 @@
             // txtFULL_NAME
             // 
             this.tablePanel1.SetColumn(this.txtFULL_NAME, 1);
-            this.tablePanel1.SetColumnSpan(this.txtFULL_NAME, 3);
             this.txtFULL_NAME.Location = new System.Drawing.Point(123, 63);
             this.txtFULL_NAME.Name = "txtFULL_NAME";
             this.tablePanel1.SetRow(this.txtFULL_NAME, 3);
-            this.txtFULL_NAME.Size = new System.Drawing.Size(456, 20);
+            this.txtFULL_NAME.Size = new System.Drawing.Size(165, 20);
             this.txtFULL_NAME.TabIndex = 6;
             // 
             // txtUSER_NAME
@@ -188,6 +190,8 @@
             this.tablePanel1.Controls.Add(this.lblFULL_NAME);
             this.tablePanel1.Controls.Add(this.lblUSER_MAIL);
             this.tablePanel1.Controls.Add(this.lblDESCRIPTION);
+            this.tablePanel1.Controls.Add(this.lblCongNhan);
+            this.tablePanel1.Controls.Add(this.cboCongNhan);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
             this.tablePanel1.Name = "tablePanel1";
@@ -282,6 +286,30 @@
             this.lblDESCRIPTION.TabIndex = 16;
             this.lblDESCRIPTION.Text = "lblDESCRIPTION";
             // 
+            // lblCongNhan
+            // 
+            this.tablePanel1.SetColumn(this.lblCongNhan, 2);
+            this.lblCongNhan.Location = new System.Drawing.Point(294, 66);
+            this.lblCongNhan.Name = "lblCongNhan";
+            this.tablePanel1.SetRow(this.lblCongNhan, 3);
+            this.lblCongNhan.Size = new System.Drawing.Size(69, 13);
+            this.lblCongNhan.TabIndex = 16;
+            this.lblCongNhan.Text = "lblCongNhan";
+            // 
+            // cboCongNhan
+            // 
+            this.tablePanel1.SetColumn(this.cboCongNhan, 3);
+            this.cboCongNhan.Location = new System.Drawing.Point(414, 63);
+            this.cboCongNhan.Name = "cboCongNhan";
+            this.cboCongNhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboCongNhan.Properties.NullText = "";
+            this.cboCongNhan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.tablePanel1.SetRow(this.cboCongNhan, 3);
+            this.cboCongNhan.Size = new System.Drawing.Size(165, 20);
+            this.cboCongNhan.TabIndex = 15;
+            this.cboCongNhan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cboID_NHOM_ButtonClick);
+            // 
             // frmEditThemNguoiDung
             // 
             this.ClientSize = new System.Drawing.Size(582, 309);
@@ -303,6 +331,7 @@
             this.tablePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cboCongNhan.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,5 +356,7 @@
         private DevExpress.XtraEditors.LabelControl lblFULL_NAME;
         private DevExpress.XtraEditors.LabelControl lblUSER_MAIL;
         private DevExpress.XtraEditors.LabelControl lblDESCRIPTION;
+        private DevExpress.XtraEditors.LabelControl lblCongNhan;
+        private DevExpress.XtraEditors.LookUpEdit cboCongNhan;
     }
 }

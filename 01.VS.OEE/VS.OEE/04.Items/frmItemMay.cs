@@ -5,7 +5,6 @@ using DevExpress.XtraEditors;
 using Commons;
 using System.Reflection;
 using Microsoft.ApplicationBlocks.Data;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Linq;
 using DevExpress.Utils;
@@ -292,7 +291,7 @@ namespace VS.OEE
                     grvItemMay.Columns["DownTimeRecord"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvItemMay.Columns["DownTimeRecord"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
                     grvItemMay.Columns["WorkingCycle"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvItemMay.Columns["WorkingCycle"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
+                    grvItemMay.Columns["WorkingCycle"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
 
                     grvItemMay.Columns["Consumption"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvItemMay.Columns["Consumption"].DisplayFormat.FormatString = Commons.Modules.ObjSystems.sDinhDangSoLe(8);
@@ -393,7 +392,7 @@ namespace VS.OEE
                     return;
                 }
                 if (Modules.msgHoiThayThe(ThongBao.msgXoa, "Device") == DialogResult.No) return;
-                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.ItemMay WHERE MS_MAY ='" + (grvItemMay.GetFocusedRowCellValue("MS_MAY") + "'"));
+                SqlHelper.ExecuteNonQuery(Commons.IConnections.CNStr, CommandType.Text, "DELETE dbo.ItemMay WHERE MS_MAY ='" + (grvItemMay.GetFocusedRowCellValue("MS_MAY") + "' AND ItemID ='" + Convert.ToInt64(grvItem.GetFocusedRowCellValue("ID")) + "'"));
                 grvItemMay.DeleteSelectedRows();
             }
             catch (Exception)
@@ -462,6 +461,7 @@ namespace VS.OEE
         private void grvItemMay_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
             grvItemMay.ClearColumnErrors();
+            grvItem.BeginUpdate();
             GridView view = sender as GridView;
             if (view == null) return;
             if (view.FocusedColumn.Name == "colMS_MAY")
@@ -480,6 +480,18 @@ namespace VS.OEE
                     view.SetFocusedRowCellValue(view.Columns["MS_MAY"], e.Value);
                 }
             }
+            if (view.FocusedColumn.Name == "colWorkingCycle")
+            {
+                view.SetFocusedRowCellValue(view.Columns["WorkingCycle"], e.Value);
+                view.SetFocusedRowCellValue(view.Columns["StandardOutput"],3600/(Convert.ToDecimal((e.Value)))* Convert.ToDecimal(view.GetFocusedRowCellValue("NumberPerCyle")));
+            }
+
+            if (view.FocusedColumn.Name == "colNumberPerCyle")
+            {
+                view.SetFocusedRowCellValue(view.Columns["NumberPerCyle"], e.Value);
+                view.SetFocusedRowCellValue(view.Columns["StandardOutput"], 3600 / Convert.ToDecimal(view.GetFocusedRowCellValue("WorkingCycle")) * Convert.ToDecimal(e.Value));
+            }
+
         }
 
         private void grvItemMay_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
@@ -492,9 +504,20 @@ namespace VS.OEE
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
 
-        private void grvItemMay_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void searchControl1_TextChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (grvItem.GetFocusedRowCellValue("ItemCode").ToString() != txtItemCode.Text.Trim())
+                {
+                    LoadgrdItemMay(Convert.ToInt64(grvItem.GetFocusedRowCellValue("ID")), null);
+                    BingdingControl(false);
+                }
+            }
+            catch
+            {
+            }
+           
         }
     }
 }

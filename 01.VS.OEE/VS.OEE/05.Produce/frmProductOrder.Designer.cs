@@ -32,8 +32,8 @@
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.datNgayBD = new DevExpress.XtraEditors.DateEdit();
             this.datNgayHTKH = new DevExpress.XtraEditors.DateEdit();
+            this.datNgayBD = new DevExpress.XtraEditors.DateEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.datTuNgay = new DevExpress.XtraEditors.DateEdit();
@@ -57,19 +57,19 @@
             this.grvSchedule = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelNN = new DevExpress.XtraEditors.PanelControl();
-            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnImport = new DevExpress.XtraEditors.SimpleButton();
             this.btnLayMay = new DevExpress.XtraEditors.SimpleButton();
             this.btnExport = new DevExpress.XtraEditors.SimpleButton();
-            this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelPro = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelSche = new DevExpress.XtraEditors.SimpleButton();
             this.btnTroVe = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhi = new DevExpress.XtraEditors.SimpleButton();
             this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelDetails = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.txtSoLSX = new DevExpress.XtraEditors.TextEdit();
             this.lblSoLSX = new DevExpress.XtraEditors.LabelControl();
             this.lblNgayBD = new DevExpress.XtraEditors.LabelControl();
@@ -80,10 +80,10 @@
             this.cboTinhTrang = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -122,25 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // datNgayBD
-            // 
-            this.TableLayout.SetColumn(this.datNgayBD, 5);
-            this.datNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datNgayBD.EditValue = null;
-            this.datNgayBD.Location = new System.Drawing.Point(794, 11);
-            this.datNgayBD.Name = "datNgayBD";
-            this.datNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.TableLayout.SetRow(this.datNgayBD, 1);
-            this.datNgayBD.Size = new System.Drawing.Size(209, 20);
-            this.datNgayBD.TabIndex = 4;
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.datNgayHTKH;
-            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.datNgayBD, compareAgainstControlValidationRule2);
-            // 
             // datNgayHTKH
             // 
             this.TableLayout.SetColumn(this.datNgayHTKH, 5);
@@ -157,10 +138,29 @@
             this.TableLayout.SetRow(this.datNgayHTKH, 2);
             this.datNgayHTKH.Size = new System.Drawing.Size(209, 20);
             this.datNgayHTKH.TabIndex = 4;
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
-            compareAgainstControlValidationRule1.Control = this.datNgayBD;
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
+            compareAgainstControlValidationRule2.Control = this.datNgayBD;
+            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.datNgayHTKH, compareAgainstControlValidationRule2);
+            // 
+            // datNgayBD
+            // 
+            this.TableLayout.SetColumn(this.datNgayBD, 5);
+            this.datNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datNgayBD.EditValue = null;
+            this.datNgayBD.Location = new System.Drawing.Point(794, 11);
+            this.datNgayBD.Name = "datNgayBD";
+            this.datNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TableLayout.SetRow(this.datNgayBD, 1);
+            this.datNgayBD.Size = new System.Drawing.Size(209, 20);
+            this.datNgayBD.TabIndex = 4;
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.datNgayHTKH;
             compareAgainstControlValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.datNgayHTKH, compareAgainstControlValidationRule1);
+            this.dxValidationProvider1.SetValidationRule(this.datNgayBD, compareAgainstControlValidationRule1);
             // 
             // splitContainerControl1
             // 
@@ -416,6 +416,7 @@
             this.grvPrODetails.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvPrODetails_FocusedRowChanged);
             this.grvPrODetails.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.grvPrODetails_CellValueChanged);
             this.grvPrODetails.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvPrODetails_InvalidRowException);
+            this.grvPrODetails.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.grvPrODetails_BeforeLeaveRow);
             this.grvPrODetails.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPrODetails_ValidateRow);
             this.grvPrODetails.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.grvPrODetails_ValidatingEditor);
             this.grvPrODetails.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.grvPrODetails_InvalidValueException);
@@ -473,34 +474,24 @@
             this.panelNN.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.TableLayout.SetColumn(this.panelNN, 0);
             this.TableLayout.SetColumnSpan(this.panelNN, 6);
-            this.panelNN.Controls.Add(this.btnXoa);
             this.panelNN.Controls.Add(this.btnImport);
             this.panelNN.Controls.Add(this.btnLayMay);
             this.panelNN.Controls.Add(this.btnExport);
-            this.panelNN.Controls.Add(this.btnThem);
             this.panelNN.Controls.Add(this.btnDelPro);
-            this.panelNN.Controls.Add(this.btnSua);
             this.panelNN.Controls.Add(this.btnThoat);
             this.panelNN.Controls.Add(this.btnDelSche);
             this.panelNN.Controls.Add(this.btnTroVe);
             this.panelNN.Controls.Add(this.btnGhi);
             this.panelNN.Controls.Add(this.btnKhong);
             this.panelNN.Controls.Add(this.btnDelDetails);
+            this.panelNN.Controls.Add(this.btnXoa);
+            this.panelNN.Controls.Add(this.btnSua);
+            this.panelNN.Controls.Add(this.btnThem);
             this.panelNN.Location = new System.Drawing.Point(3, 611);
             this.panelNN.Name = "panelNN";
             this.TableLayout.SetRow(this.panelNN, 6);
             this.panelNN.Size = new System.Drawing.Size(1000, 28);
             this.panelNN.TabIndex = 6;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(839, 1);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(80, 26);
-            this.btnXoa.TabIndex = 10;
-            this.btnXoa.Text = "btnXoa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnImport
             // 
@@ -532,16 +523,6 @@
             this.btnExport.Text = "btnExport";
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // btnThem
-            // 
-            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(677, 1);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(80, 26);
-            this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "btnThem";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // btnDelPro
             // 
             this.btnDelPro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -552,16 +533,6 @@
             this.btnDelPro.Text = "btnDelPro";
             this.btnDelPro.Visible = false;
             this.btnDelPro.Click += new System.EventHandler(this.btnDelPro_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(758, 1);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(80, 26);
-            this.btnSua.TabIndex = 6;
-            this.btnSua.Text = "btnSua";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThoat
             // 
@@ -625,6 +596,36 @@
             this.btnDelDetails.Text = "btnDelDetails";
             this.btnDelDetails.Visible = false;
             this.btnDelDetails.Click += new System.EventHandler(this.btnDelDetails_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoa.Location = new System.Drawing.Point(839, 1);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(80, 26);
+            this.btnXoa.TabIndex = 10;
+            this.btnXoa.Text = "btnXoa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Location = new System.Drawing.Point(758, 1);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(80, 26);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "btnSua";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThem.Location = new System.Drawing.Point(677, 1);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(80, 26);
+            this.btnThem.TabIndex = 9;
+            this.btnThem.Text = "btnThem";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtSoLSX
             // 
@@ -719,6 +720,7 @@
             this.TableLayout.SetRow(this.datNgayLap, 1);
             this.datNgayLap.Size = new System.Drawing.Size(209, 20);
             this.datNgayLap.TabIndex = 4;
+            this.datNgayLap.EditValueChanged += new System.EventHandler(this.datNgayLap_EditValueChanged);
             // 
             // cboTinhTrang
             // 
@@ -754,10 +756,10 @@
             this.Text = "frmProductOrder";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmItemMay_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datNgayHTKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datNgayBD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();

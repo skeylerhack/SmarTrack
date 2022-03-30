@@ -42,7 +42,6 @@ namespace VS.OEE
             }
             ReadonlyControl(true);
             Commons.Modules.sId = "0Load";
-            Loaddatacombo();
             Loadngay();
             LoadgrdProDuctRun(-1);
             BingDingData();
@@ -57,15 +56,6 @@ namespace VS.OEE
             datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
             datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
         }
-        private void Loaddatacombo()
-        {
-            //load combo may
-            //Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cboMay, Commons.Modules.ObjSystems.DataMay(0), "MS_MAY", "TEN_MAY",this.Name);
-            //load combo ca
-            //Commons.Modules.ObjSystems.MLoadLookUpEdit(cboCa, Commons.Modules.ObjSystems.DataCa(false), "STT", "CA", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "Ca"), false);
-            //load combo DieuHanh
-            //Commons.Modules.ObjSystems.MLoadLookUpEdit(cboDieuHanh, Commons.Modules.ObjSystems.DataOpetator(false), "ID", "OperatorName", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "OperatorName"), false);
-        }
         private void VisibleButon(bool flag)
         {
             btnThem.Visible = flag;
@@ -75,8 +65,6 @@ namespace VS.OEE
             btnGhi.Visible = !flag;
             btnKhong.Visible = !flag;
             btnChonLSX.Visible = !flag;
-            //mnuCapNhatTo.Visible = !flag;
-            //mnuNhapTGNM.Visible = flag;
         }
 
         private void ReadonlyControl(bool flag)
@@ -132,29 +120,6 @@ namespace VS.OEE
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //private void LoadgrdEquiment()
-        //{
-        //    if (datBD.Text == "") return;
-        //    if (grvPrRunDetails.RowCount == 0) return;
-        //    DataTable dtmp = new DataTable();
-        //    try
-        //    {
-        //        dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetProDuctionOEE", grvPrRunDetails.GetFocusedRowCellValue("ID_CA"), datBD.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
-        //        if (grdEquipment.DataSource == null)
-        //        {
-        //            Modules.ObjSystems.MLoadXtraGrid(grdEquipment, grvEquipment, dtmp, false, false, true, true, true,
-        //                this.Name);
-        //        }
-        //        else
-        //            grdEquipment.DataSource = dtmp;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        grdEquipment.DataSource = null;
-        //        //XtraMessageBox.Show(MethodBase.GetCurrentMethod().Name + ": " + ex.Message, "Error",
-        //        //    MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
 
         private void LoadgrdPrRunDetails()
         {
@@ -189,8 +154,6 @@ namespace VS.OEE
                     grvPrRunDetails.Columns["NumberPerCycle"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvPrRunDetails.Columns["NumberPerCycle"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
 
-                    //grvPrRunDetails.Columns["ActualSpeed"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                    //grvPrRunDetails.Columns["ActualSpeed"].SummaryItem.DisplayFormat = "Sum = {0:" + Commons.Modules.sSoLeDG + "}";
 
                     //add production
                     Commons.Modules.ObjSystems.AddCombXtra("ID", "PrOrNumber", "PrOID", grvPrRunDetails, Commons.Modules.ObjSystems.DataProductOrDer(), false, this.Name);
@@ -249,11 +212,6 @@ namespace VS.OEE
                 }
                 else
                     grdPrRunDetails.DataSource = dt;
-
-                if (grvPrRunDetails.FocusedRowHandle < 1)
-                {
-                    grvPrRunDetails_FocusedRowChanged(null, null);
-                }
             }
             catch
             {
@@ -360,7 +318,6 @@ namespace VS.OEE
             {
                 DeleteDatadetails();
             }
-            DeleteData();
         }
         private void DeleteDatadetails()
         {
@@ -380,12 +337,12 @@ namespace VS.OEE
         private void btnGhi_Click(object sender, EventArgs e)
         {
 
-            if (txtCode.Text.Trim() == "")
+            if (txtCode.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblCode.Text, txtCode);
                 return;
             }
-            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.ProductionRun WHERE Code ='" + txtCode.Text.Trim() + "'  " + (iThem == -1 ? "" : "AND ID <> " + iThem + "") + "  ");
+            object rs = IConnections.MExecuteScalar("SELECT COUNT(*) FROM dbo.ProductionRun WHERE Code ='" + txtCode.Text + "'  " + (iThem == -1 ? "" : "AND ID <> " + iThem + "") + "  ");
             if (rs != null && (Int32)rs > 0)
             {
                 Modules.msgThayThe(ThongBao.msgDaTonTai, lblCode.Text, txtCode);
@@ -409,22 +366,22 @@ namespace VS.OEE
 
             //kiểm tra giờ  không trùng lặp
             //tạo bảo tạm
-            Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, "TMPPRORUN" + Commons.Modules.UserName, Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails), "");
-            try
-            {
-                for (int i = 0; i <= grvPrRunDetails.RowCount; i++)
-                {
-                    int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spKiemTraGioHopLeRun", iThem, grvPrRunDetails.GetRowCellValue(i, "MS_MAY"), Convert.ToInt64(grvPrRunDetails.GetRowCellValue(i, "ItemID")), Convert.ToInt64(grvPrRunDetails.GetRowCellValue(i, "PrOID")), Convert.ToDateTime(grvPrRunDetails.GetRowCellValue(i, "StartTime")), Convert.ToDateTime(grvPrRunDetails.GetRowCellValue(i, "EndTime")), "TMPPRORUN" + Commons.Modules.UserName));
-                    if (n > 1)
-                    {
-                        Modules.msgThayThe(ThongBao.msgNgayBiTrungDuLieu, grvPrRunDetails.GetRowCellValue(i, "MS_MAY").ToString());
-                        return;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
+            //Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, "TMPPRORUN" + Commons.Modules.UserName, Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails), "");
+            //try
+            //{
+            //    for (int i = 0; i <= grvPrRunDetails.RowCount; i++)
+            //    {
+            //        int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spKiemTraGioHopLeRun", iThem, grvPrRunDetails.GetRowCellValue(i, "MS_MAY"), Convert.ToInt64(grvPrRunDetails.GetRowCellValue(i, "ItemID")), Convert.ToInt64(grvPrRunDetails.GetRowCellValue(i, "PrOID")), Convert.ToDateTime(grvPrRunDetails.GetRowCellValue(i, "StartTime")), Convert.ToDateTime(grvPrRunDetails.GetRowCellValue(i, "EndTime")), "TMPPRORUN" + Commons.Modules.UserName));
+            //        if (n > 1)
+            //        {
+            //            Modules.msgThayThe(ThongBao.msgNgayBiTrungDuLieu, grvPrRunDetails.GetRowCellValue(i, "MS_MAY").ToString());
+            //            return;
+            //        }
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //}
 
             if (!dxValidationProvider1.Validate()) return;
             Validate();
@@ -443,7 +400,7 @@ namespace VS.OEE
             {
                 tbProRunDetails = Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails);
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, tbProRunDetails, "");
-                iThem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spSaveProductionRun", iThem, txtCode.EditValue, datBD.DateTime, datKT.DateTime, datNgayTao.DateTime, txtNote.EditValue,Commons.Modules.UserName, sBT));
+                iThem = Convert.ToInt64(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spSaveProductionRun", iThem, txtCode.EditValue, datBD.DateTime, datKT.DateTime, datNgayTao.DateTime, txtNote.EditValue, Commons.Modules.UserName, sBT));
                 LoadgrdProDuctRun(iThem);
             }
             catch (Exception ex)
@@ -506,12 +463,16 @@ namespace VS.OEE
 
         private void grdPrRunDetails_ProcessGridKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Delete && btnSua.Visible==false)
+            if (e.KeyData == Keys.Delete && btnGhi.Visible == false)
             {
                 if (btnGhi.Visible == false)
                     DeleteDataDetails();
                 else
                     grvPrRunDetails.DeleteSelectedRows();
+            }
+            if(e.KeyData == Keys.F5 && btnGhi.Visible == false)
+            {
+                LoadgrdPrRunDetails();
             }
         }
         private void grdProDuctRun_ProcessGridKey(object sender, KeyEventArgs e)
@@ -535,25 +496,6 @@ namespace VS.OEE
             {
                 Commons.Modules.msgChung(Commons.ThongBao.msgDuLieuDaPhatSinh);
                 //XtraMessageBox.Show(MethodBase.GetCurrentMethod().Name + ": " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void datBD_EditValueChanged(object sender, EventArgs e)
-        {
-            //LoadgrdEquiment();
-            if (Commons.Modules.sId == "0Load") return;
-            //cboCa.EditValue = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text,
-            //    "SELECT TOP 1 STT FROM dbo.CA WHERE CONVERT (TIME, '" + datBD.DateTime.TimeOfDay +
-            //    "')  BETWEEN CONVERT (TIME,TU_GIO) AND CONVERT (TIME,DEN_GIO)"));
-            if (Commons.Modules.ObjSystems.ConvertDatatable(grdPrRunDetails).Rows.Count == 0) return;
-            if (Commons.Modules.msgHoi("msgBanCoMuonCapNhatLaiGio") == DialogResult.Yes)
-            {
-                if (!dxValidationProvider1.Validate()) return;
-                Validate();
-                for (int i = 0; i < grvPrRunDetails.RowCount; i++)
-                {
-                    grvPrRunDetails.SetRowCellValue(i, "StartTime", datBD.DateTime);
-                    grvPrRunDetails.SetRowCellValue(i, "EndTime", datKT.DateTime);
-                }
             }
         }
 
@@ -593,6 +535,7 @@ namespace VS.OEE
         {
             try
             {
+                string PrOID, ItemID, MS_MAY, ID_CA;
                 //kiểm tra null
                 DevExpress.XtraGrid.Views.Grid.GridView View = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
                 DevExpress.XtraGrid.Columns.GridColumn sproID = View.Columns["PrOID"];
@@ -601,6 +544,11 @@ namespace VS.OEE
                     e.Valid = false;
                     View.SetColumnError(sproID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraProNULL", Commons.Modules.TypeLanguage)); return;
                 }
+                else
+                {
+                    PrOID = View.GetRowCellValue(e.RowHandle, sproID).ToString();
+                }
+
 
                 DevExpress.XtraGrid.Columns.GridColumn sproItem = View.Columns["ItemID"];
                 if (Commons.Modules.ObjSystems.IsnullorEmpty(View.GetRowCellValue(e.RowHandle, sproItem)))
@@ -608,11 +556,20 @@ namespace VS.OEE
                     e.Valid = false;
                     View.SetColumnError(sproItem, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraItemNULL", Commons.Modules.TypeLanguage)); return;
                 }
+                else
+                {
+                    ItemID = View.GetRowCellValue(e.RowHandle, sproItem).ToString();
+                }
+
                 DevExpress.XtraGrid.Columns.GridColumn sMaMay = View.Columns["MS_MAY"];
                 if (Commons.Modules.ObjSystems.IsnullorEmpty(View.GetRowCellValue(e.RowHandle, sMaMay)))
                 {
                     e.Valid = false;
                     View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraMayNULL", Commons.Modules.TypeLanguage)); return;
+                }
+                else
+                {
+                    MS_MAY = View.GetRowCellValue(e.RowHandle, sMaMay).ToString();
                 }
 
                 DevExpress.XtraGrid.Columns.GridColumn sMaTo = View.Columns["OperatorID"];
@@ -621,8 +578,30 @@ namespace VS.OEE
                     e.Valid = false;
                     View.SetColumnError(sMaTo, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraToNULL", Commons.Modules.TypeLanguage)); return;
                 }
+
+                ID_CA = View.GetRowCellValue(e.RowHandle, "ID_CA").ToString();
+                //kiểm tra dữ liệu trùng trên lưới
+                DataTable dt = Commons.Modules.ObjSystems.ConvertDatatable(grdPrRunDetails);
+                
+                int n = dt.AsEnumerable().Count(x => x["PrOID"].ToString().Equals(PrOID) && x["ItemID"].ToString().Equals(ItemID) && x["MS_MAY"].ToString().Equals(MS_MAY) && x["ID_CA"].ToString().Equals(ID_CA));
+
+                //Kiểm dữ liệu trùng dưới database
+                int m = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = "+ PrOID + " AND ItemID = "+ ItemID + " AND MS_MAY = '"+ MS_MAY + "' AND ID_CA = "+ID_CA+ " AND dbo.fnGetNgayTheoCa(StartTime) =dbo.fnGetNgayTheoCa('"+ Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "StartTime")).ToString("yyyy-MM-dd HH:mm:ss") + "') AND ProductionRunID != "+ iThem +" "));
+
+
+                if(n> 1 || m >=1)
+                {
+                    e.Valid = false;
+                    View.SetColumnError(sproID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                    View.SetColumnError(sproItem, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                    View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                    View.SetColumnError(View.Columns["ID_CA"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                    View.SetColumnError(View.Columns["ItemCode"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                    View.SetColumnError(View.Columns["TEN_MAY"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                    return;
+                }
             }
-            catch
+            catch(Exception ex)
             {
             }
         }
@@ -816,23 +795,6 @@ namespace VS.OEE
             }
         }
 
-        private void grvPrRunDetails_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            //if (btnGhi.Visible == true) return;
-            //DataTable dt = new DataTable();
-            //dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetProDuctionOEE", grvPrRunDetails.GetFocusedRowCellValue("DetailID")));
-            //txtTH.EditValue = dt.Rows[0]["TH"];
-            //txtNPH.EditValue = dt.Rows[0]["NPH"];
-            //txtGPH.EditValue = dt.Rows[0]["GPH"];
-            //txtDT.EditValue = dt.Rows[0]["DT"];
-            //txtPE.EditValue = dt.Rows[0]["PE"];
-            //txtOEE.EditValue = dt.Rows[0]["OEE"];
-            //txtDTPT.EditValue = dt.Rows[0]["DTP"];
-            //txtEL.EditValue = dt.Rows[0]["EL"];
-            //txtELVer.EditValue = dt.Rows[0]["ELV"];
-            //LoadgrdEquiment();
-        }
-
         private void mnuNhapTGNM_Click(object sender, EventArgs e)
         {
             try
@@ -858,37 +820,10 @@ namespace VS.OEE
                 frmNM.ShowDialog();
                 //LoadgrdEquiment();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
             }
         }
-
-        //private void cboCa_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    //if(Commons.Modules.sId == "0Load") return;
-        //    DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        if (Commons.Modules.ObjSystems.ConvertDatatable(grvPrRunDetails).Rows.Count == 0)
-        //        {
-        //            dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT CONVERT(NVARCHAR(20), GETDATE(), 103) + ' ' + CONVERT(NVARCHAR(20), TU_GIO, 108) AS TU_GIO,CONVERT(NVARCHAR(20), GETDATE(), 103) + ' ' + CONVERT(NVARCHAR(20), DEN_GIO, 108) AS DEN_GIO FROM dbo.CA WHERE STT = " + cboCa.EditValue + ""));
-        //            datBD.DateTime = Convert.ToDateTime(dt.Rows[0]["TU_GIO"]);
-        //            datKT.DateTime = Convert.ToDateTime(dt.Rows[0]["DEN_GIO"]);
-        //            if (datKT.DateTime.TimeOfDay < datBD.DateTime.TimeOfDay)
-        //            {
-        //                datKT.DateTime = datKT.DateTime.AddDays(1);
-        //            }
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        //datBD.DateTime = DateTime.Now;
-        //        //datKT.DateTime = DateTime.Now.AddHours(1);
-        //    }
-        //    LoadgrdEquiment();
-        //}
-
-
         private void grvPrRunDetails_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
             try
@@ -934,6 +869,7 @@ namespace VS.OEE
             if (e.Column != view.Columns["ActualQuantity"])
                 return;
             e.Appearance.BackColor = Color.FromArgb(255, 204, 255);
+            e.Appearance.ForeColor = Color.Black;
         }
 
         private void mnuHistory_Click(object sender, EventArgs e)
@@ -943,6 +879,14 @@ namespace VS.OEE
             frm.ShowDialog();
         }
 
-       
+        private void datNgayTao_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (iThem == -1)
+                    txtCode.EditValue = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT dbo.AUTO_CREATE_SO_TDSX('" + datNgayTao.DateTime.ToString("yyyy-MM-dd") + "')").ToString();
+            }
+            catch { }
+        }
     }
 }

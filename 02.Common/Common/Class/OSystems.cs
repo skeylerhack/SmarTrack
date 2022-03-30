@@ -25,6 +25,9 @@ using DevExpress.Utils;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing;
+using System.Diagnostics;
+using DevExpress.XtraPrinting;
+using DevExpress.Export;
 
 namespace Commons
 {
@@ -84,7 +87,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -158,7 +161,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -191,7 +194,7 @@ namespace Commons
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
                 cbo.Properties.Columns[Ma].Caption = MaCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -229,7 +232,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -267,7 +270,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -307,7 +310,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -345,7 +348,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -381,7 +384,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -454,7 +457,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -493,7 +496,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -531,7 +534,7 @@ namespace Commons
                 else
                     cbo.Properties.DropDownRows = 10;
                 cbo.Properties.Columns[Ten].Caption = TenCot;
-                if (TenCot.Trim() == "")
+                if (TenCot == "")
                     cbo.Properties.ShowHeader = false;
                 else
                     cbo.Properties.ShowHeader = true;
@@ -768,6 +771,8 @@ namespace Commons
                 grv.OptionsView.ColumnAutoWidth = MColumnAutoWidth;
                 grv.OptionsView.AllowHtmlDrawHeaders = true;
                 grv.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                grv.OptionsClipboard.ClipboardMode = DevExpress.Export.ClipboardMode.Formatted;
+                grv.OptionsSelection.MultiSelect = true;
                 grv.DoubleClick += delegate (object a, EventArgs b) { Grv_DoubleClick(a, b, fName); };
                 if (MBestFitColumns)
                     grv.BestFitColumns();
@@ -781,10 +786,9 @@ namespace Commons
                     MemoryStream stream = new MemoryStream(byteArray);
                     grv.RestoreLayoutFromStream(stream);
                 }
-                if (Commons.Modules.UserName.ToLower() == "admin")
-                {
-                    grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
-                }
+
+                grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
+
                 if (MloadNNgu)
                     MLoadNNXtraGrid(grv, fName);
                 return true;
@@ -810,6 +814,8 @@ namespace Commons
                 //grv.OptionsView.ColumnHeaderAutoHeight = DefaultBoolean.True;
                 grv.OptionsView.AllowHtmlDrawHeaders = true;
                 grv.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                grv.OptionsClipboard.ClipboardMode = DevExpress.Export.ClipboardMode.Formatted;
+                grv.OptionsSelection.MultiSelect = true;
                 grv.DoubleClick += delegate (object a, EventArgs b) { Grv_DoubleClick(a, b, fName); };
                 if (MBestFitColumns)
                     grv.BestFitColumns();
@@ -824,11 +830,7 @@ namespace Commons
                     MemoryStream stream = new MemoryStream(byteArray);
                     grv.RestoreLayoutFromStream(stream);
                 }
-
-                if (Commons.Modules.UserName.ToLower() == "admin")
-                {
-                    grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
-                }
+                grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv); };
                 if (MloadNNgu)
                     MLoadNNXtraGrid(grv, fName);
                 return true;
@@ -891,17 +893,26 @@ namespace Commons
                     return;
                 }
                 // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
-                menuItem.BeginGroup = true;
-                menuItem.Tag = e.Menu;
-                menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv); };
-                headerMenu.Items.Add(menuItem);
-                // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
-                menuSave.BeginGroup = true;
-                menuSave.Tag = e.Menu;
-                menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
-                headerMenu.Items.Add(menuSave);
+                if (Commons.Modules.UserName.ToLower() == "admin")
+                {
+                    DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
+                    menuItem.BeginGroup = true;
+                    menuItem.Tag = e.Menu;
+                    menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv); };
+                    headerMenu.Items.Add(menuItem);
+                    // menu resetgrid
+                    DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
+                    menuSave.BeginGroup = true;
+                    menuSave.Tag = e.Menu;
+                    menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
+                    headerMenu.Items.Add(menuSave);
+                }
+                // menu export to excel
+                DevExpress.Utils.Menu.DXMenuItem menuExport = new DevExpress.Utils.Menu.DXMenuItem("Export to Excel");
+                menuExport.BeginGroup = true;
+                menuExport.Tag = e.Menu;
+                menuExport.Click += delegate (object a, EventArgs b) { ExportToExcel(null, null, grv); };
+                headerMenu.Items.Add(menuExport);
             }
             catch
             {
@@ -1288,6 +1299,20 @@ namespace Commons
             }
         }
 
+        public void ExportToExcel(System.Object sender, System.EventArgs e, GridView grv)
+        {
+            // SAVE  
+            grv.BestFitColumns();
+            grv.OptionsPrint.AutoWidth = false;
+            string sPath = "";
+            sPath = Commons.Modules.MExcel.SaveFiles("Excel file (*.xls)|*.xls");
+            if (sPath == "") return;
+            var options = new XlsExportOptionsEx();
+            options.ExportType = ExportType.WYSIWYG;
+            grv.ExportToXls(sPath, options);
+            Process.Start(sPath);
+        }
+
         public void MLoadNNXtraGrid(DevExpress.XtraGrid.Views.Grid.GridView grv, string fName)
         {
             DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repoMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
@@ -1310,7 +1335,6 @@ namespace Commons
                     catch
                     {
                         col.Caption = Modules.ObjLanguages.GetLanguage(Modules.ModuleName, fName, col.FieldName, Modules.TypeLanguage);
-
                     }
                 }
             }
@@ -1339,10 +1363,10 @@ namespace Commons
             try
             {
                 //kiểm tra có trong table định dạng lưới chưa có thì load
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT count(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '"+fName.ToString()+"'")) == 1)
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT count(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'")) == 1)
                 {
                     // RESTORE  
-                    var layoutString = (string)SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT DINH_DANG_LUOI FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString()+"'");
+                    var layoutString = (string)SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT DINH_DANG_LUOI FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'");
                     Stream s = new MemoryStream();
                     StreamWriter sw = new StreamWriter(s);
                     sw.Write(layoutString);
@@ -1356,11 +1380,7 @@ namespace Commons
                     // SAVE  
                     SaveLayOutGrid(grv, fName);
                 }
-                if (Commons.Modules.UserName.ToLower() == "admin")
-                {
-                    grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv, fName); };
-                }
-
+                grv.PopupMenuShowing += delegate (object a, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs b) { Grv_PopupMenuShowing(grv, b, grv, fName); };
             }
             catch
             {
@@ -1399,8 +1419,6 @@ namespace Commons
                 str.Seek(0, System.IO.SeekOrigin.Begin);
                 StreamReader reader = new StreamReader(str);
                 string text = reader.ReadToEnd();
-
-
                 //kiểm tra xem tồn tại chưa có thì update chưa có thì inser
                 if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.DINH_DANG_LUOI WHERE MS_LUOI = '" + fName.ToString() + "'")) == 0)
                 {
@@ -1412,11 +1430,6 @@ namespace Commons
                     //update
                     SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "UPDATE dbo.DINH_DANG_LUOI SET DINH_DANG_LUOI = '" + text + "' WHERE MS_LUOI  = '" + fName.ToString() + "'");
                 }
-
-
-
-
-
             }
             catch { }
         }
@@ -1428,18 +1441,26 @@ namespace Commons
             try
             {
                 DevExpress.XtraGrid.Menu.GridViewMenu headerMenu = (DevExpress.XtraGrid.Menu.GridViewMenu)e.Menu;
-                // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
-                menuItem.BeginGroup = true;
-                menuItem.Tag = e.Menu;
-                menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv, fName); };
-                headerMenu.Items.Add(menuItem);
-                // menu resetgrid
-                DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
-                menuSave.BeginGroup = true;
-                menuSave.Tag = e.Menu;
-                menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv, fName); };
-                headerMenu.Items.Add(menuSave);
+                if (Commons.Modules.UserName.ToLower() == "admin")
+                {
+                    DevExpress.Utils.Menu.DXMenuItem menuItem = new DevExpress.Utils.Menu.DXMenuItem("Reset Grid");
+                    menuItem.BeginGroup = true;
+                    menuItem.Tag = e.Menu;
+                    menuItem.Click += delegate (object a, EventArgs b) { MenuItemReset_Click(null, null, grv); };
+                    headerMenu.Items.Add(menuItem);
+                    // menu resetgrid
+                    DevExpress.Utils.Menu.DXMenuItem menuSave = new DevExpress.Utils.Menu.DXMenuItem("Save Grid");
+                    menuSave.BeginGroup = true;
+                    menuSave.Tag = e.Menu;
+                    menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
+                    headerMenu.Items.Add(menuSave);
+                }
+                // menu export to excel
+                DevExpress.Utils.Menu.DXMenuItem menuExport = new DevExpress.Utils.Menu.DXMenuItem("Export to Excel");
+                menuExport.BeginGroup = true;
+                menuExport.Tag = e.Menu;
+                menuExport.Click += delegate (object a, EventArgs b) { ExportToExcel(null, null, grv); };
+                headerMenu.Items.Add(menuExport);
             }
             catch
             {
@@ -2081,7 +2102,7 @@ namespace Commons
                     //                    {
                     //                        try
                     //                        {
-                    //                            cl.Caption = dtItem.Select().Where(x => x("REPORT_NAME").ToString().Trim() == cl.Name.Trim()).Take(1).Single()("TEN_REPORT");
+                    //                            cl.Caption = dtItem.Select().Where(x => x("REPORT_NAME").ToString() == cl.Name).Take(1).Single()("TEN_REPORT");
                     //                        }
                     //                        catch (Exception ex)
                     //                        {
@@ -2254,7 +2275,7 @@ namespace Commons
                             sName = GetParentForm(Ctl).Name.ToString();
                         }
                     }
-                    if (sName.Trim().ToString() == "")
+                    if (sName.ToString() == "")
                         sName = GetParentForm(Ctl).Name.ToString();
                     sText = XtraInputBox.Show(Ctl.Text, "Sửa ngôn ngữ", "");
                     if (sText == "")
@@ -2575,7 +2596,7 @@ namespace Commons
 
                 foreach (string s in chuoi_tach)
                 {
-                    if (s.ToString().Trim() != "")
+                    if (s.ToString() != "")
                     {
                         try
                         {
@@ -2952,6 +2973,18 @@ namespace Commons
             cbo.EditMask = "G";
             cbo.DisplayFormat.FormatString = "G";
             cbo.EditFormat.FormatString = "G";
+            cbo.CalendarView = CalendarView.TouchUI;
+
+            grv.Columns[col].Width = 150;
+            grv.Columns[col].ColumnEdit = cbo;
+        }
+        public void AddCombDateMinuteEdit(string col, GridView grv)
+        {
+            RepositoryItemDateEdit cbo = new RepositoryItemDateEdit();
+            cbo.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            cbo.EditMask = "dd/MM/yyyy HH:mm";
+            cbo.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            cbo.EditFormat.FormatString = "dd/MM/yyyy HH:mm";
             cbo.CalendarView = CalendarView.TouchUI;
 
             grv.Columns[col].Width = 150;

@@ -24,7 +24,7 @@ namespace VS.OEE
             InitializeComponent();
         }
        
-        #region Event
+         #region Event
         private void frmShiftLeader_Load(object sender, EventArgs e)
         {
             if (iPQ != 1)
@@ -58,8 +58,8 @@ namespace VS.OEE
                 if (TuNgay == null || DenNgay == null) return;
 
                 int bGhi_De = 0;
-                string str = "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("dd-MM-yyyy") + "' AND '" + DenNgay.ToString("dd-MM-yyyy") + "') SELECT 1 ELSE SELECT 0";
-                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, str)) == 1 && Modules.msgHoiThayThe(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgBanCoMuonGhiDeChoNhungNgayDaCoDuLieu"), groShiftLeader.Text) == DialogResult.Yes)
+                string str = "IF EXISTS (SELECT * FROM  dbo.SHIFT_LEADER WHERE NGAY BETWEEN '" + TuNgay.ToString("yyyy-MM-dd") + "' AND '" + DenNgay.ToString("yyyy-MM-dd") + "') SELECT 1 ELSE SELECT 0";
+                if (Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, str)) == 1 && Modules.msgHoi("msgBanCoMuonGhiDeChoNhungNgayDaCoDuLieu") == DialogResult.Yes)
                 {
                         bGhi_De = 1;
                 }
@@ -175,7 +175,7 @@ namespace VS.OEE
         //        if (view.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle && count == 2)
         //        {
         //            e.Valid = false;
-        //            XtraMessageBox.Show(ID.Caption.Trim() + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
+        //            XtraMessageBox.Show(ID.Caption + " " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgKhongDuocTrung"));
         //            view.SetColumnError(ID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "msgKhongDuocTrung", Commons.Modules.TypeLanguage));
         //            view.FocusedColumn = ID;
         //            return;

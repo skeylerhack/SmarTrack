@@ -67,7 +67,8 @@ namespace VS.OEE
                 Boolean bLoad = true;
                 try { if (grdNguoiDung.DataSource != null) bLoad = false; } catch { }
                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdNguoiDung, grvNguoiDung, dt, false, bLoad, true, false, true, this.Name);
-
+                //ID,OperatorName
+                Commons.Modules.ObjSystems.AddCombXtra("ID","OperatorName", "MS_CONG_NHAN", grvNguoiDung,Commons.Modules.ObjSystems.DataOpetator(false));
                 grvNguoiDung.Columns["GROUP_ID"].Visible = false;
                 grvNguoiDung.Columns["PASS"].Visible = false;
                 grvNguoiDung.Columns["GROUP_NAME"].GroupIndex = 0;

@@ -14,6 +14,7 @@ namespace Ecomaint.Api.Models
     {
         public int MS_NGUYEN_NHAN { get; set; }
         public string TEN_NGUYEN_NHAN { get; set; }
+        public int DINH_MUC { get; set; }
     }
     public class DepartMentViewModel
     {

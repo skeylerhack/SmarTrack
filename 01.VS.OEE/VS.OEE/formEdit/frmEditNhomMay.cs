@@ -50,11 +50,11 @@ namespace VS.OEE
                 //kiem ma may
                 if (!KiemTrung(1)) return;
                 //kiem ten viet
-                if (txtTEN_NHOM_MAY.Text.Trim() != "") if (!KiemTrung(2)) return;
+                if (txtTEN_NHOM_MAY.Text != "") if (!KiemTrung(2)) return;
                 //kiem ten anh
-                if (txtTEN_NHOM_MAY_ANH.Text.Trim() != "") if (!KiemTrung(3)) return;
+                if (txtTEN_NHOM_MAY_ANH.Text != "") if (!KiemTrung(3)) return;
                 //kiem ten hoa
-                if (txtTEN_NHOM_MAY_HOA.Text.Trim() != "") if (!KiemTrung(4)) return;
+                if (txtTEN_NHOM_MAY_HOA.Text != "") if (!KiemTrung(4)) return;
 
 
                 #region Them

@@ -55,11 +55,13 @@ namespace VS.OEE
         {
             txtTenNN.Properties.ReadOnly = bLock;
             txtTenNNA.Properties.ReadOnly = bLock;
+            txtDinhMuc.Properties.ReadOnly = bLock;
             cboDownTimeType.Properties.ReadOnly = bLock;
             txtCauseCode.Properties.ReadOnly = bLock;
             cboPlanned.Properties.ReadOnly = bLock;
             chkHuHong.Properties.ReadOnly = bLock;
             chkSanXuat.Properties.ReadOnly = bLock;
+            chkOEE.Properties.ReadOnly = bLock;
             txtSearch.ReadOnly = !bLock;
             grdDownTimeCause.Enabled = bLock;
 
@@ -83,9 +85,11 @@ namespace VS.OEE
                 txtID.Text = (nullText ? "-1" : Modules.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("MS_NGUYEN_NHAN")).ToString());
                 txtTenNN.Text = (nullText ? "" : Modules.ToStr(grvDownTimeCause.GetFocusedRowCellValue("TEN_NGUYEN_NHAN")));
                 txtTenNNA.Text = (nullText ? "" : Modules.ToStr(grvDownTimeCause.GetFocusedRowCellValue("TEN_NGUYEN_NHAN_ANH")));
+                txtDinhMuc.EditValue = (nullText ? 0 : Convert.ToDouble(grvDownTimeCause.GetFocusedRowCellValue("DINH_MUC").ToString() == "" ? 0 : Convert.ToDouble(grvDownTimeCause.GetFocusedRowCellValue("DINH_MUC"))));
                 cboDownTimeType.EditValue =Modules.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("DownTimeTypeID"));
                 chkHuHong.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("HU_HONG"));
                 chkSanXuat.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("BTDK"));
+                chkOEE.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("OEE"));
                 txtCauseCode.EditValue = (nullText ? "" : grvDownTimeCause.GetFocusedRowCellValue("CauseCode"));
                 cboPlanned.EditValue = Convert.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("Planned"));
             }
@@ -141,7 +145,7 @@ namespace VS.OEE
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtTenNN.Text.Trim() == "")
+            if (txtTenNN.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuSua, lblTenNN.Text);
                 return;
@@ -150,7 +154,7 @@ namespace VS.OEE
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtTenNN.Text.Trim() == "")
+            if (txtTenNN.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblTenNN.Text);
                 return;
@@ -288,7 +292,7 @@ namespace VS.OEE
             //Loại nguyên nhân dừng máy, nếu NoEdit = true => Không cho sửa
             if ((string.IsNullOrEmpty(grvDownTimeCause.GetFocusedRowCellValue("NoEdit").ToString()) ? false : Convert.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("NoEdit"))) == true) return false;
 
-            if (txtID.Text.Trim() == "") return false;
+            if (txtID.Text == "") return false;
             try
             {
                 #region Kiem du lieu
@@ -306,7 +310,7 @@ namespace VS.OEE
                     return false;
                 }
                 //nguyên nhân không trống
-                if (txtTenNN.Text.Trim() == "")
+                if (txtTenNN.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblTenNN.Text, txtTenNN);
                     return false;
@@ -333,9 +337,11 @@ namespace VS.OEE
                 comd.Parameters.Add(new SqlParameter("@ID", Modules.ToInt32(txtID.Text)));
                 comd.Parameters.Add(new SqlParameter("@TEN_NGUYEN_NHAN", Modules.ToStr(txtTenNN.Text)));
                 comd.Parameters.Add(new SqlParameter("@TEN_NGUYEN_NHANA", Modules.ToStr(txtTenNNA.Text)));
+                comd.Parameters.Add(new SqlParameter("@DINH_MUC", txtDinhMuc.EditValue));
                 comd.Parameters.Add(new SqlParameter("@DownTimeTypeID", Modules.ToInt32(cboDownTimeType.EditValue)));
                 comd.Parameters.Add(new SqlParameter("@HU_HONG",chkHuHong.Checked));
                 comd.Parameters.Add(new SqlParameter("@BTDK", chkSanXuat.Checked));
+                comd.Parameters.Add(new SqlParameter("@OEE", chkOEE.Checked));
                 comd.Parameters.Add(new SqlParameter("@MAC_DINH", 0));
                 comd.Parameters.Add(new SqlParameter("@CauseCode", txtCauseCode.EditValue));
                 comd.Parameters.Add(new SqlParameter("@Planned", cboPlanned.EditValue));
@@ -391,6 +397,7 @@ namespace VS.OEE
                 cboDownTimeType.EditValue = Modules.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("DownTimeTypeID"));
                 chkHuHong.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("HU_HONG"));
                 chkSanXuat.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("BTDK"));
+                chkOEE.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("OEE"));
                 txtCauseCode.EditValue = grvDownTimeCause.GetFocusedRowCellValue("CauseCode");
                 cboPlanned.EditValue = Convert.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("Planned"));
             }

@@ -168,12 +168,12 @@ namespace VS.OEE
             {
                 int n = 0;
                 DataTable dt = Commons.Modules.ObjSystems.ConvertDatatable(grvNgungMay);
-                if (datBD.Text.Trim() == "")
+                if (datBD.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblNgungMayTuGio.Text, datBD);
                     return false;
                 }
-                if (datKT.Text.Trim() == "")
+                if (datKT.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblDenGio.Text, datKT);
                     return false;
@@ -230,7 +230,7 @@ namespace VS.OEE
                 //    return false;
                 //}
                 //kiểm tra nguyên nhân không được trể trống
-                if (cboNguyenNhan.Text.Trim() == "")
+                if (cboNguyenNhan.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblNguyenNhan.Text, cboNguyenNhan);
                     return false;

@@ -145,7 +145,7 @@ namespace VS.OEE
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtOperatorName.Text.Trim() == "")
+            if (txtOperatorName.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuSua, lblOperatorName.Text);
                 return;
@@ -154,7 +154,7 @@ namespace VS.OEE
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtOperatorName.Text.Trim() == "")
+            if (txtOperatorName.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuXoa, lblOperatorName.Text);
                 return;
@@ -199,7 +199,7 @@ namespace VS.OEE
         }
         private void btnIn_Click(object sender, EventArgs e)
         {
-            if (txtOperatorName.Text.Trim() == "")
+            if (txtOperatorName.Text == "")
             {
                 Modules.msgThayThe(ThongBao.msgKhongCoDuLieuIn, lblOperatorName.Text);
                 return;
@@ -318,25 +318,25 @@ namespace VS.OEE
 
         private Boolean SaveData()
         {
-            if (txtID.Text.Trim() == "") return false;
+            if (txtID.Text == "") return false;
             try
             {
                 #region Kiem du lieu
-                if (txtOperatorCode.Text.Trim() == "")
+                if (txtOperatorCode.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblOperatorCode.Text, txtOperatorCode);
                     return false;
                 }
                 else
                 {
-                    int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.Operator WHERE OperatorCode =N'" + txtOperatorCode.Text.Trim() + "' " + (txtID.Text == "-1" ? "" : "AND ID_Operator <> " + txtID.Text)));
+                    int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.Operator WHERE OperatorCode =N'" + txtOperatorCode.Text + "' " + (txtID.Text == "-1" ? "" : "AND ID_Operator <> " + txtID.Text)));
                     if (n > 0)
                     {
                         Modules.msgThayThe(ThongBao.msgDaTonTai, lblOperatorCode.Text, txtOperatorCode);
                         return false;
                     }
                 }
-                if (txtOperatorName.Text.Trim() == "")
+                if (txtOperatorName.Text == "")
                 {
                     Modules.msgThayThe(ThongBao.msgKhongDuocTrong, lblOperatorName.Text, txtOperatorName);
                     return false;

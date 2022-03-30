@@ -326,7 +326,7 @@ namespace VS.OEE
 
                 // Add custom information to the link's header. 
                 //string[] sTitle = lab_Link.Text.Split(new Char[] { '/' });
-                //phf.Header.Content.AddRange(new string[] { "[Image 0]", sTitle[1].ToString().Trim(), "" });
+                //phf.Header.Content.AddRange(new string[] { "[Image 0]", sTitle[1].ToString(), "" });
 
                 //string[] sTitle = lab_Link.Text.Split(new Char[] { '/' });
                 phf.Header.Content.AddRange(new string[] { "[Image 0]", this.Text.ToUpper(), "" });

@@ -369,7 +369,6 @@ namespace VS.OEE
             dt = GetFilteredDataView(view);
             LoadFilter(dt);
             grvChung_FocusedRowChanged(sender, null);
-
         }
 
         public static DataTable GetFilteredDataView(DevExpress.XtraGrid.Views.Base.ColumnView view)

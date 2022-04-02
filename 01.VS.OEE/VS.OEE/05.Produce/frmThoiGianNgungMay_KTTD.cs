@@ -306,7 +306,7 @@ namespace VS.OEE
             try
             {
                 datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
-                datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
+                datDenNgay.DateTime = datTuNgay.DateTime.AddMonths(1).AddDays(-1);
             }
             catch { }
         }

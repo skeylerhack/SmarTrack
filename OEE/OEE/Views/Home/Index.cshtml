@@ -6,10 +6,10 @@
 <head>
     @*<meta http-equiv="refresh" content="60">*@
 </head>
-@{
+@*@{
     string AutoRefresh = System.Configuration.ConfigurationManager.AppSettings["pagerefresh"];
     this.Response.AppendHeader("Refresh", AutoRefresh);
-}
+}*@
 <style>
     .background {
         margin: 0;
@@ -709,12 +709,10 @@
                                             </div>
                                         </td>
                                         <td style="border: 2px solid white; vertical-align: middle">
+                                            <div><label style="width:fit-content;margin:auto; display: block; text-align: @cangiua6 ; font-family:@fontchu6;font-size:@sizechu6;font-weight:@indam6; font-style:@nghien6; color:rgb(@R6,@G6,@B6)">@item.COT15 </label></div>
+                                         
                                             <div>
-                                                <label style="font-family:@fontchu15;font-size:@sizechu15;font-weight:@indam15; font-style:@nghien15; color:rgb(@R15,@G15,@B15)">@item.COT15</label>
-                                                <label style="font-family:@fontchu16;font-size:@sizechu16;font-weight:@indam16; font-style:@nghien16; color:rgb(@R16,@G16,@B16)">@item.COT16</label>
-                                            </div>
-                                            <div>
-                                                <label style="font-family:@fontchu17;font-size:@sizechu17;font-weight:@indam17; font-style:@nghien17; color:rgb(@R17,@G17,@B17)">@item.COT17</label>
+                                                <label style="font-family:@fontchu9;font-size:@sizechu9;font-weight:@indam9; font-style:@nghien9; color:rgb(@R9,@G9,@B9)"> @item.COT17.Replace('*', '/') </label>
                                             </div>
                                         </td>
                                     </tr>

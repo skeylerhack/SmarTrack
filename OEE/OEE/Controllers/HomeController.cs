@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,23 +16,23 @@ namespace OEE.Controllers
         string nx = "PM";
         public ActionResult Index() // máy
         {
-            if (Session["Taikhoan"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            //if (Session["Taikhoan"] == null)
+            //{
+            //    return RedirectToAction("Login", "Login");
+            //}
 
-            if (Session["Username"] != null)
-            {
-                us = Session["Username"].ToString();
-            }
-            if (Session["NgonNgu"] != null)
-            {
-                nn = Convert.ToInt32(Session["NgonNgu"]);
-            }
-            if (Session["NXuong"] != null)
-            {
-                nx = Session["NXuong"].ToString();
-            }
+            //if (Session["Username"] != null)
+            //{
+            //    us = Session["Username"].ToString();
+            //}
+            //if (Session["NgonNgu"] != null)
+            //{
+            //    nn = Convert.ToInt32(Session["NgonNgu"]);
+            //}
+            //if (Session["NXuong"] != null)
+            //{
+            //    nx = Session["NXuong"].ToString();
+            //}
 
             var param1 = new SqlParameter();
             param1.ParameterName = "@NNgu";
@@ -61,10 +60,10 @@ namespace OEE.Controllers
 
         public ActionResult Detail() // biểu đồ
         {
-            if (Session["Taikhoan"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            //if (Session["Taikhoan"] == null)
+            //{
+            //    return RedirectToAction("Login", "Login");
+            //}
             var lst1 = db.spLCDFull().ToList();
             if (lst1.Count == 0)
             {

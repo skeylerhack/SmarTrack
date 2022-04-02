@@ -43,13 +43,13 @@ namespace CMMSApi.Controllers
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<DowtimeViewModel>("spApiGETDowTime", listParameter);
                 if (list.Count == 0)
                 {
-                    list.Add(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1 });
+                    list.Add(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1, AUTO_CYCLE = -1 });
                 }
                 return Json(list, JsonRequestBehavior.AllowGet);
             }
             catch
             {
-                return Json(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1 }, JsonRequestBehavior.AllowGet);
+                return Json(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1, AUTO_CYCLE = -1 }, JsonRequestBehavior.AllowGet);
 
             }
         }
@@ -69,13 +69,13 @@ namespace CMMSApi.Controllers
                 list = Ecomaint.Api.DBUtils.ExecuteSPList<DowtimeViewModel>("spApiGETDowTime", listParameter);
                 if (list.Count == 0)
                 {
-                    list.Add(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1 });
+                    list.Add(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1, AUTO_CYCLE = -1});
                 }
                 return Json(list, JsonRequestBehavior.AllowGet);
             }
             catch
             {
-                return Json(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1 }, JsonRequestBehavior.AllowGet);
+                return Json(new DowtimeViewModel { MS_NGUYEN_NHAN = -1, TEN_NGUYEN_NHAN = "NON",DINH_MUC = -1, AUTO_CYCLE = -1 }, JsonRequestBehavior.AllowGet);
             }
         }
 

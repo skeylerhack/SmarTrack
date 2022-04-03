@@ -3,10 +3,10 @@
 --SELECT * FROM dbo.CA
 
 
-DECLARE @DenGio TIME = '06:00:00'
-DECLARE @QuaDem INT = 1
-DECLARE @Ca INT = 3
-DECLARE @CaDen INT = 1
+DECLARE @DenGio TIME = '14:00:00'
+DECLARE @QuaDem INT = 0
+DECLARE @Ca INT = 1
+DECLARE @CaDen INT = 2
 --INSERT INTO	dbo.ActualHMI(Date, MS_MAY, ProID, ItemID, OperatorID, ID_CA, ActualQuanity)
 --SELECT T1.Date, T1.MS_MAY, T1.ProID, T1.ItemID, T1.OperatorID, T1.ID_CA, T1.SLTUCUOICA FROM 
 ----SELECT T1.Date, T1.MS_MAY, T1.ProID, T1.ItemID, T1.OperatorID, T1.ID_CA, T1.SLTUCUOICA FROM 
@@ -39,3 +39,15 @@ SELECT MIN(Date) DATEDAUCA, MS_MAY, ProID, ItemID FROM dbo.ActualHMI WHERE ID_CA
 ORDER BY T1.NGAYDAUCA, T1.MS_MAY, T1.ProID
 
 SELECT * FROM #TMP WHERE NGAYDAUCA >= '03/01/2022'
+
+
+
+
+SELECT A.Date,
+       A.MS_MAY,
+       A.ProID,
+       A.ItemID,
+       A.OperatorID,
+       A.ID_CA,
+       A.SLTUCUOICA,B.ActualQuantity FROM #TMP A
+INNER JOIN dbo.ProductionRunDetails B ON B.ID_CA = A.ID_CA AND B.ItemID = A.ItemID AND B.MS_MAY = A.MS_MAY AND B.PrOID = A.ProID AND CONVERT(DATE,A.Date) = CONVERT(DATE,B.StartTime)

@@ -1,16 +1,18 @@
-﻿--DELETE FROM dbo.ProductionRunDetails WHERE CONVERT(DATE,StartTime) = '2022-04-02'
---SELECT *  FROM dbo.ProductionRunDetails WHERE CONVERT(DATE,StartTime) = '2022-04-02'
---DELETE FROM dbo.ActualHMI WHERE CONVERT(DATE,Date) = '2022-04-02'
---SELECT *  FROM dbo.ActualHMI WHERE CONVERT(DATE,Date) = '2022-04-02'
---DELETE FROM dbo.THOI_GIAN_DUNG_MAY WHERE CONVERT(DATE,TU_GIO) = '2022-04-02'
+﻿--DELETE FROM dbo.ProductionRunDetails WHERE MS_MAY = 'IMM-17'
+--DELETE FROM dbo.ActualHMI WHERE MS_MAY = 'IMM-17'
+--DELETE FROM dbo.THOI_GIAN_DUNG_MAY WHERE MS_MAY = 'IMM-17'
 
+--SELECT *  FROM dbo.ActualHMI WHERE MS_MAY = 'IMM-17'
+--SELECT *  FROM dbo.ProductionRunDetails WHERE MS_MAY = 'IMM-17'
+
+--03-1007227	4	454	82	0	15	29	99	192
 ALTER proc [dbo].[spApiCreateProDuctionRun]
-	@Ngay DATETIME ='2022-04-02 06:02:35.337',
-	@MS_MAY NVARCHAR(30) = 'MOLD-03',
+	@Ngay DATETIME ='2022-04-03 06:03:35.337',
+	@MS_MAY NVARCHAR(30) = 'IMM-17',
 	@ID_Operator BIGINT = 20026,
-	@ItemID BIGINT=119,
-	@PrOID BIGINT=188,
-	@ActualQuantity NUMERIC(18,2) = 7518
+	@ItemID BIGINT=99,
+	@PrOID BIGINT=192,
+	@ActualQuantity NUMERIC(18,2) = 25
 	AS
 BEGIN
 		DECLARE @Actual NUMERIC(18,2)
@@ -35,7 +37,6 @@ BEGIN
 		DECLARE @IDRun BIGINT;
 		DECLARE @IDRunDetails BIGINT;
 		SET @IDRun = (SELECT TOP 1 ID FROM dbo.ProductionRun WHERE (SELECT dbo.fnGetNgayTheoCa(StartTime))  = CONVERT(DATE,@Ngay))
-		--SELECT @IDRun,@ID_CA
 
 		--kiểm lệnh sản xuất có nằm trong ngày hiện tại hay không.
 			IF NOT EXISTS(SELECT * FROM dbo.ProductionOrder WHERE ID =@PrOID AND CONVERT(DATE,StartDate) = @Ngay)
@@ -97,8 +98,6 @@ BEGIN
 				END
 			END
 			    
-				SELECT 100
-				 
 				INSERT INTO dbo.ProductionRunDetails(ProductionRunID,PrOID,ItemID,MS_HE_THONG,MS_MAY,OperatorID,StartTime,EndTime,ActualQuantity,DefectQuantity,DefectQuantity1,ActualSpeed,StandardSpeed,StandardOutput,
 				WorkingCycle,NumberPerCycle,DownTimeRecord,ID_CA)
 				SELECT TOP 1 @IDRun,@PrOID,@ItemID,A.MS_HE_THONG,@MS_MAY,@ID_Operator,@NgayBD,@NgayHT,0,0,0,0,A.StandardSpeed,A.StandardOutput,
@@ -129,12 +128,9 @@ BEGIN
 
 				--nếu đơn hàng không nằm trong ngày hiện tại và trong item không có item hiện tại 
 				IF dbo.fnGetCa(@NgayHT) !=  dbo.fnGetCa(DATEADD(MINUTE,-6,@NgayHT))
-				SELECT @flag
-
 				BEGIN
 					--lấy thời gian vào số lượng ở ca trước
 					SELECT TOP 1 @TGCU = MAX(Date),@SLCU = MAX(ActualQuanity) FROM dbo.ActualHMI WHERE ItemID = @ItemID AND MS_MAY = @MS_MAY AND Date > DATEADD(MINUTE,-6,@NgayHT) AND Date < @NgayHT
-						SELECT @TGCU
 						IF(@SLCU IS NOT NULL)
 						BEGIN
 							--tính số lượng ca củ dựa vào tỉ l

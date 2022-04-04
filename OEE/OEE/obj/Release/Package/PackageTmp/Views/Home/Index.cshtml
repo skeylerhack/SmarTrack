@@ -14,12 +14,12 @@
     .background {
         margin: 0;
         padding: 0;
-        background-color: #000000;
+        background-color: ActiveBorder;
         height: 100vh;
     }
 
     .table-hover thead tr:hover th, .table-hover tbody tr:hover td {
-        background-color: #000000;
+        background-color: none;
     }
 
     .table tr td {
@@ -663,7 +663,7 @@
                                 #endregion
                             }
 
-                            <table class="table table-bordered table-hover" style="width:@wid;height:@hei;margin-bottom:10px;table-layout:fixed;background-color: rgb(@R,@G,@B)">
+                            <table class="table table-bordered" style="width:@wid;height:@hei;margin-bottom:10px;table-layout:fixed;background-color: rgb(@R,@G,@B)">
                                 <tbody>
                                     <tr>
                                         <td colspan="2" style="vertical-align: middle; border: 2px solid white"><label style="font-family:@fontchu;font-size:@sizechu;font-weight:@indam; font-style:@nghien;text-align:@cangiua;display:block; color:rgb(@R1,@G1,@B1)">@item.COT1</label></td>
@@ -682,7 +682,7 @@
                                         </td>
 
                                         <td style="border: 2px solid white; vertical-align: middle">
-                                            <div><label style="background-color:rgb(@R6MN,@G6MN,@B6MN);width:fit-content;margin:auto; display: block; text-align: @cangiua6 ; font-family:@fontchu6;font-size:@sizechu6;font-weight:@indam6; font-style:@nghien6; color:rgb(@R6,@G6,@B6)">@item.COT6 </label></div>
+                                            <div><label style=" width:fit-content;margin:auto; display: block; text-align: @cangiua6 ; font-family:@fontchu6;font-size:@sizechu6;font-weight:@indam6; font-style:@nghien6; color:rgb(@R6,@G6,@B6)">@item.COT6 </label></div>
                                             <div>
                                                 <label style="font-family:@fontchu7;font-size:@sizechu7;font-weight:@indam7; font-style:@nghien7; color:rgb(@R7,@G7,@B7)">@item.COT7</label>
                                                 <label style="font-family:@fontchu8;font-size:@sizechu8;font-weight:@indam8; font-style:@nghien8; color:rgb(@R8,@G8,@B8)">@item.COT8</label>
@@ -709,12 +709,10 @@
                                             </div>
                                         </td>
                                         <td style="border: 2px solid white; vertical-align: middle">
+                                            <div><label style="width:fit-content;margin:auto; display: block; text-align: @cangiua6 ; font-family:@fontchu6;font-size:@sizechu6;font-weight:@indam6; font-style:@nghien6; color:rgb(@R6,@G6,@B6)">@item.COT15 </label></div>
+                                         
                                             <div>
-                                                <label style="font-family:@fontchu15;font-size:@sizechu15;font-weight:@indam15; font-style:@nghien15; color:rgb(@R15,@G15,@B15)">@item.COT15</label>
-                                                <label style="font-family:@fontchu16;font-size:@sizechu16;font-weight:@indam16; font-style:@nghien16; color:rgb(@R16,@G16,@B16)">@item.COT16</label>
-                                            </div>
-                                            <div>
-                                                <label style="font-family:@fontchu17;font-size:@sizechu17;font-weight:@indam17; font-style:@nghien17; color:rgb(@R17,@G17,@B17)">@item.COT17</label>
+                                                <label style="font-family:@fontchu9;font-size:@sizechu9;font-weight:@indam9; font-style:@nghien9; color:rgb(@R9,@G9,@B9)"> @Html.Raw(item.COT17) </label>
                                             </div>
                                         </td>
                                     </tr>
@@ -738,6 +736,8 @@
     break;
 }
 <script>
+
+        
     function startTime() {
         const today = new Date();
         let h = today.getHours();

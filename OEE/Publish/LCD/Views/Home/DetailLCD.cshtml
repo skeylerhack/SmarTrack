@@ -1,0 +1,748 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+}
+@using OEE.Models;
+@model List<spLCDFull_Result>
+<script src="~/Scripts/highcharts/7.1.2/highcharts.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/modules/exporting.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/modules/export-data.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/modules/accessibility.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@{
+    string AutoRefresh = System.Configuration.ConfigurationManager.AppSettings["pagerefresh"];
+    this.Response.AppendHeader("Refresh", AutoRefresh);
+}
+<style type="text/css">
+
+    .table tbody tr td {
+        width: auto;
+        padding: 0px;
+    }
+
+    .table1 {
+        width: 100%;
+        height: 100vh;
+    }
+
+    /*    #container {
+        height: 94vh;
+        width: 100%;
+    }*/
+
+    #container tspan {
+        font-size: 15px;
+    }
+</style>
+@foreach (var item in Model)
+{
+    try
+    {
+        string strMC = item.COTMAUCHUNG;
+        if (strMC == null)
+        {
+            strMC = "255;255;255;100%;94vh;100%;5vh";
+        }
+        string[] arrListStrMC = strMC.Split(';');
+        if (arrListStrMC[0] == null)
+        {
+            arrListStrMC[0] = "255";
+        }
+        if (arrListStrMC[1] == null)
+        {
+            arrListStrMC[1] = "255";
+        }
+        if (arrListStrMC[2] == null)
+        {
+            arrListStrMC[2] = "255";
+        }
+        if (arrListStrMC[3] == null)
+        {
+            arrListStrMC[3] = "100%";
+        }
+        if (arrListStrMC[4] == null)
+        {
+            arrListStrMC[4] = "100vh";
+        }
+        if (arrListStrMC[5] == null)
+        {
+            arrListStrMC[5] = "100%";
+        }
+        if (arrListStrMC[6] == null)
+        {
+            arrListStrMC[6] = "5vh";
+        }
+        if (arrListStrMC[7] == null)
+        {
+            arrListStrMC[7] = "25%";
+        }
+        int RMC = Convert.ToInt32(arrListStrMC[0]);
+        int GMC = Convert.ToInt32(arrListStrMC[1]);
+        int BMC = Convert.ToInt32(arrListStrMC[2]);
+
+        //width biểu đồ %
+        string widbd = arrListStrMC[3];
+        // height biểu đồ đơn vị vh, 1vh = 9px
+        string heibd = arrListStrMC[4];
+        //width máy bên phải %
+        string widmay = arrListStrMC[5];
+        //height máy bên phai đơn vị vh, 1vh = 9px
+        string heimay = arrListStrMC[6];
+        //kích thước để chia cột máy bên phải, ví dụ 4 cột (100/4 = widthcotphai)
+        string widthcotphai = arrListStrMC[7];
+
+        <body style="margin:10px;padding:0;background-color:rgb(@RMC,@GMC,@BMC)" onload="startTime()">
+            <table class="table1 table table-bordered table-hover" style="background-color:rgb(255,255,255);table-layout: fixed">
+                <tr>
+                    <td colspan="2">
+                        @foreach (var item1 in Model)
+                        {
+                            #region COT0DD
+                            string strshift = item1.COT0DD;
+                            if (strshift == null)
+                            {
+                                strshift = "0;0;0;Arial;30px;T;F;T";
+                            }
+                            string[] arrListStrshift = strshift.Split(';');
+                            #region kiemtra
+                            if (arrListStrshift[0] == null)
+                            {
+                                arrListStrshift[0] = "0";
+                            }
+                            if (arrListStrshift[1] == null)
+                            {
+                                arrListStrshift[1] = "0";
+                            }
+                            if (arrListStrshift[2] == null)
+                            {
+                                arrListStrshift[2] = "0";
+                            }
+                            if (arrListStrshift[3] == null)
+                            {
+                                arrListStrshift[3] = "Arial";
+                            }
+                            if (arrListStrshift[4] == null)
+                            {
+                                arrListStrshift[4] = "30px";
+                            }
+                            if (arrListStrshift[5] == null)
+                            {
+                                arrListStrshift[5] = "T";
+                            }
+                            if (arrListStrshift[6] == null)
+                            {
+                                arrListStrshift[6] = "F";
+                            }
+                            if (arrListStrshift[7] == null)
+                            {
+                                arrListStrshift[7] = "T";
+                            }
+                            #endregion
+                            int Rshift = Convert.ToInt32(arrListStrshift[0]);
+                            int Gshift = Convert.ToInt32(arrListStrshift[1]);
+                            int Bshift = Convert.ToInt32(arrListStrshift[2]);
+                            string fontchushift = arrListStrshift[3];
+                            string sizechushift = arrListStrshift[4];
+
+                            string indamshift = "normal";
+                            string nghienshift = "normal";
+                            string cangiuashift = "normal";
+
+                            if (arrListStrshift[5] == "T")
+                            {
+                                indamshift = "bold";
+                            }
+
+                            if (arrListStrshift[6] == "T")
+                            {
+                                nghienshift = "italic";
+                            }
+                            if (arrListStrshift[7] == "T")
+                            {
+                                cangiuashift = "center";
+                            }
+                            #endregion
+                            <div>
+                                <a href="https://logwork.com/current-time-in-ho-chi-minh-city-vietnam-ho-chi-minh" class="clock-widget-text" data-timezone="Asia/Phnom_Penh" data-language="vi"> </a>
+                            </div>
+                            <div style="display:inline">
+                                <div style="width:33.33%;float:left"><label style="margin-top:10px;margin-left:30px;font-family:@fontchushift;font-weight:@indamshift;font-style:@nghienshift;font-size:@sizechushift;color:rgb(@Rshift,@Gshift,@Bshift)">@String.Format("{0:dd/MM/yyyy}", @DateTime.Now)</label></div>
+                                <div style="width:33.33%;float:left;text-align:@cangiuashift"> <label style="margin-top:10px;font-family:@fontchushift;font-weight:@indamshift;font-style:@nghienshift;font-size:@sizechushift;color:rgb(@Rshift,@Gshift,@Bshift)">@item1.COT0</label></div>
+                                <div style="width:33.33%;float:left;text-align:right"><label style="margin-top:10px;margin-right:30px;font-family:@fontchushift;font-weight:@indamshift;font-style:@nghienshift;font-size:@sizechushift;color:rgb(@Rshift,@Gshift,@Bshift)" id="gioht"></label></div>
+                            </div>
+                            break;
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width:@widbd; height:@heibd" id="container"></div>
+                    </td>
+                    <td style="padding:0;border: 1px solid white">
+                        @foreach (var item2 in Model)
+                        {
+                            <div class="col-lg-3 col-sm-3" style="width: @widthcotphai; padding: 3px; margin-bottom: -20px">
+                                @{
+                                    #region COTMAUNEN
+                                    string strMN = item2.COTMAUNEN;
+                                    if (strMN == null)
+                                    {
+                                        strMN = "255;255;255";
+                                    }
+                                    string[] arrListStrMN = strMN.Split(';');
+                                    #region kiemtra
+                                    if (arrListStrMN[0] == null)
+                                    {
+                                        arrListStrMN[0] = "255";
+                                    }
+                                    if (arrListStrMN[1] == null)
+                                    {
+                                        arrListStrMN[1] = "255";
+                                    }
+                                    if (arrListStrMN[2] == null)
+                                    {
+                                        arrListStrMN[2] = "255";
+                                    }
+                                    #endregion
+                                    int RMN = Convert.ToInt32(arrListStrMN[0]);
+                                    int GMN = Convert.ToInt32(arrListStrMN[1]);
+                                    int BMN = Convert.ToInt32(arrListStrMN[2]);
+                                    #endregion
+
+                                    #region COT1DD
+
+                                    string str1 = item2.COT1DD;
+                                    if (str1 == null)
+                                    {
+                                        str1 = "0;0;0;Arial;25px;F;F;T";
+                                    }
+                                    string[] arrListStr1 = str1.Split(';');
+                                    #region kiemtra
+                                    if (arrListStr1[0] == null)
+                                    {
+                                        arrListStr1[0] = "0";
+                                    }
+                                    if (arrListStr1[1] == null)
+                                    {
+                                        arrListStr1[1] = "0";
+                                    }
+                                    if (arrListStr1[2] == null)
+                                    {
+                                        arrListStr1[2] = "0";
+                                    }
+                                    if (arrListStr1[3] == null)
+                                    {
+                                        arrListStr1[3] = "Arial";
+                                    }
+                                    if (arrListStr1[4] == null)
+                                    {
+                                        arrListStr1[4] = "25px";
+                                    }
+                                    if (arrListStr1[5] == null)
+                                    {
+                                        arrListStr1[5] = "F";
+                                    }
+                                    if (arrListStr1[6] == null)
+                                    {
+                                        arrListStr1[6] = "F";
+                                    }
+                                    if (arrListStr1[7] == null)
+                                    {
+                                        arrListStr1[7] = "T";
+                                    }
+                                    #endregion
+                                    int R1 = Convert.ToInt32(arrListStr1[0]);
+                                    int G1 = Convert.ToInt32(arrListStr1[1]);
+                                    int B1 = Convert.ToInt32(arrListStr1[2]);
+                                    string fontchu = arrListStr1[3];
+                                    string sizechu = arrListStr1[4];
+
+                                    string indam = "normal";
+                                    string nghien = "normal";
+                                    string cangiua = "normal";
+
+                                    if (arrListStr1[5] == "T")
+                                    {
+                                        indam = "bold";
+                                    }
+
+                                    if (arrListStr1[6] == "T")
+                                    {
+                                        nghien = "italic";
+                                    }
+                                    if (arrListStr1[7] == "T")
+                                    {
+                                        cangiua = "center";
+                                    }
+                                    #endregion
+
+                                    #region COT2DD
+                                    string str2 = item2.COT2DD;
+                                    if (str2 == null)
+                                    {
+                                        str2 = "0;0;0;Arial;25px;F;F;T";
+                                    }
+                                    string[] arrListStr2 = str2.Split(';');
+                                    #region kiemtra
+                                    if (arrListStr2[0] == null)
+                                    {
+                                        arrListStr2[0] = "0";
+                                    }
+                                    if (arrListStr2[1] == null)
+                                    {
+                                        arrListStr2[1] = "0";
+                                    }
+                                    if (arrListStr2[2] == null)
+                                    {
+                                        arrListStr2[2] = "0";
+                                    }
+                                    if (arrListStr2[3] == null)
+                                    {
+                                        arrListStr2[3] = "Arial";
+                                    }
+                                    if (arrListStr2[4] == null)
+                                    {
+                                        arrListStr2[4] = "25px";
+                                    }
+                                    if (arrListStr2[5] == null)
+                                    {
+                                        arrListStr2[5] = "F";
+                                    }
+                                    if (arrListStr2[6] == null)
+                                    {
+                                        arrListStr2[6] = "F";
+                                    }
+                                    if (arrListStr2[7] == null)
+                                    {
+                                        arrListStr2[7] = "T";
+                                    }
+                                    #endregion
+                                    int R2 = Convert.ToInt32(arrListStr2[0]);
+                                    int G2 = Convert.ToInt32(arrListStr2[1]);
+                                    int B2 = Convert.ToInt32(arrListStr2[2]);
+
+                                    string fontchu2 = arrListStr2[3];
+                                    string sizechu2 = arrListStr2[4];
+
+                                    string indam2 = "normal";
+                                    string nghien2 = "normal";
+                                    string cangiua2 = "normal";
+
+                                    if (arrListStr2[5] == "T")
+                                    {
+                                        indam2 = "bold";
+                                    }
+
+                                    if (arrListStr2[6] == "T")
+                                    {
+                                        nghien2 = "italic";
+                                    }
+                                    if (arrListStr2[7] == "T")
+                                    {
+                                        cangiua2 = "center";
+                                    }
+                                    #endregion
+
+                                    #region COT3DD
+                                    string str3 = item2.COT3DD;
+                                    if (str3 == null)
+                                    {
+                                        str3 = "0;0;0;Arial;25px;F;F;T";
+                                    }
+                                    string[] arrListStr3 = str3.Split(';');
+                                    #region kiemtra
+                                    if (arrListStr3[0] == null)
+                                    {
+                                        arrListStr3[0] = "0";
+                                    }
+                                    if (arrListStr3[1] == null)
+                                    {
+                                        arrListStr3[1] = "0";
+                                    }
+                                    if (arrListStr3[2] == null)
+                                    {
+                                        arrListStr3[2] = "0";
+                                    }
+                                    if (arrListStr3[3] == null)
+                                    {
+                                        arrListStr3[3] = "Arial";
+                                    }
+                                    if (arrListStr3[4] == null)
+                                    {
+                                        arrListStr3[4] = "25px";
+                                    }
+                                    if (arrListStr3[5] == null)
+                                    {
+                                        arrListStr3[5] = "F";
+                                    }
+                                    if (arrListStr3[6] == null)
+                                    {
+                                        arrListStr3[6] = "F";
+                                    }
+                                    if (arrListStr3[7] == null)
+                                    {
+                                        arrListStr3[7] = "T";
+                                    }
+                                    #endregion
+                                    int R3 = Convert.ToInt32(arrListStr3[0]);
+                                    int G3 = Convert.ToInt32(arrListStr3[1]);
+                                    int B3 = Convert.ToInt32(arrListStr3[2]);
+
+                                    string fontchu3 = arrListStr3[3];
+                                    string sizechu3 = arrListStr3[4];
+
+                                    string indam3 = "normal";
+                                    string nghien3 = "normal";
+                                    string cangiua3 = "normal";
+
+                                    if (arrListStr3[5] == "T")
+                                    {
+                                        indam3 = "bold";
+                                    }
+
+                                    if (arrListStr3[6] == "T")
+                                    {
+                                        nghien3 = "italic";
+                                    }
+                                    if (arrListStr3[7] == "T")
+                                    {
+                                        cangiua3 = "center";
+                                    }
+                                    #endregion
+
+                                    #region COT4DD
+                                    string str4 = item2.COT4DD;
+                                    if (str4 == null)
+                                    {
+                                        str4 = "0;0;0;Arial;25px;F;F;T";
+                                    }
+                                    string[] arrListStr4 = str4.Split(';');
+                                    #region kiemtra
+                                    if (arrListStr4[0] == null)
+                                    {
+                                        arrListStr4[0] = "0";
+                                    }
+                                    if (arrListStr4[1] == null)
+                                    {
+                                        arrListStr4[1] = "0";
+                                    }
+                                    if (arrListStr4[2] == null)
+                                    {
+                                        arrListStr4[2] = "0";
+                                    }
+                                    if (arrListStr4[3] == null)
+                                    {
+                                        arrListStr4[3] = "Arial";
+                                    }
+                                    if (arrListStr4[4] == null)
+                                    {
+                                        arrListStr4[4] = "25px";
+                                    }
+                                    if (arrListStr4[5] == null)
+                                    {
+                                        arrListStr4[5] = "F";
+                                    }
+                                    if (arrListStr4[6] == null)
+                                    {
+                                        arrListStr4[6] = "F";
+                                    }
+                                    if (arrListStr4[7] == null)
+                                    {
+                                        arrListStr4[7] = "T";
+                                    }
+                                    #endregion
+                                    int R4 = Convert.ToInt32(arrListStr4[0]);
+                                    int G4 = Convert.ToInt32(arrListStr4[1]);
+                                    int B4 = Convert.ToInt32(arrListStr4[2]);
+
+                                    string fontchu4 = arrListStr4[3];
+                                    string sizechu4 = arrListStr4[4];
+
+                                    string indam4 = "normal";
+                                    string nghien4 = "normal";
+                                    string cangiua4 = "normal";
+
+                                    if (arrListStr4[5] == "T")
+                                    {
+                                        indam4 = "bold";
+                                    }
+
+                                    if (arrListStr4[6] == "T")
+                                    {
+                                        nghien4 = "italic";
+                                    }
+                                    if (arrListStr4[7] == "T")
+                                    {
+                                        cangiua4 = "center";
+                                    }
+                                    #endregion
+
+                                    #region COT5DD
+                                    string str5 = item2.COT5DD;
+                                    if (str5 == null)
+                                    {
+                                        str5 = "0;0;0;Arial;25px;F;F;T";
+                                    }
+                                    string[] arrListStr5 = str5.Split(';');
+                                    #region kiemtra
+                                    if (arrListStr5[0] == null)
+                                    {
+                                        arrListStr5[0] = "0";
+                                    }
+                                    if (arrListStr5[1] == null)
+                                    {
+                                        arrListStr5[1] = "0";
+                                    }
+                                    if (arrListStr5[2] == null)
+                                    {
+                                        arrListStr5[2] = "0";
+                                    }
+                                    if (arrListStr5[3] == null)
+                                    {
+                                        arrListStr5[3] = "Arial";
+                                    }
+                                    if (arrListStr5[4] == null)
+                                    {
+                                        arrListStr5[4] = "25px";
+                                    }
+                                    if (arrListStr5[5] == null)
+                                    {
+                                        arrListStr5[5] = "F";
+                                    }
+                                    if (arrListStr5[6] == null)
+                                    {
+                                        arrListStr5[6] = "F";
+                                    }
+                                    if (arrListStr5[7] == null)
+                                    {
+                                        arrListStr5[7] = "T";
+                                    }
+                                    #endregion
+                                    int R5 = Convert.ToInt32(arrListStr5[0]);
+                                    int G5 = Convert.ToInt32(arrListStr5[1]);
+                                    int B5 = Convert.ToInt32(arrListStr5[2]);
+
+                                    string fontchu5 = arrListStr5[3];
+                                    string sizechu5 = arrListStr5[4];
+
+                                    string indam5 = "normal";
+                                    string nghien5 = "normal";
+                                    string cangiua5 = "normal";
+
+                                    if (arrListStr5[5] == "T")
+                                    {
+                                        indam5 = "bold";
+                                    }
+
+                                    if (arrListStr5[6] == "T")
+                                    {
+                                        nghien5 = "italic";
+                                    }
+                                    if (arrListStr5[7] == "T")
+                                    {
+                                        cangiua5 = "center";
+                                    }
+                                    #endregion
+
+                                }
+                                <table class="table" style="table-layout: fixed; border-top: hidden; width: @widmay; height:@heimay; background-color: rgb( @RMN, @GMN, @BMN )">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="padding:3px;border:hidden">
+                                                <div>
+                                                    <label style="display:block;font-family:@fontchu;font-size:@sizechu;font-weight:@indam; font-style:@nghien;text-align:@cangiua;color:rgb(@R1,@G1,@B1)">@item2.COT1 </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <label style="margin-top: -10px; display: block; font-family: @fontchu2; font-size: @sizechu2; font-weight: @indam2; font-style: @nghien2; text-align: @cangiua2; color: rgb( @R2, @G2, @B2 )"> @item2.COT2</label>
+                                                </div>
+
+                                                <div>
+                                                    <label style="margin-top: -10px; display: block; font-family: @fontchu4; font-size: @sizechu4; font-weight: @indam4; font-style: @nghien4; text-align: @cangiua4; color: rgb( @R4, @G4, @B4 )">@item2.COT4</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <label style="margin-top: -10px; display: block; font-family: @fontchu3; font-size: @sizechu3; font-weight: @indam3; font-style: @nghien3; text-align: @cangiua3; color: rgb( @R3, @G3, @B3 )">@item2.COT3</label>
+                                                </div>
+                                                <div>
+                                                    <label style="margin-top: -10px; display: block; font-family: @fontchu5; font-size: @sizechu5; font-weight: @indam5; font-style: @nghien5; text-align: @cangiua5; color: rgb( @R5, @G5, @B5 )">@item2.COT5</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </td>
+                </tr>
+            </table>
+        </body>}
+    catch (Exception)
+    { }
+    break;
+}
+@*<label></label>*@
+<script>
+    $(document).ready(function () {
+        $.getJSON("../Home/getData", function (data) {
+            var cot1 = []
+            var cot9bd = []
+            var cot10bd = []
+            var maubd = []
+            var dncot9 = []
+            var dncot10 = []
+            for (var i = 0; i < data.length; i++) {
+                cot1.push(data[i].name);
+                cot9bd.push(data[i].count);
+                cot10bd.push(data[i].text);
+                maubd.push(data[i].color);
+            }
+            for (var i = 0; i < data.length; i++) {
+                dncot9.push(data[i].namedn9);
+                dncot10.push(data[i].namedn10);
+                break;
+            }
+            Highcharts.setOptions({
+                colors: maubd
+            });
+            if (!data.iserror) {
+                Highcharts.chart('container', {
+                    chart: {
+                        type: 'bar'
+                    },
+                    xAxis: {
+                        categories: cot1,
+                        min: 0
+                    },
+                    yAxis: {
+                        min: 0,
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal',
+                            animation: false
+                        },
+                        bar: {
+                            colorByPoint: true
+                        }
+
+                    },
+                    series: [{
+                        name: dncot9,
+                        data: cot9bd,
+
+                        borderColor: 'rgb(0,128,255)'
+                    },
+                    {
+                        name: dncot10,
+                        type: 'spline',
+                        data: cot10bd,
+                        color: 'rgb(0,128,255)'
+                    }]
+                });
+            }
+            else {
+                console.log(data.message);
+            }
+        });
+    });
+</script>
+
+@*<script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Home/getData',
+                type: 'POST',
+                success: function (data) {
+                    var cot1 = []
+                    var cot9bd = []
+                    var cot10bd = []
+                    var maubd = []
+                    var dncot9 = []
+                    var dncot10 = []
+                    for (var i = 0; i < data.length; i++) {
+                        cot1.push(data[i].name);
+                        cot9bd.push(data[i].count);
+                        cot10bd.push(data[i].text);
+                        maubd.push(data[i].color);
+                    }
+                    for (var i = 0; i < data.length; i++) {
+                        dncot9.push(data[i].namedn9);
+                        dncot10.push(data[i].namedn10);
+                        break;
+                    }
+                    Highcharts.setOptions({
+                        colors: maubd
+                    });
+                    if (!data.iserror) {
+                        Highcharts.chart('container', {
+                            chart: {
+                                type: 'bar'
+                            },
+                            xAxis: {
+                                categories: cot1,
+                                min: 0
+                            },
+                            yAxis: {
+                                min: 0,
+                            },
+                            legend: {
+                                reversed: true
+                            },
+                            plotOptions: {
+                                series: {
+                                    stacking: 'normal',
+                                    animation: false
+                                },
+                                bar: {
+                                    colorByPoint: true
+                                }
+
+                            },
+                            series: [{
+                                name: dncot9,
+                                data: cot9bd,
+
+                                borderColor: 'rgb(0,128,255)'
+                            },
+                            {
+                                name: dncot10,
+                                type: 'spline',
+                                data: cot10bd,
+                                color: 'rgb(0,128,255)'
+                            }]
+                        });
+                    }
+                    else {
+                        console.log(data.message);
+                    }
+                }
+            });
+        });
+    </script>*@
+
+
+<script>
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('gioht').innerHTML = h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+</script>

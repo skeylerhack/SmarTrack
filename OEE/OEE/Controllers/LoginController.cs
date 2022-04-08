@@ -45,10 +45,10 @@ namespace OEE.Controllers
                 {
                     if (GiaiMaDL(dn.PASS) == pass)
                     {
-                        Session["Taikhoan"] = dn;
-                        Session["Username"] = fc["txtUSERNAME"];
-                        Session["NgonNgu"] = NNgu;
-                        Session["NXuong"] = NX;
+                        //Session["Taikhoan"] = dn;
+                        //Session["Username"] = fc["txtUSERNAME"];
+                        //Session["NgonNgu"] = NNgu;
+                        //Session["NXuong"] = NX;
                         return RedirectToAction("Index", "Home");
                     }
                     else

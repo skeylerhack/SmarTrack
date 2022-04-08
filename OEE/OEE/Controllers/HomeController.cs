@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace OEE.Controllers
         string us = "Admin";
         int nn = 0;
         string nx = "PM";
+
         public ActionResult Index() // máy
         {
             //if (Session["Taikhoan"] == null)
@@ -57,6 +59,7 @@ namespace OEE.Controllers
             }
             return View(lst);
         }
+        public static List<spLCDFull_Result> List = null;
 
         public ActionResult Detail() // biểu đồ
         {
@@ -65,6 +68,7 @@ namespace OEE.Controllers
             //    return RedirectToAction("Login", "Login");
             //}
             var lst1 = db.spLCDFull().ToList();
+            List = lst1;
             if (lst1.Count == 0)
             {
                 return RedirectToAction("Index", "Home");
@@ -76,7 +80,7 @@ namespace OEE.Controllers
         {
             try
             {
-                var query = db.spLCDFull().ToList()
+                var query = List
                     .GroupBy(t => t.COT1)
                     .Select(g => new
                     {

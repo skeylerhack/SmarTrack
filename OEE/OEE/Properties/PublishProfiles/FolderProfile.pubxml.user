@@ -27,10 +27,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/07/2022 11:34:54</publishTime>
     </File>
     <File Include="bin/OEE.dll">
-      <publishTime>04/04/2022 16:23:40</publishTime>
+      <publishTime>04/06/2022 16:55:15</publishTime>
     </File>
     <File Include="bin/OEE.pdb">
-      <publishTime>04/04/2022 16:23:40</publishTime>
+      <publishTime>04/06/2022 16:55:15</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>01/07/2022 11:34:54</publishTime>
@@ -1869,10 +1869,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/07/2022 11:34:51</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
-      <publishTime>04/04/2022 08:40:35</publishTime>
+      <publishTime>04/06/2022 11:20:53</publishTime>
+    </File>
+    <File Include="Views/Home/DetailLCD.cshtml">
+      <publishTime>04/06/2022 11:20:53</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/04/2022 16:23:10</publishTime>
+      <publishTime>04/06/2022 11:43:50</publishTime>
+    </File>
+    <File Include="Views/Home/IndexLCD.cshtml">
+      <publishTime>04/06/2022 11:43:50</publishTime>
     </File>
     <File Include="Views/Login/Login.cshtml">
       <publishTime>01/07/2022 11:34:51</publishTime>
@@ -1881,7 +1887,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/07/2022 11:34:51</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/07/2022 11:34:51</publishTime>
+      <publishTime>04/06/2022 15:52:58</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/07/2022 11:34:51</publishTime>
@@ -1890,7 +1896,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/07/2022 11:34:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/04/2022 16:23:41</publishTime>
+      <publishTime>04/06/2022 16:55:01</publishTime>
     </File>
   </ItemGroup>
 </Project>

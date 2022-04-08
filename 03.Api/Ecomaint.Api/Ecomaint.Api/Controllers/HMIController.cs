@@ -183,8 +183,8 @@ namespace CMMSApi.Controllers
                 //insert dữ liệu  vào productionRun
                 foreach (var item in lstRequest)
                 {
-                    if (item.RUN == 1)
-                    {
+                    //if (item.RUN == 1)
+                    //{
                         listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
                         listParameter.Add(new SqlParameter("@Ngay", dNgay));
@@ -193,8 +193,9 @@ namespace CMMSApi.Controllers
                         listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
                         listParameter.Add(new SqlParameter("@PrOID", item.PROID));
                         listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
+                        listParameter.Add(new SqlParameter("@Run", item.RUN));
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
-                    }
+                    //}
                 }
                 if (lstRequest.Count(x => x.RUN == 1) == 0)
                 {

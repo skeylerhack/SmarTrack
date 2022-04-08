@@ -38,7 +38,6 @@ LEFT JOIN dbo.Target T1 ON T1.MS_MAY = T2.MS_MAY AND DATEPART(MONTH,T1.MONTH) = 
 GROUP BY T2.MS_MAY,T2.TT_HMI,T1.OEE
 ORDER BY T2.MS_MAY
 
-
 SELECT DISTINCT C.MS_MAY,B.ItemID,ISNULL(dbo.fnGetActualByDate(B.PrOID,B.ItemID,C.MS_MAY,@Ngay,1)/C.StandardOutput,0) AS OEE,C.StandardOutput,C.NumberPerCycle,C.WorkingCycle,
 dbo.fnGetActualByDate(B.PrOID,B.ItemID,C.MS_MAY,@Ngay,0) AS Actual,ISNULL(C.PlannedQuantity,0) AS TargetPro
 FROM dbo.ProductionOrder A

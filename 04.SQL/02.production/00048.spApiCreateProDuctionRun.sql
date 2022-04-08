@@ -3,7 +3,6 @@
 --DELETE FROM dbo.THOI_GIAN_DUNG_MAY WHERE MS_MAY = 'IMM-17'
 --SELECT *  FROM dbo.ActualHMI WHERE MS_MAY = 'IMM-17'
 --SELECT *  FROM dbo.ProductionRunDetails WHERE MS_MAY = 'IMM-17'
-
 --03-1007227	4	454	82	0	15	29	99	192
 ALTER proc [dbo].[spApiCreateProDuctionRun]
 	@Ngay DATETIME ='2022-04-03 06:03:35.337',
@@ -11,7 +10,8 @@ ALTER proc [dbo].[spApiCreateProDuctionRun]
 	@ID_Operator BIGINT = 20026,
 	@ItemID BIGINT=99,
 	@PrOID BIGINT=192,
-	@ActualQuantity NUMERIC(18,2) = 25
+	@ActualQuantity NUMERIC(18,2) = 25,
+	@Run BIT = 0
 	AS
 BEGIN
 		DECLARE @Actual NUMERIC(18,2)
@@ -30,6 +30,7 @@ BEGIN
 			INSERT INTO dbo.ProductionRun(Code,DateCreate,StartTime,EndTime,Note)
 			SELECT (SELECT dbo.AUTO_CREATE_SO_TDSX(@Ngay)),@Ngay,CONVERT(DATE,@Ngay) + MIN(TU_GIO), CONVERT(DATE,@Ngay) + MAX(TU_GIO),'HMI' FROM dbo.CA
 		END
+
 		--lấy ca hiện tại theo giờ hiện tại
 		DECLARE @ID_CA INT = (SELECT dbo.fnGetCa(@NgayHT))
 		--lấy production run
@@ -57,11 +58,11 @@ BEGIN
 				END
 			END
 
-		IF NOT EXISTS(SELECT * FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND ID_CA = @ID_CA AND (SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay)) AND ISNULL(@flag,1) = 1
+		IF NOT EXISTS(SELECT * FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND ID_CA = @ID_CA AND 
+		(SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay)) AND ISNULL(@flag,1) = 1
 		BEGIN
 			IF dbo.fnGetCa(@NgayHT) !=  dbo.fnGetCa(DATEADD(MINUTE,-6,@NgayHT))
 			BEGIN
-				
 				--lấy thời gian vào số lượng ở ca trước
 				SELECT TOP 1 @TGCU = MAX(Date),@SLCU = MAX(ActualQuanity) FROM dbo.ActualHMI WHERE ItemID = @ItemID AND MS_MAY = @MS_MAY AND Date > DATEADD(MINUTE,-6,@NgayHT) AND Date < @NgayHT
 					IF(@SLCU IS NOT NULL)
@@ -76,28 +77,6 @@ BEGIN
 						WHERE MS_MAY =@MS_MAY AND ItemID =@ItemID AND EndTime > DATEADD(MINUTE,-6,@NgayHT)  AND EndTime < @NgayHT
 					END
 			END
-			--ELSE
-			--BEGIN
-			--	SELECT @NgayCC = @Ngay + TU_GIO FROM dbo.CA WHERE STT = dbo.fnGetCa(@NgayHT)
-			--	IF	NOT EXISTS(SELECT * FROM dbo.THOI_GIAN_DUNG_MAY WHERE MS_MAY =@MS_MAY AND DEN_GIO BETWEEN @NgayCC AND @NgayHT)
-			--	BEGIN
-			--	--nếu không có thì insert vào thời gian ngừng mấy với không có đơn hàng
-			--INSERT INTO dbo.THOI_GIAN_DUNG_MAY(MS_MAY,TU_GIO,DEN_GIO,MS_NGUYEN_NHAN,GHI_CHU,ID_Operator,THOI_GIAN_SUA_CHUA,THOI_GIAN_SUA,NGUYEN_NHAN,NGUYEN_NHAN_CU_THE,HIEN_TUONG,CaID,ID_CHA,TU_GIO_GOC,DEN_GIO_GOC,MS_NGUYEN_NHAN_GOC,NGAY_DUNG)
-			--VALUES(@MS_MAY,@NgayCC,@NgayHT,14,'HMI',@ID_Operator,CONVERT(DECIMAL(18,2),DATEDIFF(SECOND,@NgayCC,@NgayHT))/60,CONVERT(DECIMAL(18,2),DATEDIFF(SECOND,@NgayCC,@NgayHT))/60,N'Không có kế hoạch',N'Không có kế hoạch','',@ID_CA,NULL,@NgayCC,@NgayHT,14,@Ngay);
-
-			--	END
-			--	ELSE
-   --             BEGIN
-			--		--nếu có thì select max
-			--		SELECT @NgayCC = MAX(DEN_GIO) FROM dbo.THOI_GIAN_DUNG_MAY WHERE MS_MAY =@MS_MAY AND DEN_GIO BETWEEN @NgayCC AND @NgayHT
-			--		IF(DATEDIFF(MINUTE,@NgayCC,@NgayHT) > 5)
-			--		BEGIN
-			--		INSERT INTO dbo.THOI_GIAN_DUNG_MAY(MS_MAY,TU_GIO,DEN_GIO,MS_NGUYEN_NHAN,GHI_CHU,ID_Operator,THOI_GIAN_SUA_CHUA,THOI_GIAN_SUA,NGUYEN_NHAN,NGUYEN_NHAN_CU_THE,HIEN_TUONG,CaID,ID_CHA,TU_GIO_GOC,DEN_GIO_GOC,MS_NGUYEN_NHAN_GOC,NGAY_DUNG)
-			--VALUES(@MS_MAY,@NgayCC,@NgayHT,14,'HMI',@ID_Operator,CONVERT(DECIMAL(18,2),DATEDIFF(SECOND,@NgayCC,@NgayHT))/60,CONVERT(DECIMAL(18,2),DATEDIFF(SECOND,@NgayCC,@NgayHT))/60,N'Không có kế hoạch',N'Không có kế hoạch','',@ID_CA,NULL,@NgayCC,@NgayHT,14,@Ngay);
-			--		END
-			--	END
-			--END
-			    
 				INSERT INTO dbo.ProductionRunDetails(ProductionRunID,PrOID,ItemID,MS_HE_THONG,MS_MAY,OperatorID,StartTime,EndTime,ActualQuantity,DefectQuantity,DefectQuantity1,ActualSpeed,StandardSpeed,StandardOutput,
 				WorkingCycle,NumberPerCycle,DownTimeRecord,ID_CA)
 				SELECT TOP 1 @IDRun,@PrOID,@ItemID,A.MS_HE_THONG,@MS_MAY,@ID_Operator,@NgayBD,@NgayHT,0,0,0,0,A.StandardSpeed,A.StandardOutput,
@@ -109,7 +88,8 @@ BEGIN
 		END
 		ELSE
         BEGIN
-			SET @IDRunDetails = (SELECT TOP 1 DetailID FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND ID_CA = @ID_CA AND (SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay))
+		--nếu tồn tại dữ liệu trong một ca
+			SET @IDRunDetails = (SELECT MAX(DetailID)  FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND ID_CA = @ID_CA AND (SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay))
 			SET @Actual = (SELECT SUM(ActualQuantity) FROM dbo.ProductionRunDetails WHERE PrOID = @PrOID AND ItemID = @ItemID  AND MS_MAY =@MS_MAY AND DetailID != @IDRunDetails)
 			-- thêm dữ liệu vào bảng để đối chiếu
 			
@@ -117,11 +97,15 @@ BEGIN
 			IF @flag IS NULL
 			BEGIN
 				--nếu đơn hàng  nằm trong ngày hiện tại
+				--kiểm tra run trước đó
+				IF NOT EXISTS(SELECT * FROM dbo.ProductionRunDetails WHERE DetailID = @IDRunDetails)
+
 				UPDATE dbo.ProductionRunDetails 
 				SET ActualQuantity = ABS(@ActualQuantity - ISNULL(@Actual,0)),
 				EndTime = @NgayHT,
 				OperatorID =@ID_Operator
 				WHERE PrOID =@PrOID AND ItemID =@ItemID AND MS_MAY = @MS_MAY  AND ID_CA = @ID_CA AND (SELECT dbo.fnGetNgayTheoCa(StartTime)) = CONVERT(DATE,@Ngay)
+
 			END
 			IF @flag = 0
 			BEGIN

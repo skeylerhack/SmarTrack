@@ -4,3 +4,8 @@ begin
 ALTER TABLE dbo.THONG_TIN_CHUNG ADD MailProSchedule NVARCHAR(1000) END  
 
 
+
+
+
+
+

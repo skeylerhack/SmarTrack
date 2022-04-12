@@ -4,11 +4,9 @@
 --SELECT *  FROM dbo.ActualHMI WHERE MS_MAY = 'IMM-17'
 --SELECT *  FROM dbo.ProductionRunDetails WHERE MS_MAY = 'IMM-17'
 --03-1007227	4	454	82	0	15	29	99	192
-
 --SELECT GETDATE()
 ALTER proc [dbo].[spApiCreateProDuctionRun]
 	@Ngay DATETIME ='2022-04-10 14:02:36.250',
-
 	@MS_MAY NVARCHAR(30) = 'IMM-02',
 	@ID_Operator BIGINT = 20026,
 	@ItemID BIGINT=4,
@@ -27,10 +25,19 @@ BEGIN
 		DECLARE @SLCU INT;
 		DECLARE @SLMOI INT;
 		DECLARE @ID_CA INT = (SELECT dbo.fnGetCa(@NgayHT))
-
-
-		INSERT INTO dbo.ActualHMI(Date,MS_MAY,ProID,ItemID,OperatorID,ID_CA,ActualQuanity,ButtonCode,Run) VALUES(@NgayHT,@MS_MAY,@PrOID,@ItemID,@ID_Operator,@ID_CA,@ActualQuantity,@HD,@Run)
-
+		DECLARE @Runold INT;
+		IF @Run = 1
+		BEGIN
+			INSERT INTO dbo.ActualHMI(Date,MS_MAY,ProID,ItemID,OperatorID,ID_CA,ActualQuanity,ButtonCode,Run) VALUES(@NgayHT,@MS_MAY,@PrOID,@ItemID,@ID_Operator,@ID_CA,@ActualQuantity,@HD,@Run)
+		END
+		ELSE
+        BEGIN
+		    SET @Runold =(SELECT Run FROM dbo.ActualHMI WHERE Date =(SELECT MAX(Date) FROM dbo.ActualHMI WHERE MS_MAY = @MS_MAY AND CONVERT(DATE,Date) = dbo.fnGetNgayTheoCa(@NgayHT) AND ItemID =@ItemID) AND MS_MAY =@MS_MAY AND ItemID =@ItemID)
+			IF @Run != @Runold
+			BEGIN
+				INSERT INTO dbo.ActualHMI(Date,MS_MAY,ProID,ItemID,OperatorID,ID_CA,ActualQuanity,ButtonCode,Run) VALUES(@NgayHT,@MS_MAY,@PrOID,@ItemID,@ID_Operator,@ID_CA,@ActualQuantity,@HD,@Run)
+			END
+		END
 
 		SET @Ngay = (SELECT dbo.fnGetNgayTheoCa(@NgayHT))
 		IF NOT EXISTS(SELECT * FROM dbo.ProductionRun WHERE (SELECT dbo.fnGetNgayTheoCa(StartTime))  = CONVERT(DATE,@Ngay))
@@ -39,12 +46,10 @@ BEGIN
 			INSERT INTO dbo.ProductionRun(Code,DateCreate,StartTime,EndTime,Note)
 			SELECT (SELECT dbo.AUTO_CREATE_SO_TDSX(@Ngay)),@Ngay,CONVERT(DATE,@Ngay) + MIN(TU_GIO), CONVERT(DATE,@Ngay) + MAX(TU_GIO),'HMI' FROM dbo.CA
 		END
-
 		--lấy production run
 		DECLARE @IDRun BIGINT;
 		DECLARE @IDRunDetails BIGINT;
 		SET @IDRun = (SELECT TOP 1 ID FROM dbo.ProductionRun WHERE (SELECT dbo.fnGetNgayTheoCa(StartTime))  = CONVERT(DATE,@Ngay))
-
 		--kiểm lệnh sản xuất có nằm trong ngày hiện tại hay không.
 			IF NOT EXISTS(SELECT * FROM dbo.ProductionOrder WHERE ID = @PrOID AND CONVERT(DATE,StartDate) = @Ngay)
 			BEGIN

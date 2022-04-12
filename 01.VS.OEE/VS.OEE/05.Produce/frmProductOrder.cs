@@ -903,6 +903,14 @@ namespace VS.OEE
                 e.Valid = false;
                 View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraMayNULL", Commons.Modules.TypeLanguage)); return;
             }
+            //kiểm tra không cùng item mấy trong một ngày
+            int icheck = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, "SELECT COUNT(*) FROM dbo.PrODetails A INNER JOIN dbo.ProSchedule B ON B.DetailsID = A.DetailsID WHERE B.MS_MAY = '"+ View.GetRowCellValue(e.RowHandle, "MS_MAY") + "' AND CONVERT(DATE,B.PlannedStartTime) = '"+ Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "PlannedStartTime")).ToString("MM/dd/yyyy") + "' AND A.ItemID = "+ Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("ItemID")) + ""));
+            if (icheck > 0)
+            {
+                e.Valid = false;
+                View.SetColumnError(View.Columns["MS_MAY"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgMayDaDuocPB", Commons.Modules.TypeLanguage)); return;
+            }
+
             //kiểm tra xem số lượng phân bổ có đủ để xản xuất trong thời gian không
             int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spKiemTraSanLuong", View.GetRowCellValue(e.RowHandle, "MS_MAY"), Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "PlannedStartTime")), Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "DueTime")), View.GetRowCellValue(e.RowHandle, "PlannedQuantity"), View.GetRowCellValue(e.RowHandle, "StandardOutput")));
             if (n < 0)

@@ -9,6 +9,8 @@ CREATE TABLE [dbo].[ButtonDefinition]
 GO
 
 
+
+
 CREATE TABLE [dbo].[HMIAction]
 (
 May NVARCHAR(30),
@@ -16,4 +18,5 @@ May NVARCHAR(30),
 [ButtonCode] NVARCHAR(50) NULL,
 [Value] [nvarchar] (250)  NULL
 ) ON [PRIMARY]
-Go
+GO
+

@@ -356,7 +356,29 @@ namespace CMMSApi.Controllers
                         Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
                         //}
                     }
-                }
+
+                } else
+                {
+                    if (MS_NguyenNhan != 21 || MS_NguyenNhan != 23 || MS_NguyenNhan != 62)
+                    {
+                        foreach (var item1 in lstRequest)
+                        {
+                            //if (item.RUN == 1)
+                            //{
+                            listParameter = new List<SqlParameter>();
+                            listParameter.Add(new SqlParameter("@Ngay", DN));
+                            listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
+                            listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
+                            listParameter.Add(new SqlParameter("@ItemID", item1.ItemID));
+                            listParameter.Add(new SqlParameter("@PrOID", item1.PROID));
+                            listParameter.Add(new SqlParameter("@ActualQuantity", item1.Actual));
+                            listParameter.Add(new SqlParameter("@Run", item1.RUN));
+                            listParameter.Add(new SqlParameter("@HD", HD));
+                            Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
+                            //}
+                        }
+                    }    
+                }    
                 i = 2;
                 List<CapNhatCa> Resulst = CapNhatCa(TN, DN);
                 //kiểm tra nếu không có item nào đang chọn thì update  theo mấy thôi

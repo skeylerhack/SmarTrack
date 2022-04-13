@@ -359,7 +359,7 @@ namespace CMMSApi.Controllers
 
                 } else
                 {
-                    if (MS_NguyenNhan != 21 || MS_NguyenNhan != 23 || MS_NguyenNhan != 62)
+                    if (MS_NguyenNhan != 21 && MS_NguyenNhan != 23 && MS_NguyenNhan != 62)
                     {
                         foreach (var item1 in lstRequest)
                         {

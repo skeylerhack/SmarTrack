@@ -156,7 +156,7 @@ BEGIN
 					SELECT TOP 1 @TGCU = MAX(Date),@SLCU = MAX(ActualQuanity) FROM dbo.ActualHMI WHERE ItemID = @ItemID AND MS_MAY = @MS_MAY AND Date > DATEADD(MINUTE,-6,@NgayHT) AND Date < @NgayHT
 						IF(@SLCU IS NOT NULL)
 						BEGIN
-							--tính số lượng ca củ dựa vào tỉ l
+							--tính số lượng ca củ dựa vào tỉ lệ thời gian
 							SELECT @NgayBD = @Ngay + TU_GIO FROM dbo.CA WHERE STT = dbo.fnGetCa(@NgayHT)
 							 SET @SLMOI = ((@ActualQuantity - @SLCU) * DATEDIFF(SECOND,@TGCU,@NgayBD))/ DATEDIFF(SECOND,@TGCU,@NgayHT)
 					 

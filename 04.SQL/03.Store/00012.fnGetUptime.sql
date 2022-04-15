@@ -16,11 +16,11 @@ begin
 	DECLARE @DenNgay DATETIME;
 	declare @Runtime DECIMAL(18,2);
 
-	SELECT @TuNgay = MIN(B.StartTime),@DenNgay = MAX(B.EndTime)   FROM dbo.ProductionRun A
+	SELECT @TuNgay = MIN(B.StartTime),@DenNgay = MAX(B.EndTime) FROM dbo.ProductionRun A
 	INNER JOIN dbo.ProductionRunDetails B ON B.ProductionRunID = A.ID
-	WHERE CONVERT(DATE,dbo.fnGetNgayTheoCa(A.StartTime)) =dbo.fnGetNgayTheoCa(GETDATE()) AND B.MS_MAY =@MS_MAY
+	WHERE CONVERT(DATE,dbo.fnGetNgayTheoCa(A.StartTime)) =dbo.fnGetNgayTheoCa(@Ngay) AND B.MS_MAY =@MS_MAY
 	
-	SET @Runtime = SUM(DATEDIFF(MINUTE,@TuNgay,@DenNgay));
+	SET @Runtime = DATEDIFF(MINUTE,@TuNgay,@DenNgay);
 
 	
 	SET @Dowtime =(SELECT SUM(A.THOI_GIAN_SUA_CHUA) AS SO_PHUT FROM dbo.THOI_GIAN_DUNG_MAY A

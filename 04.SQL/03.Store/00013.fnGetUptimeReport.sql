@@ -16,7 +16,7 @@ begin
 	DECLARE @MS_MAY NVARCHAR(30)
 
 
-	SELECT @Runtime = SUM(DATEDIFF(MINUTE,B.StartTime,B.EndTime)), @TuNgay = MIN(B.StartTime),@DenNgay =  MAX(B.EndTime),@MS_MAY = B.MS_MAY FROM dbo.ProductionRun A
+	SELECT @Runtime = CONVERT(DECIMAL(18,2),SUM(DATEDIFF(SECOND,B.StartTime,B.EndTime))/60.0), @TuNgay = MIN(B.StartTime),@DenNgay =  MAX(B.EndTime),@MS_MAY = B.MS_MAY FROM dbo.ProductionRun A
 	INNER JOIN dbo.ProductionRunDetails B ON B.ProductionRunID = A.ID
 	WHERE B.DetailID = @ProRunDetails
 	GROUP BY B.MS_MAY

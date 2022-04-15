@@ -437,3 +437,4 @@ G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csproj.C
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csproj.CopyComplete
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\CMMSApi.dll
 G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\CMMSApi.pdb
+G:\01.SmarTrack\03.Api\Ecomaint.Api\Ecomaint.Api\obj\Debug\Ecomaint.Api.csprojAssemblyReference.cache

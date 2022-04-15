@@ -45,7 +45,7 @@ namespace VS.OEE
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cboTinhTrang, Commons.Modules.ObjSystems.DataSatusProDuct(false), "ID", "NAME_STATUS", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "NAME_STATUS"));
             Commons.Modules.sId = "0Load";
             datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
-            datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
+            datDenNgay.DateTime = datTuNgay.DateTime.AddMonths(1).AddDays(-1);
             LoadgrdProDuctOrDer(-1);
             LoadgrdPrODetails();
             LoadgrdSchedule();
@@ -903,6 +903,14 @@ namespace VS.OEE
                 e.Valid = false;
                 View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgKiemtraMayNULL", Commons.Modules.TypeLanguage)); return;
             }
+            //kiểm tra không cùng item mấy trong một ngày
+            int icheck = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr,CommandType.Text, "SELECT COUNT(*) FROM dbo.PrODetails A INNER JOIN dbo.ProSchedule B ON B.DetailsID = A.DetailsID WHERE B.MS_MAY = '"+ View.GetRowCellValue(e.RowHandle, "MS_MAY") + "' AND CONVERT(DATE,B.PlannedStartTime) = '"+ Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "PlannedStartTime")).ToString("MM/dd/yyyy") + "' AND A.ItemID = "+ Convert.ToInt64(grvPrODetails.GetFocusedRowCellValue("ItemID")) + ""));
+            if (icheck > 0 && ithem == -1 )
+            {
+                e.Valid = false;
+                View.SetColumnError(View.Columns["MS_MAY"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgMayDaDuocPB", Commons.Modules.TypeLanguage)); return;
+            }
+
             //kiểm tra xem số lượng phân bổ có đủ để xản xuất trong thời gian không
             int n = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spKiemTraSanLuong", View.GetRowCellValue(e.RowHandle, "MS_MAY"), Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "PlannedStartTime")), Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "DueTime")), View.GetRowCellValue(e.RowHandle, "PlannedQuantity"), View.GetRowCellValue(e.RowHandle, "StandardOutput")));
             if (n < 0)
@@ -1119,7 +1127,6 @@ namespace VS.OEE
             }
             //lấy dữ liệu của schule hiện tại add vào những máy từ Item máy
             DataTable dt = Commons.Modules.ObjSystems.ConvertDatatable(grvSchedule);
-
             Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, "tabTMP" + Commons.Modules.UserName, dt, "");
             string sSql = " SELECT ScheduleID,PrOID,DetailsID,MS_TO,MS_HE_THONG,MS_MAY,CaID,CaIDKT,CONVERT(DECIMAL(18,2),PlannedQuantity) AS PlannedQuantity,UOMID,PlannedStartTime,DueTime,CONVERT(DECIMAL(18,2),ActualQuantity) AS ActualQuantity,CONVERT(DECIMAL(18,2),StandardOutput) AS StandardOutput,MS_DV_TG_Output,CONVERT(DECIMAL(18,2),StandardSpeed) AS  StandardSpeed,MS_DV_TG_Speed,WorkingCycle,CONVERT(DECIMAL(18,2),NumberPerCycle) AS NumberPerCycle,CONVERT(DECIMAL(18,2),DownTimeRecord) AS  DownTimeRecord,CONVERT(DECIMAL(18,2),SumStandardOutput) AS SumStandardOutput,CapacityUOM,BOMVersion,SoCaSX FROM " + "tabTMP" + Commons.Modules.UserName + " UNION SELECT ScheduleID, NULL AS PrOID, " + grvPrODetails.GetFocusedRowCellValue("DetailsID") + " AS DetailsID ,MS_TO,(SELECT TOP 1 MS_HE_THONG FROM dbo.MAY_HE_THONG WHERE MS_MAY =MS_MAY) as MS_HE_THONG,A.MS_MAY,CaID,CaIDKT,CONVERT(DECIMAL(18,2),0) as PlannedQuantity," + grvPrODetails.GetFocusedRowCellValue("UOMID") + " as UOMID,CONVERT(DATETIME, GETDATE()) PlannedStartTime,DATEADD(HOUR, 8, CONVERT(DATETIME, GETDATE())) DueTime,NULL as ActualQuantity,A.StandardOutput,A.MS_DV_TG_Output,A.StandardSpeed,A.MS_DV_TG_Speed,A.WorkingCycle,CONVERT(DECIMAL(18,2),NumberPerCycle) AS NumberPerCycle,CONVERT(DECIMAL(18,2),A.DownTimeRecord) AS DownTimeRecord,CONVERT(DECIMAL(18,2),SumStandardOutput) AS SumStandardOutput, [dbo].[fnGetDVTCongSuat](A.ItemID)AS CapacityUOM,BOMVersion,SoCaSX FROM dbo.ItemMay A LEFT JOIN  dbo." + "tabTMP" + Commons.Modules.UserName + " B ON A.MS_MAY = B.MS_MAY WHERE A.ItemID = " + grvPrODetails.GetFocusedRowCellValue("ItemID") + " AND NOT EXISTS(SELECT * FROM " + "tabTMP" + Commons.Modules.UserName + " C WHERE A.MS_MAY = C.MS_MAY)  ORDER BY PlannedQuantity DESC ";
             dt = new DataTable();

@@ -133,7 +133,10 @@ namespace VS.OEE
                 if (grdBCMoldDaily.DataSource == null)
                 {
                     Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldDaily, grvBCMoldDaily, dt, true, false, false, true, this.Name);
+                    //Visible
+                    grvBCMoldDaily.Columns["OrderBy"].Visible = false;
 
+                    //Format
                     grvBCMoldDaily.Columns["StartTime"].DisplayFormat.FormatType = FormatType.DateTime;
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatString = "#,##0";
@@ -155,6 +158,8 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["ActualOperatingTime"].DisplayFormat.FormatString = "#,##0";
                     grvBCMoldDaily.Columns["IdealRunRate"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["IdealRunRate"].DisplayFormat.FormatString = "#,##0.00";
+                    grvBCMoldDaily.Columns["AvarialCycleTime"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvBCMoldDaily.Columns["AvarialCycleTime"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["AvailabilityRate"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["AvailabilityRate"].DisplayFormat.FormatString = "#,##0.00%";
                     grvBCMoldDaily.Columns["PerformanceRate"].DisplayFormat.FormatType = FormatType.Numeric;
@@ -164,37 +169,37 @@ namespace VS.OEE
                     grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatType = FormatType.Numeric;
                     grvBCMoldDaily.Columns["OEERate"].DisplayFormat.FormatString = "#,##0.00%";
                     grvBCMoldDaily.Columns["18"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["18"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["18"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["19"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["19"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["19"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["20"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["20"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["20"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["21"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["21"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["21"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["22"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["22"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["22"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["23"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["23"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["23"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["25"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["25"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["25"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["27"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["27"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["27"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["28"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["28"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["28"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["29"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["29"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["29"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["31"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["31"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["31"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["32"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["32"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["32"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["30"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["30"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["30"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["34"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["34"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["34"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["35"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["35"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["35"].DisplayFormat.FormatString = "#,##0.00";
                     grvBCMoldDaily.Columns["36"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvBCMoldDaily.Columns["36"].DisplayFormat.FormatString = "#,##0";
+                    grvBCMoldDaily.Columns["36"].DisplayFormat.FormatString = "#,##0.00";
                 }
                 else
                     grdBCMoldDaily.DataSource = dt;
@@ -214,7 +219,7 @@ namespace VS.OEE
                 excelApplication.DisplayAlerts = true;
                 Excel.Range title;
                 Excel.FormatCondition condition;
-                int TCot = grvBCMoldDaily.Columns.Count;
+                int TCot = grvBCMoldDaily.VisibleColumns.Count ;
                 int TDong = grvBCMoldDaily.RowCount;
                 int Dong = 1;
                 excelApplication.Visible = false;
@@ -263,15 +268,16 @@ namespace VS.OEE
                     MS_MAY.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblMS_MAY") + ": " + ccbMS_MAY.EditValue;
 
                 Dong = 6;
-                Excel.Range ID_CA = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 1, Dong, TCot / 2);
+                Excel.Range ID_CA = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, 1, Dong, TCot);
                 ID_CA.Merge();
-                ID_CA.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblID_CA") + ": " + cboID_CA.Text;
+                ID_CA.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                ID_CA.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblID_CA") + ": " + cboID_CA.Text + "     " + Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblShiftLeader") + ": " + cboShiftLeader.Text;
                 ID_CA.Font.Bold = true;
 
-                Excel.Range ShiftLeader = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, (TCot / 2) + 1, Dong, TCot);
-                ShiftLeader.Merge();
-                ShiftLeader.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblShiftLeader") + ": " + cboShiftLeader.Text;
-                ShiftLeader.Font.Bold = true;
+                //Excel.Range ShiftLeader = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong, (TCot / 2) + 1, Dong, TCot);
+                //ShiftLeader.Merge();
+                //ShiftLeader.Value = Commons.Modules.ObjLanguages.GetLanguage(this.Name, "lblShiftLeader") + ": " + cboShiftLeader.Text;
+                //ShiftLeader.Font.Bold = true;
 
 
                 Excel.Range HeaderColumn = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 1, Dong + 2, TCot);

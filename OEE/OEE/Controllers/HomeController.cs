@@ -15,25 +15,26 @@ namespace OEE.Controllers
         string us = "Admin";
         int nn = 0;
         string nx = "PM";
+
         public ActionResult Index() // máy
         {
-            if (Session["Taikhoan"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            //if (Session["Taikhoan"] == null)
+            //{
+            //    return RedirectToAction("Login", "Login");
+            //}
 
-            if (Session["Username"] != null)
-            {
-                us = Session["Username"].ToString();
-            }
-            if (Session["NgonNgu"] != null)
-            {
-                nn = Convert.ToInt32(Session["NgonNgu"]);
-            }
-            if (Session["NXuong"] != null)
-            {
-                nx = Session["NXuong"].ToString();
-            }
+            //if (Session["Username"] != null)
+            //{
+            //    us = Session["Username"].ToString();
+            //}
+            //if (Session["NgonNgu"] != null)
+            //{
+            //    nn = Convert.ToInt32(Session["NgonNgu"]);
+            //}
+            //if (Session["NXuong"] != null)
+            //{
+            //    nx = Session["NXuong"].ToString();
+            //}
 
             var param1 = new SqlParameter();
             param1.ParameterName = "@NNgu";
@@ -58,14 +59,16 @@ namespace OEE.Controllers
             }
             return View(lst);
         }
+        public static List<spLCDFull_Result> List = null;
 
         public ActionResult Detail() // biểu đồ
         {
-            if (Session["Taikhoan"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            //if (Session["Taikhoan"] == null)
+            //{
+            //    return RedirectToAction("Login", "Login");
+            //}
             var lst1 = db.spLCDFull().ToList();
+            List = lst1;
             if (lst1.Count == 0)
             {
                 return RedirectToAction("Index", "Home");
@@ -77,7 +80,7 @@ namespace OEE.Controllers
         {
             try
             {
-                var query = db.spLCDFull().ToList()
+                var query = List
                     .GroupBy(t => t.COT1)
                     .Select(g => new
                     {

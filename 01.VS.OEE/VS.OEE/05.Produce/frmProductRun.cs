@@ -54,7 +54,7 @@ namespace VS.OEE
         private void Loadngay()
         {
             datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
-            datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
+            datDenNgay.DateTime = datTuNgay.DateTime.AddMonths(1).AddDays(-1);
         }
         private void VisibleButon(bool flag)
         {

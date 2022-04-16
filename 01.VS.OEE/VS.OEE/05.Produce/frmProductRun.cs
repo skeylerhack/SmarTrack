@@ -586,20 +586,20 @@ namespace VS.OEE
                 int n = dt.AsEnumerable().Count(x => x["PrOID"].ToString().Equals(PrOID) && x["ItemID"].ToString().Equals(ItemID) && x["MS_MAY"].ToString().Equals(MS_MAY) && x["ID_CA"].ToString().Equals(ID_CA));
 
                 //Kiểm dữ liệu trùng dưới database
-                int m = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = "+ PrOID + " AND ItemID = "+ ItemID + " AND MS_MAY = '"+ MS_MAY + "' AND ID_CA = "+ID_CA+ " AND dbo.fnGetNgayTheoCa(StartTime) =dbo.fnGetNgayTheoCa('"+ Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "StartTime")).ToString("yyyy-MM-dd HH:mm:ss") + "') AND ProductionRunID != "+ iThem +" "));
+                //int m = Convert.ToInt32(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT COUNT(*) FROM dbo.ProductionRunDetails WHERE PrOID = "+ PrOID + " AND ItemID = "+ ItemID + " AND MS_MAY = '"+ MS_MAY + "' AND ID_CA = "+ID_CA+ " AND dbo.fnGetNgayTheoCa(StartTime) =dbo.fnGetNgayTheoCa('"+ Convert.ToDateTime(View.GetRowCellValue(e.RowHandle, "StartTime")).ToString("yyyy-MM-dd HH:mm:ss") + "') AND ProductionRunID != "+ iThem +" "));
 
 
-                if(n> 1 || m >=1)
-                {
-                    e.Valid = false;
-                    View.SetColumnError(sproID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
-                    View.SetColumnError(sproItem, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
-                    View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
-                    View.SetColumnError(View.Columns["ID_CA"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
-                    View.SetColumnError(View.Columns["ItemCode"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
-                    View.SetColumnError(View.Columns["TEN_MAY"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
-                    return;
-                }
+                //if(n> 1 || m >=1)
+                //{
+                //    e.Valid = false;
+                //    View.SetColumnError(sproID, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                //    View.SetColumnError(sproItem, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                //    View.SetColumnError(sMaMay, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                //    View.SetColumnError(View.Columns["ID_CA"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                //    View.SetColumnError(View.Columns["ItemCode"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                //    View.SetColumnError(View.Columns["TEN_MAY"], Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName, this.Name, "MsgTrungDL", Commons.Modules.TypeLanguage));
+                //    return;
+                //}
             }
             catch(Exception ex)
             {

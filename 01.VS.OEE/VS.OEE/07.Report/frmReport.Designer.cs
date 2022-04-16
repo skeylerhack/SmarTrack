@@ -46,7 +46,7 @@
             this.fluentMain.Margin = new System.Windows.Forms.Padding(2);
             this.fluentMain.Name = "fluentMain";
             this.fluentMain.Padding = new System.Windows.Forms.Padding(10);
-            this.fluentMain.Size = new System.Drawing.Size(995, 461);
+            this.fluentMain.Size = new System.Drawing.Size(1088, 548);
             this.fluentMain.TabIndex = 0;
             // 
             // accorMenuleft
@@ -62,7 +62,7 @@
             this.accorMenuleft.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Hidden;
             this.accorMenuleft.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
             this.accorMenuleft.ShowItemExpandButtons = false;
-            this.accorMenuleft.Size = new System.Drawing.Size(40, 461);
+            this.accorMenuleft.Size = new System.Drawing.Size(40, 548);
             this.accorMenuleft.TabIndex = 1;
             this.accorMenuleft.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -76,7 +76,7 @@
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(2);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1035, 0);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1128, 0);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -91,7 +91,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 461);
+            this.ClientSize = new System.Drawing.Size(1128, 548);
             this.Controls.Add(this.fluentMain);
             this.Controls.Add(this.accorMenuleft);
             this.Controls.Add(this.fluentDesignFormControl1);

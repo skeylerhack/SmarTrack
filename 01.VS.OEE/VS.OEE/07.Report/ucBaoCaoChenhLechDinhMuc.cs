@@ -29,9 +29,10 @@ namespace VS.OEE
             DataTable dtmp = new DataTable();
             try
             {
-                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBaoCaoTieuThuDienNang", cboMay.EditValue, datTuNgay.DateTime, datDenNgay.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBaoCaoChenhLechDinhMuc", cboMay.EditValue, datTuNgay.DateTime, datDenNgay.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 Modules.ObjSystems.MLoadXtraGrid(grdChenhLechDM, grvChenhLechDM, dtmp, false, true, true, true, this.Name);
-                Commons.Modules.ObjSystems.AddCombDateMinuteEdit("THOI_GIAN", grvChenhLechDM);
+                Commons.Modules.ObjSystems.AddCombDateTimeEdit("TU_GIO", grvChenhLechDM);
+                Commons.Modules.ObjSystems.AddCombDateTimeEdit("DEN_GIO", grvChenhLechDM);
             }
             catch
             {
@@ -79,7 +80,7 @@ namespace VS.OEE
                 Commons.Modules.MExcel.ThemDong(excelWorkSheet, Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown, 4, Dong);
                 Dong = 4;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName,
-                    this.Name, "TieuDeTongHopHieuXuat", Commons.Modules.TypeLanguage)
+                    this.Name, "TieuDeChenhLechDinhMuc", Commons.Modules.TypeLanguage)
                     , Dong, 1, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 1, 25);
                 Dong = 6;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, "" + lblTuNgay.Text + "" + ": " + datTuNgay.Text +" - "+ lblDenNgay.Text + "" + ": " + datDenNgay.Text, Dong, 1 , "@", 9, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong,TCot, 15);
@@ -90,12 +91,14 @@ namespace VS.OEE
                 title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 1, Dong + 2, TCot);
                 title.Font.Bold = true;
                 title.WrapText = true;
+                title.RowHeight = 22;
                 title.Interior.Color = Color.FromArgb(141, 180, 226);
 
                 //thêm ghi chú
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true,Dong, 1, Dong, 1);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 20, "@", true, Dong, 2, Dong, 2);
-                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 15, "@", true, Dong, 3, Dong, TCot);
+                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 25, "@", true, Dong, 3, Dong, TCot);
+                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 25, "@", true, Dong, 3, Dong, TCot);
 
                 title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong+3,1, Dong+3+TDong, 1);
                 title.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;

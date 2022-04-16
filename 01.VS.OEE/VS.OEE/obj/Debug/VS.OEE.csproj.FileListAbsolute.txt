@@ -1456,3 +1456,5 @@ E:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ja\DevExpress.XtraVerticalGrid.v20.1.
 E:\01.SmarTrack\01.VS.OEE\VS.OEE\bin\Debug\ru\DevExpress.XtraVerticalGrid.v20.1.resources.dll
 E:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CoreCompileInputs.cache
 E:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoNgungMay.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoThaoTacHMI.resources

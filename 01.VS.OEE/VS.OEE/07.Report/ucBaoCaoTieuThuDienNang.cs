@@ -97,6 +97,7 @@ namespace VS.OEE
                 title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 1, Dong + 2, TCot);
                 title.Font.Bold = true;
                 title.WrapText = true;
+                title.RowHeight = 22;
                 title.Interior.Color = Color.FromArgb(141, 180, 226);
 
                 //thêm ghi chú

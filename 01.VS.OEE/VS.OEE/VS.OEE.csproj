@@ -185,6 +185,18 @@
     <Compile Include="05.Produce\frmQLChatLuong.Designer.cs">
       <DependentUpon>frmQLChatLuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="07.Report\ucBaoCaoThaoTacHMI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoThaoTacHMI.Designer.cs">
+      <DependentUpon>ucBaoCaoThaoTacHMI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoNgungMay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoNgungMay.Designer.cs">
+      <DependentUpon>ucBaoCaoNgungMay.cs</DependentUpon>
+    </Compile>
     <Compile Include="07.Report\ucBaoCaoKeHoachSanXuat.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -636,6 +648,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="05.Produce\frmQLChatLuong.resx">
       <DependentUpon>frmQLChatLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaoCaoThaoTacHMI.resx">
+      <DependentUpon>ucBaoCaoThaoTacHMI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaoCaoNgungMay.resx">
+      <DependentUpon>ucBaoCaoNgungMay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaoCaoKeHoachSanXuat.resx">
       <DependentUpon>ucBaoCaoKeHoachSanXuat.cs</DependentUpon>

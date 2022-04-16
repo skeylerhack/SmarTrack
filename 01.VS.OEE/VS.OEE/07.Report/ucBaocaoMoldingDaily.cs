@@ -133,9 +133,19 @@ namespace VS.OEE
                 if (grdBCMoldDaily.DataSource == null)
                 {
                     Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldDaily, grvBCMoldDaily, dt, true, false, false, true, this.Name);
+
+
                     //Visible
                     grvBCMoldDaily.Columns["OrderBy"].Visible = false;
 
+                    for (int i = 19; i < 28; i++)
+                    {
+                        grvBCMoldDaily.Columns[i].AppearanceHeader.BackColor = Color.LightSkyBlue; 
+                    }
+                    for (int i = 28; i < 34; i++)
+                    {
+                        grvBCMoldDaily.Columns[i].AppearanceHeader.BackColor = Color.LightPink;
+                    }
                     //Format
                     grvBCMoldDaily.Columns["StartTime"].DisplayFormat.FormatType = FormatType.DateTime;
                     grvBCMoldDaily.Columns["NumberPerCycle"].DisplayFormat.FormatType = FormatType.Numeric;

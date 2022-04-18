@@ -3740,6 +3740,10 @@ namespace Commons
             try
             {
                 System.Diagnostics.Process.Start("Update.exe", loai.ToString() + " " + link1 + " " + link2 + " " + link3 + " " + Application.ProductName);
+                //https://www.dropbox.com/s/ntwwve7ys4awrkj/Update.zip?dl=0
+                //https://www.dropbox.com/s/6gppx79hbcph1qp/Version.txt?dl=0
+                //VS.OEE
+
             }
             catch (Exception ex)
             {

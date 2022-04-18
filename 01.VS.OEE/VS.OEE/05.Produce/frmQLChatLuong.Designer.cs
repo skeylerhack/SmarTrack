@@ -34,7 +34,6 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.txtTim = new DevExpress.XtraEditors.SearchControl();
@@ -389,10 +388,6 @@
             this.TableLayout.SetRow(this.txtQCName, 1);
             this.txtQCName.Size = new System.Drawing.Size(202, 20);
             this.txtQCName.TabIndex = 17;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "This value is not valid";
-            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.txtQCName, conditionValidationRule5);
             // 
             // txtDocNum
             // 
@@ -402,10 +397,10 @@
             this.TableLayout.SetRow(this.txtDocNum, 1);
             this.txtDocNum.Size = new System.Drawing.Size(202, 20);
             this.txtDocNum.TabIndex = 16;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.txtDocNum, conditionValidationRule6);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "This value is not valid";
+            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.txtDocNum, conditionValidationRule5);
             // 
             // lblProductionDate
             // 
@@ -448,8 +443,6 @@
             // 
             // lblQCName
             // 
-            this.lblQCName.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblQCName.Appearance.Options.UseFont = true;
             this.TableLayout.SetColumn(this.lblQCName, 2);
             this.lblQCName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQCName.Location = new System.Drawing.Point(331, 11);

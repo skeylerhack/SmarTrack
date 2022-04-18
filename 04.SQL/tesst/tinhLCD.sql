@@ -1,5 +1,5 @@
  DECLARE @Ngay DATETIME	= GETDATE()
- (SELECT [dbo].[fnGetThoiGianChay]('IMM-15',@Ngay))
+ (SELECT [dbo].[fnGetThoiGianChay]('IMM-07',@Ngay))
 
 SELECT DISTINCT  
 ROW_NUMBER() OVER(ORDER BY T2.MS_MAY) AS STT , 

@@ -70,6 +70,8 @@ namespace VS.OEE
             RowFilter(grdQCDataDefect, grvQCDataDefect.Columns["ID_TEMP"], -1);
             Commons.Modules.ObjSystems.AddnewRow(grvQCDataDefect, true);
 
+            try { cboCheckStepID.EditValue = ((DataTable)cboCheckStepID.Properties.DataSource).Rows[0][cboCheckStepID.Properties.ValueMember]; } catch { }
+
             EnableGridControl();
         }
         private void btnSua_Click(object sender, EventArgs e)
@@ -95,6 +97,7 @@ namespace VS.OEE
             {
                 if (!dxValidationProvider1.Validate()) return;
                 if (!KiemTrung()) return;
+                if (!Kiem_CheckQuantity()) return;
                 if (!Kiem_DefeactQuanity()) return;
 
                 string sBTQCDataDetails = "TMPQCDataDetails" + Commons.Modules.UserName;
@@ -124,8 +127,12 @@ namespace VS.OEE
                     LoadgrdQCData(temp);
                     LoadgrdQCDataDetails();
                     LoadgrdQCDataDefect();
-                    grvQCData_FocusedRowChanged(grvQCData, null);
+                    
                 }
+                else
+                    XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage("frmChung", "msgGhiKhongThanhCong"));
+
+                grvQCData_FocusedRowChanged(grvQCData, null);
 
                 if (conn.State == ConnectionState.Open)
                     conn.Close();
@@ -143,6 +150,7 @@ namespace VS.OEE
             LoadgrdQCData(ithem);
             LoadgrdQCDataDetails();
             LoadgrdQCDataDefect();
+            grvQCData_FocusedRowChanged(grvQCData, null);
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -156,14 +164,17 @@ namespace VS.OEE
         private void btnDelQCData_Click(object sender, EventArgs e)
         {
             DeleteDataQCData();
+            LoadgrdQCData(-1);
         }
         private void btnDelQCDataDetails_Click(object sender, EventArgs e)
         {
             DeleteDataQCDataDetails();
+            LoadgrdQCData(-1);
         }
         private void btnDelQCDataDefect_Click(object sender, EventArgs e)
         {
             DeleteDataQCDataDefect();
+            LoadgrdQCData(-1);
         }
         private void btnChonQCDataDetails_Click(object sender, EventArgs e)
         {
@@ -182,7 +193,7 @@ namespace VS.OEE
 
                 DataTable dt_temp = new DataTable();
                 dt_temp = ((DataTable)grdQCDataDetails.DataSource).DefaultView.ToTable();
-                frmChooseQCDataDetails frm = new frmChooseQCDataDetails(Convert.ToInt32(cboID_CA.EditValue), datProductionDate.DateTime, dt_temp);
+                frmChooseQCDataDetails frm = new frmChooseQCDataDetails(Convert.ToInt32(cboID_CA.EditValue), Convert.ToInt64(cboCheckStepID.EditValue), datProductionDate.DateTime, dt_temp);
 
                 if (frm.ShowDialog() != DialogResult.OK) return;
 
@@ -279,6 +290,12 @@ namespace VS.OEE
             }
             catch { }
         }
+        private void datTuNgay_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Commons.Modules.sId == "0Load") return;
+            LoadgrdQCData(-1);
+        }
+
         #endregion
 
         #region function 
@@ -665,7 +682,38 @@ namespace VS.OEE
             }
             return true;
         }
+        private bool Kiem_CheckQuantity()
+        {
+            try
+            {
+                grvQCDataDetails.ClearFindFilter();
+                grvQCDataDetails.ClearSorting();
 
+                for (int i = 0; i < grvQCDataDetails.RowCount; i++)
+                {
+                    Int64 CheckStep = string.IsNullOrEmpty(Convert.ToString(cboCheckStepID.EditValue)) ? 0 : Convert.ToInt64(cboCheckStepID.EditValue);
+                    Int32 ID_CA = string.IsNullOrEmpty(Convert.ToString(cboID_CA.EditValue)) ? 0 : Convert.ToInt32(cboID_CA.EditValue);
+                    DateTime ProductionDate = Convert.ToDateTime(datProductionDate.EditValue);
+                    Int64 PrOID = string.IsNullOrEmpty(Convert.ToString(grvQCDataDetails.GetRowCellValue(i, "PrOID"))) ? 0 : Convert.ToInt64(grvQCDataDetails.GetRowCellValue(i, "PrOID"));
+                    Int64 ItemID = string.IsNullOrEmpty(Convert.ToString(grvQCDataDetails.GetRowCellValue(i, "ItemID"))) ? 0 : Convert.ToInt64(grvQCDataDetails.GetRowCellValue(i, "ItemID"));
+                    string MS_MAY = string.IsNullOrEmpty(Convert.ToString(grvQCDataDetails.GetRowCellValue(i, "MS_MAY"))) ? "" : Convert.ToString(grvQCDataDetails.GetRowCellValue(i, "MS_MAY"));
+                    double CheckQuantity = string.IsNullOrEmpty(Convert.ToString(grvQCDataDetails.GetRowCellValue(i, "CheckQuantity"))) ? 0 : Convert.ToDouble(grvQCDataDetails.GetRowCellValue(i, "CheckQuantity"));
+
+                    int tmp = Convert.ToInt16(SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spGetQCCheckedQuantity", ithem, CheckStep, ID_CA, ProductionDate, PrOID, ItemID, MS_MAY, CheckQuantity));
+
+                    if (tmp == 1)
+                    {
+                        XtraMessageBox.Show(Commons.Modules.ObjLanguages.GetLanguage(this.Name, "msgTongSoLuongKiemLonHonSoLuongThucTe"));
+                        return false;
+                    }
+                    else
+                        return true;
+                }
+                return true;
+            }
+            catch (Exception ex) { XtraMessageBox.Show(ex.Message); return false; }
+           
+        }
         #endregion
 
         #region Event lưới 
@@ -844,10 +892,5 @@ namespace VS.OEE
 
         #endregion
 
-        private void datTuNgay_EditValueChanged(object sender, EventArgs e)
-        {
-            if (Commons.Modules.sId == "0Load") return;
-            LoadgrdQCData(-1);
-        }
     }
 }

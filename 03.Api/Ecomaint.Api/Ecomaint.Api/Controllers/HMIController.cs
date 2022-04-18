@@ -366,7 +366,7 @@ namespace CMMSApi.Controllers
                             //if (item.RUN == 1)
                             //{
                             listParameter = new List<SqlParameter>();
-                            listParameter.Add(new SqlParameter("@Ngay", DN));
+                            listParameter.Add(new SqlParameter("@Ngay", DateTime.Now));
                             listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                             listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
                             listParameter.Add(new SqlParameter("@ItemID", item1.ItemID));

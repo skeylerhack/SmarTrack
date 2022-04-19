@@ -50,6 +50,7 @@
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.panelChung = new DevExpress.Utils.Layout.TablePanel();
             this.chkHMIType = new DevExpress.XtraEditors.CheckEdit();
+            this.chkPlan = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDownTimeTypeH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDownTimeTypeA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).BeginInit();
             this.panelChung.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkHMIType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPlan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDownTimeNameH
@@ -122,13 +124,13 @@
             // txtNote
             // 
             this.panelChung.SetColumn(this.txtNote, 2);
-            this.panelChung.SetColumnSpan(this.txtNote, 4);
+            this.panelChung.SetColumnSpan(this.txtNote, 3);
             this.txtNote.EnterMoveNextControl = true;
             this.txtNote.Location = new System.Drawing.Point(186, 37);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.MaxLength = 500;
             this.panelChung.SetRow(this.txtNote, 2);
-            this.txtNote.Size = new System.Drawing.Size(552, 20);
+            this.txtNote.Size = new System.Drawing.Size(432, 20);
             this.txtNote.TabIndex = 0;
             // 
             // lblDownTimeType
@@ -328,6 +330,7 @@
             this.panelChung.Controls.Add(this.txtDownTimeTypeH);
             this.panelChung.Controls.Add(this.lblDownTimeTypeA);
             this.panelChung.Controls.Add(this.lblDownTimeNameH);
+            this.panelChung.Controls.Add(this.chkPlan);
             this.panelChung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChung.Location = new System.Drawing.Point(0, 0);
             this.panelChung.Name = "panelChung";
@@ -350,6 +353,16 @@
             this.panelChung.SetRow(this.chkHMIType, 2);
             this.chkHMIType.Size = new System.Drawing.Size(153, 19);
             this.chkHMIType.TabIndex = 8;
+            // 
+            // chkPlan
+            // 
+            this.panelChung.SetColumn(this.chkPlan, 5);
+            this.chkPlan.Location = new System.Drawing.Point(624, 37);
+            this.chkPlan.Name = "chkPlan";
+            this.chkPlan.Properties.Caption = "chkPlan";
+            this.panelChung.SetRow(this.chkPlan, 2);
+            this.chkPlan.Size = new System.Drawing.Size(114, 19);
+            this.chkPlan.TabIndex = 8;
             // 
             // frmDownTimeType
             // 
@@ -375,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).EndInit();
             this.panelChung.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkHMIType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPlan.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -402,5 +416,6 @@
         private DevExpress.XtraEditors.LabelControl lblDownTimeTypeA;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.CheckEdit chkHMIType;
+        private DevExpress.XtraEditors.CheckEdit chkPlan;
     }
 }

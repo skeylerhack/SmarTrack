@@ -80,6 +80,7 @@ namespace VS.OEE
                 txtDownTimeTypeH.Text = (nullText ? "" : Modules.ToStr(grvDownTimeType.GetFocusedRowCellValue("DownTimeTypeNameH")));
                 txtNote.Text = (nullText ? "" : Modules.ToStr(grvDownTimeType.GetFocusedRowCellValue("Note").ToString()).ToString());
                 chkHMIType.Checked = (nullText ? false : Modules.ToBoolean(grvDownTimeType.GetFocusedRowCellValue("HMIType")));
+                chkPlan.Checked = (nullText ? false : Modules.ToBoolean(grvDownTimeType.GetFocusedRowCellValue("Planned")));
             }
             catch (Exception ex)
             {
@@ -172,7 +173,6 @@ namespace VS.OEE
             var comd = new SqlCommand();
             comd.CommandType = CommandType.StoredProcedure;
             comd.CommandText = "spDownTimeType";
-
             comd.Parameters.Add(new SqlParameter("@Loai", "Delete"));
             comd.Parameters.Add(new SqlParameter("@ID", Modules.ToInt64(txtID.Text)));
             object rs;
@@ -318,6 +318,7 @@ namespace VS.OEE
                 comd.Parameters.Add(new SqlParameter("@DownTimeTypeNameH", Modules.ToStr(txtDownTimeTypeH.Text)));
                 comd.Parameters.Add(new SqlParameter("@Note", Modules.ToStr(txtNote.Text)));
                 comd.Parameters.Add(new SqlParameter("@HMIType", Modules.ToBoolean(chkHMIType.Checked)));
+                comd.Parameters.Add(new SqlParameter("@Planned", Modules.ToBoolean(chkPlan.Checked)));
                 rs = null;
                 rs = IConnections.MExecuteScalar(comd);
                 LoadData(Modules.ToInt16(rs));
@@ -372,6 +373,8 @@ namespace VS.OEE
                 txtDownTimeTypeH.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["DownTimeTypeNameH"].ToString()));
                 txtNote.Text = (nullText ? "" : Modules.ToStr(dt.Rows[0]["Note"].ToString()));
                 chkHMIType.Checked = (nullText ? false : Modules.ToBoolean(dt.Rows[0]["HMIType"]));
+                chkPlan.Checked = (nullText ? false : Modules.ToBoolean(dt.Rows[0]["Planned"]));
+
             }
             catch
             {

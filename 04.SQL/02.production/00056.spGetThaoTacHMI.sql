@@ -5,7 +5,7 @@ AS
 BEGIN
 	DECLARE @item INT = -1
 	SELECT 0 AS TT,N'Mấy chạy' AS HANH_DONG,  FORMAT(Date, 'dd/MM/yyyy HH:mm:ss') AS Date ,MS_MAY,(SELECT ItemCode FROM dbo.Item WHERE ID = B.ItemID) AS Item,CONVERT(NVARCHAR(500),ActualQuanity) AS Value,
-	(SELECT CASE A.ButtonCode WHEN	2 THEN  A.Note WHEN 31 THEN A.Note ELSE N'Auto Refresh' end FROM dbo.ButtonDefinition A WHERE A.ButtonCode = B.ButtonCode ) AS Note ,Run
+	(SELECT CASE A.ButtonCode WHEN	2 THEN  A.Note WHEN 31 THEN A.Note WHEN	35 THEN a.Note ELSE N'Auto Refresh' end FROM dbo.ButtonDefinition A WHERE A.ButtonCode = B.ButtonCode ) AS Note ,Run
 	FROM dbo.ActualHMI B
 	INNER JOIN dbo.ProductionOrder C ON B.ProID = C.ID AND   dbo.fnGetNgayTheoCa(c.StartDate)  = @Ngay
 	WHERE  B.ItemID =@item OR @item = -1 AND B.MS_MAY =@MS_MAY AND CONVERT(DATE,Date) = @Ngay 
@@ -20,5 +20,5 @@ BEGIN
 END	
 
 
-
+SELECT * FROM dbo.ButtonDefinition
 

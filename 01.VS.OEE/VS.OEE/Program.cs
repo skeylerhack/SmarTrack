@@ -33,7 +33,7 @@ namespace VS.OEE
             Commons.Modules.sSoLeTT = Commons.Modules.ObjSystems.sDinhDangSoLe(Commons.Modules.iSoLeTT);
             Commons.Modules.sSoLe4 = Commons.Modules.ObjSystems.sDinhDangSoLe(4);
             Commons.Modules.TypeLanguage = Properties.Settings.Default.lang;
-            Commons.Modules.ObjSystems.CheckUpdate();
+            //Commons.Modules.ObjSystems.CheckUpdate();
             Thread t = new Thread(() => MRunForm());
             t.SetApartmentState(ApartmentState.STA);
             t.Start();

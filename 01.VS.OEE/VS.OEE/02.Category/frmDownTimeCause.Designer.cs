@@ -45,6 +45,7 @@
             this.btnKhong = new DevExpress.XtraEditors.SimpleButton();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.panelChung = new DevExpress.Utils.Layout.TablePanel();
+            this.txtDinhMuc = new DevExpress.XtraEditors.SpinEdit();
             this.chkHuHong = new DevExpress.XtraEditors.CheckEdit();
             this.lblCauseCode = new DevExpress.XtraEditors.LabelControl();
             this.lblPlanned = new DevExpress.XtraEditors.LabelControl();
@@ -54,7 +55,7 @@
             this.chkSanXuat = new DevExpress.XtraEditors.CheckEdit();
             this.chkOEE = new DevExpress.XtraEditors.CheckEdit();
             this.lblDinhMuc = new DevExpress.XtraEditors.LabelControl();
-            this.txtDinhMuc = new DevExpress.XtraEditors.SpinEdit();
+            this.txtCycle = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNNA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
@@ -65,13 +66,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).BeginInit();
             this.panelChung.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDinhMuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkHuHong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDownTimeType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauseCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboPlanned.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSanXuat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOEE.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDinhMuc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCycle.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDownTimeType
@@ -311,6 +313,7 @@
             this.panelChung.Controls.Add(this.chkSanXuat);
             this.panelChung.Controls.Add(this.chkOEE);
             this.panelChung.Controls.Add(this.lblDinhMuc);
+            this.panelChung.Controls.Add(this.txtCycle);
             this.panelChung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChung.Location = new System.Drawing.Point(0, 0);
             this.panelChung.Name = "panelChung";
@@ -324,16 +327,33 @@
             this.panelChung.Size = new System.Drawing.Size(1303, 600);
             this.panelChung.TabIndex = 2;
             // 
+            // txtDinhMuc
+            // 
+            this.panelChung.SetColumn(this.txtDinhMuc, 2);
+            this.txtDinhMuc.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtDinhMuc.Location = new System.Drawing.Point(222, 37);
+            this.txtDinhMuc.Name = "txtDinhMuc";
+            this.txtDinhMuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.panelChung.SetRow(this.txtDinhMuc, 2);
+            this.txtDinhMuc.Size = new System.Drawing.Size(118, 20);
+            this.txtDinhMuc.TabIndex = 11;
+            // 
             // chkHuHong
             // 
-            this.panelChung.SetColumn(this.chkHuHong, 8);
-            this.chkHuHong.Location = new System.Drawing.Point(1207, 11);
+            this.panelChung.SetColumn(this.chkHuHong, 7);
+            this.chkHuHong.Location = new System.Drawing.Point(959, 63);
             this.chkHuHong.Name = "chkHuHong";
             this.chkHuHong.Properties.Caption = "chkHuHong";
             this.chkHuHong.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.panelChung.SetRow(this.chkHuHong, 1);
-            this.chkHuHong.Size = new System.Drawing.Size(93, 19);
+            this.panelChung.SetRow(this.chkHuHong, 3);
+            this.chkHuHong.Size = new System.Drawing.Size(242, 19);
             this.chkHuHong.TabIndex = 10;
+            this.chkHuHong.Visible = false;
             // 
             // lblCauseCode
             // 
@@ -399,23 +419,24 @@
             // chkSanXuat
             // 
             this.panelChung.SetColumn(this.chkSanXuat, 8);
-            this.chkSanXuat.Location = new System.Drawing.Point(1207, 37);
+            this.chkSanXuat.Location = new System.Drawing.Point(1207, 63);
             this.chkSanXuat.Name = "chkSanXuat";
             this.chkSanXuat.Properties.Caption = "chkSanXuat";
             this.chkSanXuat.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.panelChung.SetRow(this.chkSanXuat, 2);
+            this.panelChung.SetRow(this.chkSanXuat, 3);
             this.chkSanXuat.Size = new System.Drawing.Size(93, 19);
             this.chkSanXuat.TabIndex = 10;
+            this.chkSanXuat.Visible = false;
             // 
             // chkOEE
             // 
-            this.panelChung.SetColumn(this.chkOEE, 3);
-            this.chkOEE.Location = new System.Drawing.Point(346, 37);
+            this.panelChung.SetColumn(this.chkOEE, 8);
+            this.chkOEE.Location = new System.Drawing.Point(1207, 37);
             this.chkOEE.Name = "chkOEE";
             this.chkOEE.Properties.Caption = "chkOEE";
             this.chkOEE.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.panelChung.SetRow(this.chkOEE, 2);
-            this.chkOEE.Size = new System.Drawing.Size(118, 19);
+            this.chkOEE.Size = new System.Drawing.Size(93, 19);
             this.chkOEE.TabIndex = 10;
             // 
             // lblDinhMuc
@@ -430,22 +451,22 @@
             this.lblDinhMuc.TabIndex = 1;
             this.lblDinhMuc.Text = "lblDinhMuc";
             // 
-            // txtDinhMuc
+            // txtCycle
             // 
-            this.panelChung.SetColumn(this.txtDinhMuc, 2);
-            this.txtDinhMuc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDinhMuc.EditValue = new decimal(new int[] {
+            this.panelChung.SetColumn(this.txtCycle, 3);
+            this.txtCycle.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.txtDinhMuc.Location = new System.Drawing.Point(222, 37);
-            this.txtDinhMuc.Name = "txtDinhMuc";
-            this.txtDinhMuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtCycle.Location = new System.Drawing.Point(346, 37);
+            this.txtCycle.Name = "txtCycle";
+            this.txtCycle.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.panelChung.SetRow(this.txtDinhMuc, 2);
-            this.txtDinhMuc.Size = new System.Drawing.Size(118, 20);
-            this.txtDinhMuc.TabIndex = 11;
+            this.txtCycle.Properties.Mask.EditMask = "n";
+            this.panelChung.SetRow(this.txtCycle, 2);
+            this.txtCycle.Size = new System.Drawing.Size(118, 20);
+            this.txtCycle.TabIndex = 11;
             // 
             // frmDownTimeCause
             // 
@@ -467,13 +488,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).EndInit();
             this.panelChung.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtDinhMuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkHuHong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDownTimeType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauseCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboPlanned.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSanXuat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOEE.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDinhMuc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCycle.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,5 +529,6 @@
         private DevExpress.XtraEditors.CheckEdit chkOEE;
         private DevExpress.XtraEditors.LabelControl lblDinhMuc;
         private DevExpress.XtraEditors.SpinEdit txtDinhMuc;
+        private DevExpress.XtraEditors.SpinEdit txtCycle;
     }
 }

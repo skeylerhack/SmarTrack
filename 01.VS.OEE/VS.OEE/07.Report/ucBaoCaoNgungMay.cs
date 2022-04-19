@@ -6,6 +6,7 @@ using Microsoft.ApplicationBlocks.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace VS.OEE
 {
@@ -88,9 +89,9 @@ namespace VS.OEE
                     this.Name, "TieuDeBaoCaoNgungMay", Commons.Modules.TypeLanguage)
                     , Dong, 1, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 1, 25);
                 Dong = 6;
-                Commons.Modules.MExcel.DinhDang(excelWorkSheet, "" + lblTuNgay.Text + "" + ": " + datTuNgay.Text +" - "+ lblDenNgay.Text + "" + ": " + datDenNgay.Text, Dong, 1 , "@", 9, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong,TCot, 15);
+                Commons.Modules.MExcel.DinhDang(excelWorkSheet, "" + lblTuNgay.Text + "" + ": " + datTuNgay.Text + " - " + lblDenNgay.Text + "" + ": " + datDenNgay.Text, Dong, 1, "@", 9, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot, 15);
 
-                Dong= 7;
+                Dong = 7;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, lblMay.Text + "" + ": " + cboMay.Text, Dong, 1, "@", 9, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot, 15);
 
                 title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 1, Dong + 2, TCot);
@@ -100,12 +101,12 @@ namespace VS.OEE
                 title.Interior.Color = Color.FromArgb(141, 180, 226);
 
                 //thêm ghi chú
-                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true,Dong, 1, Dong, 1);
+                Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true, Dong, 1, Dong, 1);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 15, "@", true, Dong, 2, Dong, 2);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 10, "@", true, Dong, 3, Dong, TCot);
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 10, "@", true, Dong, 3, Dong, TCot);
 
-                title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong+3,1, Dong+3+TDong, 1);
+                title = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 3, 1, Dong + 3 + TDong, 1);
                 title.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
                 title.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
 
@@ -131,5 +132,6 @@ namespace VS.OEE
             if (Commons.Modules.sId == "0Load") return;
             Loadgrdata();
         }
-    }
+
+    } 
 }

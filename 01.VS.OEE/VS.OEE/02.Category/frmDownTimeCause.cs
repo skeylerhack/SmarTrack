@@ -56,6 +56,7 @@ namespace VS.OEE
             txtTenNN.Properties.ReadOnly = bLock;
             txtTenNNA.Properties.ReadOnly = bLock;
             txtDinhMuc.Properties.ReadOnly = bLock;
+            txtCycle.Properties.ReadOnly = bLock;
             cboDownTimeType.Properties.ReadOnly = bLock;
             txtCauseCode.Properties.ReadOnly = bLock;
             cboPlanned.Properties.ReadOnly = bLock;
@@ -86,6 +87,7 @@ namespace VS.OEE
                 txtTenNN.Text = (nullText ? "" : Modules.ToStr(grvDownTimeCause.GetFocusedRowCellValue("TEN_NGUYEN_NHAN")));
                 txtTenNNA.Text = (nullText ? "" : Modules.ToStr(grvDownTimeCause.GetFocusedRowCellValue("TEN_NGUYEN_NHAN_ANH")));
                 txtDinhMuc.EditValue = (nullText ? 0 : Convert.ToDouble(grvDownTimeCause.GetFocusedRowCellValue("DINH_MUC").ToString() == "" ? 0 : Convert.ToDouble(grvDownTimeCause.GetFocusedRowCellValue("DINH_MUC"))));
+                txtCycle.EditValue = (nullText ? 0 : Convert.ToDouble(grvDownTimeCause.GetFocusedRowCellValue("AUTO_CYCLE").ToString() == "" ? 0 : Convert.ToDouble(grvDownTimeCause.GetFocusedRowCellValue("AUTO_CYCLE"))));
                 cboDownTimeType.EditValue =Modules.ToInt32(grvDownTimeCause.GetFocusedRowCellValue("DownTimeTypeID"));
                 chkHuHong.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("HU_HONG"));
                 chkSanXuat.Checked = Modules.ToBoolean(grvDownTimeCause.GetFocusedRowCellValue("BTDK"));
@@ -338,6 +340,7 @@ namespace VS.OEE
                 comd.Parameters.Add(new SqlParameter("@TEN_NGUYEN_NHAN", Modules.ToStr(txtTenNN.Text)));
                 comd.Parameters.Add(new SqlParameter("@TEN_NGUYEN_NHANA", Modules.ToStr(txtTenNNA.Text)));
                 comd.Parameters.Add(new SqlParameter("@DINH_MUC", txtDinhMuc.EditValue));
+                comd.Parameters.Add(new SqlParameter("@AUTO_CYCLE", txtCycle.EditValue));
                 comd.Parameters.Add(new SqlParameter("@DownTimeTypeID", Modules.ToInt32(cboDownTimeType.EditValue)));
                 comd.Parameters.Add(new SqlParameter("@HU_HONG",chkHuHong.Checked));
                 comd.Parameters.Add(new SqlParameter("@BTDK", chkSanXuat.Checked));

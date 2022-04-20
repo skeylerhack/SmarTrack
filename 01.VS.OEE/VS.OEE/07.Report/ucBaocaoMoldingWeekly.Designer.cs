@@ -33,18 +33,18 @@
             this.panelNN = new DevExpress.XtraEditors.PanelControl();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
-            this.lblTuan = new DevExpress.XtraEditors.LabelControl();
             this.cboID_CA = new DevExpress.XtraEditors.LookUpEdit();
             this.cboShiftLeader = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelChung = new DevExpress.Utils.Layout.TablePanel();
-            this.datNam = new DevExpress.XtraEditors.DateEdit();
-            this.lblNam = new DevExpress.XtraEditors.LabelControl();
-            this.cboTuan = new DevExpress.XtraEditors.LookUpEdit();
             this.grdBCMoldWeekly = new DevExpress.XtraGrid.GridControl();
             this.grvBCMoldWeekly = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ccbMS_MAY = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.lblMS_MAY = new DevExpress.XtraEditors.LabelControl();
+            this.lblTNgay = new DevExpress.XtraEditors.LabelControl();
+            this.datTNgay = new DevExpress.XtraEditors.DateEdit();
+            this.lblDNgay = new DevExpress.XtraEditors.LabelControl();
+            this.datDNgay = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
             this.panelNN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboID_CA.Properties)).BeginInit();
@@ -52,12 +52,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).BeginInit();
             this.panelChung.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboTuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdBCMoldWeekly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvBCMoldWeekly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccbMS_MAY.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTNgay.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTNgay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDNgay.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDNgay.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblShiftLeader
@@ -125,17 +126,6 @@
             this.btnThoat.Text = "btnThoat";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // lblTuan
-            // 
-            this.panelChung.SetColumn(this.lblTuan, 3);
-            this.lblTuan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTuan.Location = new System.Drawing.Point(373, 11);
-            this.lblTuan.Name = "lblTuan";
-            this.panelChung.SetRow(this.lblTuan, 1);
-            this.lblTuan.Size = new System.Drawing.Size(114, 20);
-            this.lblTuan.TabIndex = 16;
-            this.lblTuan.Text = "lblTuan";
-            // 
             // cboID_CA
             // 
             this.panelChung.SetColumn(this.cboID_CA, 2);
@@ -184,15 +174,15 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
-            this.panelChung.Controls.Add(this.datNam);
-            this.panelChung.Controls.Add(this.lblNam);
-            this.panelChung.Controls.Add(this.cboTuan);
+            this.panelChung.Controls.Add(this.datDNgay);
+            this.panelChung.Controls.Add(this.lblDNgay);
+            this.panelChung.Controls.Add(this.datTNgay);
+            this.panelChung.Controls.Add(this.lblTNgay);
             this.panelChung.Controls.Add(this.grdBCMoldWeekly);
             this.panelChung.Controls.Add(this.ccbMS_MAY);
             this.panelChung.Controls.Add(this.lblMS_MAY);
             this.panelChung.Controls.Add(this.cboShiftLeader);
             this.panelChung.Controls.Add(this.cboID_CA);
-            this.panelChung.Controls.Add(this.lblTuan);
             this.panelChung.Controls.Add(this.panelNN);
             this.panelChung.Controls.Add(this.lblID_CA);
             this.panelChung.Controls.Add(this.lblShiftLeader);
@@ -209,55 +199,6 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
             this.panelChung.Size = new System.Drawing.Size(986, 516);
             this.panelChung.TabIndex = 2;
-            // 
-            // datNam
-            // 
-            this.panelChung.SetColumn(this.datNam, 2);
-            this.datNam.EditValue = null;
-            this.datNam.Location = new System.Drawing.Point(248, 11);
-            this.datNam.Name = "datNam";
-            this.datNam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datNam.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datNam.Properties.DisplayFormat.FormatString = "yyyy";
-            this.datNam.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datNam.Properties.EditFormat.FormatString = "yyyy";
-            this.datNam.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.datNam.Properties.Mask.EditMask = "yyyy";
-            this.datNam.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.datNam.Properties.ShowWeekNumbers = true;
-            this.datNam.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
-            this.datNam.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
-            this.panelChung.SetRow(this.datNam, 1);
-            this.datNam.Size = new System.Drawing.Size(119, 20);
-            this.datNam.TabIndex = 28;
-            this.datNam.EditValueChanged += new System.EventHandler(this.datNam_EditValueChanged);
-            // 
-            // lblNam
-            // 
-            this.panelChung.SetColumn(this.lblNam, 1);
-            this.lblNam.Location = new System.Drawing.Point(128, 14);
-            this.lblNam.Name = "lblNam";
-            this.panelChung.SetRow(this.lblNam, 1);
-            this.lblNam.Size = new System.Drawing.Size(36, 13);
-            this.lblNam.TabIndex = 26;
-            this.lblNam.Text = "lblNam";
-            // 
-            // cboTuan
-            // 
-            this.panelChung.SetColumn(this.cboTuan, 4);
-            this.panelChung.SetColumnSpan(this.cboTuan, 3);
-            this.cboTuan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboTuan.Location = new System.Drawing.Point(493, 11);
-            this.cboTuan.Name = "cboTuan";
-            this.cboTuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboTuan.Properties.NullText = "";
-            this.panelChung.SetRow(this.cboTuan, 1);
-            this.cboTuan.Size = new System.Drawing.Size(365, 20);
-            this.cboTuan.TabIndex = 25;
-            this.cboTuan.EditValueChanged += new System.EventHandler(this.cboTuan_EditValueChanged);
             // 
             // grdBCMoldWeekly
             // 
@@ -306,6 +247,60 @@
             this.lblMS_MAY.TabIndex = 22;
             this.lblMS_MAY.Text = "lblMS_MAY";
             // 
+            // lblTNgay
+            // 
+            this.panelChung.SetColumn(this.lblTNgay, 1);
+            this.lblTNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTNgay.Location = new System.Drawing.Point(128, 11);
+            this.lblTNgay.Name = "lblTNgay";
+            this.panelChung.SetRow(this.lblTNgay, 1);
+            this.lblTNgay.Size = new System.Drawing.Size(114, 20);
+            this.lblTNgay.TabIndex = 25;
+            this.lblTNgay.Text = "lblTNgay";
+            // 
+            // datTNgay
+            // 
+            this.panelChung.SetColumn(this.datTNgay, 2);
+            this.datTNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datTNgay.EditValue = null;
+            this.datTNgay.Location = new System.Drawing.Point(248, 11);
+            this.datTNgay.Name = "datTNgay";
+            this.datTNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datTNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.panelChung.SetRow(this.datTNgay, 1);
+            this.datTNgay.Size = new System.Drawing.Size(119, 20);
+            this.datTNgay.TabIndex = 26;
+            this.datTNgay.EditValueChanged += new System.EventHandler(this.datDNgay_EditValueChanged);
+            // 
+            // lblDNgay
+            // 
+            this.panelChung.SetColumn(this.lblDNgay, 3);
+            this.lblDNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDNgay.Location = new System.Drawing.Point(373, 11);
+            this.lblDNgay.Name = "lblDNgay";
+            this.panelChung.SetRow(this.lblDNgay, 1);
+            this.lblDNgay.Size = new System.Drawing.Size(114, 20);
+            this.lblDNgay.TabIndex = 27;
+            this.lblDNgay.Text = "lblDNgay";
+            // 
+            // datDNgay
+            // 
+            this.panelChung.SetColumn(this.datDNgay, 4);
+            this.datDNgay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datDNgay.EditValue = null;
+            this.datDNgay.Location = new System.Drawing.Point(493, 11);
+            this.datDNgay.Name = "datDNgay";
+            this.datDNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.datDNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.panelChung.SetRow(this.datDNgay, 1);
+            this.datDNgay.Size = new System.Drawing.Size(119, 20);
+            this.datDNgay.TabIndex = 28;
+            this.datDNgay.EditValueChanged += new System.EventHandler(this.datDNgay_EditValueChanged);
+            // 
             // ucBaocaoMoldingWeekly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,12 +318,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelChung)).EndInit();
             this.panelChung.ResumeLayout(false);
             this.panelChung.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datNam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboTuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdBCMoldWeekly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvBCMoldWeekly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccbMS_MAY.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTNgay.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datTNgay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDNgay.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datDNgay.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,7 +336,6 @@
         private DevExpress.XtraEditors.SearchLookUpEdit cboShiftLeader;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraEditors.LookUpEdit cboID_CA;
-        private DevExpress.XtraEditors.LabelControl lblTuan;
         private DevExpress.XtraEditors.PanelControl panelNN;
         private DevExpress.XtraEditors.SimpleButton btnIn;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
@@ -349,8 +344,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grvBCMoldWeekly;
         private DevExpress.XtraEditors.CheckedComboBoxEdit ccbMS_MAY;
         private DevExpress.XtraEditors.LabelControl lblMS_MAY;
-        private DevExpress.XtraEditors.LookUpEdit cboTuan;
-        private DevExpress.XtraEditors.DateEdit datNam;
-        private DevExpress.XtraEditors.LabelControl lblNam;
+        private DevExpress.XtraEditors.LabelControl lblTNgay;
+        private DevExpress.XtraEditors.DateEdit datTNgay;
+        private DevExpress.XtraEditors.LabelControl lblDNgay;
+        private DevExpress.XtraEditors.DateEdit datDNgay;
     }
 }

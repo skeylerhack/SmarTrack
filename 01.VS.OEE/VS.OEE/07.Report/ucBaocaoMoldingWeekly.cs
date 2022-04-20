@@ -22,17 +22,16 @@ namespace VS.OEE
             InitializeComponent();
             Commons.Modules.ObjSystems.ThayDoiNN(this);
         }
-
         #region Event
         private void ucBaocaoMoldingWeekly_Load(object sender, EventArgs e)
         {
             Commons.Modules.sId = "0Load";
-            datNam.DateTime = DateTime.Now;
+            datTNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
+            datDNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
             LoadCbo();
             Commons.Modules.sId = "";
             ccbMS_MAY.Properties.SelectAllItemVisible = true;
             LoadDataGrid();
-
         }
         private void btnIn_Click(object sender, EventArgs e)
         {
@@ -74,21 +73,6 @@ namespace VS.OEE
             if (Commons.Modules.sId == "0Load") return;
             LoadDataGrid();
         }
-        private void datNam_EditValueChanged(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            dt = SqlHelper.ExecuteDataset(Commons.IConnections.CNStr, "GetTUAN_TRONG_NAM", "01/01/" + datNam.DateTime.Year, "31/12/" + datNam.DateTime.Year, Commons.Modules.TypeLanguage).Tables[0];
-            Commons.Modules.ObjSystems.MLoadLookUpEdit(cboTuan, dt, "TUAN", "TEN_TUAN", "");
-            try
-            {
-                CultureInfo ciCurr = CultureInfo.CurrentCulture;
-                int weekNum = ciCurr.Calendar.GetWeekOfYear(DateTime.Now.Date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
-                cboTuan.EditValue = weekNum;
-            }
-            catch (Exception ex) { XtraMessageBox.Show(ex.ToString()); }
-            if (Commons.Modules.sId == "0Load") return;
-            LoadDataGrid();
-        }
 
         private void grvBCMoldWeekly_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -102,7 +86,6 @@ namespace VS.OEE
                 catch { }
             }
         }
-
         private void grvBCMoldWeekly_ShowingEditor(object sender, System.ComponentModel.CancelEventArgs e)
         {
             int ID_Result = string.IsNullOrEmpty(grvBCMoldWeekly.GetFocusedRowCellValue("ID_Result").ToString()) ? 0 : Convert.ToInt32(grvBCMoldWeekly.GetFocusedRowCellValue("ID_Result"));
@@ -110,18 +93,13 @@ namespace VS.OEE
                 e.Cancel = true;
         }
         #endregion
-
         #region Function
         private void LoadCbo()
         {
-            
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cboID_CA, Commons.Modules.ObjSystems.DataCa(true), "STT", "CA", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "CA"));
-
             DataTable dt = new DataTable();
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT O.ID_Operator, O.OperatorCode, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN O.OperatorName WHEN 1 THEN ISNULL(NULLIF(O.OperatorNameA, ''),O.OperatorName) ELSE ISNULL(NULLIF(O.OperatorNameH, ''),O.OperatorName) END AS OperatorName FROM dbo.Operator O INNER JOIN dbo.VAITRO_OPERATOR VO ON VO.OPERATOR_ID = O.ID_Operator INNER JOIN dbo.VAI_TRO VT ON VT.MS_VAI_TRO = VO.ID_VAI_TRO WHERE VT.MS_VAI_TRO = 2 UNION SELECT - 1, ' < ALL > ', ' < ALL > '   ORDER BY OperatorCode"));
-
             Commons.Modules.ObjSystems.MLoadSearchLookUpEdit(cboShiftLeader, dt, "ID_Operator", "OperatorCode", this.Name);
-
             try
             {
                 ccbMS_MAY.Properties.DataSource = null;
@@ -134,7 +112,6 @@ namespace VS.OEE
                 ccbMS_MAY.CheckAll();
             }
             catch { }
-            
         }
         private void LoadDataGrid()
         {
@@ -144,8 +121,6 @@ namespace VS.OEE
             {
                 DataTable dt = new DataTable();
                 //Get ngay
-                DateTime dTNgay = Convert.ToDateTime(cboTuan.Text.Split(' ')[2].Split('_')[0]);
-                DateTime dDNgay = Convert.ToDateTime(cboTuan.Text.Split(' ')[2].Split('_')[1]);
 
                 //Get MS_MAY
                 string[] arrMS_MAY = ccbMS_MAY.EditValue.ToString().Split(',');
@@ -159,18 +134,15 @@ namespace VS.OEE
                     }
                 }
                 catch { }
-
                 string sBT_MS_MAY = "sBT_MS_MAY" + Commons.Modules.UserName;
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT_MS_MAY, dt_MS_MAY, "");
-                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingWeekly", Commons.Modules.TypeLanguage, this.Name, dTNgay, dDNgay, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
-           
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetReportMoldingWeekly", Commons.Modules.TypeLanguage, this.Name, datTNgay.DateTime, datDNgay.DateTime, cboID_CA.EditValue, cboShiftLeader.EditValue, sBT_MS_MAY));
                 for (int i = 0; i < dt.Columns.Count; i++)
                 {
                     if (dt.Columns[i].ColumnName == "ID_Result" || dt.Columns[i].ColumnName == "Name_Result") continue;
                     dt.Columns[i].ReadOnly = false;
                 }
-
-                Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldWeekly, grvBCMoldWeekly, dt, true, true, true, true, this.Name);
+                 Commons.Modules.ObjSystems.MLoadXtraGrid(grdBCMoldWeekly, grvBCMoldWeekly, dt, true, false, true, true, this.Name);
                 grvBCMoldWeekly.OptionsBehavior.Editable = true;
                 for (int i = 0; i < grvBCMoldWeekly.Columns.Count; i++)
                 {
@@ -273,11 +245,15 @@ namespace VS.OEE
 
                 Excel.Range Tuan = Commons.Modules.MExcel.GetRange(excelWorkSheet, Dong + 2, 2, Dong + 2, grvBCMoldWeekly.Columns.Count - 1);
                 Tuan.Merge();
-                Tuan.Value = cboTuan.Text;
+                Tuan.Value = datTNgay.Text + " - " + datDNgay.Text;
                 Tuan.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true, 1, 1, 1, 1);
 
+                for (int i = 2; i < grvBCMoldWeekly.Columns.Count; i++)
+                {
+                    Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 13, "@", true, 1, i, 1, i);
+                }
                 excelWorkbook.Save();
                 excelApplication.Visible = true;
                 Commons.Modules.ObjSystems.MReleaseObject(excelWorkSheet);
@@ -286,11 +262,11 @@ namespace VS.OEE
             }
             catch (Exception ex)  { XtraMessageBox.Show(ex.Message); }
         }
-
-
-
         #endregion
-
-      
+        private void datDNgay_EditValueChanged(object sender, EventArgs e)
+        {
+            if (Commons.Modules.sId == "0Load") return;
+            LoadDataGrid();
+        }
     }
 }

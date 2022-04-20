@@ -3718,23 +3718,20 @@ namespace Commons
                                 return;
                             }
                             MUpdate(loai, ".", ".", link3);
-                            return;
+                            break;
                         }
                     case 2: // Updatetren dropbox
                         {
                             if (string.IsNullOrEmpty(link1)) return;
-
                             MUpdate(loai, link1, link2, ".");
-                            return;
+                            break;
                         }
+                    default:{break;}
                 }
             }
             catch
             { }
-
         }
-
-
         private void MUpdate(int loai, String link1, String link2, String link3)
         {
             try

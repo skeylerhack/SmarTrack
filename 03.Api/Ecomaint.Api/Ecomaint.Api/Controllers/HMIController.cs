@@ -325,7 +325,6 @@ namespace CMMSApi.Controllers
             int i = 1;
             try
             {
-
                 //list chứa dữ liệu từ HMI
                 List<ProductionViewModel> lstRequest = JsonConvert.DeserializeObject<List<ProductionViewModel>>(Data);
                 List<SqlParameter> listParameter = new List<SqlParameter>();
@@ -363,8 +362,6 @@ namespace CMMSApi.Controllers
                     {
                         foreach (var item1 in lstRequest)
                         {
-                            //if (item.RUN == 1)
-                            //{
                             listParameter = new List<SqlParameter>();
                             listParameter.Add(new SqlParameter("@Ngay", DateTime.Now));
                             listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
@@ -375,12 +372,12 @@ namespace CMMSApi.Controllers
                             listParameter.Add(new SqlParameter("@Run", item1.RUN));
                             listParameter.Add(new SqlParameter("@HD", HD));
                             Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
-                            //}
                         }
                     }    
                 }    
                 i = 2;
                 List<CapNhatCa> Resulst = CapNhatCa(TN, DN);
+                int n = Resulst.Count;
                 //kiểm tra nếu không có item nào đang chọn thì update  theo mấy thôi
                 if (lstRequest.Count(x => x.RUN == 1) == 0)
                 {
@@ -388,8 +385,8 @@ namespace CMMSApi.Controllers
                     {
                         listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
-                        listParameter.Add(new SqlParameter("@TU_GIO", item1.NGAY_BD));
-                        listParameter.Add(new SqlParameter("@DEN_GIO", item1.NGAY_KT));
+                        listParameter.Add(new SqlParameter("@TU_GIO", n == 1 ? TN : item1.NGAY_BD));
+                        listParameter.Add(new SqlParameter("@DEN_GIO", n == 1 ? DN : item1.NGAY_KT));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                         listParameter.Add(new SqlParameter("@ID_Operator", ID_Operator));
                         listParameter.Add(new SqlParameter("@ItemID", 1));
@@ -409,8 +406,8 @@ namespace CMMSApi.Controllers
                             {
                                 listParameter = new List<SqlParameter>();
                                 //insert dữ liệu vào productionRundetails
-                                listParameter.Add(new SqlParameter("@TU_GIO", item1.NGAY_BD));
-                                listParameter.Add(new SqlParameter("@DEN_GIO", item1.NGAY_KT));
+                                listParameter.Add(new SqlParameter("@TU_GIO", n == 1 ? TN : item1.NGAY_BD));
+                                listParameter.Add(new SqlParameter("@DEN_GIO", n == 1 ? DN : item1.NGAY_KT));
                                 listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                                 listParameter.Add(new SqlParameter("@ID_Operator", ID_Operator));
                                 listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
@@ -470,6 +467,9 @@ namespace CMMSApi.Controllers
         {
             DateTime TNgay = TN;
             DateTime DNgay = DN;
+
+            
+
             List<DateTime> ListNgay = new List<DateTime>();
             ListNgay.Add(TN.AddDays(-1));
             //lấy tất cả các ngày có trong list

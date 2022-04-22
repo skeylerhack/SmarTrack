@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 
 namespace VS.OEE
 {
@@ -38,6 +39,9 @@ namespace VS.OEE
 
                 grvBCNgungMay.Columns["THOI_GIAN_SUA_CHUA"].DisplayFormat.FormatType = FormatType.Numeric;
                 grvBCNgungMay.Columns["THOI_GIAN_SUA_CHUA"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+
+                grvBCNgungMay.Columns["THOI_GIAN_SUA_CHUA"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                grvBCNgungMay.Columns["THOI_GIAN_SUA_CHUA"].SummaryItem.DisplayFormat = "Sum = {0:n2}";
 
             }
             catch

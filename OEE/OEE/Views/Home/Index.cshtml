@@ -6,10 +6,10 @@
 <head>
     @*<meta http-equiv="refresh" content="60">*@
 </head>
-@{
+@*@{
     string AutoRefresh = System.Configuration.ConfigurationManager.AppSettings["pagerefresh"];
     this.Response.AppendHeader("Refresh", AutoRefresh);
-}
+}*@
 <style>
     .background {
         margin: 0;

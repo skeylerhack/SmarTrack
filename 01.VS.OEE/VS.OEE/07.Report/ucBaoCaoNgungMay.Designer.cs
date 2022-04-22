@@ -137,6 +137,7 @@
             // 
             this.grvBCNgungMay.GridControl = this.grdBCNgungMay;
             this.grvBCNgungMay.Name = "grvBCNgungMay";
+            this.grvBCNgungMay.OptionsView.ShowFooter = true;
             this.grvBCNgungMay.OptionsView.ShowGroupPanel = false;
             // 
             // datTuNgay

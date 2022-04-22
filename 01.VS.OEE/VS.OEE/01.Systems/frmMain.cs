@@ -779,7 +779,7 @@ namespace VS.OEE
             catch { }
             try
             {
-                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 34, 14, "trammp335@gmail.com", "thanhthuy2612", "smtp.gmail.com", 587);
+                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 34, 30, "trammp335@gmail.com", "thanhthuy2612", "smtp.gmail.com", 587);
                 frm.ShowDialog();
             }
             catch (Exception)

@@ -362,6 +362,11 @@ namespace CMMSApi.Controllers
                     {
                         foreach (var item1 in lstRequest)
                         {
+                            //kiểm tra item đó đến ngày có nằm trong tiến độ thì là ngày hiện tại
+                            
+
+                            //ngược lại là đến ngày
+
                             listParameter = new List<SqlParameter>();
                             listParameter.Add(new SqlParameter("@Ngay", DateTime.Now));
                             listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));

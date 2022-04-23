@@ -221,6 +221,12 @@
     <Compile Include="07.Report\ucBaoCaoChenhLechDinhMuc.Designer.cs">
       <DependentUpon>ucBaoCaoChenhLechDinhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="07.Report\ucBaoCaoThoiGianChayMay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoThoiGianChayMay.Designer.cs">
+      <DependentUpon>ucBaoCaoThoiGianChayMay.cs</DependentUpon>
+    </Compile>
     <Compile Include="07.Report\ucBaoCaoTieuThuDienNang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -666,6 +672,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaoCaoChenhLechDinhMuc.resx">
       <DependentUpon>ucBaoCaoChenhLechDinhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaoCaoThoiGianChayMay.resx">
+      <DependentUpon>ucBaoCaoThoiGianChayMay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaoCaoTieuThuDienNang.resx">
       <DependentUpon>ucBaoCaoTieuThuDienNang.cs</DependentUpon>

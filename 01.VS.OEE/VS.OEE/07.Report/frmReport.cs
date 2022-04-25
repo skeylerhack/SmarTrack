@@ -149,6 +149,11 @@ namespace VS.OEE
                             Adduac(new ucBaoCaoThaoTacHMI(), Convert.ToInt32(button.Tag));
                             break;
                         }
+                    case "mnuThoiGianChay":
+                        {
+                            Adduac(new ucBaoCaoThoiGianChayMay(), Convert.ToInt32(button.Tag));
+                            break;
+                        }
                     default:
                         break;
                 }

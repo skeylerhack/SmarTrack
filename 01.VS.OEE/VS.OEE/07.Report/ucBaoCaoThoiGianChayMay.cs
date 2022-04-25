@@ -5,6 +5,7 @@ using Commons;
 using Microsoft.ApplicationBlocks.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.Utils;
 
 namespace VS.OEE
 {
@@ -29,16 +30,17 @@ namespace VS.OEE
             DataTable dtmp = new DataTable();
             try
             {
-                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBaoCaoTieuThuDienNang", cboMay.EditValue, datTuNgay.DateTime, datDenNgay.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
+                dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBaoCaoThoiGianChayMay", cboMay.EditValue, datTuNgay.DateTime, datDenNgay.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 Modules.ObjSystems.MLoadXtraGrid(grdThoiGianChayMay, grvThoiGianChayMay, dtmp, false, true, true, true, this.Name);
 
-                Commons.Modules.ObjSystems.AddCombDateMinuteEdit("THOI_GIAN", grvThoiGianChayMay);
-                
+                grvThoiGianChayMay.Columns["TongTG"].DisplayFormat.FormatType = FormatType.Numeric;
+                grvThoiGianChayMay.Columns["TongTG"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
 
-                //for (int i = grvTongHopHieuXuat.Columns.Count - 4; i < grvTongHopHieuXuat.Columns.Count; i++)
-                //{
-                //    grvTongHopHieuXuat.Columns[i].AppearanceHeader.BackColor = Color.BlueViolet;
-                //}
+                grvThoiGianChayMay.Columns["TGNgung"].DisplayFormat.FormatType = FormatType.Numeric;
+                grvThoiGianChayMay.Columns["TGNgung"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+
+                grvThoiGianChayMay.Columns["TGChay"].DisplayFormat.FormatType = FormatType.Numeric;
+                grvThoiGianChayMay.Columns["TGChay"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
             }
             catch
             {
@@ -63,7 +65,7 @@ namespace VS.OEE
             Excel.Application excelApplication = new Excel.Application();
             excelApplication.DisplayAlerts = true;
             Excel.Range title;
-            int TCot = grvThoiGianChayMay.Columns.Count;
+            int TCot = 8;
             int TDong = grvThoiGianChayMay.RowCount;
             int Dong = 1;
             excelApplication.Visible = false;
@@ -86,7 +88,7 @@ namespace VS.OEE
                 Commons.Modules.MExcel.ThemDong(excelWorkSheet, Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown, 4, Dong);
                 Dong = 4;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName,
-                    this.Name, "TieuDeTongHopHieuXuat", Commons.Modules.TypeLanguage)
+                    this.Name, "TieuDeThoiGianChayMay", Commons.Modules.TypeLanguage)
                     , Dong, 1, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 1, 25);
                 Dong = 6;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, "" + lblTuNgay.Text + "" + ": " + datTuNgay.Text +" - "+ lblDenNgay.Text + "" + ": " + datDenNgay.Text, Dong, 1 , "@", 9, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong,TCot, 15);

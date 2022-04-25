@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>E:\01.SmarTrack\OEE\Publish\LCD</_PublishTargetUrl>
-    <History>True|2021-12-17T03:50:54.5111026Z;True|2021-12-13T16:12:35.3346657+07:00;True|2021-12-13T15:39:11.7312275+07:00;True|2021-12-13T13:22:51.5601938+07:00;True|2021-12-13T10:16:01.8702233+07:00;True|2021-12-11T09:36:05.1325122+07:00;</History>
+    <History>True|2022-04-25T14:56:34.4873771Z;True|2021-12-17T10:50:54.5111026+07:00;True|2021-12-13T16:12:35.3346657+07:00;True|2021-12-13T15:39:11.7312275+07:00;True|2021-12-13T13:22:51.5601938+07:00;True|2021-12-13T10:16:01.8702233+07:00;True|2021-12-11T09:36:05.1325122+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -27,10 +27,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/10/2022 08:27:09</publishTime>
     </File>
     <File Include="bin/OEE.dll">
-      <publishTime>04/13/2022 11:48:01</publishTime>
+      <publishTime>04/25/2022 22:03:16</publishTime>
     </File>
     <File Include="bin/OEE.pdb">
-      <publishTime>04/13/2022 11:48:01</publishTime>
+      <publishTime>04/25/2022 22:03:16</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>01/10/2022 08:27:06</publishTime>
@@ -1869,13 +1869,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/10/2022 08:26:44</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
-      <publishTime>01/10/2022 08:26:44</publishTime>
+      <publishTime>04/25/2022 22:03:06</publishTime>
     </File>
     <File Include="Views/Home/DetailLCD.cshtml">
       <publishTime>06/04/2022 11:20:53</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/09/2022 12:21:24</publishTime>
+      <publishTime>04/25/2022 22:00:44</publishTime>
     </File>
     <File Include="Views/Home/IndexLCD.cshtml">
       <publishTime>06/04/2022 11:43:50</publishTime>
@@ -1896,7 +1896,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/10/2022 08:26:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/13/2022 11:48:03</publishTime>
+      <publishTime>04/25/2022 21:56:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

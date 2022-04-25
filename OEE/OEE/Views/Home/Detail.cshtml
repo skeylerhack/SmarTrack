@@ -8,10 +8,10 @@
 <script src="~/Scripts/highcharts/7.1.2/modules/export-data.js"></script>
 <script src="~/Scripts/highcharts/7.1.2/modules/accessibility.js"></script>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-@*@{
+@{
     string AutoRefresh = System.Configuration.ConfigurationManager.AppSettings["pagerefresh"];
     this.Response.AppendHeader("Refresh", AutoRefresh);
-}*@
+}
 
 <style type="text/css">
 
@@ -587,7 +587,7 @@
                                 <div class="col-lg" style="background-color:rgb(255,196,9);width:20%"><span class="label">Below OEE</span></div>
                                 <div class="col-lg" style="background-color:rgb(67,60,200);width:20%"><span class="label">Planned DT</span></div>
                                 <div class="col-lg" style="background-color:rgb(220,86,86);width:20%"><span class="label">Unplanned DT</span></div>
-                                <div class="col-lg" style="background-color:rgb(127,127,127);width:20%"><span class="label">Không chạy</span></div>
+                                <div class="col-lg" style="background-color:rgb(127,127,127);width:20%"><span class="label">Idle</span></div>
                                 <div class="col-lg" style="width:10%"></div>
                             </div>
                         </div>

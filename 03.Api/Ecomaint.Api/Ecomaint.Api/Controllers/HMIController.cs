@@ -249,7 +249,6 @@ namespace CMMSApi.Controllers
                 return Json(new ProductionViewModel { ORDER = "NON", QTY = 0, PLAN = 0, Actual = 0, RUN = 0, DataCollectionCycle = 0, WorkingCycle = 0, ItemID = -1, PROID = -1 }, JsonRequestBehavior.AllowGet);
             }
         }
-
         //cập nhật số lượng thực tế chỗ lấy 5p một lần
         //public JsonResult UpdateSoLuong(string Ngay, string Data, string MS_MAY, string ID_NV, string HD)
         //{
@@ -332,55 +331,7 @@ namespace CMMSApi.Controllers
                 DateTime DN = DateTime.ParseExact(denngay, "dd/MM/yyyyHH:mm:ss", CultureInfo.InvariantCulture);
                 Int64 ID_Operator = Convert.ToInt64(ID_NV);
                 int MS_NguyenNhan = Convert.ToInt32(MS_NGUYEN_NHAN);
-
                 UpdateHanhDongHMI(MS_MAY, HD, MS_NGUYEN_NHAN, TN);
-
-                if (MS_NguyenNhan == 22)
-                {
-                    //với nguyên nhân đang chờ người đứng mấy thì update số lượng
-                    foreach (var item in lstRequest)
-                    {
-                        //if (item.RUN == 1)
-                        //{
-                        listParameter = new List<SqlParameter>();
-                        //insert dữ liệu vào productionRundetails
-                        listParameter.Add(new SqlParameter("@Ngay", TN));
-                        listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
-                        listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
-                        listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
-                        listParameter.Add(new SqlParameter("@PrOID", item.PROID));
-                        listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
-                        listParameter.Add(new SqlParameter("@Run", item.RUN));
-                        listParameter.Add(new SqlParameter("@HD", HD));
-                        Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
-                        //}
-                    }
-
-                } else
-                {
-                    if (MS_NguyenNhan != 21 && MS_NguyenNhan != 23 && MS_NguyenNhan != 62)
-                    {
-                        foreach (var item1 in lstRequest)
-                        {
-                            //kiểm tra item đó đến ngày có nằm trong tiến độ thì là ngày hiện tại
-                            
-
-                            //ngược lại là đến ngày
-
-                            listParameter = new List<SqlParameter>();
-                            listParameter.Add(new SqlParameter("@Ngay", DateTime.Now));
-                            listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
-                            listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
-                            listParameter.Add(new SqlParameter("@ItemID", item1.ItemID));
-                            listParameter.Add(new SqlParameter("@PrOID", item1.PROID));
-                            listParameter.Add(new SqlParameter("@ActualQuantity", item1.Actual));
-                            listParameter.Add(new SqlParameter("@Run", item1.RUN));
-                            listParameter.Add(new SqlParameter("@HD", HD));
-                            Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
-                        }
-                    }    
-                }    
-                i = 2;
                 List<CapNhatCa> Resulst = CapNhatCa(TN, DN);
                 int n = Resulst.Count;
                 //kiểm tra nếu không có item nào đang chọn thì update  theo mấy thôi
@@ -390,6 +341,7 @@ namespace CMMSApi.Controllers
                     {
                         listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
+
                         listParameter.Add(new SqlParameter("@TU_GIO", n == 1 ? TN : item1.NGAY_BD));
                         listParameter.Add(new SqlParameter("@DEN_GIO", n == 1 ? DN : item1.NGAY_KT));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
@@ -421,12 +373,44 @@ namespace CMMSApi.Controllers
                                 listParameter.Add(new SqlParameter("@Loai", 2));
                                 Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCapNhatDungMay", listParameter);
                             }
+
+                            if (MS_NguyenNhan == 22)
+                            {
+                                listParameter = new List<SqlParameter>();
+                                listParameter.Add(new SqlParameter("@Ngay", TN));
+                                listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
+                                listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
+                                listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
+                                listParameter.Add(new SqlParameter("@PrOID", item.PROID));
+                                listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
+                                listParameter.Add(new SqlParameter("@Run", item.RUN));
+                                listParameter.Add(new SqlParameter("@HD", HD));
+                                Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
+                            }
+                            else
+                            {
+                                if (MS_NguyenNhan != 21 && MS_NguyenNhan != 23 && MS_NguyenNhan != 62)
+                                {
+                                    listParameter = new List<SqlParameter>();
+                                    //kiểm tra nếu tồn tại thì lấy ngày hiện tại ngược lại lấy ngày đầu ca.
+                                    DateTime Date = n == 1 ? DateTime.Now : Resulst.Max(x => x.NGAY_BD);
+                                    listParameter.Add(new SqlParameter("@Ngay", Date));
+                                    listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
+                                    listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
+                                    listParameter.Add(new SqlParameter("@ItemID", item.ItemID));
+                                    listParameter.Add(new SqlParameter("@PrOID", item.PROID));
+                                    listParameter.Add(new SqlParameter("@ActualQuantity", item.Actual));
+                                    listParameter.Add(new SqlParameter("@Run", item.RUN));
+                                    listParameter.Add(new SqlParameter("@HD", HD));
+                                    Ecomaint.Api.DBUtils.ExecNonQuerySP("spApiCreateProDuctionRun", listParameter);
+                                }
+                            }
                         }
                     }
                 }
                 return Json(new ResulstViewModel { MS_TRANG_THAI = 1, TEN_TRANG_THAI = "Thành công", SO_DONG = lstRequest.Count }, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception exx)
+            catch
             {
                 if (i == 2)
                 {
@@ -473,7 +457,7 @@ namespace CMMSApi.Controllers
             DateTime TNgay = TN;
             DateTime DNgay = DN;
 
-            
+
 
             List<DateTime> ListNgay = new List<DateTime>();
             ListNgay.Add(TN.AddDays(-1));

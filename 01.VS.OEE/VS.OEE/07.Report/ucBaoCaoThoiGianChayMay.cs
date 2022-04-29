@@ -65,7 +65,7 @@ namespace VS.OEE
             Excel.Application excelApplication = new Excel.Application();
             excelApplication.DisplayAlerts = true;
             Excel.Range title;
-            int TCot = 8;
+            int TCot = grvThoiGianChayMay.Columns.Count;
             int TDong = grvThoiGianChayMay.RowCount;
             int Dong = 1;
             excelApplication.Visible = false;
@@ -83,13 +83,13 @@ namespace VS.OEE
                 excelApplication.Cells.Font.Size = 10;
                 excelWorkSheet.AutoFilterMode = false;
                 excelWorkSheet.Application.ActiveWindow.FreezePanes = false;
-                Dong = Commons.Modules.MExcel.TaoTTChung(excelWorkSheet, 1, 2, 1, TCot);
+                Dong = Commons.Modules.MExcel.TaoTTChung(excelWorkSheet, 1, 2, 1, 8);
                 Commons.Modules.MExcel.TaoLogo(excelWorkSheet, 0, 0, 110, 45, Application.StartupPath);
                 Commons.Modules.MExcel.ThemDong(excelWorkSheet, Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown, 4, Dong);
                 Dong = 4;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, Commons.Modules.ObjLanguages.GetLanguage(Commons.Modules.ModuleName,
                     this.Name, "TieuDeThoiGianChayMay", Commons.Modules.TypeLanguage)
-                    , Dong, 1, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, TCot - 1, 25);
+                    , Dong, 1, "@", 16, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong, 8 - 1, 25);
                 Dong = 6;
                 Commons.Modules.MExcel.DinhDang(excelWorkSheet, "" + lblTuNgay.Text + "" + ": " + datTuNgay.Text +" - "+ lblDenNgay.Text + "" + ": " + datDenNgay.Text, Dong, 1 , "@", 9, true, Excel.XlHAlign.xlHAlignCenter, Excel.XlVAlign.xlVAlignCenter, true, Dong,TCot, 15);
 

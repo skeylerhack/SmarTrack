@@ -1383,6 +1383,7 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoKeHoachSanXuat.resourc
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingDaily.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaocaoMoldingWeekly.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoChenhLechDinhMuc.resources
+G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoThoiGianChayMay.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoTieuThuDienNang.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmChooseOperator.resources
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.frmThoiGianNgungMay_KTTD_View.resources
@@ -1458,4 +1459,3 @@ G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CoreCompileInputs.cache
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.csproj.CopyComplete
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.exe
 G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.pdb
-G:\01.SmarTrack\01.VS.OEE\VS.OEE\obj\Debug\VS.OEE.ucBaoCaoThoiGianChayMay.resources

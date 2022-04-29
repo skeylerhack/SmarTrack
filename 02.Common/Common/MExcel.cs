@@ -1491,11 +1491,6 @@ public class MExcel
                             XtraMessageBox.Show(ex1.Message.ToString() + "\n " + " row : " + i.ToString() + " col : " + j.ToString());
                             return null;
                         }
-
-
-
-
-
                     }
                 }
 

@@ -5,6 +5,7 @@ using Commons;
 using Microsoft.ApplicationBlocks.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.Utils;
 
 namespace VS.OEE
 {
@@ -31,9 +32,8 @@ namespace VS.OEE
             {
                 dtmp.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, "spGetBaoCaoTieuThuDienNang", cboMay.EditValue, datTuNgay.DateTime, datDenNgay.DateTime, Commons.Modules.UserName, Commons.Modules.TypeLanguage));
                 Modules.ObjSystems.MLoadXtraGrid(grdTongHopHieuXuat, grvTongHopHieuXuat, dtmp, false, true, true, true, this.Name);
-
-                Commons.Modules.ObjSystems.AddCombDateMinuteEdit("THOI_GIAN", grvTongHopHieuXuat);
-                
+                grvTongHopHieuXuat.Columns["W"].DisplayFormat.FormatType = FormatType.Numeric;
+                grvTongHopHieuXuat.Columns["W"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
 
                 //for (int i = grvTongHopHieuXuat.Columns.Count - 4; i < grvTongHopHieuXuat.Columns.Count; i++)
                 //{

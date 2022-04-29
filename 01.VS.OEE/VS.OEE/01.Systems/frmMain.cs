@@ -766,7 +766,8 @@ namespace VS.OEE
 
         public void ShowYeuCauHoTro()
         {
-            string sDThoai = "", sTenNV = "", sTenCty = "", sMail = "";
+            string sDThoai = "", sTenNV = "", sTenCty = "", sMail = "", sMailfrom = "", sPassMail = "", sSMTP = "";
+            int Port = 0;
             try
             {
                 DataTable dt = new DataTable();
@@ -775,22 +776,29 @@ namespace VS.OEE
                 sMail = dt.Rows[0]["MAIL"].ToString();
                 sDThoai = dt.Rows[0]["PHONE"].ToString();
                 sTenNV = dt.Rows[0]["FULL_NAME"].ToString();
+
+                dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL FROM dbo.THONG_TIN_CHUNG"));
+                sMailfrom = dt.Rows[0]["MAIL_FROM"].ToString();
+                sPassMail = Commons.Modules.OXtraGrid.GiaiMaDL(dt.Rows[0]["PASS_MAIL"].ToString());
+                sSMTP = dt.Rows[0]["SMTP_MAIL"].ToString();
+                Port = Convert.ToInt32(dt.Rows[0]["PORT_MAIL"]);
             }
             catch { }
             try
             {
-                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 34, 30, "trammp335@gmail.com", "thanhthuy2612", "smtp.gmail.com", 587);
+                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 52, 30, sMailfrom, sPassMail, sSMTP, Port);
                 frm.ShowDialog();
             }
             catch (Exception)
             {
-
             }
         }
 
         public void ShowPhanHoiVietSoft()
         {
-            string sDThoai = "", sTenNV = "", sTenCty = "", sMail = "";
+            string sDThoai = "", sTenNV = "", sTenCty = "", sMail = "", sMailfrom = "", sPassMail = "",sSMTP = "";
+            int Port = 0;
             try
             {
                 DataTable dt = new DataTable();
@@ -799,11 +807,18 @@ namespace VS.OEE
                 sMail = dt.Rows[0]["MAIL"].ToString();
                 sDThoai = dt.Rows[0]["PHONE"].ToString();
                 sTenNV = dt.Rows[0]["FULL_NAME"].ToString();
+
+                dt = new DataTable();
+                dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT MAIL_FROM,PASS_MAIL,SMTP_MAIL,PORT_MAIL FROM dbo.THONG_TIN_CHUNG"));
+                sMailfrom = dt.Rows[0]["MAIL_FROM"].ToString();
+                sPassMail = Commons.Modules.OXtraGrid.GiaiMaDL(dt.Rows[0]["PASS_MAIL"].ToString());
+                sSMTP = dt.Rows[0]["SMTP_MAIL"].ToString();
+                Port = Convert.ToInt32(dt.Rows[0]["PORT_MAIL"]);
             }
             catch { }
 
-            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 34,"trammp335@gmail.com", "thanhthuy2612", "smtp.gmail.com", 587);
-            frm.ShowDialog();
+            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 52,sMailfrom, sPassMail,sSMTP, Port);
+            frm.ShowDialog();  
         }
 
         public void ShowELearning()

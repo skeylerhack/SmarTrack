@@ -2064,6 +2064,7 @@ E:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CoreCompileInputs.cach
 E:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.csproj.CopyComplete
 E:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.dll
 E:\01.SmarTrack\02.Common\Common\obj\Debug\Commons.pdb
+G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraBars.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.dll.config
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.dll
 G:\01.SmarTrack\02.Common\Common\bin\Debug\Commons.pdb
@@ -2128,7 +2129,6 @@ G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Utils.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraEditors.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraGrid.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraTreeList.v9.2.xml
-G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraBars.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraPrinting.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.Data.v9.2.xml
 G:\01.SmarTrack\02.Common\Common\bin\Debug\DevExpress.XtraLayout.v9.2.xml

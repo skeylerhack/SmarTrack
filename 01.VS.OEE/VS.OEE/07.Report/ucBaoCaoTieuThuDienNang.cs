@@ -34,7 +34,6 @@ namespace VS.OEE
                 Modules.ObjSystems.MLoadXtraGrid(grdTongHopHieuXuat, grvTongHopHieuXuat, dtmp, false, true, true, true, this.Name);
                 grvTongHopHieuXuat.Columns["W"].DisplayFormat.FormatType = FormatType.Numeric;
                 grvTongHopHieuXuat.Columns["W"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
-
                 //for (int i = grvTongHopHieuXuat.Columns.Count - 4; i < grvTongHopHieuXuat.Columns.Count; i++)
                 //{
                 //    grvTongHopHieuXuat.Columns[i].AppearanceHeader.BackColor = Color.BlueViolet;

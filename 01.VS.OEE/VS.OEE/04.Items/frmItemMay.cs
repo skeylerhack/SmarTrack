@@ -16,6 +16,7 @@ namespace VS.OEE
         static int iPQ = 1;
         Int64 ithem = 0;
         string sBT = "TMPItemMay" + Commons.Modules.UserName;
+        string strDuongDan = "-1";
         public frmItemMay(int PQ)
         {
             iPQ = PQ;
@@ -322,8 +323,13 @@ namespace VS.OEE
                 Commons.Modules.ObjSystems.MCreateTableToDatatable(Commons.IConnections.CNStr, sBT, Commons.Modules.ObjSystems.ConvertDatatable(grdItemMay), "");
                 LoadgrdItem(Convert.ToInt64(
                 SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, "spEditItemMay", ithem, txtItemCode.EditValue, txtItemName.EditValue, txtItemNameA.EditValue, txtItemNameH.EditValue, txtOtherName.EditValue, txtBarcode.EditValue,
-                            cboItemGroup.EditValue, txtDescription.EditValue, cboUOMGroupID.EditValue,
+                            cboItemGroup.EditValue, txtDescription.Text.Trim(), cboUOMGroupID.EditValue,
                             string.IsNullOrEmpty(cboBasedUOM.Text) ? 0 : cboBasedUOM.EditValue, sBT)));
+                    if(strDuongDan !="")
+                {
+                    Commons.Modules.ObjSystems.LuuDuongDan(strDuongDan, txtDescription.Text);
+                }
+
             }
             catch (Exception ex)
             {
@@ -518,6 +524,52 @@ namespace VS.OEE
             {
             }
            
+        }
+
+        private void LayDuongDan()
+        {
+            string strPath_DH = txtDescription.Text;
+             strDuongDan = ofdChonHinh.FileName;
+            if (txtItemCode.Text != "")
+            {
+                var strDuongDanTmp = Commons.Modules.ObjSystems.CapnhatTL(txtItemCode.Text);
+                string[] sFile;
+                string TenFile;
+                int i = 1;
+
+                TenFile = "PT_" + ofdChonHinh.SafeFileName.ToString();
+                sFile = System.IO.Directory.GetFiles(strDuongDanTmp);
+
+                if (Commons.Modules.ObjSystems.KiemFileTonTai(strDuongDanTmp + @"\" + "MH_" + ofdChonHinh.SafeFileName.ToString()) == false)
+                    txtDescription.Text = strDuongDanTmp + @"\" + "MH_" + ofdChonHinh.SafeFileName.ToString();
+                else
+                {
+                    TenFile = Commons.Modules.ObjSystems.STTFileCungThuMuc(strDuongDanTmp, TenFile);
+                    txtDescription.Text = strDuongDanTmp + @"\" + TenFile;
+                }
+            }
+        }
+
+
+        private void txtDescription_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            try
+            {
+                if (btnGhi.Visible)
+                {
+                    ofdChonHinh.ShowDialog();
+                    LayDuongDan();
+                }
+                else
+                {
+                    if (txtDescription.Text == "")
+                        return;
+                    Commons.Modules.ObjSystems.OpenHinh(txtDescription.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

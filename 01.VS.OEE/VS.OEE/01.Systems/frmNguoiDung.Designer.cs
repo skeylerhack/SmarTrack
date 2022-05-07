@@ -207,6 +207,7 @@
             this.grvNguoiDung.GridControl = this.grdNguoiDung;
             this.grvNguoiDung.Name = "grvNguoiDung";
             this.grvNguoiDung.OptionsView.ShowGroupPanel = false;
+            this.grvNguoiDung.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.grvNguoiDung_RowCellStyle);
             // 
             // cboNhom
             // 

@@ -232,5 +232,10 @@ namespace VS.OEE
                 XtraMessageBox.Show(ex.Message);
             }
         }
+
+        private void grvNguoiDung_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+
+        }
     }
 }

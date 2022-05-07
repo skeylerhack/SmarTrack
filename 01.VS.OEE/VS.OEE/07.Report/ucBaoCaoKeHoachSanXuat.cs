@@ -56,7 +56,7 @@ namespace VS.OEE
 
                 for (int i = 0; i < grvKeHoachSanXuat.Columns.Count; i++)
                 {
-                    if (i > 4)
+                    if (i > 5)
                     {
                         grvKeHoachSanXuat.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
                         grvKeHoachSanXuat.Columns[i].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
@@ -248,7 +248,7 @@ namespace VS.OEE
         {
             if (grvKeHoachSanXuat.DataSource == null) return;
             ColumnView view = sender as ColumnView;
-            if (e.Column.VisibleIndex >4  && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            if (e.Column.VisibleIndex >5  && e.ListSourceRowIndex != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
             {
                 var resulst = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "Name_Resulst");
                 decimal price;

@@ -760,7 +760,6 @@ namespace VS.OEE
                         view.SetColumnError(view.Columns["colPrOID"], "Chưa chọn đủ dữ liệu!");
                     }
                 }
-
             }
             catch (Exception ex)
             {

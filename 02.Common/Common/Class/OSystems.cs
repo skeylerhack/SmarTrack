@@ -28,6 +28,7 @@ using System.Drawing;
 using System.Diagnostics;
 using DevExpress.XtraPrinting;
 using DevExpress.Export;
+using System.Data.SqlClient;
 
 namespace Commons
 {
@@ -41,6 +42,195 @@ namespace Commons
             dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT KEYWORD,VIETNAM AS NN FROM dbo.LANGUAGES WHERE	FORM = 'ucLyLich'"));
             return dt;
         }
+
+
+        #region lưu tài liệu
+        public bool KiemFileTonTai(string sFile)
+        {
+            try
+            {
+                return (System.IO.File.Exists(sFile));
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public DataTable GetDUONG_DAN_HINH(int STT)
+        {
+            DataTable objDataTable = new DataTable();
+            objDataTable.Load(SqlHelper.ExecuteReader(IConnections.CNStr, "GetDUONG_DAN_HINH", STT));
+            return objDataTable;
+        }
+        public void LuuDuongDan(string strDUONG_DAN, string strHINH)
+        {
+            if (strHINH.Equals(""))
+                return;
+            if (System.IO.File.Exists(strDUONG_DAN) & !System.IO.File.Exists(strHINH))
+            {
+                try
+                {
+                    System.IO.File.Copy(strDUONG_DAN, strHINH);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        public string LocKyTuDB(string sChuoi)
+        {
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace("/", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace(@"\", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace("*", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace("-", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace(".", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace("!", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace("@", "-");
+            if (sChuoi.Length > 0)
+                sChuoi = sChuoi.Replace("#", "-");
+            return sChuoi;
+        }
+        public string LayDuoiFile(string strFile)
+        {
+            string[] FILE_NAMEArr, arr;
+            string FILE_NAME = "";
+            FILE_NAMEArr = strFile.Split('\\');
+            FILE_NAME = FILE_NAMEArr[FILE_NAMEArr.Length - 1];
+            arr = FILE_NAME.Split('.');
+            return "." + arr[arr.Length - 1];
+        }
+
+        public string STTFileCungThuMuc(string sThuMuc, string sFile)
+        {
+            string TenFile = sFile;
+            string DuoiFile;
+            try
+            {
+                DuoiFile = LayDuoiFile(sFile);
+            }
+            catch (Exception ex)
+            {
+                DuoiFile = "";
+            }
+
+
+            try
+            {
+                string[] sTongFile;
+                int i = 1;
+
+                TenFile = sFile;
+                sTongFile = System.IO.Directory.GetFiles(sThuMuc);
+
+
+                for (i = 1; i <= sTongFile.Length + 1; i++)
+                {
+                    if (System.IO.File.Exists(sThuMuc + @"\" + TenFile) == true)
+                    {
+                        if (i.ToString().Length == 1)
+                            TenFile = sFile.Replace(DuoiFile, "-00" + i.ToString()) + DuoiFile;
+                        else if (i.ToString().Length == 2)
+                            TenFile = sFile.Replace(DuoiFile, "-0" + i.ToString()) + DuoiFile;
+                        else
+                            TenFile = sFile.Replace(DuoiFile, "-" + i.ToString()) + DuoiFile;
+                    }
+                    else
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                TenFile = "";
+            }
+
+            return TenFile;
+        }
+        public void OpenHinh(string strDuongdan)
+        {
+            if (strDuongdan.Equals(""))
+                return;
+            if (System.IO.File.Exists(strDuongdan))
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(strDuongdan);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        public string CapnhatTL(string strMS_MAY)
+        {
+            strMS_MAY = LocKyTuDB(strMS_MAY);
+            string SERVER_FOLDER_PATH = "";
+            string SERVER_PATH = "";
+            SERVER_PATH = SqlHelper.ExecuteScalar(Commons.IConnections.CNStr, CommandType.Text, "SELECT TOP 1 DUONG_DAN_TL FROM dbo.THONG_TIN_CHUNG").ToString();
+            if (!System.IO.Directory.Exists(SERVER_PATH))
+                SERVER_PATH = "";
+            if (!SERVER_PATH.EndsWith(@"\"))
+                SERVER_PATH = SERVER_PATH + @"\";
+            SERVER_FOLDER_PATH = SERVER_PATH;
+            if (System.IO.Directory.Exists(SERVER_PATH))
+            {
+                string[] FILE_TEMPArr;
+                FILE_TEMPArr = System.IO.Directory.GetFileSystemEntries(SERVER_PATH);
+                int i = 0;
+                string[] arr;
+                while (i < FILE_TEMPArr.Length) // tài liệu
+                {
+                    arr = FILE_TEMPArr[i].Split('\\');
+                    if (arr[arr.Length - 1].Equals("Tai_Lieu_MH"))
+                    {
+                        SERVER_FOLDER_PATH = SERVER_FOLDER_PATH + arr[arr.Length - 1];
+                        // kiểm tra folder MS_MAY đã tồn tại chưa
+                        string[] FILE_TEMPArr1;
+                        FILE_TEMPArr1 = System.IO.Directory.GetFileSystemEntries(SERVER_FOLDER_PATH);
+                        int j = 0; // MS_MAY
+                        while (j < FILE_TEMPArr1.Length)
+                        {
+                            arr = FILE_TEMPArr1[j].Split('\\');
+                            if (arr[arr.Length - 1].Equals(strMS_MAY))
+                            {
+                                SERVER_FOLDER_PATH = SERVER_FOLDER_PATH + @"\" + arr[arr.Length - 1];
+                                break; // MS_MAY
+                            }
+                            j = j + 1;
+                        } // MS_MAY
+                        if (j == FILE_TEMPArr1.Length)
+                        {
+                            SERVER_FOLDER_PATH = SERVER_FOLDER_PATH + @"\" + strMS_MAY;
+                            System.IO.Directory.CreateDirectory(SERVER_FOLDER_PATH);
+                        }
+                        break; // tài liệu
+                    }
+                    i = i + 1;
+                } // tài liệu
+                if (i == FILE_TEMPArr.Length)
+                {
+                    // nếu chưa tồn tại folder bảo trì thì tạo mới folder bảo trì và các folder hình máy và tài liệu máy
+                    SERVER_FOLDER_PATH = SERVER_FOLDER_PATH + @"Tai_Lieu_MH\" + strMS_MAY;
+                    System.IO.Directory.CreateDirectory(SERVER_FOLDER_PATH);
+                }
+            }
+            else
+            {
+            }
+            return SERVER_FOLDER_PATH;
+        }
+
+        #endregion
+
 
         #region LoadLookupedit
 
@@ -3726,7 +3916,7 @@ namespace Commons
                             MUpdate(loai, link1, link2, ".");
                             break;
                         }
-                    default:{break;}
+                    default: { break; }
                 }
             }
             catch

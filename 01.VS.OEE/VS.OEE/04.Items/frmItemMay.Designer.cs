@@ -54,7 +54,6 @@
             this.lblBasedUOM = new DevExpress.XtraEditors.LabelControl();
             this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
             this.txtItemName = new DevExpress.XtraEditors.TextEdit();
-            this.txtDescription = new DevExpress.XtraEditors.TextEdit();
             this.txtOtherName = new DevExpress.XtraEditors.TextEdit();
             this.cboItemGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.cboUOMGroupID = new DevExpress.XtraEditors.LookUpEdit();
@@ -66,6 +65,8 @@
             this.groItemMay = new DevExpress.XtraEditors.GroupControl();
             this.grdItemMay = new DevExpress.XtraGrid.GridControl();
             this.grvItemMay = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtDescription = new DevExpress.XtraEditors.ButtonEdit();
+            this.ofdChonHinh = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -82,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtItemCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItemName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOtherName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItemGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUOMGroupID.Properties)).BeginInit();
@@ -93,6 +93,7 @@
             this.groItemMay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdItemMay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvItemMay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -179,6 +180,7 @@
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 120F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
+            this.tablecontrol.Controls.Add(this.txtDescription);
             this.tablecontrol.Controls.Add(this.panelNN);
             this.tablecontrol.Controls.Add(this.txtItemCode);
             this.tablecontrol.Controls.Add(this.lblItemCode);
@@ -191,7 +193,6 @@
             this.tablecontrol.Controls.Add(this.lblBasedUOM);
             this.tablecontrol.Controls.Add(this.txtBarcode);
             this.tablecontrol.Controls.Add(this.txtItemName);
-            this.tablecontrol.Controls.Add(this.txtDescription);
             this.tablecontrol.Controls.Add(this.txtOtherName);
             this.tablecontrol.Controls.Add(this.cboItemGroup);
             this.tablecontrol.Controls.Add(this.cboUOMGroupID);
@@ -432,17 +433,6 @@
             this.txtItemName.Size = new System.Drawing.Size(206, 20);
             this.txtItemName.TabIndex = 4;
             // 
-            // txtDescription
-            // 
-            this.tablecontrol.SetColumn(this.txtDescription, 1);
-            this.tablecontrol.SetColumnSpan(this.txtDescription, 5);
-            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescription.Location = new System.Drawing.Point(123, 89);
-            this.txtDescription.Name = "txtDescription";
-            this.tablecontrol.SetRow(this.txtDescription, 4);
-            this.txtDescription.Size = new System.Drawing.Size(870, 20);
-            this.txtDescription.TabIndex = 4;
-            // 
             // txtOtherName
             // 
             this.tablecontrol.SetColumn(this.txtOtherName, 5);
@@ -567,6 +557,23 @@
             this.grvItemMay.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.grvItemMay_ValidatingEditor);
             this.grvItemMay.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.grvItemMay_InvalidValueException);
             // 
+            // txtDescription
+            // 
+            this.tablecontrol.SetColumn(this.txtDescription, 1);
+            this.tablecontrol.SetColumnSpan(this.txtDescription, 5);
+            this.txtDescription.Location = new System.Drawing.Point(123, 89);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tablecontrol.SetRow(this.txtDescription, 4);
+            this.txtDescription.Size = new System.Drawing.Size(870, 20);
+            this.txtDescription.TabIndex = 8;
+            this.txtDescription.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtDescription_ButtonClick);
+            // 
+            // ofdChonHinh
+            // 
+            this.ofdChonHinh.FileName = "ofdChonHinh";
+            // 
             // frmItemMay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,7 +601,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtItemCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItemName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOtherName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItemGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUOMGroupID.Properties)).EndInit();
@@ -605,6 +611,7 @@
             this.groItemMay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdItemMay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvItemMay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -629,7 +636,6 @@
         private DevExpress.XtraEditors.LabelControl lblBasedUOM;
         private DevExpress.XtraEditors.TextEdit txtBarcode;
         private DevExpress.XtraEditors.TextEdit txtItemName;
-        private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraEditors.TextEdit txtOtherName;
         private DevExpress.XtraEditors.PanelControl panelNN;
         private DevExpress.XtraEditors.SimpleButton btnSua;
@@ -649,5 +655,7 @@
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.GroupControl groItem;
         private DevExpress.XtraEditors.GroupControl groItemMay;
+        private DevExpress.XtraEditors.ButtonEdit txtDescription;
+        private System.Windows.Forms.OpenFileDialog ofdChonHinh;
     }
 }

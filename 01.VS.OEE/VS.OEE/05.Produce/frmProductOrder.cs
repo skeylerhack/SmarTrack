@@ -363,6 +363,8 @@ namespace VS.OEE
                     tmp.PrimaryKey = new DataColumn[] { tmp.Columns["ID"] };
                     int index = tmp.Rows.IndexOf(tmp.Rows.Find(id));
                     grvProDuctOD.FocusedRowHandle = grvProDuctOD.GetRowHandle(index);
+                    grvProDuctOD.ClearSelection();
+                    grvProDuctOD.SelectRow(grvProDuctOD.GetRowHandle(index));
                 }
                 else { }
                 if (grvProDuctOD.FocusedRowHandle < 1)

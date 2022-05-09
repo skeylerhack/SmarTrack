@@ -63,6 +63,20 @@ namespace Commons
             objDataTable.Load(SqlHelper.ExecuteReader(IConnections.CNStr, "GetDUONG_DAN_HINH", STT));
             return objDataTable;
         }
+        public void Xoahinh(string strDuongdan)
+        {
+            if (System.IO.File.Exists(strDuongdan))
+            {
+                try
+                {
+                    System.IO.File.Delete(strDuongdan);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
         public void LuuDuongDan(string strDUONG_DAN, string strHINH)
         {
             if (strHINH.Equals(""))
@@ -71,6 +85,11 @@ namespace Commons
             {
                 try
                 {
+                    DirectoryInfo dir = new DirectoryInfo(System.IO.Path.GetDirectoryName(strHINH));
+                    foreach (FileInfo item in dir.EnumerateFiles())
+                    {
+                        item.Delete();
+                    }
                     System.IO.File.Copy(strDUONG_DAN, strHINH);
                 }
                 catch (Exception ex)

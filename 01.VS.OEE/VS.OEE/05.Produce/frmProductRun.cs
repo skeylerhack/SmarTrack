@@ -108,6 +108,8 @@ namespace VS.OEE
                 {
                     int index = dtmp.Rows.IndexOf(dtmp.Rows.Find(id));
                     grvProDuctRun.FocusedRowHandle = grvProDuctRun.GetRowHandle(index);
+                    grvProDuctRun.ClearSelection();
+                    grvProDuctRun.SelectRow(grvProDuctRun.GetRowHandle(index));
                 }
                 if (grvProDuctRun.FocusedRowHandle < 1)
                 {

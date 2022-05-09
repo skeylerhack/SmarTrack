@@ -35,6 +35,7 @@
             this.grvItem = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.tablecontrol = new DevExpress.Utils.Layout.TablePanel();
+            this.txtDescription = new DevExpress.XtraEditors.ButtonEdit();
             this.panelNN = new DevExpress.XtraEditors.PanelControl();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
@@ -65,7 +66,6 @@
             this.groItemMay = new DevExpress.XtraEditors.GroupControl();
             this.grdItemMay = new DevExpress.XtraGrid.GridControl();
             this.grvItemMay = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtDescription = new DevExpress.XtraEditors.ButtonEdit();
             this.ofdChonHinh = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -78,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablecontrol)).BeginInit();
             this.tablecontrol.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).BeginInit();
             this.panelNN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtItemCode.Properties)).BeginInit();
@@ -93,7 +94,6 @@
             this.groItemMay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdItemMay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvItemMay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -216,6 +216,20 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 35F)});
             this.tablecontrol.Size = new System.Drawing.Size(996, 560);
             this.tablecontrol.TabIndex = 0;
+            // 
+            // txtDescription
+            // 
+            this.tablecontrol.SetColumn(this.txtDescription, 1);
+            this.tablecontrol.SetColumnSpan(this.txtDescription, 5);
+            this.txtDescription.Location = new System.Drawing.Point(123, 89);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtDescription.Properties.ReadOnly = true;
+            this.tablecontrol.SetRow(this.txtDescription, 4);
+            this.txtDescription.Size = new System.Drawing.Size(870, 20);
+            this.txtDescription.TabIndex = 8;
+            this.txtDescription.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtDescription_ButtonClick);
             // 
             // panelNN
             // 
@@ -557,19 +571,6 @@
             this.grvItemMay.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.grvItemMay_ValidatingEditor);
             this.grvItemMay.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.grvItemMay_InvalidValueException);
             // 
-            // txtDescription
-            // 
-            this.tablecontrol.SetColumn(this.txtDescription, 1);
-            this.tablecontrol.SetColumnSpan(this.txtDescription, 5);
-            this.txtDescription.Location = new System.Drawing.Point(123, 89);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.tablecontrol.SetRow(this.txtDescription, 4);
-            this.txtDescription.Size = new System.Drawing.Size(870, 20);
-            this.txtDescription.TabIndex = 8;
-            this.txtDescription.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtDescription_ButtonClick);
-            // 
             // ofdChonHinh
             // 
             this.ofdChonHinh.FileName = "ofdChonHinh";
@@ -596,6 +597,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablecontrol)).EndInit();
             this.tablecontrol.ResumeLayout(false);
             this.tablecontrol.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNN)).EndInit();
             this.panelNN.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtItemCode.Properties)).EndInit();
@@ -611,7 +613,6 @@
             this.groItemMay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdItemMay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvItemMay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

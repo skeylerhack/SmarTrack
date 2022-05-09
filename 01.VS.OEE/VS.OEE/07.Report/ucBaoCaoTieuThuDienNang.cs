@@ -19,8 +19,8 @@ namespace VS.OEE
         private void ucBaoCaoTieuThuDienNang_Load(object sender, EventArgs e)
         {
             Commons.Modules.sId = "0Load";
-            datTuNgay.DateTime = DateTime.Now.Date.AddDays(-DateTime.Now.Date.Day + 1);
-            datDenNgay.DateTime = DateTime.Now.Date.AddMonths(1).AddDays(-DateTime.Now.Date.Day);
+            datTuNgay.DateTime = DateTime.Now.Date.AddDays(-1);
+            datDenNgay.DateTime = DateTime.Now.Date.AddDays(-1);
             Commons.Modules.ObjSystems.MLoadLookUpEdit(cboMay, Commons.Modules.ObjSystems.DataMay(true), "MS_MAY", "TEN_MAY", Commons.Modules.ObjLanguages.GetLanguage(this.Name, "TEN_MAY"));
             Loadgrdata();
             Commons.Modules.sId = "";
@@ -34,6 +34,10 @@ namespace VS.OEE
                 Modules.ObjSystems.MLoadXtraGrid(grdTongHopHieuXuat, grvTongHopHieuXuat, dtmp, false, true, true, true, this.Name);
                 grvTongHopHieuXuat.Columns["W"].DisplayFormat.FormatType = FormatType.Numeric;
                 grvTongHopHieuXuat.Columns["W"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+
+                grvTongHopHieuXuat.Columns["TSL"].DisplayFormat.FormatType = FormatType.Numeric;
+                grvTongHopHieuXuat.Columns["TSL"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+
                 //for (int i = grvTongHopHieuXuat.Columns.Count - 4; i < grvTongHopHieuXuat.Columns.Count; i++)
                 //{
                 //    grvTongHopHieuXuat.Columns[i].AppearanceHeader.BackColor = Color.BlueViolet;

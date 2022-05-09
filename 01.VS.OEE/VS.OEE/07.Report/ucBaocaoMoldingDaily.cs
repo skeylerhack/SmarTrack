@@ -29,8 +29,8 @@ namespace VS.OEE
         private void ucBaocaoMoldingDaily_Load(object sender, EventArgs e)
         {
             Commons.Modules.sId = "0Load";
-            datTNgay.DateTime = DateTime.Now;
-            datDNgay.DateTime = DateTime.Now;
+            datTNgay.DateTime = DateTime.Now.Date.AddDays(-1);
+            datDNgay.DateTime = DateTime.Now.Date.AddDays(-1);
             LoadCbo();
             Commons.Modules.sId = "";
             LoadDataGrid();

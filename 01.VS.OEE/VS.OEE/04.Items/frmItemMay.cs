@@ -222,7 +222,6 @@ namespace VS.OEE
         {
             txtItemCode.Properties.ReadOnly = flag;
             txtBarcode.Properties.ReadOnly = flag;
-            txtDescription.Properties.ReadOnly = flag;
             txtItemName.Properties.ReadOnly = flag;
             txtItemNameA.Properties.ReadOnly = flag;
             txtItemNameH.Properties.ReadOnly = flag;
@@ -250,6 +249,8 @@ namespace VS.OEE
                 {
                     int index = dt.Rows.IndexOf(dt.Rows.Find(id));
                     grvItem.FocusedRowHandle = grvItem.GetRowHandle(index);
+                    grvItem.ClearSelection();
+                    grvItem.SelectRow(grvItem.GetRowHandle(index));
                 }
                 else {/* LoadText(false);*/ }
 
@@ -567,7 +568,7 @@ namespace VS.OEE
                     Commons.Modules.ObjSystems.OpenHinh(txtDescription.Text);
                 }
             }
-            catch (Exception ex)
+            catch
             {
             }
         }

@@ -154,6 +154,11 @@ namespace VS.OEE
                             Adduac(new ucBaoCaoThoiGianChayMay(), Convert.ToInt32(button.Tag));
                             break;
                         }
+                    case "mnuTargetMold":
+                        {
+                            Adduac(new ucBaoCaoTargetMoldID(), Convert.ToInt32(button.Tag));
+                            break;
+                        }
                     default:
                         break;
                 }

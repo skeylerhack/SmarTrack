@@ -297,7 +297,7 @@ namespace VS.OEE
                 try
                 {
                     DataTable dt = new DataTable();
-                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT CONVERT(DATE,GETDATE()) + MIN(TU_GIO) AS TU_GIO, CONVERT(DATE,GETDATE()) + MAX(TU_GIO) AS DEN_GIO FROM dbo.CA"));
+                    dt.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT CONVERT(DATETIME,CONVERT(DATE,GETDATE())) + MIN(TU_GIO) AS TU_GIO, CONVERT(DATETIME,CONVERT(DATE,GETDATE())) + MAX(TU_GIO) AS DEN_GIO FROM dbo.CA"));
                     datNgayBD.DateTime = Convert.ToDateTime(dt.Rows[0]["TU_GIO"]);
                     datNgayHTKH.DateTime = Convert.ToDateTime(dt.Rows[0]["DEN_GIO"]);
                     datNgayLap.DateTime = Convert.ToDateTime(dt.Rows[0]["TU_GIO"]);

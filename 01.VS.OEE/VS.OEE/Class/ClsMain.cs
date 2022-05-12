@@ -23,8 +23,6 @@ namespace VS.OEE
                     Commons.IConnections.Database = sArr[1];
                     Commons.IConnections.Username = sArr[2];
                     Commons.IConnections.Password = sArr[3];
-
-
                 }
                 catch (Exception Excep)
                 {
@@ -40,18 +38,5 @@ namespace VS.OEE
             }
             return true;
         }
-        public static bool Kiemtrathongtinserver()
-        {
-            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-            WebClient client = new WebClient();
-            client.Encoding = Encoding.UTF8;
-            string response = client.DownloadString("http://192.168.2.55/apiServer/api/Management/GetProcessID");
-            return Convert.ToBoolean(response);
-        }
-
-
-       
-
-
     }
 }

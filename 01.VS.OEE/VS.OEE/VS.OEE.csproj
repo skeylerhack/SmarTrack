@@ -227,6 +227,12 @@
     <Compile Include="07.Report\ucBaoCaoThoiGianChayMay.Designer.cs">
       <DependentUpon>ucBaoCaoThoiGianChayMay.cs</DependentUpon>
     </Compile>
+    <Compile Include="07.Report\ucBaoCaoTargetMoldID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="07.Report\ucBaoCaoTargetMoldID.Designer.cs">
+      <DependentUpon>ucBaoCaoTargetMoldID.cs</DependentUpon>
+    </Compile>
     <Compile Include="07.Report\ucBaoCaoTieuThuDienNang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -676,6 +682,9 @@
     <EmbeddedResource Include="07.Report\ucBaoCaoThoiGianChayMay.resx">
       <DependentUpon>ucBaoCaoThoiGianChayMay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="07.Report\ucBaoCaoTargetMoldID.resx">
+      <DependentUpon>ucBaoCaoTargetMoldID.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="07.Report\ucBaoCaoTieuThuDienNang.resx">
       <DependentUpon>ucBaoCaoTieuThuDienNang.cs</DependentUpon>
     </EmbeddedResource>
@@ -878,6 +887,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="01.Systems\ucPermission.resx">
       <DependentUpon>ucPermission.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="05.Produce\frmProductRun.resx">
       <DependentUpon>frmProductRun.cs</DependentUpon>

@@ -341,7 +341,6 @@ namespace CMMSApi.Controllers
                     {
                         listParameter = new List<SqlParameter>();
                         //insert dữ liệu vào productionRundetails
-
                         listParameter.Add(new SqlParameter("@TU_GIO", n == 1 ? TN : item1.NGAY_BD));
                         listParameter.Add(new SqlParameter("@DEN_GIO", n == 1 ? DN : item1.NGAY_KT));
                         listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
@@ -393,7 +392,7 @@ namespace CMMSApi.Controllers
                                 {
                                     listParameter = new List<SqlParameter>();
                                     //kiểm tra nếu tồn tại thì lấy ngày hiện tại ngược lại lấy ngày đầu ca.
-                                    DateTime Date = n == 1 ? DateTime.Now : Resulst.Max(x => x.NGAY_BD);
+                                    DateTime Date = n == 1 ? DN : Resulst.Max(x => x.NGAY_BD);
                                     listParameter.Add(new SqlParameter("@Ngay", Date));
                                     listParameter.Add(new SqlParameter("@MS_MAY", MS_MAY));
                                     listParameter.Add(new SqlParameter("@ID_Operator", Convert.ToInt64(ID_NV)));
@@ -456,9 +455,6 @@ namespace CMMSApi.Controllers
         {
             DateTime TNgay = TN;
             DateTime DNgay = DN;
-
-
-
             List<DateTime> ListNgay = new List<DateTime>();
             ListNgay.Add(TN.AddDays(-1));
             //lấy tất cả các ngày có trong list

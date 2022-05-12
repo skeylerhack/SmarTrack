@@ -1532,8 +1532,8 @@ namespace Commons
             {
                 if (col.Visible)
                 {
-                    //if (col.ColumnType.ToString() == "System.String")
-                    //    col.ColumnEdit = repoMemo;
+                    if (col.ColumnType.ToString() == "System.String")
+                        col.ColumnEdit = repoMemo;
                     col.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     col.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     col.AppearanceHeader.Options.UseTextOptions = true;
@@ -2443,6 +2443,13 @@ namespace Commons
         }
 
         public void DoiNNTooltip(ContextMenuStrip ctl, Form frm)
+        {
+            foreach (ToolStripMenuItem item in ctl.Items)
+            {
+                item.Text = Commons.Modules.ObjLanguages.GetLanguage(frm.Name, item.Name);
+            }
+        }
+        public void DoiNNTooltip(ContextMenuStrip ctl, XtraUserControl frm)
         {
             foreach (ToolStripMenuItem item in ctl.Items)
             {

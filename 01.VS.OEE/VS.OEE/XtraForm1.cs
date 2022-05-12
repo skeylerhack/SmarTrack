@@ -17,12 +17,11 @@ namespace VS.OEE
         {
             InitializeComponent();
         }
-
         private void XtraForm1_Load(object sender, EventArgs e)
         {
-            ucBaoCaoTieuThuDienNang frm = new ucBaoCaoTieuThuDienNang();
+            ucBaoCaoTargetMoldID frm = new ucBaoCaoTargetMoldID();
             this.Controls.Add(frm);
             frm.Dock = DockStyle.Fill;
-        }
+        }   
     }
 }

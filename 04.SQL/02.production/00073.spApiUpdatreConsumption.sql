@@ -1,9 +1,4 @@
-﻿--DELETE FROM dbo.PowerConsumption  WHERE THOI_GIAN < '2022-04-05' OR W = 0
---UPDATE dbo.PowerConsumption SET THOI_GIAN = dbo.fnGetNgayTheoCa(THOI_GIAN)
---DELETE  A FROM  dbo.PowerConsumption A
---WHERE 
---NOT EXISTS (SELECT * FROM (SELECT MS_MAY,THOI_GIAN,MAX(W) AS W FROM dbo.PowerConsumption B GROUP BY MS_MAY,THOI_GIAN) AS T WHERE A.MS_MAY = T.MS_MAY AND A.THOI_GIAN = T.THOI_GIAN AND A.W = T.W ) 
-
+﻿
 ALTER proc [dbo].[spApiUpdatreConsumption]
 		@THOI_GIAN DATETIME,
 	    @MS_MAY NVARCHAR(30),

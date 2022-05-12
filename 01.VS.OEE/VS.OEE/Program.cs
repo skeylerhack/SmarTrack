@@ -15,11 +15,6 @@ namespace VS.OEE
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
             ClsMain.LayThongTinConfig();
-            //if(ClsMain.Kiemtrathongtinserver() == false)  
-            //{
-            //    Commons.Modules.msgChung("Không đúng server!");
-            //    return;
-            //}
             Commons.Modules.ModuleName ="ECOMAIN";
             Commons.Modules.sPrivate = @"TRUNGNGUYEN";
             Commons.Modules.UserName = "admin";
@@ -44,6 +39,7 @@ namespace VS.OEE
             try
             {
                 Application.Run(new frmMain());
+                //Application.Run(new XtraForm1());
                 //Application.Run(new frmThoiGianNgungMay(1));
                 //Application.Run(new frmShiftLeader(1));
                 //Application.Run(new frmProductOrder(1));

@@ -5,10 +5,7 @@ using DevExpress.XtraEditors;
 using Commons;
 using System.Reflection;
 using Microsoft.ApplicationBlocks.Data;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
-using System.Linq;
-using DevExpress.Utils;
 using DevExpress.XtraGrid;
 
 namespace VS.OEE

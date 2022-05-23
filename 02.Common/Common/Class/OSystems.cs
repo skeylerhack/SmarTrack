@@ -1524,16 +1524,16 @@ namespace Commons
 
         public void MLoadNNXtraGrid(DevExpress.XtraGrid.Views.Grid.GridView grv, string fName)
         {
-            DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repoMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            repoMemo.WordWrap = true;
-            grv.OptionsView.RowAutoHeight = true;
+            //DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repoMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            //repoMemo.WordWrap = true;
+            //grv.OptionsView.RowAutoHeight = true;
 
             foreach (DevExpress.XtraGrid.Columns.GridColumn col in grv.Columns)
             {
                 if (col.Visible)
                 {
                     if (col.ColumnType.ToString() == "System.String")
-                        col.ColumnEdit = repoMemo;
+                        //col.ColumnEdit = repoMemo;
                     col.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     col.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     col.AppearanceHeader.Options.UseTextOptions = true;
@@ -3206,7 +3206,6 @@ namespace Commons
             grv.Columns[col].Width = 150;
             grv.Columns[col].ColumnEdit = cbo;
         }
-
         public void AddCombXtra(string Value, string Display, string Cot, GridView grv, DataTable tempt, bool Search, string form)
         {
             if (Search == true)
@@ -3220,6 +3219,7 @@ namespace Commons
                 cbo.View.PopulateColumns(cbo.DataSource);
                 Commons.Modules.ObjSystems.MLoadNNXtraGrid(cbo.View, form);
                 grv.Columns[Cot].ColumnEdit = cbo;
+                cbo.View.Columns[0].Visible = false;
             }
             else
             {

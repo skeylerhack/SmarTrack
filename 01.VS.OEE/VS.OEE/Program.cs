@@ -38,7 +38,8 @@ namespace VS.OEE
         {
             try
             {
-                Application.Run(new frmMain());
+                //Application.Run(new frmMain());
+                Application.Run(new frmQLCa(1));
                 //Application.Run(new XtraForm1());
                 //Application.Run(new frmThoiGianNgungMay(1));
                 //Application.Run(new frmShiftLeader(1));

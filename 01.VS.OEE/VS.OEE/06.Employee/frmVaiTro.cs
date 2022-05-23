@@ -279,16 +279,12 @@ namespace VS.OEE
                     Modules.ObjSystems.MLoadXtraGrid(grdVTOperator, grvVTOperator, choseOperator, false, false,false, false, true, this.Name);
 
                     dt_Operator = new DataTable();
-                    dt_Operator.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID_Operator, OperatorCode, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN OperatorName WHEN 1 THEN ISNULL(NULLIF(OperatorNameA, ''),OperatorName) ELSE ISNULL(NULLIF(OperatorNameH, ''),OperatorName) END AS OperatorName, CardID, Note, PHONE, MAIL, ID_TO FROM dbo.Operator ORDER BY OperatorCode"));
-
+                    dt_Operator.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID_Operator, OperatorCode, CASE " + Commons.Modules.TypeLanguage + " WHEN 0 THEN OperatorName WHEN 1 THEN ISNULL(NULLIF(OperatorNameA, ''),OperatorName) ELSE ISNULL(NULLIF(OperatorNameH, ''),OperatorName) END AS OperatorName FROM dbo.Operator ORDER BY OperatorCode"));
                     try
                     {
-                        Commons.Modules.ObjSystems.AddCombXtra("ID_Operator", "OperatorCode", "ID_Operator", grvVTOperator, dt_Operator, false, this.Name);
+                        Commons.Modules.ObjSystems.AddCombXtra("ID_Operator", "OperatorCode", "ID_Operator", grvVTOperator, dt_Operator, true, this.Name);
                     }
                     catch { }
-
-
-
                     DataTable dt1 = new DataTable();
                     dt1.Load(SqlHelper.ExecuteReader(Commons.IConnections.CNStr, CommandType.Text, "SELECT ID_TO, MS_TO, TEN_TO FROM dbo.TO_Operator ORDER BY MS_TO"));
 

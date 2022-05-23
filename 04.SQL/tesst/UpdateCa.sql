@@ -1,0 +1,9 @@
+if not exists(select * from sys.columns 
+            where Name = N'Hide' and Object_ID = Object_ID(N'CA'))
+begin
+    ALTER TABLE dbo.CA ADD Hide BIT
+END    
+GO	
+UPDATE dbo.CA SET TU_GIO ='1900-01-01 06:00:00.000',DEN_GIO = '1900-01-01 18:00:00.000',TU_PHUT = 360,DEN_PHUT = 1080,Hide = 0 WHERE STT  = 1
+UPDATE dbo.CA SET TU_GIO = '1900-01-01 18:00:00.000',TU_PHUT = 1080,DEN_GIO='1900-01-01 06:00:00.000',DEN_PHUT = 1800,CA_DEM = 1,Hide = 0 WHERE STT  = 2
+UPDATE dbo.CA SET TU_GIO ='1900-01-01 22:00:00.000',DEN_GIO = '1900-01-01 22:00:00.000',TU_PHUT = 1320,DEN_PHUT = 1320,Hide = 1 WHERE STT  = 3

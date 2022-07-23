@@ -787,7 +787,7 @@ namespace VS.OEE
             catch { }
             try
             {
-                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 52, 30, sMailfrom, sPassMail, sSMTP, Port);
+                Vs.Support.frmSupport frm = new Vs.Support.frmSupport(Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 52, 30, sMailfrom, sPassMail, sSMTP, Port);
                 frm.ShowDialog();
             }
             catch (Exception)
@@ -816,8 +816,7 @@ namespace VS.OEE
                 Port = Convert.ToInt32(dt.Rows[0]["PORT_MAIL"]);
             }
             catch { }
-
-            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(0, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 52,sMailfrom, sPassMail,sSMTP, Port);
+            Vs.Support.frmVSReply frm = new Vs.Support.frmVSReply(Commons.Modules.TypeLanguage, Commons.Modules.UserName, sTenNV, sTenCty, sMail, sDThoai, sDThoai, 52,sMailfrom, sPassMail,sSMTP, Port);
             frm.ShowDialog();  
         }
 

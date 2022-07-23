@@ -66,7 +66,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 37F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1009, 587);
+            this.tablePanel1.Size = new System.Drawing.Size(1132, 616);
             this.tablePanel1.TabIndex = 1;
             // 
             // grdImport
@@ -78,7 +78,7 @@
             this.grdImport.MainView = this.grvImport;
             this.grdImport.Name = "grdImport";
             this.tablePanel1.SetRow(this.grdImport, 0);
-            this.grdImport.Size = new System.Drawing.Size(1003, 544);
+            this.grdImport.Size = new System.Drawing.Size(1126, 573);
             this.grdImport.TabIndex = 2;
             this.grdImport.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvImport});
@@ -100,10 +100,10 @@
             this.panelControl1.Controls.Add(this.btnChonFile);
             this.panelControl1.Controls.Add(this.btnThucHien);
             this.panelControl1.Controls.Add(this.btnThoat);
-            this.panelControl1.Location = new System.Drawing.Point(3, 553);
+            this.panelControl1.Location = new System.Drawing.Point(3, 582);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 1);
-            this.panelControl1.Size = new System.Drawing.Size(1003, 31);
+            this.panelControl1.Size = new System.Drawing.Size(1126, 31);
             this.panelControl1.TabIndex = 0;
             // 
             // searchControl1
@@ -128,7 +128,7 @@
             // btnChonFile
             // 
             this.btnChonFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChonFile.Location = new System.Drawing.Point(689, 1);
+            this.btnChonFile.Location = new System.Drawing.Point(812, 1);
             this.btnChonFile.Name = "btnChonFile";
             this.btnChonFile.Size = new System.Drawing.Size(104, 30);
             this.btnChonFile.TabIndex = 10;
@@ -138,7 +138,7 @@
             // btnThucHien
             // 
             this.btnThucHien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThucHien.Location = new System.Drawing.Point(794, 1);
+            this.btnThucHien.Location = new System.Drawing.Point(917, 1);
             this.btnThucHien.Name = "btnThucHien";
             this.btnThucHien.Size = new System.Drawing.Size(104, 30);
             this.btnThucHien.TabIndex = 10;
@@ -148,7 +148,7 @@
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.Location = new System.Drawing.Point(899, 1);
+            this.btnThoat.Location = new System.Drawing.Point(1022, 1);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(104, 30);
             this.btnThoat.TabIndex = 10;
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 587);
+            this.ClientSize = new System.Drawing.Size(1132, 616);
             this.Controls.Add(this.tablePanel1);
             this.IconOptions.Image = global::VS.OEE.Properties.Resources.OEE;
             this.Name = "frmImport";

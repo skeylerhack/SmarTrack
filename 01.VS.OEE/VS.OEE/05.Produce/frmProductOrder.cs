@@ -26,7 +26,6 @@ namespace VS.OEE
             iPQ = PQ;
             InitializeComponent();
         }
-
         #region eventForm
         private void frmItemMay_Load(object sender, EventArgs e)
         {

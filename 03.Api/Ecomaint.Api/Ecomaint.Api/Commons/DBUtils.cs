@@ -709,8 +709,6 @@ namespace Ecomaint.Api
 
             }
         }
-
-
         public static void SendEmailCC(string address, string CC, string subject, string message)
         {
             try

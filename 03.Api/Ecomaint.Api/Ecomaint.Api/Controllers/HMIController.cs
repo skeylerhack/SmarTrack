@@ -447,7 +447,7 @@ namespace CMMSApi.Controllers
                 }
                 else
                 {
-                    return Json(new ResulstViewModel { MS_TRANG_THAI = 2, TEN_TRANG_THAI = "Lỗi dữ liệu", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
+                    return Json(new ResulstViewModel { MS_TRANG_THAI = 2, TEN_TRANG_TH AI = "Lỗi dữ liệu", SO_DONG = 0 }, JsonRequestBehavior.AllowGet);
                 }
             }
         }

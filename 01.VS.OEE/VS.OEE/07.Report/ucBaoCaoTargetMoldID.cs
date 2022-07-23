@@ -40,12 +40,16 @@ namespace VS.OEE
                     dtmp.Columns["SL"].ReadOnly = false;
                     Modules.ObjSystems.MLoadXtraGrid(grdTargetMoldID, grvTargetMoldID, dtmp, true, false, true, true, true, this.Name);
                     grvTargetMoldID.Columns["SL"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvTargetMoldID.Columns["SL"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvTargetMoldID.Columns["SL"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
+
+                    grvTargetMoldID.Columns["TSL"].DisplayFormat.FormatType = FormatType.Numeric;
+                    grvTargetMoldID.Columns["TSL"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
 
                     grvTargetMoldID.Columns["TarGetActual"].DisplayFormat.FormatType = FormatType.Numeric;
-                    grvTargetMoldID.Columns["TarGetActual"].DisplayFormat.FormatString = Commons.Modules.sSoLeDG;
+                    grvTargetMoldID.Columns["TarGetActual"].DisplayFormat.FormatString = Commons.Modules.sSoLeSL;
 
                     grvTargetMoldID.Columns["SL"].OptionsColumn.AllowEdit = false;
+                    grvTargetMoldID.Columns["TSL"].OptionsColumn.AllowEdit = false;
                     grvTargetMoldID.Columns["MOLD_ID"].OptionsColumn.AllowEdit = false;
                 }
                 grdTargetMoldID.DataSource = dtmp;

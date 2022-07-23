@@ -1115,6 +1115,7 @@ namespace Commons
                     menuSave.Tag = e.Menu;
                     menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
                     headerMenu.Items.Add(menuSave);
+                
                 }
                 // menu export to excel
                 DevExpress.Utils.Menu.DXMenuItem menuExport = new DevExpress.Utils.Menu.DXMenuItem("Export to Excel");
@@ -1487,6 +1488,7 @@ namespace Commons
             {
             }
         }
+
         public void MyMenuItemSave(System.Object sender, System.EventArgs e, GridView grv)
         {
             // SAVE  
@@ -1527,13 +1529,10 @@ namespace Commons
             //DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repoMemo = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             //repoMemo.WordWrap = true;
             //grv.OptionsView.RowAutoHeight = true;
-
             foreach (DevExpress.XtraGrid.Columns.GridColumn col in grv.Columns)
             {
                 if (col.Visible)
                 {
-                    if (col.ColumnType.ToString() == "System.String")
-                        //col.ColumnEdit = repoMemo;
                     col.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     col.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     col.AppearanceHeader.Options.UseTextOptions = true;
@@ -1663,6 +1662,7 @@ namespace Commons
                     menuSave.Tag = e.Menu;
                     menuSave.Click += delegate (object a, EventArgs b) { MyMenuItemSave(null, null, grv); };
                     headerMenu.Items.Add(menuSave);
+
                 }
                 // menu export to excel
                 DevExpress.Utils.Menu.DXMenuItem menuExport = new DevExpress.Utils.Menu.DXMenuItem("Export to Excel");

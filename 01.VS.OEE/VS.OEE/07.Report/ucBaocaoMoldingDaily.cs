@@ -294,7 +294,6 @@ namespace VS.OEE
                 HeaderColumn.Font.Bold = true;
                 HeaderColumn.WrapText = true;
                 HeaderColumn.Interior.Color = Color.FromArgb(141, 180, 226);
-
                 Commons.Modules.MExcel.ColumnWidth(excelWorkSheet, 21, "@", true, 1, 1, 1, 1);
 
                 excelWorkbook.Save();

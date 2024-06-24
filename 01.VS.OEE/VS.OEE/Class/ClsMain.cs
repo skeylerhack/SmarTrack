@@ -18,6 +18,7 @@ namespace VS.OEE
                 {
                     string sRowStream = sFileInclude.ReadToEnd();
                     sRowStream = Commons.Modules.OXtraGrid.GiaiMaDL(sRowStream);
+
                     string[] sArr = sRowStream.Split('!');
                     Commons.IConnections.Server = sArr[0];
                     Commons.IConnections.Database = sArr[1];

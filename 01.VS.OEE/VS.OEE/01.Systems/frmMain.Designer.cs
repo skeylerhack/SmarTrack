@@ -140,35 +140,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.bm;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlTop.Size = new System.Drawing.Size(1227, 25);
+            this.barDockControlTop.Size = new System.Drawing.Size(1840, 37);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 671);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1087);
             this.barDockControlBottom.Manager = this.bm;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1227, 27);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1840, 41);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 37);
             this.barDockControlLeft.Manager = this.bm;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 646);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 1050);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1227, 25);
+            this.barDockControlRight.Location = new System.Drawing.Point(1840, 37);
             this.barDockControlRight.Manager = this.bm;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 646);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 1050);
             // 
             // barSubItem1
             // 
@@ -214,11 +210,11 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImageStore = global::VS.OEE.Properties.Resources.back_ground;
-            this.ClientSize = new System.Drawing.Size(1227, 698);
+            this.ClientSize = new System.Drawing.Size(1840, 1128);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -227,7 +223,6 @@
             this.IconOptions.Image = global::VS.OEE.Properties.Resources.OEE;
             this.IsMdiContainer = true;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MdiChildCaptionFormatString = "";
             this.Name = "frmMain";
             this.Text = "VS.OEE";

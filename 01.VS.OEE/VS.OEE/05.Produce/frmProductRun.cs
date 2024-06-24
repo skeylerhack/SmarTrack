@@ -249,6 +249,7 @@ namespace VS.OEE
                 {
                     cbo.Properties.DataSource = null;
                     cbo.Properties.DataSource = Commons.Modules.ObjSystems.DataItemByPro(proID == 0 ? -1 : proID);
+                    
                 }
             }
             catch

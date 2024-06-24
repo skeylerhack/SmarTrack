@@ -3305,6 +3305,7 @@ namespace Commons
         }
         public void AddnewRow(GridView view, bool add)
         {
+
             try
             {
                 view.OptionsBehavior.Editable = true;

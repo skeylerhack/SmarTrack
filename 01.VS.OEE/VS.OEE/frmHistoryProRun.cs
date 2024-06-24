@@ -10,6 +10,7 @@ namespace VS.OEE
     public partial class frmHistoryProRun : DevExpress.XtraEditors.XtraForm
     {
         public Int64 ProRunDetailID = 0;
+
         public frmHistoryProRun()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace VS.OEE
                 grdHistoryRun.DataSource = null;
             }
         }
+
         private void rdoDK_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rdoDK.SelectedIndex == 0)

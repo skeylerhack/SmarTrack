@@ -135,7 +135,6 @@
             this.datKT.Size = new System.Drawing.Size(153, 20);
             this.datKT.TabIndex = 2;
             compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.GreaterOrEqual;
-            compareAgainstControlValidationRule2.Control = this.datBD;
             compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
             compareAgainstControlValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
             this.dxValidationProvider1.SetValidationRule(this.datKT, compareAgainstControlValidationRule2);
